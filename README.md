@@ -1,3 +1,3 @@
 # coolGameEngine
-Mr. Graham's C++ game engine
-This is a test.
+This is a game engine designed to use entities and component based design.
+An implementation project will be missile command.
