@@ -1,16 +1,16 @@
 #pragma once
 
 #include <string>
-
+using std::string;
 
 class BaseComponent
 {
 public:
 	BaseComponent();
 	~BaseComponent();
-	std::string getId();
-	void setId(std::string);
+	string getId();
+	void setId(string);
 private:
-	std::string id;
+	string id;
 };
 
