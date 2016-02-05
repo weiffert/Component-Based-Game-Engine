@@ -1,14 +1,13 @@
 #pragma once
+#include "StateManager.h"
+
 #include <string>
-class StateLoading 
+class StateLoading : public StateManager
 {
 private:
-	const int number = 1;
-	const std::string id = "StateLoading";
+	//Maybe move these to constructor
+	number = 1;
+	id = "StateLoading";
 
 public:
-	void render();
-	void update();
-	const int getNumber();
-	const std::string getId();
 };
