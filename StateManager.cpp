@@ -1,5 +1,5 @@
 #include "StateManager.h"
-
+#include <string>
 
 StateManager::StateManager()
 {
@@ -18,10 +18,10 @@ void StateManager::render()
 {
 }
 
-const int StateManager::getNumber()
+int StateManager::getNumber()
 {
 }
 
-const std::string StateManager::getId()
+std::string StateManager::getId()
 {
 }
