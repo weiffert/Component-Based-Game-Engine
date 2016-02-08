@@ -1,33 +1,43 @@
+#include "stdafx.h"
 #include "Entity.h"
 #include <string>
 #include "vector"
-#include "BaseComponent"
-#include "BaseController"
+#include "BaseComponent.h"
+#include "BaseController.h"
 
-string Entity::getId()
+
+std::string Entity::getId()
 {
 	return id;
 }
 
-string Entity::setId(string newId)
+
+void Entity::setId(std::string newId)
 {
 	id = newId;
 }
 
-void Entity::addComponent(*BaseComponent newComponent)
+
+void Entity::addComponent(BaseComponent* newComponent)
 {
 	components.push_back(newComponent);
 }
+
 
 void Entity::removeComponent()
 {
 	components.pop_back();
 }
 
-*BaseComponent Entity::getComponent()
+
+//The purpose of this function is not clear from the documentation
+//so a "stub" has been made
+BaseComponent* Entity::getComponent()
 {
-	return components;
+	BaseComponent* stub;
+	return stub;
 }
+
 
 bool Entity::hasComponent()
 {
@@ -41,20 +51,27 @@ bool Entity::hasComponent()
 	}
 }
 
-void Entity::addController(*BaseController newComponent)
+
+void Entity::addController(BaseController* newComponent)
 {
 	controllers.push_back(newComponent);
 }
+
 
 void Entity::removeController()
 {
 	controllers.pop_back();
 }
 
-*BaseController Entity::getController()
+
+//The purpose of this function is not clear from the documentation
+//so a "stub" has been made
+BaseController* Entity::getController()
 {
-	return controller;
+	BaseController* stub;
+	return stub;
 }
+
 
 bool Entity::hasController()
 {
