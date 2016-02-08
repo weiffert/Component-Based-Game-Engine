@@ -10,8 +10,10 @@ public:
 	~StateManager();
 	virtual void update() = 0;
 	virtual void render() = 0;
-	virtual const int getNumber() = 0;
-	virtual const std::string getId() = 0;
+	virtual int getNumber() = 0;
+	virtual std::string getId() = 0;
+	void changeState(int);
+	void changeState(std::string);
 private:
 	std::vector<Entity*> material;
 	std::vector<sf::Image*> assetImage;
@@ -20,4 +22,3 @@ protected:
 	std::string id;
 	int number;
 };
-
