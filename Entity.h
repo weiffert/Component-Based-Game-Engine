@@ -26,5 +26,5 @@ public:
 	void addController(BaseController*);
 	void removeController();
 	BaseController* getController();
-	bool hasCOntroller();
+	bool hasController();
 };
