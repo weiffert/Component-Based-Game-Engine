@@ -13,14 +13,14 @@ BaseComponent::~BaseComponent()
 
 
 //Returns id
-string BaseComponent::getId()
+std::string BaseComponent::getId()
 {
 	return id;
 }
 
 
 //Sets id
-void BaseComponent::setId(string a)
+void BaseComponent::setId(std::string a)
 {
 	id = a;
 	return;
