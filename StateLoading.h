@@ -1,13 +1,17 @@
 #pragma once
-#include "StateManager.h"
-
+#include "BaseState.h"
 #include <string>
-class StateLoading : public StateManager
+
+class StateLoading : public BaseState
 {
 private:
 	//Maybe move these to constructor
-	number = 1;
-	id = "StateLoading";
+	int number;
+	std::string id;
 
 public:
+
+	StateLoading();
+	~StateLoading();
+
 };
