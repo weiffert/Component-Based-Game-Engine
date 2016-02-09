@@ -12,8 +12,6 @@ public:
 	virtual void render() = 0;
 	virtual int getNumber() = 0;
 	virtual std::string getId() = 0;
-	void changeState(int);
-	void changeState(std::string);
 private:
 	std::vector<Entity*> material;
 	std::vector<sf::Image*> assetImage;
