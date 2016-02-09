@@ -10,12 +10,10 @@ public:
 	~BaseState();
 	virtual void update() = 0;
 	virtual void render() = 0;
-	virtual int getNumber() = 0;
-	virtual std::string getId() = 0;
-private:
+	int getNumber();
+	std::string getId();
+protected:
 	std::vector<Entity*> material;
-	std::vector<sf::Image*> assetImage;
-	std::vector<sf::Sound*> assetSound;
 	std::string id;
 	int number;
 };
