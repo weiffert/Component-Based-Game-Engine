@@ -3,11 +3,11 @@
 #include <vector>
 #include "Entity.h"
 
-class StateManager
+class BaseState
 {
 public:
-	StateManager();
-	~StateManager();
+	BaseState();
+	~BaseState();
 	virtual void update() = 0;
 	virtual void render() = 0;
 	virtual int getNumber() = 0;
