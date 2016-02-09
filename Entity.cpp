@@ -30,14 +30,6 @@ void Entity::removeComponent()
 }
 
 
-//The purpose of this function is not clear from the documentation
-//so a "stub" has been made
-BaseComponent* Entity::getComponent()
-{
-	BaseComponent* stub;
-	return stub;
-}
-
 
 bool Entity::hasComponent()
 {
@@ -61,15 +53,6 @@ void Entity::addController(BaseController* newComponent)
 void Entity::removeController()
 {
 	controllers.pop_back();
-}
-
-
-//The purpose of this function is not clear from the documentation
-//so a "stub" has been made
-BaseController* Entity::getController()
-{
-	BaseController* stub;
-	return stub;
 }
 
 
