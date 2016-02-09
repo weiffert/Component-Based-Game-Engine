@@ -1,34 +1,34 @@
-#include "StateManager.h"
+#include "BaseState.h"
 #include <string>
 
 
-StateManager::StateManager()
+BaseState::BaseState()
 {
 }
 
 
-StateManager::~StateManager()
+BaseState::~BaseState()
 {
 }
 
 
-void StateManager::update()
+void BaseState::update()
 {
 }
 
 
-void StateManager::render()
+void BaseState::render()
 {
 }
 
 
-int StateManager::getNumber()
+int BaseState::getNumber()
 {
 	return number;
 }
 
 
-std::string StateManager::getId()
+std::string BaseState::getId()
 {
 	return id;
 }
