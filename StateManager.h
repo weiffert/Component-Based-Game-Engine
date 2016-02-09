@@ -18,7 +18,6 @@ private:
 	std::vector<Entity*> material;
 	std::vector<sf::Image*> assetImage;
 	std::vector<sf::Sound*> assetSound;
-protected:
 	std::string id;
 	int number;
 };
