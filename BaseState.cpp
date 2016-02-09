@@ -4,11 +4,14 @@
 
 BaseState::BaseState()
 {
+	id = "NULL";
+	number = -1;
 }
 
 
 BaseState::~BaseState()
 {
+	
 }
 
 
