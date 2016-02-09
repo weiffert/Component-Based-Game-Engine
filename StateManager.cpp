@@ -33,14 +33,3 @@ std::string StateManager::getId()
 	return id;
 }
 
-
-void StateManager::changeState(int)
-{
-
-}
-
-
-void StateManager::changeState(std::string)
-{
-
-}
