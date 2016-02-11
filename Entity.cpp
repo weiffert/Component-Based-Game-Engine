@@ -6,6 +6,18 @@
 #include "BaseController.h"
 
 
+Entity::Entity()
+{
+
+}
+
+
+Entity::~Entity()
+{
+
+}
+
+
 std::string Entity::getId()
 {
 	return id;
@@ -24,23 +36,30 @@ void Entity::addComponent(BaseComponent* newComponent)
 }
 
 
-void Entity::removeComponent()
+//Removes all components with the same string id.
+void Entity::removeComponent(std::string id)
 {
-	components.pop_back();
+	for (int i = 0; i < components.size())
+	{
+		if (components.at(i)->getId == id)
+		{
+			delete *components.at(i);
+			components.erase(i, i);
+		}
+	}
 }
 
 
 
-bool Entity::hasComponent()
+bool Entity::hasComponent(std::string)
 {
-	if (components.empty() == false)
+	for (int i = 0; i < components.size())
 	{
-		return true;
+		if (components.at(i).getId == id)
+			return true;
 	}
-	else
-	{
-		return false;
-	}
+
+	return false;
 }
 
 
@@ -50,20 +69,26 @@ void Entity::addController(BaseController* newComponent)
 }
 
 
-void Entity::removeController()
+void Entity::removeController(std::string)
 {
-	controllers.pop_back();
+	for (int i = 0; i < controllers.size())
+	{
+		if (controllers.at(i)->getId == id)
+		{
+			delete *controllers.at(i);
+			controllers.erase(i, i);
+		}
+	}
 }
 
 
-bool Entity::hasController()
+bool Entity::hasController(std::string)
 {
-	if (components.empty() == false)
+	for (int i = 0; i < controllers.size())
 	{
-		return true;
+		if (controllers.at(i).getId == id)
+			return true;
 	}
-	else
-	{
-		return false;
-	}
+	
+	return false;
 }
