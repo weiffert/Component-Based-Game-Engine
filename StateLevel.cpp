@@ -4,7 +4,7 @@
 StateLevel::StateLevel()
 {
 	id = "Level";
-	number = 4;
+	number = 3;
 }
 
 
