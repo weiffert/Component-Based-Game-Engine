@@ -68,6 +68,7 @@ void Property<T>::addData(T value)//adds value to existing data
 }
 
 
+//Currently deletes all data with the same value.
 template <class T>
 void deleteData(T value)//subtracts value from existing data
 {
@@ -76,14 +77,13 @@ void deleteData(T value)//subtracts value from existing data
 		if (data.at(x) == value)
 		{
 			data.erase(x);
-			break;
 		}
 	}
 }
 
 
 template <class T>
-void changeData(T value, int position) //Value canges the data at position
+void changeData(T value, int position) //Value changes the data at position
 {
 	data.at(position) = value;
 }
