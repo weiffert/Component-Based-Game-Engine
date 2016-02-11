@@ -3,7 +3,7 @@
 
 StateLoading::StateLoading()
 {
-	id = "StateLoading";
+	id = "Loading";
 	number = 1;
 }
 
