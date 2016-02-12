@@ -70,3 +70,20 @@ int Game::gameLoop()
 	}
 	return exitCode;
 }
+
+
+*Basestate Game::changeState(*BaseState b)
+{
+	
+}
+
+
+*Basestate Game::changeState(*BaseState b, std::string s)
+{
+
+}
+
+*Basestate Game::changeState(*BaseState b, int i)
+{
+
+}
