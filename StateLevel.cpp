@@ -25,13 +25,16 @@ int StateLevel::update()
 	//Run through the game controllers.
 		//Example: Checking for collisions
 		
-	//If the wave is finished
-		//Change to the next level.
-		//I don't know if to do this using properties or making a whole new state.
+	//If the wave is finished and the level continures (check the city number: an entity with the id of "city" and a property of live.)
+		//Change to the next level. Color, velocity, and number of missiles has to change.
+		//Pass through the enities. If one has one of these properties, change it.
+	
+	//else...
+		//return -1;
 }
 
 
-void StateLevel::render()
+void StateLevel::render(double lag)
 {
 	//Render the entities using the render controller.
 	//Look something like render.control(*Entity, lag);
