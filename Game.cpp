@@ -58,10 +58,14 @@ int Game::gameLoop()
 		//render with parameters.
 		state->render(lag/frameRate);
 		
-		enum changeState: int{change = -1, stay = 0, next = 2, specific = 3};
+		enum changeState { last = -1, stay = 0, next = 1};
 		switch(changeStateFlag)
 		{
-		case change:
+		case next:
+			state = changeState(state);
+			break;
+		case last:
+			state = changeState(state, state.getNumber() - 1);
 		}
 	}
 	return exitCode;
