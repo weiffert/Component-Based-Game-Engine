@@ -12,9 +12,15 @@ StateWelcome::~StateWelcome()
 {
 }
 
-void StateWelcome::update()
+int StateWelcome::update()
 {
+	//Any thoughts on how to do this without passing in values?
+	//A simple solution is making provisions in the game loop, but that is messy.
 	//Wait time step amount.
+	//If total time is less than double waitTime,
+		//return 1;
+	//Else
+		//return -1;
 }
 
 
