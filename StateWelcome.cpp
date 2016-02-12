@@ -20,6 +20,6 @@ void StateWelcome::update()
 
 void StateWelcome::render(double lag)
 {
-	//entities and move controller. (move controller will take the time and move the entity a certain amount.)
-	//Render entities.
+	//Render the entities using the render controller.
+	//Look something like render.control(*Entity, lag);
 }
