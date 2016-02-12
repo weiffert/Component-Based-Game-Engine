@@ -19,10 +19,12 @@ int StateMenu::update()
 		//Arrow keys for navigation, space bar for selecting.
 	//If arrow key event, change properties of the entities.
 		//One looses the selector property and one gains it. Only one will have the selector property at a time.
-	//If space bar event is the level, __________________________________________
-		//return 1;
+	//If space bar event is the level,
+		//return 2;
 	//If the space bar event is quit, quit.
 		//return -1;		-1 is kind of the standard for quitting it seems.
+	//else
+		//return 1;
 }
 
 
