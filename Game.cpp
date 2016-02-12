@@ -26,7 +26,7 @@ int Game::run()
 int Game::gameLoop()
 {
 	bool running = true;
-
+	int changeStateFlag = 1;
 	//initialize time keepers
 	double totaltime = 0.0;
 	double frameRate = 0.01;
@@ -50,12 +50,19 @@ int Game::gameLoop()
 		while (lag >= frameRate)
 		{
 			//update
+			changeStateFlag = state->update();
 			//decrement current time keepers
 			totalTime += frameRate;
 			lag -= frameRate;
 		}
 		//render with parameters.
-		//render(lag/frameRate);
+		state->render(lag/frameRate);
+		
+		enum changeState: int{change = -1, stay = 0, next = 2, specific = 3};
+		switch(changeStateFlag)
+		{
+		case change:
+		}
 	}
 	return exitCode;
 }
