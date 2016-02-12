@@ -13,7 +13,7 @@ StateLoading::~StateLoading()
 }
 
 
-void StateLoading::update()
+int StateLoading::update()
 {
 	//check which states have been initialized in SystemManager's vector of BaseState.
 		//There are keywords for figuring out the state's class. Try typeof or typeid
