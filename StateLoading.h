@@ -7,6 +7,9 @@ class StateLoading :
 public:
 	StateLoading(*SystemManager);
 	~StateLoading();
+	
+private:
+	SystemManager systemManager;
 };
 
 
