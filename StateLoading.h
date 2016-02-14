@@ -9,7 +9,7 @@ public:
 	~StateLoading();
 	
 private:
-	SystemManager systemManager;
+	SystemManager *systemManager;
 };
 
 
