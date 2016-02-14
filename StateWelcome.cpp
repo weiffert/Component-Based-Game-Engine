@@ -4,7 +4,7 @@
 StateWelcome::StateWelcome()
 {
 	id = "Welcome";
-	number = 0;
+	number = 1;
 }
 
 
