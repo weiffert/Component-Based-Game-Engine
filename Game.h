@@ -13,7 +13,8 @@ private:
 	bool isRunning;
 	int exitCode;
 	*BaseState state;
-	void initializeManagers();
+	*SystemManager systemManager;
+	
 	int gameLoop();
 	void changeState(BaseState*);
 	void changeState(BaseState*, int);
