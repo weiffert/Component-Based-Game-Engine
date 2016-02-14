@@ -1,10 +1,11 @@
 #pragma once
 #include "BaseState.h"
+#include "SystemManager.h"
 class StateLoading :
 	public BaseState
 {
 public:
-	StateLoading();
+	StateLoading(*SystemManager);
 	~StateLoading();
 };
 
