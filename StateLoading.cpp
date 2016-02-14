@@ -4,7 +4,7 @@
 StateLoading::StateLoading()
 {
 	id = "Loading";
-	number = 1;
+	number = 0;
 }
 
 
