@@ -74,18 +74,29 @@ int Game::gameLoop()
 }
 
 
-*Basestate Game::changeState(*BaseState b)
+//Exceptions are thrown in the getState.
+*Basestate Game::changeState(BaseState *b)
 {
-	
+	int tempInt = b->getNumber();
+	b = systemManager->getState(tempInt+1);
+
+	return b;
 }
 
 
-*Basestate Game::changeState(*BaseState b, std::string s)
+//Exceptions are thrown in the getState.
+*Basestate Game::changeState(BaseState *b, std::string s)
 {
+	b = systemManager->getState(s);
 
+	return b;
 }
 
-*Basestate Game::changeState(*BaseState b, int i)
-{
 
+//Exceptions are thrown in the getState.
+*Basestate Game::changeState(BaseState *b, int i)
+{
+	b = systemManager->getState(i);
+
+	return b;
 }
