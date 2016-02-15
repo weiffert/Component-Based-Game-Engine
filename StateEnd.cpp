@@ -1,10 +1,11 @@
 #include "StateEnd.h"
+#include "SystemManager.h"
 
-
-StateEnd::StateEnd()
+StateEnd::StateEnd(SystemManager *s)
 {
 	id = "End";
 	number = 4;
+	systemManager = s;
 }
 
 
