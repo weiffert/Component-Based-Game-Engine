@@ -1,11 +1,11 @@
 #include "StateLoading.h"
 
 
-StateLoading::StateLoading(SystemManager * a)
+StateLoading::StateLoading(SystemManager *s)
 {
 	id = "Loading";
 	number = 0;
-	systemManager = a;
+	systemManager = s;
 }
 
 
