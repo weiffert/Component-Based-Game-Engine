@@ -1,5 +1,6 @@
 //includes
 #include "Game.h"
+#include "SystemManager.h"
 #include <time.h>
 
 Game::Game()
@@ -16,8 +17,9 @@ Game::~Game()
 //Functions
 int Game::run()
 {
-	//initialize managers
-	//gameLoop
+	state = new *StateLoading (systemManager);
+	systemManager.addState(state);
+	exitCode = gameLoop();
 	//cleanup
 	return exitCode;
 }
