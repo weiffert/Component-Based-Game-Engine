@@ -1,10 +1,11 @@
 #include "StateWelcome.h"
+#inlcude "SystemManager.h"
 
-
-StateWelcome::StateWelcome()
+StateWelcome::StateWelcome(SystemManager *s)
 {
 	id = "Welcome";
 	number = 1;
+	systemManager = s;
 }
 
 
