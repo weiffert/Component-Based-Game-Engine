@@ -1,10 +1,11 @@
 #include "StateMenu.h"
+#include "SystemManager.h"
 
-
-StateMenu::StateMenu()
+StateMenu::StateMenu(SystemManager *s)
 {
 	id = "Menu";
 	number = 2;
+	systemManager = s;
 }
 
 
