@@ -5,7 +5,7 @@ class StateLoading :
 	public BaseState
 {
 public:
-	StateLoading(*SystemManager);
+	StateLoading(SystemManager *);
 	~StateLoading();
 };
 
