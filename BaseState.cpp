@@ -1,11 +1,13 @@
 #include "BaseState.h"
+#include "SystemManager.h"
 #include <string>
 
 
-BaseState::BaseState()
+BaseState::BaseState(SystemManager *s)
 {
 	id = "NULL";
 	number = -1;
+	systemManager = s;
 }
 
 
