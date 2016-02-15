@@ -1,10 +1,11 @@
 #include "StateLevel.h"
+#include "SystemManager.h"
 
-
-StateLevel::StateLevel()
+StateLevel::StateLevel(SystemManager *s)
 {
 	id = "Level";
 	number = 3;
+	systemManager = s;
 	//Go through the entity list in the SystemManager and add them to the local list if the state property == "Level"
 }
 
