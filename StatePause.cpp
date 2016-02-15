@@ -1,10 +1,12 @@
 #include "StatePause.h"
+#include "SystemManager.h"
 
 
-StatePause::StatePause()
+StatePause::StatePause(SystemManager *s)
 {
 	id = "Pause";
 	number = 5;
+	systemManager = s;
 }
 
 
