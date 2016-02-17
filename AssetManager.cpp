@@ -18,17 +18,29 @@ AssetManager::~AssetManager()
 
 sf::Image* AssetManager::getImage(int location) //Returns an image for a property.
 {
-	return image.at(location);
+	if (location < image.size())
+	{
+		return image.at(location);
+	}
+	return NULL;
 }
 
 sf::Sound* AssetManager::getSound(int location) //Returns a sound for a property.
 {
-	return sound.at(location);
+	if (location < sound.size())
+	{
+		return sound.at(location);
+	}
+	return NULL;
 }
 
 sf::Texture* AssetManager::getTexture(int location) //Returns a texture for a property.
 {
-	return texture.at(location);
+	if (location < texture.size())
+	{
+		return texture.at(location);
+	}
+	return NULL;
 }
 
 void AssetManager::addImage(sf::Image* newImage) //Adds an image to the vector for the state.

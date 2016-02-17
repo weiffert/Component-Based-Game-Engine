@@ -2,10 +2,14 @@
 #include "Game.h"
 #include "SystemManager.h"
 #include <time.h>
+#include "SFML\Audio.hpp"
+#include "SFML\Graphics.hpp"
 
-Game::Game()
+Game::Game(int width, int height, std::string name)
 {
-
+	windowResolution.x = width;
+	windowResolution.y = height;
+	gameName = name;
 }
 
 Game::~Game()
@@ -17,6 +21,10 @@ Game::~Game()
 //Functions
 int Game::run()
 {
+	//Enter Desired Game name and resolution into the render window functions
+	//Considering reading window name and resolution from a file.
+	sf::RenderWindow gameWindow(sf::VideoMode(windowResolution.x, windowResolution.y), gameName)
+
 	state = new *StateLoading (systemManager);
 	systemManager->addState(state);
 	exitCode = gameLoop();
@@ -36,7 +44,7 @@ int Game::gameLoop()
 	double lag = 0.0;
 	double currentTime = time(NULL);
 
-	while(running)
+	while(window.isOpen())
 	{
 		//initialize current time keepers
 		double newTime = time(NULL);
@@ -58,7 +66,7 @@ int Game::gameLoop()
 			lag -= frameRate;
 		}
 		//render with parameters.
-		state->render(lag/frameRate);
+		state->render(lag/frameRate, &gameWindow);
 		
 		enum changeState { last = -1, stay = 0, next = 1};
 		switch(changeStateFlag)
