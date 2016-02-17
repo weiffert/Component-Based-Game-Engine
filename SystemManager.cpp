@@ -6,15 +6,6 @@ SystemManager::SystemManager()
 {
 	//Initialize vector of states
 	
-	//Create pointer vector
-	//Point each vector to a new state
-	state.at(0) = new StateWelcome;
-	state.at(1) = new StateLoading;
-	state.at(2) = new StateMenu;
-	state.at(3) = new StateLevel;
-	state.at(4) = new StateEnd;
-	state.at(5) = new statePause;
-	
 	//Initialize vector of vector of entities
 	
 	//Initialize vector of components
@@ -66,7 +57,7 @@ void SystemManager::addState(BaseState* a)
 
 
 //Delete an entity.
-void SystemManager::deleteMaterial(string a)
+void SystemManager::deleteMaterial(std::string a)
 {
 	for (search = 0; search < material.size(); search++)
 	{
@@ -81,7 +72,7 @@ void SystemManager::deleteMaterial(string a)
 
 
 //Delete a BaseComponent.
-void SystemManager::deleteComponent(string a)
+void SystemManager::deleteComponent(std::string a)
 {
 	for (search = 0; search < component.size(); search++)
 	{
@@ -96,7 +87,7 @@ void SystemManager::deleteComponent(string a)
 
 
 //Delete a BaseController.
-void SystemManager::deleteController(string a)
+void SystemManager::deleteController(std::string a)
 {
 
 	for (search = 0; search < controller.size(); search++)
@@ -114,7 +105,7 @@ void SystemManager::deleteController(string a)
 /*
 Need to make these handle int arguments instead of strings.
 //Delete a BaseState.
-void SystemManager::deleteState(string a)
+void SystemManager::deleteState(std::string a)
 {
 
 	for (search = 0; search < state.size(); search++)
@@ -130,7 +121,7 @@ void SystemManager::deleteState(string a)
 
 
 //Delete an entity.
-void SystemManager::deleteMaterial(string a)
+void SystemManager::deleteMaterial(std::string a)
 {
 	for (search = 0; search < material.size(); search++)
 	{
@@ -145,7 +136,7 @@ void SystemManager::deleteMaterial(string a)
 
 
 //Delete a BaseComponent.
-void SystemManager::deleteComponent(string a)
+void SystemManager::deleteComponent(std::string a)
 {
 	for (search = 0; search < component.size(); search++)
 	{
@@ -160,7 +151,7 @@ void SystemManager::deleteComponent(string a)
 
 
 //Delete a BaseController.
-void SystemManager::deleteController(string a)
+void SystemManager::deleteController(std::string a)
 {
 
 	for (search = 0; search < controller.size(); search++)
@@ -176,7 +167,7 @@ void SystemManager::deleteController(string a)
 
 
 //Delete a BaseState.
-void SystemManager::deleteState(string a)
+void SystemManager::deleteState(std::string a)
 {
 
 	for (search = 0; search < state.size(); search++)
@@ -199,13 +190,13 @@ std::vector<Entity*> SystemManager::getMaterial(StateManager* a)
 }
 
 
-BaseComponent* SystemManager::getComponent(string a)
+BaseComponent* SystemManager::getComponent(std::string a)
 {
 
 }
 
 
-BaseController* SystemManager::getController(string a)
+BaseController* SystemManager::getController(std::string a)
 {
 
 }
@@ -221,13 +212,13 @@ std::vector<Entity*> SystemManager::getMaterial(StateManager* a)
 }
 
 
-BaseComponent* SystemManager::getComponent(string a)
+BaseComponent* SystemManager::getComponent(std::string a)
 {
 
 }
 
 
-BaseController* SystemManager::getController(string a)
+BaseController* SystemManager::getController(std::string a)
 {
 
 }
