@@ -24,7 +24,7 @@ public:
 	BaseState* getState(std::string);
 	
 private:
-	std::vector<vector<Entity*>> material;
+	std::vector<Entity*> material;
 	std::vector<BaseComponent*> component;
 	std::vector<BaseController*> controller;
 	std::vector<BaseState*> state;
