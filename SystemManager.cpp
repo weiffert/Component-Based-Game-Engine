@@ -4,12 +4,36 @@
 
 SystemManager::SystemManager()
 {
+	//Initialize vector of states
+	
+	//Create pointer vector
+	//Point each vector to a new state
+	state.at(0) = new StateWelcome;
+	state.at(1) = new StateLoading;
+	state.at(2) = new StateMenu;
+	state.at(3) = new StateLevel;
+	state.at(4) = new StateEnd;
+	state.at(5) = new statePause;
+	
+	//Initialize vector of vector of entities
+	
+	//Initialize vector of components
+	
+	//Initialize vector of controllers
+	
 }
 
 
 SystemManager::~SystemManager()
 {
   //Delete vectors
+  
+  //Delete states
+  for(int i = 0; i < 6; i++)
+  {
+  	delete state.at(i);
+  	state.at(i) = nullptr;
+  }
 }
 
 
