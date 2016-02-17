@@ -122,7 +122,7 @@ void SystemManager::deleteState(std::string a)
 
 	for (search = 0; search < state.size(); search++)
 	{
-		if (state.at(search)->getID == a)
+		if (state.at(search)->getId == a)
 		{
 			delete *state.at(search);
 			state.erase(search);
@@ -131,13 +131,29 @@ void SystemManager::deleteState(std::string a)
 	}
 }
 
+//Delete a BaseState.
+void SystemManager::deleteState(std::string a)
+{
+
+	for (search = 0; search < state.size(); search++)
+	{
+		if (state.at(search)->getId == a)
+		{
+			delete *state.at(search);
+			state.erase(search);
+			search = component.size();
+		}
+	}
+}
+*/
+
 
 //Delete an entity.
 void SystemManager::deleteMaterial(std::string a)
 {
 	for (search = 0; search < material.size(); search++)
 	{
-		if (material.at(search)->getID == a)
+		if (material.at(search)->getId == a)
 		{
 			delete *material.at(search);
 			material.erase(search);
@@ -152,7 +168,7 @@ void SystemManager::deleteComponent(std::string a)
 {
 	for (search = 0; search < component.size(); search++)
 	{
-		if (component.at(search)->getID == a)
+		if (component.at(search)->getId == a)
 		{
 			delete *component.at(search);
 			component.erase(search);
@@ -168,7 +184,7 @@ void SystemManager::deleteController(std::string a)
 
 	for (search = 0; search < controller.size(); search++)
 	{
-		if (controller.at(search)->getID == a)
+		if (controller.at(search)->getId == a)
 		{
 			delete *controller.at(search);
 			controller.erase(search);
@@ -178,27 +194,20 @@ void SystemManager::deleteController(std::string a)
 }
 
 
-//Delete a BaseState.
-void SystemManager::deleteState(std::string a)
-{
 
-	for (search = 0; search < state.size(); search++)
-	{
-		if (state.at(search)->getID == a)
-		{
-			delete *state.at(search);
-			state.erase(search);
-			search = component.size();
-		}
-	}
-}
-*/
 
 //These need to handle exceptions. For instance, boundaries.
-std::vector<Entity*> SystemManager::getMaterial(StateManager* a)
+std::vector<Entity*> SystemManager::getMaterial(BaseState* a)
 {
-	//The following is not sufficient.
-	return material.at(a.getNumber());
+	vector<Entity*> v;
+	for(int i = 0; i < material.size(); i++)
+	{
+		if(materal.at(i)->getProperty("state")->getData().at(0) == a->getNumber())
+			v.push_back(material.at(i));
+		if(material.at(i)->getProperty("state")->getData().at(0) == a->getId())
+			v.push_back(material.at(i));
+	}
+	return v;
 }
 
 
