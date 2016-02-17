@@ -18,7 +18,7 @@ Game::~Game()
 int Game::run()
 {
 	state = new *StateLoading (systemManager);
-	systemManager.addState(state);
+	systemManager->addState(state);
 	exitCode = gameLoop();
 	//cleanup
 	return exitCode;
