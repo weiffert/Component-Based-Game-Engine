@@ -27,5 +27,5 @@ private:
 	std::vector<vector<Entity*>> material;
 	std::vector<BaseComponent*> component;
 	std::vector<BaseController*> controller;
-	std::vector<BaseState*> state(6); //Make size 6 so that it is easier in the constructor
+	std::vector<BaseState*> state;
 };
