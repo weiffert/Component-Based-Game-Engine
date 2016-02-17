@@ -4,14 +4,6 @@
 
 SystemManager::SystemManager()
 {
-	//Initialize vector of states
-	
-	//Initialize vector of vector of entities
-	
-	//Initialize vector of components
-	
-	//Initialize vector of controllers
-	
 }
 
 
