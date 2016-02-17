@@ -10,12 +10,32 @@ SystemManager::SystemManager()
 SystemManager::~SystemManager()
 {
   //Delete vectors
-  
   //Delete states
-  for(int i = 0; i < 6; i++)
+  for(int i = 0; i < state.size(); i++)
   {
   	delete state.at(i);
   	state.at(i) = nullptr;
+  }
+  
+  //Delete Entities
+  for(int i = 0 i < material.size(); i++)
+  {
+  	delete material.at(i);
+  	material.at(i) = nullptr;
+  }
+  
+  //Delete Components
+  for(int i = 0; i < component.size(); i++)
+  {
+  	delete component.at(i);
+  	component.at(i) = nullptr;
+  }
+  
+  //Delete Controllers
+  for(int i = 0; i < controller.size(); i++)
+  {
+  	delete controller.at(i);
+  	controller.at(i) = nullptr;
   }
 }
 
