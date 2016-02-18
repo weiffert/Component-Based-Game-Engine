@@ -1,5 +1,6 @@
 #include "StateMenu.h"
 #include "SystemManager.h"
+//SFML includes
 
 StateMenu::StateMenu(SystemManager *s)
 {
@@ -29,8 +30,7 @@ int StateMenu::update()
 }
 
 
-void StateMenu::render(double lag)
+void StateMenu::render(double lag, sf::RenderWindow)
 {
-	//Render the entities using the render controller.
-	//Look something like render.control(*Entity, lag);
+	
 }

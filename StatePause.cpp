@@ -1,5 +1,6 @@
 #include "StatePause.h"
 #include "SystemManager.h"
+//SFML includes
 
 
 StatePause::StatePause(SystemManager *s)
@@ -27,8 +28,6 @@ int StatePause::update()
 }
 
 
-void StatePause::render(double lag)
+void StatePause::render(double lag, sf::RenderWindow)
 {
-	//Render the entities using the render controller.
-	//Look something like render.control(*Entity, lag);
 }

@@ -1,5 +1,6 @@
 #include "StateEnd.h"
 #include "SystemManager.h"
+//SFML includes
 
 StateEnd::StateEnd(SystemManager *s)
 {
@@ -16,12 +17,16 @@ StateEnd::~StateEnd()
 
 int StateEnd::update()
 {
-	//basically the same as StateWelcome.
+	//Any thoughts on how to do this without passing in values?
+	//A simple solution is making provisions in the game loop, but that is messy.
+	//Wait time step amount.
+	//If total time is less than double waitTime,
+		//return 1;
+	//Else
+		//return -1;
 }
 
 
-void StateEnd::render(double lag)
+void StateEnd::render(double lag, sf::RenderWindow)
 {
-	//Render the entities using the render controller.
-	//Look something like render.control(*Entity, lag);
 }

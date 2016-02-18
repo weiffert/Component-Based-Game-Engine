@@ -1,4 +1,5 @@
 #include "StateLoading.h"
+//SFML includes
 
 
 StateLoading::StateLoading(SystemManager *s)
@@ -30,8 +31,6 @@ int StateLoading::update()
 }
 
 
-void StateLoading::render(double lag)
+void StateLoading::render(double lag, sf::RenderWindow)
 {
-	//Render the entities using the render controller.
-	//Look something like render.control(*Entity, lag);
 }

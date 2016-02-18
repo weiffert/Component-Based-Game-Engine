@@ -1,5 +1,6 @@
 #include "StateWelcome.h"
-#inlcude "SystemManager.h"
+#include "SystemManager.h"
+//SFML includes
 
 StateWelcome::StateWelcome(SystemManager *s)
 {
@@ -25,8 +26,6 @@ int StateWelcome::update()
 }
 
 
-void StateWelcome::render(double lag)
+void StateWelcome::render(double lag, sf::RenderWindow)
 {
-	//Render the entities using the render controller.
-	//Look something like render.control(*Entity, lag);
 }

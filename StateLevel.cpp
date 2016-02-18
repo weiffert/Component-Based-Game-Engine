@@ -1,5 +1,6 @@
 #include "StateLevel.h"
 #include "SystemManager.h"
+//SFML includes
 
 StateLevel::StateLevel(SystemManager *s)
 {
@@ -35,8 +36,6 @@ int StateLevel::update()
 }
 
 
-void StateLevel::render(double lag)
+void StateLevel::render(double lag, sf::RenderWindow)
 {
-	//Render the entities using the render controller.
-	//Look something like render.control(*Entity, lag);
 }
