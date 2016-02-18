@@ -9,7 +9,6 @@ SystemManager::SystemManager()
 
 SystemManager::~SystemManager()
 {
-  //Delete vectors
   //Delete states
   for(int i = 0; i < state.size(); i++)
   {
@@ -114,8 +113,6 @@ void SystemManager::deleteController(std::string a)
 }
 
 
-/*
-Need to make these handle int arguments instead of strings.
 //Delete a BaseState.
 void SystemManager::deleteState(std::string a)
 {
@@ -131,117 +128,108 @@ void SystemManager::deleteState(std::string a)
 	}
 }
 
+
 //Delete a BaseState.
-void SystemManager::deleteState(std::string a)
+void SystemManager::deleteState(int a)
 {
 
 	for (search = 0; search < state.size(); search++)
 	{
-		if (state.at(search)->getId == a)
+		if (state.at(search)->getNumber == a)
 		{
 			delete *state.at(search);
 			state.erase(search);
-			search = component.size();
-		}
-	}
-}
-*/
-
-
-//Delete an entity.
-void SystemManager::deleteMaterial(std::string a)
-{
-	for (search = 0; search < material.size(); search++)
-	{
-		if (material.at(search)->getId == a)
-		{
-			delete *material.at(search);
-			material.erase(search);
-			search = material.size();
+			search = component.size();	//What is the purpose of this?
 		}
 	}
 }
 
 
-//Delete a BaseComponent.
-void SystemManager::deleteComponent(std::string a)
-{
-	for (search = 0; search < component.size(); search++)
-	{
-		if (component.at(search)->getId == a)
-		{
-			delete *component.at(search);
-			component.erase(search);
-			search = component.size();
-		}
-	}
-}
-
-
-//Delete a BaseController.
-void SystemManager::deleteController(std::string a)
-{
-
-	for (search = 0; search < controller.size(); search++)
-	{
-		if (controller.at(search)->getId == a)
-		{
-			delete *controller.at(search);
-			controller.erase(search);
-			search = controller.size();
-		}
-	}
-}
-
-
-
-
-//These need to handle exceptions. For instance, boundaries.
+//Returns a vector of entities that belong to the state.
 std::vector<Entity*> SystemManager::getMaterial(BaseState* a)
 {
-	vector<Entity*> v;
+	vector<Entity*> tempVector;
+	bool contentFlag = false;
 	for(int i = 0; i < material.size(); i++)
 	{
-		if(materal.at(i)->getProperty("state")->getData().at(0) == a->getNumber())
-			v.push_back(material.at(i));
-		if(material.at(i)->getProperty("state")->getData().at(0) == a->getId())
-			v.push_back(material.at(i));
+		if (materal.at(i)->getProperty("stateNumber")->getData().at(0) == a->getNumber())
+		{
+			tempVector.push_back(material.at(i));
+			contentFlag = true;
+		}
+		else if (material.at(i)->getProperty("stateId")->getData().at(0) == a->getId())
+		{
+			tempVector.push_back(material.at(i));
+			contentFlag = true;
+		}
 	}
-	return v;
+	if (contentFlag)
+		return tempVector;
+	
+	return nullptr;
 }
 
 
+//Returns an entity.
+Entity * SystemManager::getMaterial(std::string a)
+{
+	for (int i = 0; i < material.size(); i++)
+	{
+		if (material.at(i)->getId() == a)
+			return material.at(i);
+	}
+
+	return nullptr;
+}
+
+
+//Returns a component with the same id.
 BaseComponent* SystemManager::getComponent(std::string a)
 {
+	for (int i = 0; i < component.size(); i++)
+	{
+		if (component.at(i)->getId() == a)
+			return component.at(i);
+	}
 
+	return nullptr;
 }
 
 
+//Returns a controller with the same id.
 BaseController* SystemManager::getController(std::string a)
 {
+	for (int i = 0; i < controller.size(); i++)
+	{
+		if (controller.at(i)->getId() == a)
+			return controller.at(i);
+	}
 
+	return nullptr;
 }
 
 
-/*
-These need to handle int arguments instead of string.s
-//These need to handle exceptions. For instance, boundaries.
-std::vector<Entity*> SystemManager::getMaterial(StateManager* a)
+//Returns a state with the same id.
+BaseState* SystemManager::getState(std::string a)
 {
-	//The following is not sufficient.
-	return material.at(a.getNumber());
+	for (int i = 0; i < states.size(); i++)
+	{
+		if (states.at(i)->getId() == a)
+			return states.at(i);
+	}
+
+	return nullptr;
 }
 
 
-BaseComponent* SystemManager::getComponent(std::string a)
+//Returns a state with the same number id.
+BaseState* SystemManager::getState(int a)
 {
+	for (int i = 0; i < states.size(); i++)
+	{
+		if (states.at(i)->getNumber() == a)
+			return states.at(i);
+	}
 
+	return nullptr;
 }
-
-
-BaseController* SystemManager::getController(std::string a)
-{
-
-}
-
-*/
