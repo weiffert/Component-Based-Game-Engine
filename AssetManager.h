@@ -16,7 +16,7 @@ private:
 public:
 
 	AssetManager();
-	~AssetManager(); //Destructor.Deletes the images and sounds.
+	~AssetManager(); //Destructor. Deletes the images and sounds.
 	sf::Image* getImage(int); //Returns an image for a property.
 	sf::Sound* getSound(int); //Returns a sound for a property.
 	sf::Texture* getTexture(int); //Returns a texture for a property.

@@ -5,7 +5,7 @@
 
 BaseState::BaseState(SystemManager *s)
 {
-	id = "NULL";
+	id = "BaseState";
 	number = -1;
 	systemManager = s;
 }
@@ -14,16 +14,6 @@ BaseState::BaseState(SystemManager *s)
 BaseState::~BaseState()
 {
 	
-}
-
-
-void BaseState::update()
-{
-}
-
-
-void BaseState::render()
-{
 }
 
 
@@ -38,3 +28,8 @@ std::string BaseState::getId()
 	return id;
 }
 
+
+void BaseState::setId(std::string a)
+{
+	id = a;
+}

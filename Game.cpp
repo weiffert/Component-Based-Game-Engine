@@ -72,10 +72,10 @@ int Game::gameLoop()
 		switch(changeStateFlag)
 		{
 		case next:
-			state = changeState(state);
+			changeState(state);
 			break;
 		case last:
-			state = changeState(state, state.getNumber() - 1);
+			changeState(state, state.getNumber() - 1);
 		}
 	}
 	return exitCode;
@@ -83,28 +83,22 @@ int Game::gameLoop()
 
 
 //Exceptions are thrown in the getState.
-*Basestate Game::changeState(BaseState *b)
+void Game::changeState(BaseState *a)
 {
-	int tempInt = b->getNumber();
-	b = systemManager->getState(tempInt+1);
-
-	return b;
+	int tempInt = a->getNumber();
+	a = systemManager->getState(tempInt+1);
 }
 
 
 //Exceptions are thrown in the getState.
-*Basestate Game::changeState(BaseState *b, std::string s)
+void Game::changeState(BaseState *a, std::string s)
 {
-	b = systemManager->getState(s);
-
-	return b;
+	a = systemManager->getState(s);
 }
 
 
 //Exceptions are thrown in the getState.
-*Basestate Game::changeState(BaseState *b, int i)
+void Game::changeState(BaseState *a, int i)
 {
-	b = systemManager->getState(i);
-
-	return b;
+	a = systemManager->getState(i);
 }

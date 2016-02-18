@@ -8,10 +8,14 @@ class SystemManager
 public:
 	SystemManager();
 	~SystemManager();
-	void addMaterial(Entity*);
-	void addComponent(BaseComponent *);
-	void addController(BaseController *);
-	void addState(BaseState*);
+	void add(Entity*);
+	void add(BaseComponent *);
+	void add(BaseController *);
+	void add(BaseState*);
+	void remove(Entity*);
+	void remove(BaseComponent*);
+	void remove(BaseController*);
+	void remove(BaseState*);
 	void deleteMaterial(std::string);
 	void deleteComponent(std::string);
 	void deleteController(std::string);

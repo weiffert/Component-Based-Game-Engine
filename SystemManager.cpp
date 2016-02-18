@@ -40,33 +40,88 @@ SystemManager::~SystemManager()
 
 
 //Add a vector of entities.
-void SystemManager::addMaterial(Entity* a)
+void SystemManager::add(Entity* a)
 {
 	material.push_back(a);
 }
 
 
 //Add a BaseComponent.
-void SystemManager::addComponent(BaseComponent* a)
+void SystemManager::add(BaseComponent* a)
 {
 	component.push_back(a);
 }
 
 
 //Add a BaseController.
-void SystemManager::addController(BaseController* a)
+void SystemManager::add(BaseController* a)
 {
 	controller.push_back(a);
 }
 
 
 //Add a State.
-void SystemManager::addState(BaseState* a)
+void SystemManager::add(BaseState* a)
 {
 	state.push_back(a);
 }
 
 
+//The removes are standard.
+//Deletes an Entity. 
+void SystemManager::remove(Entity* a)
+{
+	for (search = 0; search < material.size(); search++)
+	{
+		if (material.at(search)->getID == a)
+		{
+			delete *material.at(search);
+			material.erase(search);
+		}
+	}
+}
+
+
+//Deletes a BaseComponent
+void SystemManager::remove(BaseComponent* a)
+{
+	for (search = 0; search < component.size(); search++)
+	{
+		if (component.at(search)->getID == a)
+		{
+			delete *component.at(search);
+			component.erase(search);
+		}
+	}
+}
+
+
+//Deletes a BaseController
+void SystemManager::remove(BaseController* a)
+{
+	for (search = 0; search < controller.size(); search++)
+	{
+		if (controller.at(search)->getID == a)
+		{
+			delete *controller.at(search);
+			controller.erase(search);
+		}
+	}
+}
+
+
+//Deletes a BaseState
+void SystemManager::remove(BaseState* a)
+{
+	for (search = 0; search < state.size(); search++)
+	{
+		if (state.at(search) == a)
+			delete *state.at(search);
+	}
+}
+
+
+//These are only for cases where all the program has is the string or int.
 //Delete an entity.
 void SystemManager::deleteMaterial(std::string a)
 {
@@ -76,7 +131,6 @@ void SystemManager::deleteMaterial(std::string a)
 		{
 			delete *material.at(search);
 			material.erase(search);
-			search = material.size();
 		}
 	}
 }
@@ -91,7 +145,6 @@ void SystemManager::deleteComponent(std::string a)
 		{
 			delete *component.at(search);
 			component.erase(search);
-			search = component.size();
 		}
 	}
 }
@@ -100,14 +153,12 @@ void SystemManager::deleteComponent(std::string a)
 //Delete a BaseController.
 void SystemManager::deleteController(std::string a)
 {
-
 	for (search = 0; search < controller.size(); search++)
 	{
 		if (controller.at(search)->getID == a)
 		{
 			delete *controller.at(search);
 			controller.erase(search);
-			search = controller.size();
 		}
 	}
 }
@@ -123,7 +174,6 @@ void SystemManager::deleteState(std::string a)
 		{
 			delete *state.at(search);
 			state.erase(search);
-			search = component.size();
 		}
 	}
 }
@@ -139,7 +189,6 @@ void SystemManager::deleteState(int a)
 		{
 			delete *state.at(search);
 			state.erase(search);
-			search = component.size();	//What is the purpose of this?
 		}
 	}
 }

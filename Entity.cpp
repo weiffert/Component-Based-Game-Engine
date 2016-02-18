@@ -32,63 +32,112 @@ void Entity::setId(std::string newId)
 
 void Entity::addComponent(BaseComponent* newComponent)
 {
-	components.push_back(newComponent);
-}
-
-
-//Removes all components with the same string id.
-void Entity::removeComponent(std::string id)
-{
-	for (int i = 0; i < components.size())
-	{
-		if (components.at(i)->getId == id)
-		{
-			delete *components.at(i);
-			components.erase(i, i);
-		}
-	}
-}
-
-
-
-bool Entity::hasComponent(std::string)
-{
-	for (int i = 0; i < components.size())
-	{
-		if (components.at(i).getId == id)
-			return true;
-	}
-
-	return false;
+	component.push_back(newComponent);
 }
 
 
 void Entity::addController(BaseController* newComponent)
 {
-	controllers.push_back(newComponent);
+	controller.push_back(newComponent);
 }
 
 
-void Entity::removeController(std::string)
+void Entity::remove(BaseComponent *a)
 {
-	for (int i = 0; i < controllers.size())
+	for (int i = 0; i < component.size(); i++)
 	{
-		if (controllers.at(i)->getId == id)
+		if (component.at(i) == a)
 		{
-			delete *controllers.at(i);
-			controllers.erase(i, i);
+			delete *component.at(i);
+			component.erase(i);
 		}
 	}
 }
 
 
-bool Entity::hasController(std::string)
+void Entity::remove(BaseController *a)
 {
-	for (int i = 0; i < controllers.size())
+	for (int i = 0; i < component.size(); i++)
 	{
-		if (controllers.at(i).getId == id)
+		if (component.at(i) == a)
+		{
+			delete *component.at(i);
+			component.erase(i);
+		}
+	}
+}
+
+
+void Entity::deleteComponent(std::string id)
+{
+	for (int i = 0; i < component.size(); i++)
+	{
+		if (component.at(i)->getId() == id)
+		{
+			delete *component.at(i);
+			component.erase(i);
+		}
+	}
+}
+
+
+void Entity::deleteController(std::string id)
+{
+	for (int i = 0; i < component.size(); i++)
+	{
+		if (component.at(i)->getId() == id)
+		{
+			delete *component.at(i);
+			component.erase(i);
+		}
+	}
+}
+
+
+bool Entity::hasComponent(std::string id)
+{
+	for (int i = 0; i < component.size(); i++)
+	{
+		if (component.at(i)->getId() == id)
+			return true;
+	}
+
+	return false;
+}
+
+
+
+bool Entity::hasController(std::string id)
+{
+	for (int i = 0; i < controller.size(); i++)
+	{
+		if (controller.at(i)->getId() == id)
 			return true;
 	}
 	
 	return false;
+}
+
+
+BaseComponent* Entity::getComponent(std::string id)
+{
+	for (int i = 0; i < component.size(); i++)
+	{
+		if (component.at(i)->getId() == id)
+			return component.at(i);
+	}
+
+	return nullptr;
+}
+
+
+BaseController* Entity::getController(std::string id)
+{
+	for (int i = 0; i < controller.size(); i++)
+	{
+		if (controller.at(i)->getId() == id)
+			return controller.at(i);
+	}
+
+	return nullptr;
 }

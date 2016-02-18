@@ -16,8 +16,8 @@ public:
 	std::vector<T> getData();
 	void addData(T);
 	void deleteData(T);
+	void deleteDataPosition(int);
 	void changeData(T, int);
-
 };
 
 
@@ -54,10 +54,14 @@ Property<T>::~Property()
 }
 
 
+//returns the data held in the vector.
+//Needs to return data only if there is data.
 template <class T>
-std::vector<T> Property<T>::getData()//returns the data held in the vector
+std::vector<T> Property<T>::getData()
 {
-	return data.data();
+	if (data.at(0) != nullptr)
+		return data;
+	return nullptr;
 }
 
 
@@ -68,16 +72,24 @@ void Property<T>::addData(T value)//adds value to existing data
 }
 
 
-//Currently deletes all data with the same value.
 template <class T>
 void deleteData(T value)//subtracts value from existing data
 {
-	for (int x = 0; x < data.size(); x++)
+	for (int i = 0; i < data.size(); i++)
 	{
-		if (data.at(x) == value)
+		if (data.at(i) == value)
 		{
-			data.erase(x);
+			data.erase(i);
 		}
+	}
+}
+
+
+void deleteDataPosition(int position)//subtracts value from existing data
+{
+	if (position < data.size())
+	{
+		data.erase(position);
 	}
 }
 
@@ -85,5 +97,6 @@ void deleteData(T value)//subtracts value from existing data
 template <class T>
 void changeData(T value, int position) //Value changes the data at position
 {
-	data.at(position) = value;
+	if (position < data.size())
+		data.at(position) = value;
 }
