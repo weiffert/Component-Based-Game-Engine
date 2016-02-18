@@ -8,7 +8,7 @@ class SystemManager
 public:
 	SystemManager();
 	~SystemManager();
-	void addMaterial(Entity*, StateManager*);
+	void addMaterial(Entity*);
 	void addComponent(BaseComponent *);
 	void addController(BaseController *);
 	void addState(BaseState*);
@@ -22,6 +22,7 @@ public:
 	BaseComponent* getComponent(std::string);
 	BaseController* getController(std::string);
 	BaseState* getState(std::string);
+	BaseState* getState(int);
 	
 private:
 	std::vector<Entity*> material;
