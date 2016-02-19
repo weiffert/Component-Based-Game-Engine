@@ -7,7 +7,6 @@ StateLevel::StateLevel(SystemManager *s)
 	id = "Level";
 	number = 3;
 	systemManager = s;
-	//Go through the entity list in the SystemManager and add them to the local list if the state property == "Level"
 }
 
 
@@ -16,7 +15,7 @@ StateLevel::~StateLevel()
 }
 
 
-int StateLevel::update()
+int StateLevel::update(double totalTime)
 {
 	//Check for arrow key and space bar events
 	//Move the cursor respectively.

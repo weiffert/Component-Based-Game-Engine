@@ -16,12 +16,15 @@ StatePause::~StatePause()
 }
 
 
-int StatePause::update()
+int StatePause::update(double totalTime)
 {
-	//same event handling as StateMenu.
-	//If return to game,
+	//Check for arrow key and space bar events.
+		//Arrow keys for navigation, space bar for selecting.
+	//If arrow key event, change properties of the entities.
+		//One looses the selector property and one gains it. Only one will have the selector property at a time.
+	//If space bar event is the level,
 		//return 2;
-	//If exit,
+	//If the space bar event is quit, quit.
 		//return -1;
 	//else
 		//return 1;

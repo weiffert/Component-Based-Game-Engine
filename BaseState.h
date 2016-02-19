@@ -14,6 +14,7 @@ public:
 	std::string getId();
 	void setId(std::string);
 	void setNumber(int);
+	void setMaterial(vector<Entity*>);
 
 	virtual void update(double) = 0;
 	virtual void render(double, sf::RenderWindow) = 0;

@@ -39,3 +39,9 @@ void BaseState::setNumber(int a)
 {
 	number = a;
 }
+
+
+void BaseState::setMaterial(vector<Entity*> a)
+{
+	material = a;
+}
