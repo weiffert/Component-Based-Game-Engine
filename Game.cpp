@@ -69,6 +69,8 @@ int Game::gameLoop()
 		state->render(lag/frameRate, &gameWindow);
 		
 		/*
+
+
 		Moved into the update functions.
 		enum changeState { quit = -1, stay = 0, change = 1, weird = 2};
 		switch(changeStateFlag)
