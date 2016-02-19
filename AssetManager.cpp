@@ -1,8 +1,8 @@
-#include "stdafx.h"
-#include "AssetManager.h"
-#include "BaseState.h"
+//#include "stdafx.h"
 #include <string>
 #include <vector>
+#include "AssetManager.h"
+#include "BaseState.h"
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
 
