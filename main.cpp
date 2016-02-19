@@ -7,7 +7,9 @@ The implementation of the engine will be missile command.
 */
 
 //includes
+#include "stdafx.h"
 #include "Game.h"
+#include <iostream>
 #include <fstream>
 #include <time.h>
 
@@ -16,50 +18,55 @@ int main()
 	int exitCode = 0;
 	
 	//Log run
-	ostream file;
-	file.open("log.txt"; ios::app);
-	if (file.is_open())
+	std::filebuf fileControll;
+	std::ostream file(&fileControll);
+	fileControll.open("log.txt", std::ios::app);
+	if (fileControll.is_open())
 		file << "Program run at: " << time(NULL) << "\nExit Code: ";
 
 	//Read from file.
-	istream read;
-	vector<std::string> data;
+	std::istream read(&fileControll);
+	std::vector<std::string> data;
 	int increment = 0;
 
-	read.open("game.txt");
-	if (read.is_open())
+	fileControll.open("game.txt", std::ios::app);
+	if (fileControll.is_open())
 	{
 		while (!read.eof())
 		{
 			read >> data.at(increment);
 			increment++;
 		}
-		read.close();
+		fileControll.close();
 
 		//Convert the first two strings to ints.
-		int one = static_cast<int>(data.at(0)) - 48;
-		int two = static_cast<int>(data.at(1)) - 48;
+		int one = static_cast<int>(atoi(data.at(0).c_str())) - 48;
+		int two = static_cast<int>(atoi(data.at(1).c_str())) - 48;
 
 		//Create the game.
-		Game game();
+		int width;
+		int height;
+		std::string name;
+
+		Game game(one, two, data.at(2));
 
 		//run the game
-		exitCode = game.run(one, two, data.at(2));
+		exitCode = game.run();
 
 		//log exit code
-		if (file.is_open())
-			file << exitCode << endl;
+		if (fileControll.is_open())
+			file << exitCode;
 
 	}
 
-	else if (file.is_open())
+	else if (fileControll.is_open())
 	{
-		file << "404. Could not open game.txt" << endl;
+		file << "404. Could not open game.txt";
 	}
 
 
 	//clean up
-	file.close();
+	fileControll.close();
 	
 	return 0;
 }
