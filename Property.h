@@ -99,4 +99,6 @@ void changeData(T value, int position) //Value changes the data at position
 {
 	if (position < data.size())
 		data.at(position) = value;
+	else
+		addData(value);
 }

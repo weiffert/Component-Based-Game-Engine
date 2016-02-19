@@ -22,11 +22,11 @@ int StateMenu::update(double totalTime)
 	//If arrow key event, change properties of the entities.
 		//One looses the selector property and one gains it. Only one will have the selector property at a time.
 	//If space bar event is the level,
-		//return 2;
+		//return 1;
 	//If the space bar event is quit, quit.
 		//return -1;
 	//else
-		//return 1;
+		//return 0;
 }
 
 

@@ -68,14 +68,31 @@ int Game::gameLoop()
 		//render with parameters.
 		state->render(lag/frameRate, &gameWindow);
 		
-		enum changeState { last = -1, stay = 0, next = 1};
+		enum changeState { quit = -1, stay = 0, change = 1, weird = 2};
 		switch(changeStateFlag)
 		{
-		case next:
-			changeState(state);
+		case change:
+			switch (state->getNumber())
+			{
+			case 6:
+				stateLast = state;
+				changeState(state, stateLast->getNumber());
+				break;
+
+			default:
+				stateLast = state;
+				changeState(state);
+			}
 			break;
-		case last:
-			changeState(state, state.getNumber() - 1);
+
+		//Covers the second choice in StatePause.
+		case weird:
+			stateLast = state;
+			changeState(state, 3);
+			break;
+
+		case quit:
+			window.close();
 		}
 	}
 	return exitCode;

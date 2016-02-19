@@ -16,6 +16,7 @@ private:
 	std::string gameName;
 	sf::vector2i windowResolution;
 	*BaseState state;
+	*BaseState stateLast;
 	*SystemManager systemManager;
 
 	int gameLoop();

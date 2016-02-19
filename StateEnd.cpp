@@ -17,18 +17,7 @@ StateEnd::~StateEnd()
 
 int StateEnd::update(double totalTime)
 {
-	if (totalTime > 5)
-		return -1;
-	else
-	{
-		sleep(0.1);
-		return 1;
-	}
-
-	//If total time is less than double waitTime,
-	//return 1;
-	//Else
-	//return -1;
+	//this could reinitialize the levels.
 }
 
 
