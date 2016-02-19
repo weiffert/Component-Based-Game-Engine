@@ -68,6 +68,8 @@ int Game::gameLoop()
 		//render with parameters.
 		state->render(lag/frameRate, &gameWindow);
 		
+		/*
+		Moved into the update functions.
 		enum changeState { quit = -1, stay = 0, change = 1, weird = 2};
 		switch(changeStateFlag)
 		{
@@ -94,11 +96,13 @@ int Game::gameLoop()
 		case quit:
 			window.close();
 		}
+		*/
 	}
 	return exitCode;
 }
 
-
+/*
+Be put in a controller.
 //Exceptions are thrown in the getState.
 void Game::changeState(BaseState *a)
 {
@@ -119,3 +123,4 @@ void Game::changeState(BaseState *a, int i)
 {
 	a = systemManager->getState(i);
 }
+*/
