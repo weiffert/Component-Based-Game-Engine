@@ -3,7 +3,9 @@
 #include "Entity.h"
 #include "BaseController.h"
 #include "BaseState.h"
-#niclude <string.h>
+#include <string>
+#include <iostream>
+#include <fstream>
 //SFML includes
 
 
@@ -89,18 +91,40 @@ int StateLoading::update(double totalTime)
 	{
 		std::string id;
 		std::string filename;
-
+		std::string word;
+		int lineNumber = 1; //The line number of the file
+		int wordNumber = 1; //Determines which word of the line (1st, 2nd, 3rd, words in a line or more)
 		//Determine the file to parse data from.
 		filename = fileDeterminer();
+		std::ifstream file (filename);
+		
 
 		//Determine the operation.
 		switch (substrings.at(0))
 		{
 		case "property":
-			vector<std::string> data;
+			std::vector<std::string> data;
 			std::string type;
 
-			//Read data and take in these values. Includes id.
+			//Read data and take in these values. Includes id
+			
+			//Read entire file
+			while(!file.eof())
+			{
+				file >> word;
+				while(word != ";") //Read until the end of the line
+				{
+					if (lineNumber == 1)
+						id = word;
+					if (lineNumber == 2)
+						type = word;
+					if (lineNumber > 2)
+						data.push_back(word);
+					file >> word;
+				}
+				//Increase line number
+				lineNumber++;
+			}
 
 			//Create.
 			BaseComponent *temp = new Property < /*type*/ >(); //Not sure about the type thing yet.
@@ -116,10 +140,29 @@ int StateLoading::update(double totalTime)
 
 			break;
 		case "entity":
-			vector<vector<std::string>>properties;	//The first vector is for holding all properties. The second is for holding id 
+			std::vector<std::vector<std::string>>properties;   //The first vector is for holding all properties. The second is for holding id 
 				//and data of the properties.
 
 			//Read data and take in these values. Includes id.
+			while(!file.eof())
+			{
+				file >> word;
+				while(word != ";") //Read until the end of the line
+				{
+					if (lineNumber == 1)
+						id = word;
+					if (lineNumber > 1)
+					{
+						if (wordNumber == 1)
+						properties.at(lineNumber - 1).at(wordNumber - 1);
+					}
+					
+					file >> word;
+					wordNumber++;
+				}
+				lineNumber++;	//Increase line number
+				wordNumber = 1; //Set wordNumber back to 1
+			}
 
 			//Create.
 			Entity *temp = new Entity();
