@@ -33,3 +33,9 @@ void BaseState::setId(std::string a)
 {
 	id = a;
 }
+
+
+void BaseState::setNumber(int a)
+{
+	number = a;
+}

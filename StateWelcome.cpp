@@ -14,11 +14,16 @@ StateWelcome::~StateWelcome()
 {
 }
 
-int StateWelcome::update()
+int StateWelcome::update(double totalTime)
 {
-	//Any thoughts on how to do this without passing in values?
-	//A simple solution is making provisions in the game loop, but that is messy.
-	//Wait time step amount.
+	if (totalTime > 5)
+		return -1;
+	else
+	{
+		sleep(0.1);
+		return 1;
+	}
+
 	//If total time is less than double waitTime,
 		//return 1;
 	//Else

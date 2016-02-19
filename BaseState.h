@@ -13,8 +13,9 @@ public:
 	int getNumber();
 	std::string getId();
 	void setId(std::string);
+	void setNumber(int);
 
-	virtual void update() = 0;
+	virtual void update(double) = 0;
 	virtual void render(double, sf::RenderWindow) = 0;
 
 protected:

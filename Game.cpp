@@ -60,7 +60,7 @@ int Game::gameLoop()
 		while (lag >= frameRate)
 		{
 			//update
-			changeStateFlag = state->update();
+			changeStateFlag = state->update(totaltime);
 			//decrement current time keepers
 			totalTime += frameRate;
 			lag -= frameRate;
