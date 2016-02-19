@@ -59,8 +59,10 @@ void StateLevel::update(double totalTime, sf::RenderWindow window)
 		}
 		//Run through the game controllers.
 		//Example: Checking for collisions
-		
-	//If the game is not done...
+		systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
+		//Controls the Ai of the game
+		systemManager->getController("Ai")->control(&material);
+		//If the game is not done...
 		//If the wave is finished and the level continures (check the city number: an entity with the id of "city" and a property of live.)
 		//Change to the next level. Color, velocity, and number of missiles has to change.
 		//Pass through the enities. If one has one of these properties, change it.
