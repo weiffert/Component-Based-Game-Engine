@@ -1,6 +1,6 @@
+#include "stdafx.h"
 #include "StateEnd.h"
 #include "SystemManager.h"
-#include "BaseController.h"
 //SFML includes
 
 StateEnd::StateEnd(SystemManager *s)
@@ -27,10 +27,10 @@ void StateEnd::render(double lag, sf::RenderWindow w)
 	w.clear;
 	for (int i = 0; i < material.size(); i++)
 	{
-		if (material.at(i)->hasController("draw"))
+		if (material.at(i)->hasComponent("draw"))
 		{
-			BaseController *controller = material.at(i)->getController("draw");
-			controller->control(material.at(i));
+			//Needs to be a drawable.
+			w.draw(material.at(i));
 		}
 	}
 	w.display();

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "SystemManager.h"
 #include <vector>
 
