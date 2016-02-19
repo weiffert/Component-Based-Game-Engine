@@ -19,7 +19,7 @@ int main()
 	ostream file;
 	file.open("log.txt"; ios::app);
 	if (file.is_open())
-		cout << "Program run at: " << time(NULL);
+		file << "Program run at: " << time(NULL); 
 
 	//Create the game.
 	Game game;
@@ -29,7 +29,7 @@ int main()
 
 	//log exit code
 	if (file.is_open())
-		cout << "\nExit Code: " << exitCode << endl;
+		file << "\nExit Code: " << exitCode << endl;
 
 	//clean up
 	file.close();
