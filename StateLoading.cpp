@@ -3,6 +3,7 @@
 #include "Entity.h"
 #include "BaseController.h"
 #include "BaseState.h"
+#niclude <string.h>
 //SFML includes
 
 
@@ -102,7 +103,7 @@ int StateLoading::update(double totalTime)
 			//Read data and take in these values. Includes id.
 
 			//Create.
-			BaseComponent *temp = new Property < type >(); //Not sure about the type thing yet.
+			BaseComponent *temp = new Property < /*type*/ >(); //Not sure about the type thing yet.
 
 			//Edit.
 			temp->setId(id);
@@ -115,7 +116,8 @@ int StateLoading::update(double totalTime)
 
 			break;
 		case "entity":
-			vector<vector<std::string>>properties;	//The first vector is for holding all properties. The second is for holding id and data of the properties.
+			vector<vector<std::string>>properties;	//The first vector is for holding all properties. The second is for holding id 
+				//and data of the properties.
 
 			//Read data and take in these values. Includes id.
 
@@ -218,10 +220,10 @@ void StateLoading::render(double lag, sf::RenderWindow)
 	w.clear;
 	for (int i = 0; i < material.size(); i++)
 	{
-		if (material.at(i)->hasComponent("draw"))
+		if (material.at(i)->hasController("draw"))
 		{
-			//Needs to be a drawable.
-			w.draw(material.at(i));
+			BaseController *controller = material.at(i)->getController("draw");
+			controller->control(material.at(i));
 		}
 	}
 	w.display();
