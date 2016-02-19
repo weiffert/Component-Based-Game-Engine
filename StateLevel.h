@@ -8,5 +8,7 @@ class StateLevel :
 public:
 	StateLevel(SystemManger *);
 	~StateLevel();
+	void update(double, sf::RenderWindow);
+	void render(double, sf::RenderWindow);
 };
 
