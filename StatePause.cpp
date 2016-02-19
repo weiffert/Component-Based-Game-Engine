@@ -18,6 +18,46 @@ StatePause::~StatePause()
 
 int StatePause::update(double totalTime)
 {
+	//Check for arrow key and space bar events
+	sf::Event event
+	while (window.pollEvent(event))
+	{
+		bool moveUp = false, moveDown = false, moveRight = false, moveLeft = false, spaceBarReleased = false;
+
+		//Checks if up arrow key pressed
+		if ((event.type = sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Up))
+		{
+			moveUp = true;
+		}
+		//Checks if down arrow key pressed
+		if ((event.type = sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Down))
+		{
+			moveDown = true;
+		}
+		//Checks if right arrow key pressed
+		if ((event.type = sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Right))
+		{
+			moveRight = true;
+		}
+		//Checks if left arrow key pressed
+		if ((event.type = sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Left))
+		{
+			moveLeft = true
+		}
+		//Checks if space bar released
+		if ((event.type = sf::Event::KeyRelease) && (event.key.code == sf::Keyboard::Spacebar))
+		{
+			spaceBarReleased = true;
+		}
+		//Checks if escape key pressed
+		if ((event.type = sf::Event::KeyRelease) && (event.key.code == sf::Keyboard::Escape))
+		{
+			BaseState::changeState(this, "Pause");
+		}
+		//Run through the game controllers.
+		//Example: Checking for collisions
+		systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
+	}
 	//Check for arrow key and space bar events.
 		//Arrow keys for navigation, space bar for selecting.
 	//If arrow key event, change properties of the entities.
