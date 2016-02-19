@@ -23,14 +23,19 @@ int StateWelcome::update(double totalTime)
 		sleep(0.1);
 		return 0;
 	}
-
-	//If total time is less than double waitTime,
-		//return 0;
-	//Else
-		//return 1;
 }
 
 
 void StateWelcome::render(double lag, sf::RenderWindow)
 {
+	w.clear;
+	for (int i = 0; i < material.size(); i++)
+	{
+		if (material.at(i)->hasComponent("draw"))
+		{
+			//Needs to be a drawable.
+			w.draw(material.at(i));
+		}
+	}
+	w.display();
 }
