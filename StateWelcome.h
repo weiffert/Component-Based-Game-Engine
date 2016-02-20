@@ -11,8 +11,5 @@ private:
 public:
 	StateWelcome(SystemManager *);
 	~StateWelcome();
-
-	int welcomeUpdate(double);
-	void render(double, sf::RenderWindow)
 };
 
