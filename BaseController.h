@@ -12,8 +12,9 @@ public:
 	~BaseController();
 	std::string getId();
 	void setId(std::string);
+	void setRequiredProperties(vector<BaseComponent*> *);
 
-	int control();
+	virtual char control(vector<Entity*>*) = 0;
 
 private:
 	std::string id;

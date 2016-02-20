@@ -1,13 +1,15 @@
 #include "stdafx.h"
 #include "StateMenu.h"
 #include "SystemManager.h"
-//SFML includes
+#include "SFML\Audio.hpp"
+#include "SFML\Graphics.hpp"
 
-StateMenu::StateMenu(SystemManager *s)
+StateMenu::StateMenu(SystemManager *s, AssetManager *a)
 {
 	id = "Menu";
 	number = 2;
 	systemManager = s;
+	assetManager = a;
 }
 
 
@@ -16,7 +18,7 @@ StateMenu::~StateMenu()
 }
 
 
-int StateMenu::menuUpdate(double totalTime)
+void StateMenu::update(double totalTime, sf::RenderWindow window)
 {
 	//Check for arrow key and space bar events.
 		//Arrow keys for navigation, space bar for selecting.
@@ -31,9 +33,9 @@ int StateMenu::menuUpdate(double totalTime)
 }
 
 
-void StateMenu::render(double lag, sf::RenderWindow w)
+void StateMenu::render(double lag, sf::RenderWindow window)
 {
-	w.clear;
+	window.clear;
 	for (int i = 0; i < material.size(); i++)
 	{
 		if (material.at(i)->hasController("draw"))
@@ -42,5 +44,5 @@ void StateMenu::render(double lag, sf::RenderWindow w)
 			controller->control(material.at(i));
 		}
 	}
-	w.display();
+	window.display();
 }

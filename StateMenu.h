@@ -1,19 +1,14 @@
 #pragma once
 #include "BaseState.h"
 #include "SystemManager.h"
+#include "AssetManager.h"
+
 class StateMenu :
 	public BaseState
 {
-private:
-
-	SystemManager* systemManager;
 
 public:
-	StateMenu(SystemManager *);
+	StateMenu(SystemManager *, AssetManager *);
 	~StateMenu();
-
-	int menuUpdate(double);
-	void render(double, sf::RenderWindow);
-
 };
 

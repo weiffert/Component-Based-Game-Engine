@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "BaseState.h"
 #include "SystemManager.h"
+#include "AssetManager.h"
 #include <string>
 
 
@@ -8,11 +9,12 @@ BaseState::BaseState()
 {
 }
 
-BaseState::BaseState(SystemManager *s)
+BaseState::BaseState(SystemManager *s, AssetManager *a)
 {
 	id = "BaseState";
 	number = -1;
 	systemManager = s;
+	assetManager = a;
 }
 
 

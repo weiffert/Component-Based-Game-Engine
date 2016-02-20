@@ -2,14 +2,17 @@
 #include "StatePause.h"
 #include "SystemManager.h"
 #include "SFML\Window.hpp"
+#include "SFML\Audio.hpp"
+#include "SFML\Graphics.hpp"
 
 
 
-StatePause::StatePause(SystemManager *s)
+StatePause::StatePause(SystemManager *s, AssetManager *a)
 {
 	id = "Pause";
 	number = 5;
 	systemManager = s;
+	assetManager = a;
 }
 
 
@@ -18,7 +21,7 @@ StatePause::~StatePause()
 }
 
 
-int StatePause::pauseUpdate(double totalTime)
+void StatePause::update(double totalTime, sf::RenderWindow window)
 {
 	//Check for arrow key and space bar events
 	sf::Event event;
@@ -73,9 +76,9 @@ int StatePause::pauseUpdate(double totalTime)
 }
 
 
-void StatePause::render(double lag, sf::RenderWindow w)
+void StatePause::render(double lag, sf::RenderWindow window)
 {
-	w.clear;
+	window.clear;
 	for (int i = 0; i < material.size(); i++)
 	{
 		if (material.at(i)->hasController("draw"))
@@ -84,5 +87,5 @@ void StatePause::render(double lag, sf::RenderWindow w)
 			controller->control(material.at(i));
 		}
 	}
-	w.display();
+	window.display();
 }

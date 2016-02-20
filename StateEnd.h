@@ -1,18 +1,13 @@
 #pragma once
 #include "BaseState.h"
 #include "SystemManager.h"
+#include "AssetManager.h"
 
 class StateEnd :
 	public BaseState
 {
-private:
-
-	SystemManager* systemManager;
-
 public:
-	StateEnd(SystemManager *);
+	StateEnd(SystemManager *, AssetManager *);
 	~StateEnd();
-	int endUpdate(double);
-	void render(double, sf::RenderWindow);
 };
 

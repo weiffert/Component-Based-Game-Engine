@@ -1,4 +1,10 @@
 #include "stdafx.h"
+
+#include <string>
+#include <iostream>
+#include <fstream>
+
+#include "BaseState.h"
 #include "StateLoading.h"
 #include "StateWelcome.h"
 #include "StateEnd.h"
@@ -8,18 +14,19 @@
 #include "Property.h"
 #include "Entity.h"
 #include "BaseController.h"
-#include "BaseState.h"
-#include <string>
-#include <iostream>
-#include <fstream>
+#include "SystemManager.h"
+#include "AssetManager.h"
 #include "SFML\Window.hpp"
+#include "SFML\Audio.hpp"
+#include "SFML\Graphics.hpp"
 
 
-StateLoading::StateLoading(SystemManager *s)
+StateLoading::StateLoading(SystemManager *s, AssetManager *a)
 {
 	id = "Loading";
 	number = 0;
 	systemManager = s;
+	assetManager = a;
 
 	//read from the file of files document.
 		//store filenames in the filenames string.
@@ -91,7 +98,7 @@ void StateLoading::substringSorter()
 }
 
 
-int StateLoading::loadingUpdate(double totalTime)
+void StateLoading::update(double totalTime, sf::RenderWindow window)
 {
 	if (substrings.size() != 0)
 	{
@@ -132,7 +139,53 @@ int StateLoading::loadingUpdate(double totalTime)
 			}
 
 			//Create.
-			BaseComponent *temp = new Property < /*type*/ >(); //Not sure about the type thing yet.
+			BaseComponent *temp;
+			switch (type)
+			{
+			case "int":
+				temp = new Property<int>();
+				break;
+
+			case "char":
+				temp = new Property<char>();
+				break;
+
+			case "double":
+				temp = new Property<double>();
+				break;
+
+			case "float":
+				temp = new Property<float>();
+				break;
+
+			case "bool":
+				temp = new Property<bool>();
+				break;
+
+			case "string":
+				temp = new Property<std::string>();
+				break;
+
+			case "Entity":
+				temp = new Property<Entity>();	//Does this work?
+				break;
+
+			case "Texture":
+				temp = new Property<sf::Texture>();
+				break;
+
+			case "Image":
+				temp = new Property<sf::Image>();
+				break;
+
+			case "Sound":
+				temp = new Property<sf::Sound>();
+				break;
+
+			default:
+				temp = new Property<std::string>();
+
+			}
 
 			//Edit.
 			temp->setId(id);
@@ -193,8 +246,58 @@ int StateLoading::loadingUpdate(double totalTime)
 						}
 						//Change Data.
 						else
+						{
 							//Needs to be converted to the proper type.
-							temp->getComponent(properties.at(y).at(0))->changeData(/*properties.at(y).at(x)*/, x - 1);
+							switch (type)
+							{
+							case "int":
+								temp->getComponent(properties.at(y).at(0))->changeData(static_cast<int>(properties.at(y).at(x)) - 48, x - 1);
+								break;
+
+							case "char":
+								temp->getComponent(properties.at(y).at(0))->changeData(properties.at(y).at(x).at(1), x - 1);
+								break;
+
+							case "double":
+								temp->getComponent(properties.at(y).at(0))->changeData(static_cast<double>(properties.at(y).at(x)) - 48, x - 1);
+								break;
+
+							case "float":
+								temp->getComponent(properties.at(y).at(0))->changeData(static_cast<float>(properties.at(y).at(x)) - 48, x - 1);
+								break;
+
+							case "bool":
+								bool tOrF = false;
+								if (properties.at(y).at(x) == "true")
+									tOrF = true;
+								temp->getComponent(properties.at(y).at(0))->changeData(tOrF, x - 1);
+								break;
+
+							case "string":
+								temp->getComponent(properties.at(y).at(0))->changeData(properties.at(y).at(x), x - 1);
+								break;
+
+							case "Entity":
+								temp->getComponent(properties.at(y).at(0))->changeData(systemManager->getMaterial(properties.at(y).at(x)), x - 1);
+								break;
+
+							case "Texture":
+								temp->getComponent(properties.at(y).at(0))->changeData(assetManager->getTexture(properties.at(y).at(x)), x - 1);
+								break;
+
+							case "Image":
+								temp->getComponent(properties.at(y).at(0))->changeData(assetManager->getComponent(properties.at(y).at(x)), x - 1);
+								break;
+
+							case "Sound":
+								temp->getComponent(properties.at(y).at(0))->changeData(assetManager->getSound(properties.at(y).at(x)), x - 1);
+								break;
+
+							default:
+								temp->getComponent(properties.at(y).at(0))->changeData(properties.at(y).at(x), x - 1);
+
+							}
+						}
 					}
 					//Link the property.
 					else
@@ -208,7 +311,15 @@ int StateLoading::loadingUpdate(double totalTime)
 		}
 		else if (substrings.at(0) == "controller")
 		{
-			//I am not sure what to put for here.
+			vector<std::string> properties;
+			//Get id and required properties.
+
+			BaseController *temp = new /*Id*/();
+
+			vector<BaseComponent> components;
+			for (int i = 0; i < properties.size(); i++)
+				components.push_back(systemManager->getProperty(properties.at(i));
+
 		}
 		else if (substrings.at(0) == "state")
 		{
@@ -252,22 +363,19 @@ int StateLoading::loadingUpdate(double totalTime)
 			//Store
 			systemManager->add(temp);
 		}
-
-		//The process is not done.
-		return 0;
 	}
 
 	//the process is done.
 	else
 	{
-		return 1;
+		//change state.
 	}
 }
 
 
-void StateLoading::render(double lag, sf::RenderWindow w)
+void StateLoading::render(double lag, sf::RenderWindow window)
 {
-	w.clear;
+	window.clear;
 	for (int i = 0; i < material.size(); i++)
 	{
 		if (material.at(i)->hasController("draw"))
@@ -276,5 +384,5 @@ void StateLoading::render(double lag, sf::RenderWindow w)
 			controller->control(material.at(i));
 		}
 	}
-	w.display();
+	window.display();
 }

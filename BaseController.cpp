@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "BaseController.h"
+#include "Entity.h"
 
 
 BaseController::BaseController()
@@ -27,7 +28,9 @@ void BaseController::setId(std::string a)
 	return;
 }
 
-int BaseController::control()
-{
 
+void BaseController::setRequiredProperties(vector<std::BaseComponent*> *a)
+{
+	for (int i = 0; i < a->size(); i++)
+		requiredProperty.push_back(a->at(i));
 }

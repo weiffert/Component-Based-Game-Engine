@@ -3,15 +3,16 @@
 #include <vector>
 #include "Entity.h"
 #include "SystemManager.h"
+#include "AssetManager.h"
 #include "SFML\Graphics\RenderWindow.hpp"
+#include "SFML\Audio.hpp"
+#include "SFML\Graphics.hpp"
 
 class BaseState
 {
-private:
-
 public:
 	BaseState();
-	BaseState(SystemManager *);
+	BaseState(SystemManager *, AssetManager *);
 	~BaseState();
 	int getNumber();
 	std::string getId();
@@ -19,7 +20,7 @@ public:
 	void setNumber(int);
 	void setMaterial(std::vector<Entity*>);
 
-	virtual void update(double) = 0;
+	virtual void update(double, sf::RenderWindow) = 0;
 	virtual void render(double, sf::RenderWindow) = 0;
 
 protected:
@@ -27,4 +28,5 @@ protected:
 	std::vector<Entity*> material;
 	std::string id;
 	SystemManager* systemMananger;
+	AssetManager *assetManager;
 };

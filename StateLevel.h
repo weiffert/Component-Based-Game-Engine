@@ -1,18 +1,14 @@
 #pragma once
 #include "BaseState.h"
 #include "SystemManager.h"
+#include "AssetManager.h"
 
 class StateLevel :
 	public BaseState
 {
-private:
-
-	SystemManager* systemManager;
 
 public:
-	StateLevel(SystemManager*);
+	StateLevel(SystemManager*, AssetManager *);
 	~StateLevel();
-	void update(double, sf::RenderWindow);
-	void render(double, sf::RenderWindow);
 };
 

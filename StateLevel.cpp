@@ -1,18 +1,19 @@
 #include "stdafx.h"
 #include "StateLevel.h"
 #include "SystemManager.h"
+#include "AssetManager.h"
 #include "Game.h"
 #include "BaseState.h"
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
 #include "PlayerInput.h"
-//SFML includes
 
-StateLevel::StateLevel(SystemManager *s)
+StateLevel::StateLevel(SystemManager *s, AssetManager *a)
 {
 	id = "Level";
 	number = 3;
 	systemManager = s;
+	assetManager = a;
 }
 
 
