@@ -14,7 +14,6 @@ public:
 private:
 	std::vector<std::string> filenames;
 	std::vector<std::string> substrings;
-	int iteration;
 
 	std::string fileDeterminer();
 	void substringSorter();
