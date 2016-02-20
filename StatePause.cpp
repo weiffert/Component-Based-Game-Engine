@@ -57,22 +57,12 @@ void StatePause::update(double totalTime, sf::RenderWindow window)
 		//Checks if escape key pressed
 		if ((event.type = sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape))
 		{
-			BaseState::changeState(this, "Pause");
+			BaseState::changeState(this, "Menu");
 		}
 		//Run through the game controllers.
 		//Example: Checking for collisions
 		systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
 	}
-	//Check for arrow key and space bar events.
-		//Arrow keys for navigation, space bar for selecting.
-	//If arrow key event, change properties of the entities.
-		//One looses the selector property and one gains it. Only one will have the selector property at a time.
-	//If space bar event is the level,
-		//return 1;
-	//If the space bar event is menu,
-		//return 2;
-	//else
-		//return 0;
 }
 
 
