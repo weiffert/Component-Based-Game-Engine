@@ -1,6 +1,10 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "Entity.h"
+#include "BaseState.h"
+#include "BaseController.h"
+#include "BaseComponent.h"
 
 
 class SystemManager
@@ -8,10 +12,10 @@ class SystemManager
 public:
 	SystemManager();
 	~SystemManager();
-	void add(Entity*);
-	void add(BaseComponent *);
-	void add(BaseController *);
-	void add(BaseState*);
+	void addEntity(Entity*);
+	void addComponent(BaseComponent *);
+	void addController(BaseController *);
+	void addState(BaseState*);
 	void remove(Entity*);
 	void remove(BaseComponent*);
 	void remove(BaseController*);
@@ -22,7 +26,7 @@ public:
 	void deleteState(std::string);
 	void deleteState(int);
 	Entity* getMaterial(std::string);
-	std::vector<Entity*> getMaterial(StateManager*);
+	std::vector<Entity*> getMaterial(BaseState*);
 	BaseComponent* getComponent(std::string);
 	BaseController* getController(std::string);
 	BaseState* getState(std::string);

@@ -4,7 +4,7 @@
 template <class T>
 class Property
 {
-private:
+protected:
 	//contains the data in a vector style format.
 	std::vector<T> data;
 
@@ -73,7 +73,7 @@ void Property<T>::addData(T value)//adds value to existing data
 
 
 template <class T>
-void deleteData(T value)//subtracts value from existing data
+void Property<T>::deleteData(T value)//subtracts value from existing data
 {
 	for (int i = 0; i < data.size(); i++)
 	{
@@ -84,8 +84,8 @@ void deleteData(T value)//subtracts value from existing data
 	}
 }
 
-
-void deleteDataPosition(int position)//subtracts value from existing data
+template <class T>
+void Property<T>::deleteDataPosition(int position)//subtracts value from existing data
 {
 	if (position < data.size())
 	{
@@ -95,7 +95,7 @@ void deleteDataPosition(int position)//subtracts value from existing data
 
 
 template <class T>
-void changeData(T value, int position) //Value changes the data at position
+void Property<T>::changeData(T value, int position) //Value changes the data at position
 {
 	if (position < data.size())
 		data.at(position) = value;

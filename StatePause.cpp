@@ -1,6 +1,8 @@
+#include "stdafx.h"
 #include "StatePause.h"
 #include "SystemManager.h"
-//SFML includes
+#include "SFML\Window.hpp"
+
 
 
 StatePause::StatePause(SystemManager *s)
@@ -16,10 +18,10 @@ StatePause::~StatePause()
 }
 
 
-int StatePause::update(double totalTime)
+int StatePause::pauseUpdate(double totalTime)
 {
 	//Check for arrow key and space bar events
-	sf::Event event
+	sf::Event event;
 	while (window.pollEvent(event))
 	{
 		bool moveUp = false, moveDown = false, moveRight = false, moveLeft = false, spaceBarReleased = false;
@@ -42,15 +44,15 @@ int StatePause::update(double totalTime)
 		//Checks if left arrow key pressed
 		if ((event.type = sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Left))
 		{
-			moveLeft = true
+			moveLeft = true;
 		}
 		//Checks if space bar released
-		if ((event.type = sf::Event::KeyRelease) && (event.key.code == sf::Keyboard::Spacebar))
+		if ((event.type = sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Space))
 		{
 			spaceBarReleased = true;
 		}
 		//Checks if escape key pressed
-		if ((event.type = sf::Event::KeyRelease) && (event.key.code == sf::Keyboard::Escape))
+		if ((event.type = sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape))
 		{
 			BaseState::changeState(this, "Pause");
 		}
@@ -71,7 +73,7 @@ int StatePause::update(double totalTime)
 }
 
 
-void StatePause::render(double lag, sf::RenderWindow)
+void StatePause::render(double lag, sf::RenderWindow w)
 {
 	w.clear;
 	for (int i = 0; i < material.size(); i++)

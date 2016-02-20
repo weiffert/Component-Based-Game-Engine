@@ -7,7 +7,7 @@
 
 class Entity
 {
-private:
+protected:
 	std::string id;
 	std::vector<BaseComponent*> component;
 	std::vector<BaseController*> controller;
@@ -19,16 +19,16 @@ public:
 
 	void setId(std::string);
 
-	void add(BaseComponent*);
-	void add(BaseController*);
+	void addComponent(BaseComponent*);
+	void addController(BaseController*);
 
 	void remove(BaseComponent*);
 	void remove(BaseController*);
 	void deleteComponent(std::string);
 	void deleteController(std::string);
 
-	bool hasComponent();
-	bool hasController();
+	bool hasComponent(std::string);
+	bool hasController(std::string);
 
 	BaseComponent* getComponent(std::string);
 	BaseController* getController(std::string);

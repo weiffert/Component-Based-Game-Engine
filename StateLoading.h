@@ -10,10 +10,15 @@ public:
 	StateLoading(SystemManager *);
 	~StateLoading();
 
-private:
-	vector<std::string> filenames;
-	vector<std::string> substrings;
+	int loadingUpdate(double);
+	void render(double, sf::RenderWindow);
+
+protected:
+	std::vector<std::string> filenames;
+	std::vector<std::string> substrings;
 	int iteration;
+
+	SystemManager* systemManager;
 
 	std::string fileDeterminer();
 	void substringSorter();

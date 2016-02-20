@@ -26,3 +26,8 @@ void BaseController::setId(std::string a)
 	id = a;
 	return;
 }
+
+int BaseController::control()
+{
+
+}

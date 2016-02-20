@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "StateMenu.h"
 #include "SystemManager.h"
 //SFML includes
@@ -15,7 +16,7 @@ StateMenu::~StateMenu()
 }
 
 
-int StateMenu::update(double totalTime)
+int StateMenu::menuUpdate(double totalTime)
 {
 	//Check for arrow key and space bar events.
 		//Arrow keys for navigation, space bar for selecting.
@@ -30,7 +31,7 @@ int StateMenu::update(double totalTime)
 }
 
 
-void StateMenu::render(double lag, sf::RenderWindow)
+void StateMenu::render(double lag, sf::RenderWindow w)
 {
 	w.clear;
 	for (int i = 0; i < material.size(); i++)

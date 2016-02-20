@@ -1,8 +1,10 @@
+#include "stdafx.h"
 #include "StateLevel.h"
 #include "SystemManager.h"
+#include "Game.h"
 #include "BaseState.h"
 #include "SFML\Audio.hpp"
-#include "SFML\Grahpics.hpp"
+#include "SFML\Graphics.hpp"
 #include "PlayerInput.h"
 //SFML includes
 
@@ -22,7 +24,7 @@ StateLevel::~StateLevel()
 void StateLevel::update(double totalTime, sf::RenderWindow window)
 {
 	//Check for arrow key and space bar events
-	sf::Event event
+	sf::Event event;
 	while (window.pollEvent(event))
 	{
 		bool moveUp = false, moveDown = false, moveRight = false, moveLeft = false, spaceBarReleased = false;
@@ -48,12 +50,12 @@ void StateLevel::update(double totalTime, sf::RenderWindow window)
 			moveLeft = true
 		}
 		//Checks if space bar released
-		if ((event.type = sf::Event::KeyRelease) && (event.key.code == sf::Keyboard::Spacebar))
+		if ((event.type = sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Space))
 		{
 			spaceBarReleased = true;
 		}
 		//Checks if escape key pressed
-		if ((event.type = sf::Event::KeyRelease) && (event.key.code == sf::Keyboard::Escape))
+		if ((event.type = sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape))
 		{
 			BaseState::changeState(this,"Pause");
 		}

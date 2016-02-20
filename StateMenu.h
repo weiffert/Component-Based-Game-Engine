@@ -4,8 +4,16 @@
 class StateMenu :
 	public BaseState
 {
+private:
+
+	SystemManager* systemManager;
+
 public:
 	StateMenu(SystemManager *);
 	~StateMenu();
+
+	int menuUpdate(double);
+	void render(double, sf::RenderWindow);
+
 };
 

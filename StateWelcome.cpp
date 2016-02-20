@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "StateWelcome.h"
 #include "SystemManager.h"
 //SFML includes
@@ -14,7 +15,7 @@ StateWelcome::~StateWelcome()
 {
 }
 
-int StateWelcome::update(double totalTime)
+int StateWelcome::welcomeUpdate(double totalTime)
 {
 	if (totalTime > 5)
 		return 1;
@@ -26,7 +27,7 @@ int StateWelcome::update(double totalTime)
 }
 
 
-void StateWelcome::render(double lag, sf::RenderWindow)
+void StateWelcome::render(double lag, sf::RenderWindow w)
 {
 	w.clear;
 	for (int i = 0; i < material.size(); i++)

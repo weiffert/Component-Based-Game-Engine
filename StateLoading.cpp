@@ -1,4 +1,10 @@
+#include "stdafx.h"
 #include "StateLoading.h"
+#include "StateWelcome.h"
+#include "StateEnd.h"
+#include "StateMenu.h"
+#include "StatePause.h"
+#include "StateLevel.h"
 #include "Property.h"
 #include "Entity.h"
 #include "BaseController.h"
@@ -6,7 +12,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-//SFML includes
+#include "SFML\Window.hpp"
 
 
 StateLoading::StateLoading(SystemManager *s)
@@ -85,7 +91,7 @@ void StateLoading::substringSorter()
 }
 
 
-int StateLoading::update(double totalTime)
+int StateLoading::loadingUpdate(double totalTime)
 {
 	if (substrings.size() != 0)
 	{
@@ -100,19 +106,18 @@ int StateLoading::update(double totalTime)
 		
 
 		//Determine the operation.
-		switch (substrings.at(0))
+		if (substrings.at(0) == "property")
 		{
-		case "property":
 			std::vector<std::string> data;
 			std::string type;
 
 			//Read data and take in these values. Includes id
-			
+
 			//Read entire file
-			while(!file.eof())
+			while (!file.eof())
 			{
 				file >> word;
-				while(word != ";") //Read until the end of the line
+				while (word != ";") //Read until the end of the line
 				{
 					if (lineNumber == 1)
 						id = word;
@@ -136,27 +141,28 @@ int StateLoading::update(double totalTime)
 				temp->addData(data.at(i));
 
 			//Store.
-			systemManager.add(temp);
+			systemManager->add(temp);
 
-			break;
-		case "entity":
+		}
+		else if (substrings.at(0) == "entity")
+		{
 			std::vector<std::vector<std::string>>properties;   //The first vector is for holding all properties. The second is for holding id 
 				//and data of the properties.
 
 			//Read data and take in these values. Includes id.
-			while(!file.eof())
+			while (!file.eof())
 			{
 				file >> word;
-				while(word != ";") //Read until the end of the line
+				while (word != ";") //Read until the end of the line
 				{
 					if (lineNumber == 1)
 						id = word;
 					if (lineNumber > 1)
 					{
 						if (wordNumber == 1)
-						properties.at(lineNumber - 1).at(wordNumber - 1);
+							properties.at(lineNumber - 1).at(wordNumber - 1);
 					}
-					
+
 					file >> word;
 					wordNumber++;
 				}
@@ -197,14 +203,15 @@ int StateLoading::update(double totalTime)
 			}
 
 			//Store.
-			systemManager.add(temp);
+			systemManager->add(temp);
 
-			break;
-		case "controller":
+		}
+		else if (substrings.at(0) == "controller")
+		{
 			//I am not sure what to put for here.
-			break;
-
-		case "state":
+		}
+		else if (substrings.at(0) == "state")
+		{
 			std::string number;
 			int intNumber;
 			BaseState *temp;
@@ -212,10 +219,10 @@ int StateLoading::update(double totalTime)
 			//read data and take in values. Includes id.
 
 			//Determine the state.
-			intNumber = static_cast<int>(number)-48;
+			intNumber = static_cast<int>(atoi(number.c_str))-48;
 
 			//Create
-			switch (number)
+			switch (intNumber)
 			{
 			case 1:
 				temp = new StateLoading();
@@ -243,7 +250,7 @@ int StateLoading::update(double totalTime)
 			temp->setMaterial(systemManager->getMaterial(temp));
 
 			//Store
-			systemManager.add(temp);
+			systemManager->add(temp);
 		}
 
 		//The process is not done.
@@ -258,7 +265,7 @@ int StateLoading::update(double totalTime)
 }
 
 
-void StateLoading::render(double lag, sf::RenderWindow)
+void StateLoading::render(double lag, sf::RenderWindow w)
 {
 	w.clear;
 	for (int i = 0; i < material.size(); i++)

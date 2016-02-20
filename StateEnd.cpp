@@ -16,7 +16,7 @@ StateEnd::~StateEnd()
 }
 
 
-int StateEnd::update(double totalTime)
+int StateEnd::endUpdate(double totalTime)
 {
 	//this could reinitialize the levels.
 }

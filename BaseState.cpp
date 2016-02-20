@@ -1,7 +1,12 @@
+#include "stdafx.h"
 #include "BaseState.h"
 #include "SystemManager.h"
 #include <string>
 
+
+BaseState::BaseState()
+{
+}
 
 BaseState::BaseState(SystemManager *s)
 {
@@ -41,7 +46,7 @@ void BaseState::setNumber(int a)
 }
 
 
-void BaseState::setMaterial(vector<Entity*> a)
-{
+void BaseState::setMaterial(std::vector<Entity*> a)
+                                    {
 	material = a;
 }

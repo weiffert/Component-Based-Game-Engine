@@ -1,6 +1,7 @@
-//includes
+#include "stdafx.h"
 #include "Game.h"
 #include "SystemManager.h"
+#include "StateLoading.h"
 #include <time.h>
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
@@ -23,9 +24,9 @@ int Game::run()
 {
 	//Enter Desired Game name and resolution into the render window functions
 	//Considering reading window name and resolution from a file.
-	sf::RenderWindow gameWindow(sf::VideoMode(windowResolution.x, windowResolution.y), gameName)
+	
 
-	state = new *StateLoading (systemManager);
+	state = new StateLoading* (systemManager);
 	systemManager->addState(state);
 	exitCode = gameLoop();
 	//cleanup
@@ -38,13 +39,13 @@ int Game::gameLoop()
 	bool running = true;
 	int changeStateFlag = 1;
 	//initialize time keepers
-	double totaltime = 0.0;
+	double totalTime = 0.0;
 	double frameRate = 0.01;
 
 	double lag = 0.0;
 	double currentTime = time(NULL);
 
-	while(window.isOpen())
+	while(gameWindow.isOpen())
 	{
 		//initialize current time keepers
 		double newTime = time(NULL);
@@ -60,7 +61,7 @@ int Game::gameLoop()
 		while (lag >= frameRate)
 		{
 			//update
-			changeStateFlag = state->update(totaltime);
+			changeStateFlag = state->update(totalTime);
 			//decrement current time keepers
 			totalTime += frameRate;
 			lag -= frameRate;
@@ -103,8 +104,8 @@ int Game::gameLoop()
 	return exitCode;
 }
 
-/*
-Be put in a controller.
+
+//Be put in a controller.
 //Exceptions are thrown in the getState.
 void Game::changeState(BaseState *a)
 {
@@ -125,4 +126,3 @@ void Game::changeState(BaseState *a, int i)
 {
 	a = systemManager->getState(i);
 }
-*/

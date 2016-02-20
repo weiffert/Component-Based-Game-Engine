@@ -11,16 +11,19 @@ public:
 	int run();
 	
 private:
-	bool isRunning;
-	int exitCode;
-	std::string gameName;
-	sf::vector2i windowResolution;
-	*BaseState state;
-	*BaseState stateLast;
-	*SystemManager systemManager;
-
 	int gameLoop();
 	void changeState(BaseState*);
 	void changeState(BaseState*, int);
-	void changeState(BaseState, std::string);
+	void changeState(BaseState*, std::string);
+
+protected:
+	bool isRunning;
+	int exitCode;
+	std::string gameName;
+	sf::Vector2i windowResolution;
+	BaseState* state;
+	BaseState* stateLast;
+	SystemManager* systemManager;
+
+	sf::RenderWindow gameWindow{ sf::VideoMode(windowResolution.x, windowResolution.y), gameName };
 };

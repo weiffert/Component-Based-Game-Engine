@@ -48,7 +48,7 @@ void Entity::remove(BaseComponent *a)
 	{
 		if (component.at(i) == a)
 		{
-			delete *component.at(i);
+			delete component.at(i);
 			component.erase(i);
 		}
 	}
@@ -57,12 +57,12 @@ void Entity::remove(BaseComponent *a)
 
 void Entity::remove(BaseController *a)
 {
-	for (int i = 0; i < component.size(); i++)
+	for (int i = 0; i < controller.size(); i++)
 	{
-		if (component.at(i) == a)
+		if (controller.at(i) == a)
 		{
-			delete *component.at(i);
-			component.erase(i);
+			delete controller.at(i);
+			controller.erase(i);
 		}
 	}
 }
@@ -74,7 +74,7 @@ void Entity::deleteComponent(std::string id)
 	{
 		if (component.at(i)->getId() == id)
 		{
-			delete *component.at(i);
+			delete component.at(i);
 			component.erase(i);
 		}
 	}
@@ -83,12 +83,12 @@ void Entity::deleteComponent(std::string id)
 
 void Entity::deleteController(std::string id)
 {
-	for (int i = 0; i < component.size(); i++)
+	for (int i = 0; i < controller.size(); i++)
 	{
-		if (component.at(i)->getId() == id)
+		if (controller.at(i)->getId() == id)
 		{
-			delete *component.at(i);
-			component.erase(i);
+			delete controller.at(i);
+			controller.erase(i);
 		}
 	}
 }

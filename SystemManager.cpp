@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "SystemManager.h"
+#include "Entity.h"
+#include "BaseState.h"
 #include <vector>
 
 
@@ -18,7 +20,7 @@ SystemManager::~SystemManager()
   }
   
   //Delete Entities
-  for(int i = 0 i < material.size(); i++)
+  for (int i = 0; i < material.size(); i++)
   {
   	delete material.at(i);
   	material.at(i) = nullptr;
@@ -41,28 +43,28 @@ SystemManager::~SystemManager()
 
 
 //Add a vector of entities.
-void SystemManager::add(Entity* a)
+void SystemManager::addEntity(Entity* a)
 {
 	material.push_back(a);
 }
 
 
 //Add a BaseComponent.
-void SystemManager::add(BaseComponent* a)
+void SystemManager::addComponent(BaseComponent* a)
 {
 	component.push_back(a);
 }
 
 
 //Add a BaseController.
-void SystemManager::add(BaseController* a)
+void SystemManager::addController(BaseController* a)
 {
 	controller.push_back(a);
 }
 
 
 //Add a State.
-void SystemManager::add(BaseState* a)
+void SystemManager::addState(BaseState* a)
 {
 	state.push_back(a);
 }
@@ -72,11 +74,11 @@ void SystemManager::add(BaseState* a)
 //Deletes an Entity. 
 void SystemManager::remove(Entity* a)
 {
-	for (search = 0; search < material.size(); search++)
+	for (int search = 0; search < material.size(); search++)
 	{
-		if (material.at(search)->getID == a)
+		if (material.at(search)->getId == a)
 		{
-			delete *material.at(search);
+			delete material.at(search);
 			material.erase(search);
 		}
 	}
@@ -86,11 +88,11 @@ void SystemManager::remove(Entity* a)
 //Deletes a BaseComponent
 void SystemManager::remove(BaseComponent* a)
 {
-	for (search = 0; search < component.size(); search++)
+	for (int search = 0; search < component.size(); search++)
 	{
-		if (component.at(search)->getID == a)
+		if (component.at(search)->getId == a)
 		{
-			delete *component.at(search);
+			delete component.at(search);
 			component.erase(search);
 		}
 	}
@@ -100,11 +102,11 @@ void SystemManager::remove(BaseComponent* a)
 //Deletes a BaseController
 void SystemManager::remove(BaseController* a)
 {
-	for (search = 0; search < controller.size(); search++)
+	for (int search = 0; search < controller.size(); search++)
 	{
-		if (controller.at(search)->getID == a)
+		if (controller.at(search)->getId == a)
 		{
-			delete *controller.at(search);
+			delete controller.at(search);
 			controller.erase(search);
 		}
 	}
@@ -114,10 +116,10 @@ void SystemManager::remove(BaseController* a)
 //Deletes a BaseState
 void SystemManager::remove(BaseState* a)
 {
-	for (search = 0; search < state.size(); search++)
+	for (int search = 0; search < state.size(); search++)
 	{
 		if (state.at(search) == a)
-			delete *state.at(search);
+			delete state.at(search);
 	}
 }
 
@@ -126,11 +128,11 @@ void SystemManager::remove(BaseState* a)
 //Delete an entity.
 void SystemManager::deleteMaterial(std::string a)
 {
-	for (search = 0; search < material.size(); search++)
+	for (int search = 0; search < material.size(); search++)
 	{
-		if (material.at(search)->getID == a)
+		if (material.at(search)->getId == a)
 		{
-			delete *material.at(search);
+			delete material.at(search);
 			material.erase(search);
 		}
 	}
@@ -140,11 +142,11 @@ void SystemManager::deleteMaterial(std::string a)
 //Delete a BaseComponent.
 void SystemManager::deleteComponent(std::string a)
 {
-	for (search = 0; search < component.size(); search++)
+	for (int search = 0; search < component.size(); search++)
 	{
-		if (component.at(search)->getID == a)
+		if (component.at(search)->getId == a)
 		{
-			delete *component.at(search);
+			delete component.at(search);
 			component.erase(search);
 		}
 	}
@@ -154,11 +156,11 @@ void SystemManager::deleteComponent(std::string a)
 //Delete a BaseController.
 void SystemManager::deleteController(std::string a)
 {
-	for (search = 0; search < controller.size(); search++)
+	for (int search = 0; search < controller.size(); search++)
 	{
-		if (controller.at(search)->getID == a)
+		if (controller.at(search)->getId == a)
 		{
-			delete *controller.at(search);
+			delete controller.at(search);
 			controller.erase(search);
 		}
 	}
@@ -169,11 +171,11 @@ void SystemManager::deleteController(std::string a)
 void SystemManager::deleteState(std::string a)
 {
 
-	for (search = 0; search < state.size(); search++)
+	for (int search = 0; search < state.size(); search++)
 	{
 		if (state.at(search)->getId == a)
 		{
-			delete *state.at(search);
+			delete state.at(search);
 			state.erase(search);
 		}
 	}
@@ -184,11 +186,11 @@ void SystemManager::deleteState(std::string a)
 void SystemManager::deleteState(int a)
 {
 
-	for (search = 0; search < state.size(); search++)
+	for (int search = 0; search < state.size(); search++)
 	{
 		if (state.at(search)->getNumber == a)
 		{
-			delete *state.at(search);
+			delete state.at(search);
 			state.erase(search);
 		}
 	}
@@ -198,11 +200,11 @@ void SystemManager::deleteState(int a)
 //Returns a vector of entities that belong to the state.
 std::vector<Entity*> SystemManager::getMaterial(BaseState* a)
 {
-	vector<Entity*> tempVector;
+	std::vector<Entity*> tempVector;
 	bool contentFlag = false;
 	for(int i = 0; i < material.size(); i++)
 	{
-		if (materal.at(i)->getProperty("stateNumber")->getData().at(0) == a->getNumber())
+		if (material.at(i)->getProperty("stateNumber")->getData().at(0) == a->getNumber())
 		{
 			tempVector.push_back(material.at(i));
 			contentFlag = true;
@@ -262,10 +264,10 @@ BaseController* SystemManager::getController(std::string a)
 //Returns a state with the same id.
 BaseState* SystemManager::getState(std::string a)
 {
-	for (int i = 0; i < states.size(); i++)
+	for (int i = 0; i < state.size(); i++)
 	{
-		if (states.at(i)->getId() == a)
-			return states.at(i);
+		if (state.at(i)->getId() == a)
+			return state.at(i);
 	}
 
 	return nullptr;
@@ -275,10 +277,10 @@ BaseState* SystemManager::getState(std::string a)
 //Returns a state with the same number id.
 BaseState* SystemManager::getState(int a)
 {
-	for (int i = 0; i < states.size(); i++)
+	for (int i = 0; i < state.size(); i++)
 	{
-		if (states.at(i)->getNumber() == a)
-			return states.at(i);
+		if (state.at(i)->getNumber() == a)
+			return state.at(i);
 	}
 
 	return nullptr;

@@ -5,8 +5,12 @@
 class StateLevel :
 	public BaseState
 {
+private:
+
+	SystemManager* systemManager;
+
 public:
-	StateLevel(SystemManger *);
+	StateLevel(SystemManager*);
 	~StateLevel();
 	void update(double, sf::RenderWindow);
 	void render(double, sf::RenderWindow);

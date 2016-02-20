@@ -7,7 +7,7 @@
 
 class AssetManager : public BaseState
 {
-private:
+protected:
 
 	std::vector<sf::Image*> image; //hold images in a vector for each state in another vector.
 	std::vector<sf::Sound*> sound; //hold sounds in a vector for each state in another vector.
