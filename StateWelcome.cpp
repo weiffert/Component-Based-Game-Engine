@@ -23,7 +23,7 @@ StateWelcome::~StateWelcome()
 {
 }
 
-int StateWelcome::welcomeUpdate(double totalTime)
+int StateWelcome::update(double totalTime, sf::RenderWindow *window)
 {
 	if (totalTime > 5)
 		return 1;
@@ -32,19 +32,4 @@ int StateWelcome::welcomeUpdate(double totalTime)
 		sleep(0.1);
 		return 0;
 	}
-}
-
-
-void StateMenu::render(double lag, sf::RenderWindow window)
-{
-	window.clear;
-	for (int i = 0; i < material.size(); i++)
-	{
-		if (material.at(i)->hasController("draw"))
-		{
-			BaseController *controller = material.at(i)->getController("draw");
-			controller->control(material.at(i));
-		}
-	}
-	window.display();
 }

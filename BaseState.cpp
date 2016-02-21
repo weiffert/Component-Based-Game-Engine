@@ -62,20 +62,35 @@ void BaseState::setMaterial(std::vector<Entity*> a)
 }
 
 
-void Game::changeState(BaseState *a)
+void BaseState::changeState(BaseState *a)
 {
 	int tempInt = a->getNumber();
 	a = systemManager->getState(tempInt + 1);
 }
 
 
-void Game::changeState(BaseState *a, std::string s)
+void BaseState::changeState(BaseState *a, std::string s)
 {
 	a = systemManager->getState(s);
 }
 
 
-void Game::changeState(BaseState *a, int i)
+void BaseState::changeState(BaseState *a, int i)
 {
 	a = systemManager->getState(i);
+}
+
+
+void BaseState::render(double lag, sf::RenderWindow *window)
+{
+	window.clear;
+	for (int i = 0; i < material.size(); i++)
+	{
+		if (material.at(i)->hasController("Render"))
+		{
+			BaseController *controller = material.at(i)->getController("Render");
+			controller->control(window, &material.at(i));
+		}
+	}
+	window.display();
 }

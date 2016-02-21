@@ -119,7 +119,7 @@ void StateLoading::substringSorter()
 }
 
 
-void StateLoading::update(double totalTime, sf::RenderWindow window)
+void StateLoading::update(double totalTime, sf::RenderWindow *window)
 {
 	if (substrings.size() != 0)
 	{
@@ -391,19 +391,4 @@ void StateLoading::update(double totalTime, sf::RenderWindow window)
 	{
 		//change state.
 	}
-}
-
-
-void StateLoading::render(double lag, sf::RenderWindow window)
-{
-	window.clear;
-	for (int i = 0; i < material.size(); i++)
-	{
-		if (material.at(i)->hasController("draw"))
-		{
-			BaseController *controller = material.at(i)->getController("draw");
-			controller->control(material.at(i));
-		}
-	}
-	window.display();
 }

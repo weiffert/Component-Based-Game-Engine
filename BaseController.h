@@ -14,7 +14,7 @@ public:
 	void setId(std::string);
 	void setRequiredProperties(vector<BaseComponent*> *);
 
-private:
+protected:
 	std::string id;
 	std::vector<BaseComponent*> requiredProperty;
 };

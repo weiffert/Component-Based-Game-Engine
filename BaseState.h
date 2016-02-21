@@ -21,8 +21,8 @@ public:
 	void setNumber(int);
 	void setMaterial(std::vector<Entity*>);
 
-	virtual void update(double, sf::RenderWindow) = 0;
-	virtual void render(double, sf::RenderWindow) = 0;
+	virtual void update(double, sf::RenderWindow *) = 0;
+	void render(double, sf::RenderWindow *);
 
 protected:
 	int number;

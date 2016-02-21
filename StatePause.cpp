@@ -27,7 +27,7 @@ StatePause::~StatePause()
 }
 
 
-void StatePause::update(double totalTime, sf::RenderWindow window)
+void StatePause::update(double totalTime, sf::RenderWindow *window)
 {
 	//Check for arrow key and space bar events
 	sf::Event event;
@@ -69,19 +69,4 @@ void StatePause::update(double totalTime, sf::RenderWindow window)
 		//Example: Checking for collisions
 		systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
 	}
-}
-
-
-void StatePause::render(double lag, sf::RenderWindow window)
-{
-	window.clear;
-	for (int i = 0; i < material.size(); i++)
-	{
-		if (material.at(i)->hasController("draw"))
-		{
-			BaseController *controller = material.at(i)->getController("draw");
-			controller->control(material.at(i));
-		}
-	}
-	window.display();
 }

@@ -267,18 +267,3 @@ void StateEnd::update(double totalTime, sf::RenderWindow window)
 		}
 	}
 }
-
-
-void StateEnd::render(double lag, sf::RenderWindow window)
-{
-	window.clear;
-	for (int i = 0; i < material.size(); i++)
-	{
-		if (material.at(i)->hasController("draw"))
-		{
-			BaseController *controller = material.at(i)->getController("draw");
-			controller->control(material.at(i));
-		}
-	}
-	window.display();
-}

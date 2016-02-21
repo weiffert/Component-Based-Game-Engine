@@ -82,18 +82,3 @@ void StateLevel::update(double totalTime, sf::RenderWindow window)
 		systemManager->getController("GameEnd")->control(&material);
 	}
 }
-
-//Clears and Draws new frames to the game window
-void StateLevel::render(double lag, sf::RenderWindow window)
-{
-	window.clear;
-	for (int i = 0; i < material.size(); i++)
-	{
-		if (material.at(i)->hasController("Draw"))
-		{
-			BaseController *controller = material.at(i)->getController("Draw");
-			controller->control(material.at(i));
-		}
-	}
-	window.display();
-}
