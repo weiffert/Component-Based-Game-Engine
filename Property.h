@@ -4,7 +4,7 @@
 template <class T>
 class Property
 {
-protected:
+private:
 	//contains the data in a vector style format.
 	std::vector<T> data;
 

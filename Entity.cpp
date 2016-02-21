@@ -1,7 +1,9 @@
 #include "stdafx.h"
-#include "Entity.h"
+
 #include <string>
-#include "vector"
+#include <vector>
+
+#include "Entity.h"
 #include "BaseComponent.h"
 #include "BaseController.h"
 
@@ -30,13 +32,13 @@ void Entity::setId(std::string newId)
 }
 
 
-void Entity::addComponent(BaseComponent* newComponent)
+void Entity::add(BaseComponent* newComponent)
 {
 	component.push_back(newComponent);
 }
 
 
-void Entity::addController(BaseController* newComponent)
+void Entity::add(BaseController* newComponent)
 {
 	controller.push_back(newComponent);
 }

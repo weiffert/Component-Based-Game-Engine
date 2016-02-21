@@ -1,17 +1,18 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "Entity.h"
-#include "SystemManager.h"
-#include "AssetManager.h"
+
 #include "SFML\Graphics\RenderWindow.hpp"
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
 
+#include "Entity.h"
+#include "SystemManager.h"
+#include "AssetManager.h"
+
 class BaseState
 {
 public:
-	BaseState();
 	BaseState(SystemManager *, AssetManager *);
 	~BaseState();
 	int getNumber();
@@ -29,4 +30,8 @@ protected:
 	std::string id;
 	SystemManager* systemMananger;
 	AssetManager *assetManager;
+
+	void changeState(BaseState *);
+	void changeState(BaseState *, std::string);
+	void changeState(BaseState *, int);
 };

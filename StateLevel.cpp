@@ -1,12 +1,19 @@
 #include "stdafx.h"
-#include "StateLevel.h"
-#include "SystemManager.h"
-#include "AssetManager.h"
-#include "Game.h"
-#include "BaseState.h"
+
+#include <string>
+#include <vector>
+
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
 #include "PlayerInput.h"
+
+#include "StateLevel.h"
+#include "SystemManager.h"
+#include "AssetManager.h"
+#include "BaseState.h"
+#include "Entity.h"
+#include "Property.h"
+//include controllers
 
 StateLevel::StateLevel(SystemManager *s, AssetManager *a)
 {
@@ -58,7 +65,7 @@ void StateLevel::update(double totalTime, sf::RenderWindow window)
 		//Checks if escape key pressed
 		if ((event.type = sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape))
 		{
-			BaseState::changeState(this,"Pause");
+			BaseState::changeState(this, "Pause");
 		}
 		//Run through the game controllers.
 		//Example: Checking for collisions
@@ -82,9 +89,9 @@ void StateLevel::render(double lag, sf::RenderWindow window)
 	window.clear;
 	for (int i = 0; i < material.size(); i++)
 	{
-		if (material.at(i)->hasController("draw"))
+		if (material.at(i)->hasController("Draw"))
 		{
-			BaseController *controller = material.at(i)->getController("draw");
+			BaseController *controller = material.at(i)->getController("Draw");
 			controller->control(material.at(i));
 		}
 	}

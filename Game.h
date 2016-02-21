@@ -1,7 +1,13 @@
 #pragma once
-//includes
-#include "BaseState.h"
 #include <string>
+
+#include "SFML\Window.hpp"
+#include "SFML\Audio.hpp"
+#include "SFML\Graphics.hpp"
+
+#include "BaseState.h"
+#include "SystemManager.h"
+#include "AssetManager.h"
 
 class Game
 {
@@ -12,18 +18,13 @@ public:
 	
 private:
 	int gameLoop();
-	void changeState(BaseState*);
-	void changeState(BaseState*, int);
-	void changeState(BaseState*, std::string);
 
-protected:
-	bool isRunning;
 	int exitCode;
 	std::string gameName;
 	sf::Vector2i windowResolution;
 	BaseState* state;
-	BaseState* stateLast;
 	SystemManager* systemManager;
+	AssetManager* assetManager;
 
 	sf::RenderWindow gameWindow{ sf::VideoMode(windowResolution.x, windowResolution.y), gameName };
 };

@@ -1,4 +1,7 @@
 #include "stdafx.h"
+
+#include <string>
+
 #include "BaseComponent.h"
 
 

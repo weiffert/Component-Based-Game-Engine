@@ -1,16 +1,24 @@
 #include "stdafx.h"
-#include "Game.h"
-#include "SystemManager.h"
-#include "StateLoading.h"
-#include <time.h>
+
+#include <string>
+
+#include "SFML\Window.hpp"
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
+
+#include "Game.h"
+#include "BaseState.h"
+#include "SystemManager.h"
+#include "AssetManager.h"
+
 
 Game::Game(int width, int height, std::string name)
 {
 	windowResolution.x = width;
 	windowResolution.y = height;
 	gameName = name;
+	systemManager = new SystemManager();
+	assetManager = new AssetManager();
 }
 
 Game::~Game()
@@ -19,14 +27,9 @@ Game::~Game()
 }
 
 
-//Functions
 int Game::run()
 {
-	//Enter Desired Game name and resolution into the render window functions
-	//Considering reading window name and resolution from a file.
-	
-
-	state = new StateLoading* (systemManager);
+	state = new StateLoading* (systemManager, assetManager);
 	systemManager->addState(state);
 	exitCode = gameLoop();
 	//cleanup
@@ -61,68 +64,13 @@ int Game::gameLoop()
 		while (lag >= frameRate)
 		{
 			//update
-			changeStateFlag = state->update(totalTime);
+			changeStateFlag = state->update(totalTime, &gameWindow);
 			//decrement current time keepers
 			totalTime += frameRate;
 			lag -= frameRate;
 		}
 		//render with parameters.
 		state->render(lag/frameRate, &gameWindow);
-		
-		/*
-
-
-		Moved into the update functions.
-		enum changeState { quit = -1, stay = 0, change = 1, weird = 2};
-		switch(changeStateFlag)
-		{
-		case change:
-			switch (state->getNumber())
-			{
-			case 6:
-				stateLast = state;
-				changeState(state, stateLast->getNumber());
-				break;
-
-			default:
-				stateLast = state;
-				changeState(state);
-			}
-			break;
-
-		//Covers the second choice in StatePause.
-		case weird:
-			stateLast = state;
-			changeState(state, 3);
-			break;
-
-		case quit:
-			window.close();
-		}
-		*/
 	}
 	return exitCode;
-}
-
-
-//Be put in a controller.
-//Exceptions are thrown in the getState.
-void Game::changeState(BaseState *a)
-{
-	int tempInt = a->getNumber();
-	a = systemManager->getState(tempInt+1);
-}
-
-
-//Exceptions are thrown in the getState.
-void Game::changeState(BaseState *a, std::string s)
-{
-	a = systemManager->getState(s);
-}
-
-
-//Exceptions are thrown in the getState.
-void Game::changeState(BaseState *a, int i)
-{
-	a = systemManager->getState(i);
 }

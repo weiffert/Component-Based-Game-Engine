@@ -10,7 +10,8 @@ public:
 	~BaseComponent();
 	std::string getId();
 	void setId(std::string);
-private:
+
+protected:
 	std::string id;
 };
 

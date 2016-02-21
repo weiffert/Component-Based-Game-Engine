@@ -1,9 +1,15 @@
 #include "stdafx.h"
-#include "StateEnd.h"
-#include "AssetManager.h"
-#include "SystemManager.h"
+
+#include <vector>
+#include <string>
+
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
+
+#include "StateEnd.h"
+#include "BaseState.h"
+#include "SystemManager.h"
+#include "AssetManager.h"
 //SFML includes
 
 StateEnd::StateEnd(SystemManager *s, AssetManager *a)
@@ -12,6 +18,31 @@ StateEnd::StateEnd(SystemManager *s, AssetManager *a)
 	number = 4;
 	systemManager = s;
 	assetManager = a;
+
+	std::ifstream file("file.txt");
+	if (file.is_open())
+	{
+		std::string temp;
+		while (!file.eof())
+		{
+			if (temp == "Filenames")
+			{
+				while (temp != "Substrings" && !file.eof())
+				{
+					file >> temp;
+					filenames.push_back(temp);
+				}
+			}
+			if (temp == "Substrings")
+			{
+				while (temp != "Filenames" && !file.eof())
+				{
+					file >> temp;
+					filenames.push_back(temp);
+				}
+			}
+		}
+	}
 }
 
 

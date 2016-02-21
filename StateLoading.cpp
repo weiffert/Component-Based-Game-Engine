@@ -4,6 +4,10 @@
 #include <iostream>
 #include <fstream>
 
+#include "SFML\Window.hpp"
+#include "SFML\Audio.hpp"
+#include "SFML\Graphics.hpp"
+
 #include "BaseState.h"
 #include "StateLoading.h"
 #include "StateWelcome.h"
@@ -16,9 +20,6 @@
 #include "BaseController.h"
 #include "SystemManager.h"
 #include "AssetManager.h"
-#include "SFML\Window.hpp"
-#include "SFML\Audio.hpp"
-#include "SFML\Graphics.hpp"
 
 
 StateLoading::StateLoading(SystemManager *s, AssetManager *a)
@@ -28,10 +29,30 @@ StateLoading::StateLoading(SystemManager *s, AssetManager *a)
 	systemManager = s;
 	assetManager = a;
 
-	//read from the file of files document.
-		//store filenames in the filenames string.
-		//store substrings in the substring string.
-
+	std::ifstream file("file.txt");
+	if (file.is_open())
+	{
+		std::string temp;
+		while (!file.eof())
+		{
+			if (temp == "Filenames")
+			{
+				while (temp != "Substrings" && !file.eof())
+				{
+					file >> temp;
+					filenames.push_back(temp);
+				}
+			}
+			if (temp == "Substrings")
+			{
+				while (temp != "Filenames" && !file.eof())
+				{
+					file >> temp;
+					filenames.push_back(temp);
+				}
+			}
+		}
+	}
 	substringSorter();
 }
 
@@ -336,22 +357,22 @@ void StateLoading::update(double totalTime, sf::RenderWindow window)
 			switch (intNumber)
 			{
 			case 1:
-				temp = new StateLoading();
+				temp = new StateLoading(systemManager, assetManager);
 				break;
 			case 2:
-				temp = new StateWelcome();
+				temp = new StateWelcome(systemManager, assetManager);
 				break;
 			case 3:
-				temp = new StateMenu();
+				temp = new StateMenu(systemManager, assetManager);
 				break;
 			case 4:
-				temp = new StateLevel();
+				temp = new StateLevel(systemManager, assetManager);
 				break;
 			case 5:
-				temp = new StateEnd();
+				temp = new StateEnd(systemManager, assetManager);
 				break;
 			case 6:
-				temp = new StatePause();
+				temp = new StatePause(systemManager, assetManager);
 				break;
 			}
 

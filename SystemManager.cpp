@@ -1,8 +1,13 @@
 #include "stdafx.h"
+
+#include <string>
+#include <vector>
+
 #include "SystemManager.h"
 #include "Entity.h"
 #include "BaseState.h"
-#include <vector>
+#include "BaseController.h"
+#include "BaseComponent.h"
 
 
 SystemManager::SystemManager()

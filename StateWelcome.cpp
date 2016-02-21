@@ -1,7 +1,15 @@
 #include "stdafx.h"
-#include "StateWelcome.h"
+
+#include "SFML\Window.hpp"
+#include "SFML\Audio.hpp"
+#include "SFML\Graphics.hpp"
+
+#include "StatePause.h"
 #include "SystemManager.h"
-//SFML includes
+#include "AssetManager.h"
+#include "Property.h"
+#include "Entity.h"
+//include controllers.
 
 StateWelcome::StateWelcome(SystemManager *s)
 {
@@ -27,16 +35,16 @@ int StateWelcome::welcomeUpdate(double totalTime)
 }
 
 
-void StateWelcome::render(double lag, sf::RenderWindow w)
+void StateMenu::render(double lag, sf::RenderWindow window)
 {
-	w.clear;
+	window.clear;
 	for (int i = 0; i < material.size(); i++)
 	{
-		if (material.at(i)->hasComponent("draw"))
+		if (material.at(i)->hasController("draw"))
 		{
-			//Needs to be a drawable.
-			w.draw(material.at(i));
+			BaseController *controller = material.at(i)->getController("draw");
+			controller->control(material.at(i));
 		}
 	}
-	w.display();
+	window.display();
 }

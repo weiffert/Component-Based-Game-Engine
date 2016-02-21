@@ -1,8 +1,10 @@
 #pragma once
+#include <string>
+#include <vector>
+
 #include "BaseState.h"
 #include "SystemManager.h"
 #include "AssetManager.h"
-#include <string.h>
 
 class StateLoading :
 	public BaseState

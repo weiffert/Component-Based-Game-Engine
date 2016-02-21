@@ -1,9 +1,15 @@
 #include "stdafx.h"
-#include "StatePause.h"
-#include "SystemManager.h"
+
 #include "SFML\Window.hpp"
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
+
+#include "StatePause.h"
+#include "SystemManager.h"
+#include "AssetManager.h"
+#include "Property.h"
+#include "Entity.h"
+//include controllers.
 
 
 

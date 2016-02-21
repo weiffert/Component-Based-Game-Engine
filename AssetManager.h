@@ -1,5 +1,4 @@
 #pragma once
-#include "BaseState.h"
 #include <string>
 #include <vector>
 #include "SFML\Audio.hpp"
@@ -7,14 +6,12 @@
 
 class AssetManager : public BaseState
 {
-protected:
-
+private:
 	std::vector<sf::Image*> image; //hold images in a vector for each state in another vector.
 	std::vector<sf::Sound*> sound; //hold sounds in a vector for each state in another vector.
 	std::vector<sf::Texture*> texture; //hold textures in a vector for each state in another vector.
 
 public:
-
 	AssetManager();
 	~AssetManager(); //Destructor. Deletes the images and sounds.
 	sf::Image* getImage(int); //Returns an image for a property.

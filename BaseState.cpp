@@ -1,8 +1,16 @@
 #include "stdafx.h"
+
+#include <string>
+#include <vector>
+
+#include "SFML\Graphics\RenderWindow.hpp"
+#include "SFML\Audio.hpp"
+#include "SFML\Graphics.hpp"
+
 #include "BaseState.h"
+#include "Entity.h"
 #include "SystemManager.h"
 #include "AssetManager.h"
-#include <string>
 
 
 BaseState::BaseState()
@@ -49,6 +57,25 @@ void BaseState::setNumber(int a)
 
 
 void BaseState::setMaterial(std::vector<Entity*> a)
-                                    {
+{
 	material = a;
+}
+
+
+void Game::changeState(BaseState *a)
+{
+	int tempInt = a->getNumber();
+	a = systemManager->getState(tempInt + 1);
+}
+
+
+void Game::changeState(BaseState *a, std::string s)
+{
+	a = systemManager->getState(s);
+}
+
+
+void Game::changeState(BaseState *a, int i)
+{
+	a = systemManager->getState(i);
 }

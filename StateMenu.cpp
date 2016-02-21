@@ -1,8 +1,15 @@
 #include "stdafx.h"
-#include "StateMenu.h"
-#include "SystemManager.h"
+
+#include "SFML\Window.hpp"
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
+
+#include "StateMenu.h"
+#include "SystemManager.h"
+#include "AssetManager.h"
+#include "Property.h"
+#include "Entity.h"
+//include controllers.
 
 StateMenu::StateMenu(SystemManager *s, AssetManager *a)
 {

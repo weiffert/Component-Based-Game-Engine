@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+
 #include "BaseComponent.h"
 #include "BaseController.h"
 
@@ -15,12 +16,12 @@ protected:
 public:
 	Entity();
 	~Entity();
-	std::string getId();
 
+	std::string getId();
 	void setId(std::string);
 
-	void addComponent(BaseComponent*);
-	void addController(BaseController*);
+	void add(BaseComponent*);
+	void add(BaseController*);
 
 	void remove(BaseComponent*);
 	void remove(BaseController*);

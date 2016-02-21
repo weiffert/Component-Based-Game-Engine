@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include <string>
 #include <vector>
-#include "AssetManager.h"
-#include "BaseState.h"
+
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
+
+#include "AssetManager.h"
 
 
 AssetManager::AssetManager()
@@ -21,7 +22,7 @@ AssetManager::~AssetManager()
 
 sf::Image* AssetManager::getImage(int location) //Returns an image for a property.
 {
-	if (location < image.size())
+	if (location < image.size() && location >= 0)
 	{
 		return image.at(location);
 	}
@@ -32,7 +33,7 @@ sf::Image* AssetManager::getImage(int location) //Returns an image for a propert
 
 sf::Sound* AssetManager::getSound(int location) //Returns a sound for a property.
 {
-	if (location < sound.size())
+	if (location < sound.size()) && location >= 0)
 	{
 		return sound.at(location);
 	}
@@ -43,7 +44,7 @@ sf::Sound* AssetManager::getSound(int location) //Returns a sound for a property
 
 sf::Texture* AssetManager::getTexture(int location) //Returns a texture for a property.
 {
-	if (location < texture.size())
+	if (location < texture.size()) && location >= 0)
 	{
 		return texture.at(location);
 	}

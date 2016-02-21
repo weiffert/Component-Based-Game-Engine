@@ -1,6 +1,10 @@
 #include "stdafx.h"
+
+#include <string>;
+#include <vector>;
+
 #include "BaseController.h"
-#include "Entity.h"
+#include "BaseComponent.h"
 
 
 BaseController::BaseController()
@@ -29,7 +33,7 @@ void BaseController::setId(std::string a)
 }
 
 
-void BaseController::setRequiredProperties(vector<std::BaseComponent*> *a)
+void BaseController::setRequiredProperties(std::vector<std::BaseComponent*> *a)
 {
 	for (int i = 0; i < a->size(); i++)
 		requiredProperty.push_back(a->at(i));
