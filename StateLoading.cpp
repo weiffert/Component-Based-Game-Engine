@@ -163,7 +163,15 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			BaseComponent *temp;
 		
 			if (type == "int")
+			{
 				temp = new Property<int>();
+				std::vector<int> vectorInt;
+					for (int i = 0; i < data.size(); i++)
+					{
+						vectorInt.push_back(std::stoi(data.at(i)));
+					}
+			}
+				
 			else if (type == "char")
 				temp = new Property<char>();
 
