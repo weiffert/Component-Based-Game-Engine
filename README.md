@@ -1,6 +1,7 @@
 # Component-Based-Game-Engine
 This is a game engine designed to use entities and component based design.
 An implementation project will be missile command.
+Please refer to our project page: weiffert.com/Component-Based-Game-Engine
 
 What it is:
 A component-based game engine is based off of using properties to define an entity and controllers to control the entity.
