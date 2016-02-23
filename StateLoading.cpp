@@ -332,9 +332,23 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		}
 		else if (substrings.at(0) == "controller")
 		{
-			vector<std::string> properties;
+			std::vector<std::string> properties;
 			//Get id and required properties.
-
+			while (!file.eof())
+			{
+				file >> word;
+				while (word != ";") //Read until the end of the line
+				{
+					if (lineNumber == 1)
+						id = word;
+					if (lineNumber > 2)
+						properties.push_back(word);
+					file >> word;
+				}
+				//Increase line number
+				lineNumber++;
+			}
+			
 			BaseController *temp = new /*Id*/();
 
 			vector<BaseComponent> components;
@@ -349,6 +363,20 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			BaseState *temp;
 
 			//read data and take in values. Includes id.
+			while (!file.eof())
+			{
+				file >> word;
+				while (word != ";") //Read until the end of the line
+				{
+					if (lineNumber == 1)
+						id = word;
+					if (lineNumber > 2)
+							number = word;
+					file >> word;
+				}
+				//Increase line number
+				lineNumber++;
+			}
 
 			//Determine the state.
 			intNumber = static_cast<int>(atoi(number.c_str))-48;
