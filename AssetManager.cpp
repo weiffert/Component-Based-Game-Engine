@@ -33,7 +33,7 @@ sf::Image* AssetManager::getImage(int location) //Returns an image for a propert
 
 sf::Sound* AssetManager::getSound(int location) //Returns a sound for a property.
 {
-	if (location < sound.size()) && location >= 0)
+	if (location < sound.size() && location >= 0)
 	{
 		return sound.at(location);
 	}
@@ -44,7 +44,7 @@ sf::Sound* AssetManager::getSound(int location) //Returns a sound for a property
 
 sf::Texture* AssetManager::getTexture(int location) //Returns a texture for a property.
 {
-	if (location < texture.size()) && location >= 0)
+	if (location < texture.size() && location >= 0)
 	{
 		return texture.at(location);
 	}

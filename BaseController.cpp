@@ -33,7 +33,7 @@ void BaseController::setId(std::string a)
 }
 
 
-void BaseController::setRequiredProperties(std::vector<std::BaseComponent*> *a)
+void BaseController::setRequiredProperties(std::vector<BaseComponent*> *a)
 {
 	for (int i = 0; i < a->size(); i++)
 		requiredProperty.push_back(a->at(i));

@@ -55,7 +55,7 @@ void StateLevel::update(double totalTime, sf::RenderWindow window)
 		//Checks if left arrow key pressed
 		if ((event.type = sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Left))
 		{
-			moveLeft = true
+			moveLeft = true;
 		}
 		//Checks if space bar released
 		if ((event.type = sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Space))

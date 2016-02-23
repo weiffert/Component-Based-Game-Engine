@@ -12,6 +12,7 @@ class StateEnd :
 public:
 	StateEnd(SystemManager *, AssetManager *);
 	~StateEnd();
+	void update(double, sf::RenderWindow);
 
 private:
 	std::vector<std::string> filenames;
@@ -19,5 +20,7 @@ private:
 
 	std::string fileDeterminer();
 	void substringSorter();
+
+	SystemManager* systemManager;
 };
 

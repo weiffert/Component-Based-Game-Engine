@@ -12,7 +12,7 @@ public:
 	~BaseController();
 	std::string getId();
 	void setId(std::string);
-	void setRequiredProperties(vector<BaseComponent*> *);
+	void setRequiredProperties(std::vector<BaseComponent*> *);
 
 protected:
 	std::string id;

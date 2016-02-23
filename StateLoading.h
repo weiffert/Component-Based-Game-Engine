@@ -12,6 +12,7 @@ class StateLoading :
 public:
 	StateLoading(SystemManager *, AssetManager *);
 	~StateLoading();
+	void update(double, sf::RenderWindow *);
 
 private:
 	std::vector<std::string> filenames;
@@ -19,6 +20,8 @@ private:
 
 	std::string fileDeterminer();
 	void substringSorter();
+
+	SystemManager* systemManager;
 };
 
 

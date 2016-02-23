@@ -131,13 +131,13 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		//Determine the file to parse data from.
 		filename = fileDeterminer();
 		std::ifstream file (filename);
-		
+		std::string type;
 
 		//Determine the operation.
 		if (substrings.at(0) == "property")
 		{
 			std::vector<std::string> data;
-			std::string type;
+			
 
 			//Read data and take in these values. Includes id
 

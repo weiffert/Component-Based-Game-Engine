@@ -14,9 +14,9 @@ public:
 	SystemManager();
 	~SystemManager();
 	void addEntity(Entity*);
-	void addComponent(BaseComponent *);
-	void addController(BaseController *);
-	void addState(BaseState*);
+	void add(BaseComponent *);
+	void add(BaseController *);
+	void add(BaseState*);
 	void remove(Entity*);
 	void remove(BaseComponent*);
 	void remove(BaseController*);

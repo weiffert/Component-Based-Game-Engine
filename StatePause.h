@@ -6,9 +6,13 @@
 class StatePause :
 	public BaseState
 {
+private:
+
+	SystemManager* systemManager;
 
 public:
 	StatePause(SystemManager *, AssetManager *);
 	~StatePause();
+	void update(double, sf::RenderWindow*);
 };
 

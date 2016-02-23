@@ -6,9 +6,13 @@
 class StateMenu :
 	public BaseState
 {
+private:
+
+	SystemManager* systemManger;
 
 public:
 	StateMenu(SystemManager *, AssetManager *);
 	~StateMenu();
+	void update(double, sf::RenderWindow *);
 };
 

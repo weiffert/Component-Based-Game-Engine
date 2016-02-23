@@ -55,21 +55,21 @@ void SystemManager::addEntity(Entity* a)
 
 
 //Add a BaseComponent.
-void SystemManager::addComponent(BaseComponent* a)
+void SystemManager::add(BaseComponent* a)
 {
 	component.push_back(a);
 }
 
 
 //Add a BaseController.
-void SystemManager::addController(BaseController* a)
+void SystemManager::add(BaseController* a)
 {
 	controller.push_back(a);
 }
 
 
 //Add a State.
-void SystemManager::addState(BaseState* a)
+void SystemManager::add(BaseState* a)
 {
 	state.push_back(a);
 }

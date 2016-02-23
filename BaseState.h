@@ -13,6 +13,7 @@
 class BaseState
 {
 public:
+	BaseState();
 	BaseState(SystemManager *, AssetManager *);
 	~BaseState();
 	int getNumber();

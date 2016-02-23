@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D712DCB4-925E-4531-A561-018B5C4D8CE5}</ProjectGuid>
+    <ProjectGuid>{81DB2A93-6A34-4888-A27C-0DDF84917844}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>coolGameEngine</RootNamespace>
   </PropertyGroup>
@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -92,6 +92,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Property.h" />
+    <ClInclude Include="Render.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="StateEnd.h" />
     <ClInclude Include="StateLevel.h" />
@@ -112,6 +113,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Render.cpp" />
     <ClCompile Include="StateEnd.cpp" />
     <ClCompile Include="StateLevel.cpp" />
     <ClCompile Include="StateLoading.cpp" />

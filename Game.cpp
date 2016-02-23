@@ -30,7 +30,7 @@ Game::~Game()
 int Game::run()
 {
 	state = new StateLoading* (systemManager, assetManager);
-	systemManager->addState(state);
+	systemManager->add(state);
 	exitCode = gameLoop();
 	//cleanup
 	return exitCode;
