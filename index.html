@@ -35,9 +35,9 @@ This game engine has SFML DEPENDENCIES!</p>
 <a id="some-definitions" class="anchor" href="#some-definitions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some Definitions:</h1>
 
 <p>Entity: a class that holds properties and controllers. 
-Property: defines what an entity is, how it behaves, and others.
-Controller: makes the entity behave in a particular manner based on the properties the entity has.
-Game State: holds the entities for the current state and defines how the game updates.</p>
+<br/>Property: defines what an entity is, how it behaves, and others.
+<br/>Controller: makes the entity behave in a particular manner based on the properties the entity has.
+<br/>Game State: holds the entities for the current state and defines how the game updates.</p>
 
 <h1>
 <a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How it works:</h1>
@@ -79,8 +79,8 @@ Game State: holds the entities for the current state and defines how the game up
 <p>Edit properties: Create a new .txt with "property" (Without quotations) in the filename or open an existing one. Please be descriptive NO SPACES IN THE FILE NAME. Follow the format of:</p>
 
 <p>id ;
-type ;
-value value ;</p>
+<br/>type ;
+<br/>value value ;</p>
 
 <p>There should only be one line of values. If there is one, do "value ;" There should ALWAYS be a default value! If there are two or more, do "value value value ;" Have a space between values. 
 Type should be the name of the data type EXACTLY! C++ is case-sensitive. ALWAYS check the source code that the data type is currently used in the if/else statements in StateLoading and StatePause. Also, check if data type switching is available for the data type. If the data is not a standard data type or string, give ids for values.</p>
@@ -88,26 +88,26 @@ Type should be the name of the data type EXACTLY! C++ is case-sensitive. ALWAYS 
 <p>Edit entities: Create a new .txt with "entity" (Without quotations) in the filename or open an existing one. Please be descriptive NO SPACES IN THE FILE NAME. Follow the format of:</p>
 
 <p>id ;
-propertyId ;
-propertyId value value ;</p>
+<br/>propertyId ;
+<br/>propertyId value value ;</p>
 
 <p>Entites can have multiple properties. Using just the propertyId links the entity to the property with the default values. If other values are included, the entity takes in a copy of the same property and changes the values accordingly.</p>
 
 <p>Edit controllers: Two options: Edit an existing one or create a new controller.
-1. open the .cpp and .h file for the controller or edit the .txt file for the id and required properties. Edit accordingly.
+1. open the .cpp and .h file for the controller or edit the .txt file for the id and required properties. Edit accordingly.<br/>
 2. Just define a new .cpp and .h, write the constructor, destructor, and control function, and then link it to the proper game files. Then, create a new .txt file with "controller" in the name and no spaces. Follow the format of:</p>
 
 <p>id ;
-propertyId ;
-propertyId ;</p>
+<br/>propertyId ;
+<br/>propertyId ;</p>
 
 <p>PropertyId defines the properties that are required. 
-Then, you can use the new controller.</p>
+<br/>Then, you can use the new controller.</p>
 
 <p>Edit states: States only have an id and an identification number. The only way to edit what is in a state is to change entity properties with the id of "state", for this is what defines what is in a state. Follow the format of:</p>
 
 <p>id ;
-number ;</p>
+<br/>number ;</p>
 
 <p>This creates a new state. The number should be related to its position in game flow. For instance, level one goes before level two, but the main menu goes before all of that. There should only be one loading state! This will make duplicates of all of the entities, properties, controllers, and states everytime a new state is used! This tumbles the program into an INFINITE LOOP!!! Don't do it. </p>
 
