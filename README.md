@@ -3,7 +3,8 @@ This is a game engine designed to use entities and component based design.
 An implementation project will be missile command.
 
 What it is:
-A component-based game engine is based off of using properties to define an entity and controllers to control the entity. 
+A component-based game engine is based off of using properties to define an entity and controllers to control the entity.
+This game engine has SFML DEPENDENCIES!
 
 Some Definitions:
 Entity: a class that holds properties and controllers. 
@@ -47,7 +48,7 @@ type ;
 value value ;
 
 There should only be one line of values. If there is one, do "value ;" There should ALWAYS be a default value! If there are two or more, do "value value value ;" Have a space between values. 
-Type should be the name of the data type EXACTLY! C++ is case-sensitive. ALWAYS check the source code that the data type is currently used in the switch statements in StateLoading and StatePause. Also, check if data type switching is available for the data type.
+Type should be the name of the data type EXACTLY! C++ is case-sensitive. ALWAYS check the source code that the data type is currently used in the if/else statements in StateLoading and StatePause. Also, check if data type switching is available for the data type. If the data is not a standard data type or string, give ids for values.
 
 Edit entities: Create a new .txt with "entity" (Without quotations) in the filename or open an existing one. Please be descriptive NO SPACES IN THE FILE NAME. Follow the format of:
 
