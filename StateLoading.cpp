@@ -169,7 +169,9 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 					for (int i = 0; i < data.size(); i++)
 					{
 						vectorInt.push_back(std::stoi(data.at(i)));
+						temp->addData(vectorInt.at(i));
 					}
+				
 			}
 				
 			else if (type == "char")
@@ -189,6 +191,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "Entity")
 				temp = new Property<Entity>();	//Does this work?
+								//temp->getComponent(id) store this as data
 
 			else if (type == "Texture")
 				temp = new Property<sf::Texture>();
