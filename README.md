@@ -15,27 +15,27 @@ How it works:
 Properties, entities, controllers, and states are held by pointer handles in the SystemManager class. This allows multiple entities to have the same properties and controllers, and have multiple states have the same entities. Additionally, almost everything is passed by pointer references so that the game runs smoother, for data is not being copied, edited, and destroyed.
 
 Game Flow:
-The executable is launched.
-Main logs the time to a file.
-Reads data from a file.
-Creates a game.
-Runs the game.
-Game creates necessary classes and starts the game loop.
-Game starts with creating properties, entities, controllers, and states in that order with as much information coming from files as possible. These are stored in SystemManager.
-        Properties contain data. If it is an image, texture, or sound, then it gets the data from the AssetManager.
-        Entities contain properties and controllers.
-        States contain entities.
-        All of this data is gotten from the SystemManager.
-Game then moves to the next state and shows a welcome screen.
-Game then shows a menu.
-If play is selected, then the state moves to the level state and game play begins.
-        If escape is pressed, show the pause state.
-                If quit is selected, go to the menu.
-                If return is selected, go back to the game state.
-        If the game is done, show the kill screen.
-                Reinitialize the game level states.
-        Otherwise, continue.
-Else, quit the game.
+1. The executable is launched.
+2. Main logs the time to a file.
+3. Reads data from a file.
+4. Creates a game.
+5. Runs the game.
+6. Game creates necessary classes and starts the game loop.
+7. Game starts with creating properties, entities, controllers, and states in that order with as much information coming from files as possible. These are stored in SystemManager.
+8. Properties contain data. If it is an image, texture, or sound, then it gets the data from the AssetManager.
+9. Entities contain properties and controllers.
+10. States contain entities.
+11. All of this data is gotten from the SystemManager.
+12. Game then moves to the next state and shows a welcome screen.
+13. Game then shows a menu.
+14. If play is selected, then the state moves to the level state and game play begins.
+15. If escape is pressed, show the pause state.
+16. If quit is selected, go to the menu.
+17. If return is selected, go back to the game state.
+18. If the game is done, show the kill screen.
+19. Reinitialize the game level states.
+20. Otherwise, continue.
+21. Else, quit the game.
 
 Editing:
 Any new file that is added needs to be in the project folder. Its filename needs to be included into "file.txt". The substrings should NOT BE EDITED! No like class types should have the same id(in the case of everything) or number(in the case of states). This will make bad things happen! 
