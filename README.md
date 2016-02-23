@@ -7,13 +7,9 @@ A component-based game engine is based off of using properties to define an enti
 
 Some Definitions:
 Entity: a class that holds properties and controllers. 
-
 Property: defines what an entity is, how it behaves, and others.
-
 Controller: makes the entity behave in a particular manner based on the properties the entity has.
-
 Game State: holds the entities for the current state and defines how the game updates.
-
 
 How it works:
 Properties, entities, controllers, and states are held by pointer handles in the SystemManager class. This allows multiple entities to have the same properties and controllers, and have multiple states have the same entities. Additionally, almost everything is passed by pointer references so that the game runs smoother, for data is not being copied, edited, and destroyed.
