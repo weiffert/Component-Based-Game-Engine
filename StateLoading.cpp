@@ -164,7 +164,6 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		
 			if (type == "int")
 				temp = new Property<int>();
-
 			else if (type == "char")
 				temp = new Property<char>();
 
