@@ -87,6 +87,9 @@ void StateLoading::substringSorter()
 		std::string sub;
 		switch (i)
 		{
+		case 0:
+			sub = "png";
+			break;
 		case 1:
 			sub = "property";
 			break;
@@ -134,7 +137,14 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		std::string type;
 
 		//Determine the operation.
-		if (substrings.at(0) == "property")
+		if (substrings.at(0) == "png")
+		{
+			sf::Image *temp;
+			temp->loadFromFile(filename);
+			assetManager->add(temp);
+		}
+
+		else if (substrings.at(0) == "property")
 		{
 			std::vector<std::string> data;
 			
