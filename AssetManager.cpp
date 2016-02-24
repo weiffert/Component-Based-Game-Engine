@@ -53,19 +53,19 @@ sf::Texture* AssetManager::getTexture(int location) //Returns a texture for a pr
 }
 
 
-void AssetManager::addImage(sf::Image* newImage) //Adds an image to the vector for the state.
+void AssetManager::add(sf::Image* newImage) //Adds an image to the vector for the state.
 {
 	image.push_back(newImage);
 }
 
 
-void AssetManager::addSound(sf::Sound* newSound) //Adds a sound to the vector for the state.
+void AssetManager::add(sf::Sound* newSound) //Adds a sound to the vector for the state.
 {
 	sound.push_back(newSound);
 }
 
 
-void AssetManager::addTexture(sf::Texture* newTexture) //Adds an image to the vector for the state.
+void AssetManager::add(sf::Texture* newTexture) //Adds an image to the vector for the state.
 {
 	texture.push_back(newTexture);
 }
