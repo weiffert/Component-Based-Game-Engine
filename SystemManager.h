@@ -13,7 +13,7 @@ class SystemManager
 public:
 	SystemManager();
 	~SystemManager();
-	void addEntity(Entity*);
+	void add(Entity*);
 	void add(BaseComponent *);
 	void add(BaseController *);
 	void add(BaseState*);
