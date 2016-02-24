@@ -48,7 +48,7 @@ SystemManager::~SystemManager()
 
 
 //Add a vector of entities.
-void SystemManager::addEntity(Entity* a)
+void SystemManager::add(Entity* a)
 {
 	material.push_back(a);
 }
