@@ -69,6 +69,6 @@ void StateMenu::update(double totalTime, sf::RenderWindow *window)
 		}
 		//Run through the game controllers.
 		//Example: Checking for collisions
-		systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
+		//systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
 	}
 }

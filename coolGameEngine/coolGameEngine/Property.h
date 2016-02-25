@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "BaseComponent.h"
 
 template <class T>
 class Property : public BaseComponent

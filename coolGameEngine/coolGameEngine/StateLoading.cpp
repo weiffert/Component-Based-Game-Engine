@@ -80,13 +80,13 @@ std::string StateLoading::fileDeterminer()
 		if (filenames.at(i).find(substrings.at(0)) != std::string::npos)
 		{
 			std::string temp = filenames.at(i);
-			filenames.erase(i);
+			filenames.erase(filenames.begin()+i);
 			return temp;
 		}
 	}
 
 	//There are no filenames with this substring name, so it is done.
-	substrings.erase(0);
+	substrings.erase(substrings.begin());
 	return nullptr;
 }
 
