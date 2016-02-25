@@ -21,10 +21,6 @@ public:
 	void deleteData(T);
 	void deleteDataPosition(int);
 	void changeData(T, int);
-
-private:
-	//contains the data in a vector style format.
-	std::vector<T> data;
 };
 
 
