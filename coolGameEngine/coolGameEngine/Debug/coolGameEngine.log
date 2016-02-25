@@ -1,0 +1,508 @@
+﻿Build started 2/25/2016 9:53:24 AM.
+     1>Project "C:\Users\16kta01\Documents\Visual Studio 2013\Projects\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Kendrick\Documents\Visual Studio 2015\SFML-2.3.2\include" /I"C:\Users\16kta01\Documents\Visual Studio 2013\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\coolGameEngine.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BaseComponent.cpp BaseController.cpp BaseState.cpp Entity.cpp Game.cpp Render.cpp StateEnd.cpp StateLevel.cpp StateLoading.cpp StateMenu.cpp StatePause.cpp StateWelcome.cpp SystemManager.cpp main.cpp
+         main.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+         SystemManager.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(22): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(29): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(36): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(87): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(104): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(121): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(138): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(155): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(172): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(189): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(206): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(223): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(243): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(246): error C2663: 'std::vector<_Ty,_Alloc>::at' : 2 overloads have no legal conversion for 'this' pointer
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(250): error C2663: 'std::vector<_Ty,_Alloc>::at' : 2 overloads have no legal conversion for 'this' pointer
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(264): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(279): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(294): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(309): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.cpp(324): warning C4018: '<' : signed/unsigned mismatch
+         StateWelcome.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statewelcome.cpp(44): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
+         StatePause.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statepause.cpp(72): error C2039: 'control' : is not a member of 'BaseController'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecontroller.h(9) : see declaration of 'BaseController'
+         StateMenu.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statemenu.cpp(72): error C2039: 'control' : is not a member of 'BaseController'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecontroller.h(9) : see declaration of 'BaseController'
+         StateLoading.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statewelcome.h(6): error C2236: unexpected token 'class'. Did you forget a ';'?
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statewelcome.h(6): error C2143: syntax error : missing ';' before ':'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statewelcome.h(6): error C2059: syntax error : ':'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statewelcome.h(6): error C2059: syntax error : 'public'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statewelcome.h(7): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statewelcome.h(7): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(83): error C2664: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>> std::vector<std::string,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>)' : cannot convert argument 1 from 'int' to 'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>'
+                 with
+                 [
+                     _Ty=std::string
+                 ]
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(89): error C2664: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>> std::vector<std::string,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>)' : cannot convert argument 1 from 'int' to 'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>'
+                 with
+                 [
+                     _Ty=std::string
+                 ]
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(98): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(127): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<int>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(208) : see reference to class template instantiation 'Property<int>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(208): error C2259: 'Property<int>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(209): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(210): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<char>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(215) : see reference to class template instantiation 'Property<char>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(215): error C2259: 'Property<char>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(216): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(217): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<double>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(222) : see reference to class template instantiation 'Property<double>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(222): error C2259: 'Property<double>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(223): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(224): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<float>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(229) : see reference to class template instantiation 'Property<float>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(229): error C2259: 'Property<float>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(230): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(231): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<bool>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(236) : see reference to class template instantiation 'Property<bool>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(236): error C2259: 'Property<bool>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(242): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(243): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<std::string>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(248) : see reference to class template instantiation 'Property<std::string>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(248): error C2259: 'Property<std::string>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(250): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(251): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<Entity>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(256) : see reference to class template instantiation 'Property<Entity>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(256): error C2259: 'Property<Entity>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(259): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(260): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<sf::Texture>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(265) : see reference to class template instantiation 'Property<sf::Texture>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(265): error C2259: 'Property<sf::Texture>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(268): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(269): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<sf::Image>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(274) : see reference to class template instantiation 'Property<sf::Image>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(274): error C2259: 'Property<sf::Image>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(277): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(278): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\property.h(24): error C2555: 'Property<sf::Sound>::getData': overriding virtual function return type differs and is not covariant from 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17) : see declaration of 'BaseComponent::getData'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(283) : see reference to class template instantiation 'Property<sf::Sound>' being compiled
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(283): error C2259: 'Property<sf::Sound>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(286): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(287): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(292): error C2259: 'Property<std::string>' : cannot instantiate abstract class
+                 due to following members:
+                 'void BaseComponent::addData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21) : see declaration of 'BaseComponent::addData'
+                 'void BaseComponent::changeData(void)' : is abstract
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25) : see declaration of 'BaseComponent::changeData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(294): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(295): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(326): error C2275: 'std::vector<std::string,std::allocator<_Ty>>' : illegal use of this type as an expression
+                 with
+                 [
+                     _Ty=std::string
+                 ]
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(344): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(347): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(367): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(368): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(373): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(374): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(379): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(380): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(385): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(386): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(396): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(397): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(402): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(403): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(403): error C2228: left of '.at' must have class/struct/union
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(408): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(410): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(415): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(417): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(422): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(424): error C2039: 'getComponent' : is not a member of 'AssetManager'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\assetmanager.h(9) : see declaration of 'AssetManager'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(424): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(429): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(431): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(436): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(438): error C2039: 'addData' : is not a member of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(438): error C2228: left of '.at' must have class/struct/union
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(487): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(488): error C2039: 'getProperty' : is not a member of 'SystemManager'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.h(16) : see declaration of 'SystemManager'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(520): error C3867: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str': function call missing argument list; use '&std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str' to create a pointer to member
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateloading.cpp(529): error C2061: syntax error : identifier 'StateWelcome'
+         StateLevel.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\statelevel.cpp(8): fatal error C1083: Cannot open include file: 'PlayerInput.h': No such file or directory
+         StateEnd.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(22): error C2533: 'StateEnd::{ctor}' : constructors not allowed a return type
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(70): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(76): error C2664: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>> std::vector<std::string,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>)' : cannot convert argument 1 from 'int' to 'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>'
+                 with
+                 [
+                     _Ty=std::string
+                 ]
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(82): error C2664: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>> std::vector<std::string,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>)' : cannot convert argument 1 from 'int' to 'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>'
+                 with
+                 [
+                     _Ty=std::string
+                 ]
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(91): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(120): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(180): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(181): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(187): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(188): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(194): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(195): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(201): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(202): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(211): error C2039: 'getComponent' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(7) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(211): error C2065: 'properties' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(211): error C2228: left of '.at' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(211): error C2065: 'y' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(211): error C2227: left of '->addData' must point to class/struct/union/generic type
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(217): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(218): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(225): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(226): error C2039: 'add' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(7) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(226): error C2039: 'getEntity' : is not a member of 'SystemManager'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\systemmanager.h(16) : see declaration of 'SystemManager'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(226): error C2143: syntax error : missing ')' before ';'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(233): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(234): error C2039: 'add' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(7) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(234): error C2143: syntax error : missing ')' before ';'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(241): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(242): error C2039: 'add' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(7) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(242): error C2143: syntax error : missing ')' before ';'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(249): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(250): error C2039: 'add' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(7) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(250): error C2143: syntax error : missing ')' before ';'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(256): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(257): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(292): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(295): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(314): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(315): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(320): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(321): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(326): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(327): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(332): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(333): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(343): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(344): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(349): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(350): error C2143: syntax error : missing ')' before ';'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(350): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(355): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(357): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(362): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(364): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(369): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(371): error C2039: 'getComponent' : is not a member of 'AssetManager'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\assetmanager.h(9) : see declaration of 'AssetManager'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(371): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(376): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(378): error C2660: 'BaseComponent::addData' : function does not take 1 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(383): error C2039: 'deleteData' : is not a member of 'Entity'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.h(10) : see declaration of 'Entity'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(385): error C2039: 'addData' : is not a member of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\stateend.cpp(385): error C2143: syntax error : missing ')' before ';'
+         Render.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\render.cpp(45): error C2660: 'BaseComponent::changeData' : function does not take 2 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\render.cpp(46): error C2660: 'BaseComponent::changeData' : function does not take 2 arguments
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\render.cpp(80): error C2039: 'move' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(7) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\render.cpp(81): error C2664: 'void sf::RenderTarget::draw(const sf::Vertex *,size_t,sf::PrimitiveType,const sf::RenderStates &)' : cannot convert argument 1 from 'BaseComponent *' to 'const sf::Drawable &'
+                 Reason: cannot convert from 'BaseComponent *' to 'const sf::Drawable'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+         Game.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\game.cpp(18): error C2533: 'Game::{ctor}' : constructors not allowed a return type
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\game.cpp(57): warning C4244: 'initializing' : conversion from 'time_t' to 'double', possible loss of data
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\game.cpp(63): warning C4244: 'initializing' : conversion from 'time_t' to 'double', possible loss of data
+         Entity.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.cpp(58): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.cpp(75): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.cpp(92): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.cpp(109): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.cpp(127): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.cpp(142): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.cpp(157): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\entity.cpp(172): warning C4018: '<' : signed/unsigned mismatch
+         BaseState.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basestate.cpp(80): error C3867: 'sf::RenderTarget::clear': function call missing argument list; use '&sf::RenderTarget::clear' to create a pointer to member
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basestate.cpp(84): warning C4018: '<' : signed/unsigned mismatch
+         BaseController.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecontroller.cpp(42): warning C4018: '<' : signed/unsigned mismatch
+         BaseComponent.cpp
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2065: 'T' : undeclared identifier
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(17): error C2923: 'std::vector' : 'T' is not a valid template type argument for parameter '_Ty'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2146: syntax error : missing ';' before identifier 'getData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2433: 'BaseComponent::T' : 'virtual' not permitted on data declarations
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): warning C4183: 'getData': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(21): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(23): error C2535: 'void BaseComponent::deleteData(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(22) : see declaration of 'BaseComponent::deleteData'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(25): error C2061: syntax error : identifier 'T'
+     1>c:\users\16kta01\documents\visual studio 2013\projects\coolgameengine\coolgameengine\basecomponent.h(18): error C2253: 'BaseComponent::getData' : pure specifier or abstract override specifier only allowed on virtual function
+         Generating Code...
+     1>Done Building Project "C:\Users\16kta01\Documents\Visual Studio 2013\Projects\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:05.70
