@@ -38,7 +38,7 @@ sf::Image* AssetManager::getImage(int location)
 sf::Image* AssetManager::getImage(std::string filename)
 {
 	for (int i = 0; i < imageNames.size(); i++)
-		if (imageName.at(i) == filename)
+		if (imageNames.at(i) == filename)
 		{
 			if (i < image.size())
 				return image.at(i);
@@ -132,7 +132,7 @@ void AssetManager::add(sf::Texture* a)
 //Takes in a string.
 void AssetManager::addImageString(std::string a)
 {
-	imageName.push_back(a);
+	imageNames.push_back(a);
 }
 
 
@@ -140,7 +140,7 @@ void AssetManager::addImageString(std::string a)
 //Takes in a string.
 void AssetManager::addSoundString(std::string a)
 {
-	soundName.push_back(a);
+	soundNames.push_back(a);
 }
 
 
@@ -148,5 +148,5 @@ void AssetManager::addSoundString(std::string a)
 //Takes in a string.
 void AssetManager::addTextureString(std::string a)
 {
-	textureName.push_back(a);
+	textureNames.push_back(a);
 }
