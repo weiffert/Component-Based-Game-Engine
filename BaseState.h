@@ -13,6 +13,7 @@
 class BaseState
 {
 public:
+	BaseState();
 	BaseState(SystemManager *, AssetManager *);
 	~BaseState();
 
@@ -37,8 +38,8 @@ protected:
 	int number;
 	std::string id;
 	std::vector<Entity*> material;
-	SystemManager* systemMananger;
-	AssetManager *assetManager;
+	SystemManager* systemManager;
+	AssetManager* assetManager;
 
 	//Change the current state.
 	void changeState(BaseState *);

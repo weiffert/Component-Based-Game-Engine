@@ -11,6 +11,7 @@
 #include "Entity.h"
 #include "SystemManager.h"
 #include "AssetManager.h"
+#include "Render.h"
 
 
 BaseState::BaseState()
@@ -76,7 +77,7 @@ void BaseState::setMaterial(std::vector<Entity*> a)
 //Takes in the amount of time lag and the window.
 void BaseState::render(double lag, sf::RenderWindow *window)
 {
-	window.clear;
+	window->clear;
 
 	Render controller;
 	///Pass through all of the materials.
@@ -90,10 +91,10 @@ void BaseState::render(double lag, sf::RenderWindow *window)
 		}
 		*/
 		//Render the current entity.
-		controller->control(lag, window, &material.at(i));
+		controller.control(lag, window, material.at(i));
 	}
 
-	window.display();
+	window->display();
 }
 
 

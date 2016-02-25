@@ -2,7 +2,7 @@
 #include <vector>
 
 template <class T>
-class Property
+class Property : public BaseState
 {
 public:
 	//Allows for simpler data initialization.

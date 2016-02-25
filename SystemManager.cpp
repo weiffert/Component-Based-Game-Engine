@@ -154,7 +154,7 @@ void SystemManager::deleteMaterial(std::string a)
 {
 	for (int search = 0; search < material.size(); search++)
 	{
-		if (material.at(search)->getId() == a->getId())
+		if (material.at(search)->getId() == a)
 		{
 			//Remove the data.
 			delete material.at(search);
@@ -171,7 +171,7 @@ void SystemManager::deleteComponent(std::string a)
 {
 	for (int search = 0; search < component.size(); search++)
 	{
-		if (component.at(search)->getId() == a->getId())
+		if (component.at(search)->getId() == a)
 		{
 			//Remove the data.
 			delete component.at(search);
@@ -188,7 +188,7 @@ void SystemManager::deleteController(std::string a)
 {
 	for (int search = 0; search < controller.size(); search++)
 	{
-		if (controller.at(search)->getId() == a->getId())
+		if (controller.at(search)->getId() == a)
 		{
 			//Remove the data.
 			delete controller.at(search);
@@ -205,7 +205,7 @@ void SystemManager::deleteState(std::string a)
 {
 	for (int search = 0; search < state.size(); search++)
 	{
-		if (state.at(search)->getId() == a->getId())
+		if (state.at(search)->getId() == a)
 		{
 			//Remove the data.
 			delete state.at(search);
@@ -222,7 +222,7 @@ void SystemManager::deleteState(int a)
 {
 	for (int search = 0; search < state.size(); search++)
 	{
-		if (state.at(search)->getNumber() == a->getNumber())
+		if (state.at(search)->getNumber() == a)
 		{
 			//Remove the data.
 			delete state.at(search);
@@ -272,7 +272,7 @@ Entity * SystemManager::getMaterial(std::string a)
 	//Loops through all entities.
 	for (int i = 0; i < material.size(); i++)
 	{
-		if (material.at(i)->getId() == a->getId())
+		if (material.at(i)->getId() == a)
 			return material.at(i);
 	}
 
@@ -287,7 +287,7 @@ BaseComponent* SystemManager::getComponent(std::string a)
 	//Loops through all properties.
 	for (int i = 0; i < component.size(); i++)
 	{
-		if (component.at(i)->getId() == a->getId())
+		if (component.at(i)->getId() == a)
 			return component.at(i);
 	}
 
@@ -302,7 +302,7 @@ BaseController* SystemManager::getController(std::string a)
 	//Loops through all controllers.
 	for (int i = 0; i < controller.size(); i++)
 	{
-		if (controller.at(i)->getId() == a->getId())
+		if (controller.at(i)->getId() == a)
 			return controller.at(i);
 	}
 
@@ -317,7 +317,7 @@ BaseState* SystemManager::getState(std::string a)
 	//Loops through all game states.
 	for (int i = 0; i < state.size(); i++)
 	{
-		if (state.at(i)->getId() == a->getId())
+		if (state.at(i)->getId() == a)
 			return state.at(i);
 	}
 
@@ -332,7 +332,7 @@ BaseState* SystemManager::getState(int a)
 	//Loops through all game states.
 	for (int i = 0; i < state.size(); i++)
 	{
-		if (state.at(i)->getNumber() == a->getNumber())
+		if (state.at(i)->getNumber() == a)
 			return state.at(i);
 	}
 

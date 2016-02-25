@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{81DB2A93-6A34-4888-A27C-0DDF84917844}</ProjectGuid>
+    <ProjectGuid>{D712DCB4-925E-4531-A561-018B5C4D8CE5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>coolGameEngine</RootNamespace>
   </PropertyGroup>
@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

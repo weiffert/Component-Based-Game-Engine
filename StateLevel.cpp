@@ -33,11 +33,11 @@ StateLevel::~StateLevel()
 
 //Polls for events and calls the required controllers accordingly.
 //Takes in the total time elapsed and the window.
-void StateLevel::update(double totalTime, sf::RenderWindow window)
+void StateLevel::update(double totalTime, sf::RenderWindow* window)
 {
 	//Check for arrow key and space bar events
 	sf::Event event;
-	while (window.pollEvent(event))
+	while (window->pollEvent(event))
 	{
 		bool moveUp = false, moveDown = false, moveRight = false, moveLeft = false, spaceBarReleased = false;
 

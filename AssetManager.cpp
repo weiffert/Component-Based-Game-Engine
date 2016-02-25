@@ -61,7 +61,7 @@ sf::Sound* AssetManager::getSound(int location)
 
 //Takes in the location in the vector.
 //Returns a sound for a property.
-sf::Sound* AssetManager::getSound(std::string)
+sf::Sound* AssetManager::getSound(std::string location)
 {
 	if (location < sound.size() && location >= 0)
 	{

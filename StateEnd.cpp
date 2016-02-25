@@ -133,7 +133,7 @@ void StateLoading::substringSorter()
 }
 
 
-void StateEnd::update(double totalTime, sf::RenderWindow window)
+void StateEnd::update(double totalTime, sf::RenderWindow* window)
 {
 	if (substrings.size() != 0)
 	{

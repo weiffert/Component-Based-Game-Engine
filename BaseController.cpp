@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
-#include <string>;
-#include <vector>;
+#include <string>
+#include <vector>
 
 #include "BaseController.h"
 #include "BaseComponent.h"

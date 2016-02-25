@@ -3,6 +3,7 @@
 #include <vector>
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
+#include "BaseState.h"
 
 class AssetManager : public BaseState
 {

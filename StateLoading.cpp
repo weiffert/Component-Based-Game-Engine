@@ -20,6 +20,8 @@
 #include "BaseController.h"
 #include "SystemManager.h"
 #include "AssetManager.h"
+#include "BaseComponent.h"
+#include "Render.h"
 
 
 StateLoading::StateLoading(SystemManager *s, AssetManager *a)
@@ -172,10 +174,10 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		else if (substrings.at(0) == "property")
 		{
 			std::vector<std::string> data;
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 			//Read data and take in these values. Includes id
->>>>>>> origin/game-engine
+//>>>>>>> origin/game-engine
 
 			//Read entire file
 			while (!file.eof())
@@ -200,12 +202,13 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			//Create.
 			//BaseComponent is the parent class to the property class.
-			BaseComponent *temp;
+
+			BaseComponent*  temp;
 		
 			//Create a property based on the type.
 			if (type == "int")
 			{
-				temp = new Property<int>();
+				 temp = new Property<int>();
 					for (int i = 0; i < data.size(); i++)
 						temp->addData(std::stoi(data.at(i)));
 				
@@ -213,16 +216,16 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				
 			else if (type == "char")
 			{
-				temp = new Property<char>();
+				 temp = new Property<char>();
 				std::vector<char> vectorChar;
 					for (int i = 0; i < data.size(); i++)
-						temp->addData(data.at(i).c_str());
+						temp->addData(data.at(i).c_str);
 
 			}
 
 			else if (type == "double")
 			{
-				temp = new Property<double>();
+				 temp = new Property<double>();
 				std::vector<double> vectorDouble;
 				for(int i = 0; i < data.size(); i++)
 					temp->addData(std::stod(data.at(i)));
@@ -231,7 +234,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "float")
 			{
-				temp = new Property<float>();
+				 temp = new Property<float>();
 				for(int i = 0; i < data.size(); i++)
 					temp->addData(std::stof(data.at(i)));
 
@@ -240,7 +243,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//Rest of the statements are done.
 			else if (type == "bool")
 			{
-				temp = new Property<bool>();
+				 temp = new Property<bool>();
 
 				bool tOrF = false;
 				if (data.at(0) == "true")
@@ -250,7 +253,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "string")
 			{
-				temp = new Property<std::string>();
+				 temp = new Property<std::string>();
 
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(data.at(i));
@@ -258,43 +261,43 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "Entity")
 			{
-				temp = new Property<Entity>();
+				 temp = new Property<Entity>();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->add(systemManager->getEntity(data.at(i));
+					temp->add(systemManager->getEntity(data.at(i)));
 			}
 
 			else if (type == "Texture")
 			{
-				temp = new Property<sf::Texture>();
+				 temp = new Property<sf::Texture>();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->add(assetManager->getTexture(std::stoi(data.at(i)));
+					temp->add(assetManager->getTexture(std::stoi(data.at(i))));
 			}
 
 			else if (type == "Image")
 			{
-				temp = new Property<sf::Image>();
+				 temp = new Property<sf::Image>();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->add(assetManager->getTexture(data.at(i));
+					temp->add(assetManager->getTexture(stoi(data.at(i))));
 			}
 
 			else if (type == "Sound")
 			{
-				temp = new Property<sf::Sound>();
+				 temp = new Property<sf::Sound>();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->add(assetManager->getSound(data.at(i));
+					temp->add(assetManager->getSound(data.at(i)));
 			}
 
 			else
 			{
-				temp = new Property<std::string>();
+				 temp = new Property<std::string>();
 
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(data.at(i));
@@ -493,9 +496,9 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			}
 
 			//Get required properties.
-			vector<BaseComponent *> components;
+			std::vector<BaseComponent *> *components;
 			for (int i = 0; i < properties.size(); i++)
-				components.push_back(systemManager->getProperty(properties.at(i));
+				components->push_back(systemManager->getProperty(properties.at(i)));
 
 			//Set required properties.
 			temp->setRequiredProperties(components);
@@ -527,7 +530,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			//Determine the state.
 			//Does this work?
-			intNumber = static_cast<int>(atoi(number.c_str))-48);
+			intNumber = static_cast<int>(atoi(number.c_str) - 48);
 
 			//Create
 			switch (intNumber)
@@ -564,7 +567,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 	//the process is done.
 	else
 	{
-		BaseState::changeState(this, "Welcome")
+		BaseState::changeState(this, "Welcome");
 	}
 
 }
