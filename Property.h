@@ -17,6 +17,7 @@ public:
 
 	//Edit the data.
 	void addData(T);
+	void deleteData();
 	void deleteData(T);
 	void deleteDataPosition(int);
 	void changeData(T, int);
@@ -88,6 +89,18 @@ template <class T>
 void Property<T>::addData(T value)
 {
 	data.push_back(value);
+}
+
+
+//Subtracts value from existing data.
+//Takes in the data to be deleted.
+template <class T>
+void Property<T>::deleteData()
+{
+	for (int i = 0; i < data.size(); i++)
+	{
+		data.erase(i);
+	}
 }
 
 
