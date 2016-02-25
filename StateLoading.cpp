@@ -37,6 +37,7 @@ StateLoading::StateLoading(SystemManager *s, AssetManager *a)
 		std::string temp;
 		while (!file.eof())
 		{
+			file >> temp;
 			if (temp == "Filenames")
 			{
 				while (temp != "Substrings" && !file.eof())
@@ -171,6 +172,10 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		else if (substrings.at(0) == "property")
 		{
 			std::vector<std::string> data;
+<<<<<<< HEAD
+=======
+			//Read data and take in these values. Includes id
+>>>>>>> origin/game-engine
 
 			//Read entire file
 			while (!file.eof())
@@ -201,30 +206,34 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			if (type == "int")
 			{
 				temp = new Property<int>();
-				std::vector<int> vectorInt;
 					for (int i = 0; i < data.size(); i++)
-					{
-						vectorInt.push_back(std::stoi(data.at(i)));
-						temp->addData(vectorInt.at(i));
-					}
+						temp->addData(std::stoi(data.at(i)));
 				
 			}
 				
 			else if (type == "char")
 			{
 				temp = new Property<char>();
+				std::vector<char> vectorChar;
+					for (int i = 0; i < data.size(); i++)
+						temp->addData(data.at(i).c_str());
 
 			}
 
 			else if (type == "double")
 			{
 				temp = new Property<double>();
+				std::vector<double> vectorDouble;
+				for(int i = 0; i < data.size(); i++)
+					temp->addData(std::stod(data.at(i)));
 
 			}
 
 			else if (type == "float")
 			{
 				temp = new Property<float>();
+				for(int i = 0; i < data.size(); i++)
+					temp->addData(std::stof(data.at(i)));
 
 			}
 
