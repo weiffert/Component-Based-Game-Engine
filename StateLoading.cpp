@@ -172,10 +172,6 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		else if (substrings.at(0) == "property")
 		{
 			std::vector<std::string> data;
-<<<<<<< HEAD
-=======
-			//Read data and take in these values. Includes id
->>>>>>> origin/game-engine
 
 			//Read entire file
 			while (!file.eof())
@@ -206,27 +202,22 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			if (type == "int")
 			{
 				temp = new Property<int>();
-					for (int i = 0; i < data.size(); i++)
-						temp->addData(std::stoi(data.at(i)));
-				
+				for (int i = 0; i < data.size(); i++)
+					temp->addData(std::stoi(data.at(i)));
 			}
 				
 			else if (type == "char")
 			{
 				temp = new Property<char>();
-				std::vector<char> vectorChar;
-					for (int i = 0; i < data.size(); i++)
-						temp->addData(data.at(i).c_str());
-
+				for (int i = 0; i < data.size(); i++)
+					temp->addData(data.at(i).c_str());
 			}
 
 			else if (type == "double")
 			{
 				temp = new Property<double>();
-				std::vector<double> vectorDouble;
 				for(int i = 0; i < data.size(); i++)
 					temp->addData(std::stod(data.at(i)));
-
 			}
 
 			else if (type == "float")
@@ -234,10 +225,8 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				temp = new Property<float>();
 				for(int i = 0; i < data.size(); i++)
 					temp->addData(std::stof(data.at(i)));
-
 			}
 
-			//Rest of the statements are done.
 			else if (type == "bool")
 			{
 				temp = new Property<bool>();
@@ -298,7 +287,6 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(data.at(i));
-
 			}
 
 			//Edit.
@@ -312,7 +300,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		else if (substrings.at(0) == "entity")
 		{
 			//The first vector is for holding all properties. The second is for holding id and data of the properties.
-			std::vector<std::vector<std::string>>properties;   
+			std::vector<std::vector<std::string>>properties;
 
 			//Read in data.
 			while (!file.eof())
@@ -370,32 +358,28 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							//Needs to be converted to the proper type.
 							if (type == "int")
 							{
-								/*temp->getComponent(properties.at(y).at(0))->changeData
-									(static_cast<int>(properties.at(y).at(x)) - 48, x - 1);*/
-
+								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->addData(std::stoi(properties.at(y).at(x)));
 							}
 
 							else if (type == "char")
 							{
-								/*temp->getComponent(properties.at(y).at(0))->changeData
-									(properties.at(y).at(x).at(1), x - 1);*/
+								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x).c_str());
 							}
 
 							else if (type == "double")
 							{
-								/*temp->getComponent(properties.at(y).at(0))->changeData
-									(static_cast<double>(properties.at(y).at(x)) - 48, x - 1);*/
-
+								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->addData(std::stod(properties.at(y).at(x)));
 							}
 
 							else if (type == "float")
 							{
-								/*temp->getComponent(properties.at(y).at(0))->changeData
-									(static_cast<float>(properties.at(y).at(x)) - 48, x - 1);*/
-
+								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->addData(std::stof(properties.at(y).at(x)));
 							}
-							
-							//Rest of the statements are done.
+
 							else if (type == "bool")
 							{
 								bool tOrF = false;
@@ -403,57 +387,56 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 								if (properties.at(y).at(x) == "true")
 									tOrF = true;
 
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(tOrF, x - 1);
+								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->addData(tOrF);
 							}
-		
+
 							else if (type == "string")
 							{
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(properties.at(y).at(x), x - 1);
-
+								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x);
 							}
-				
+
 							else if (type == "Entity")
 							{
+								temp->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(systemManager->getMaterial(properties.at(y).at(x)), x - 1);
+								temp->getComponent(properties.at(y).at(x))->addData(systemManager->getMaterial(properties.at(y).at(x)));
 							}
-				
+
 							else if (type == "Texture")
 							{
+								temp->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(assetManager->getTexture(std::stoi(properties.at(y).at(x))), x - 1);
+								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getTexture(std::stoi(properties.at(y).at(x))));
 							}
-				
+
 							else if (type == "Image")
 							{
+								temp->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(assetManager->getComponent(properties.at(y).at(x)), x - 1);
+								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getComponent(properties.at(y).at(x)));
 							}
-				
+
 							else if (type == "Sound")
 							{
+								temp->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(assetManager->getSound(properties.at(y).at(x)), x - 1);
+								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getSound(properties.at(y).at(x)));
 							}
-				
+
 							else
 							{
+								temp->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(properties.at(y).at(x), x - 1);
+								temp->getComponent(properties.at(y).at(x)->addData(properties.at(y).at(x));
 							}
-						}
 					}
-
-					//Link the property.
 					else
+					{
+						//Link the property.
 						temp->add(systemManager->getComponent(properties.at(y).at(x)));
+					}
 				}
 			}
 
