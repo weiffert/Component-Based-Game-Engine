@@ -37,10 +37,12 @@ sf::Image* AssetManager::getImage(int location)
 //Returns an image for a property.
 sf::Image* AssetManager::getImage(std::string filename)
 {
-	if (filename)
-	{
-		return image.at(location);
-	}
+	for (int i = 0; i < imageNames.size(); i++)
+		if (imageName.at(i) == filename)
+		{
+			if (i < image.size())
+				return image.at(i);
+		}
 
 	return nullptr;
 }
@@ -59,14 +61,16 @@ sf::Sound* AssetManager::getSound(int location)
 }
 
 
-//Takes in the location in the vector.
-//Returns a sound for a property.
-sf::Sound* AssetManager::getSound(std::string location)
+//Takes in the filename.
+//Returns an image for a property.
+sf::Image* AssetManager::getSound(std::string filename)
 {
-	if (location < sound.size() && location >= 0)
-	{
-		return sound.at(location);
-	}
+	for (int i = 0; i < soundNames.size(); i++)
+		if (soundNames.at(i) == filename)
+		{
+			if (i < sound.size())
+				return sound.at(i);
+		}
 
 	return nullptr;
 }
@@ -85,25 +89,64 @@ sf::Texture* AssetManager::getTexture(int location)
 }
 
 
+//Takes in the filename.
+//Returns an image for a property.
+sf::Image* AssetManager::getTexture(std::string filename)
+{
+	for (int i = 0; i < textureNames.size(); i++)
+		if (textureNames.at(i) == filename)
+		{
+			if (i < texture.size())
+				return texture.at(i);
+		}
+
+	return nullptr;
+}
+
+
 //Adds an image to the vector for the state.
 //Takes in a image.
-void AssetManager::add(sf::Image* newImage)
+void AssetManager::add(sf::Image* a)
 {
-	image.push_back(newImage);
+	image.push_back(a);
 }
 
 
 //Adds a sound to the vector for the state.
 //Takes in a sound.
-void AssetManager::add(sf::Sound* newSound)
+void AssetManager::add(sf::Sound* a)
 {
-	sound.push_back(newSound);
+	sound.push_back(a);
 }
 
 
 //Adds an image to the vector for the state.
 //Takes in a texture.
-void AssetManager::add(sf::Texture* newTexture) 
+void AssetManager::add(sf::Texture* a) 
 {
-	texture.push_back(newTexture);
+	texture.push_back(a);
+}
+
+
+//Adds a name to be linked with the image.
+//Takes in a string.
+void AssetManager::addImageString(std::string a)
+{
+	imageName.push_back(a);
+}
+
+
+//Adds a name to be linked with the sound.
+//Takes in a string.
+void AssetManager::addSoundString(std::string a)
+{
+	soundName.push_back(a);
+}
+
+
+//Adds a name to be linked with the texture.
+//Takes in a string.
+void AssetManager::addTextureString(std::string a)
+{
+	textureName.push_back(a);
 }

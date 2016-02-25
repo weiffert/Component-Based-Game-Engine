@@ -168,19 +168,13 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			sf::Image *temp;
 			temp->loadFromFile(filename);
 			assetManager->add(temp);
+			assetManager->addImageString(filename);
 		}
 
 		//If it is a property.
 		else if (substrings.at(0) == "property")
 		{
 			std::vector<std::string> data;
-<<<<<<< HEAD
-//<<<<<<< HEAD
-//=======
-			//Read data and take in these values. Includes id
-//>>>>>>> origin/game-engine
-=======
->>>>>>> origin/game-engine
 
 			//Read entire file
 			while (!file.eof())
@@ -211,41 +205,21 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//Create a property based on the type.
 			if (type == "int")
 			{
-<<<<<<< HEAD
 				 temp = new Property<int>();
 					for (int i = 0; i < data.size(); i++)
 						temp->addData(std::stoi(data.at(i)));
-				
-=======
-				temp = new Property<int>();
-				for (int i = 0; i < data.size(); i++)
-					temp->addData(std::stoi(data.at(i)));
->>>>>>> origin/game-engine
 			}
 				
 			else if (type == "char")
 			{
-<<<<<<< HEAD
-				 temp = new Property<char>();
-				std::vector<char> vectorChar;
-					for (int i = 0; i < data.size(); i++)
-						temp->addData(data.at(i).c_str);
-
-=======
 				temp = new Property<char>();
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(data.at(i).c_str());
->>>>>>> origin/game-engine
 			}
 
 			else if (type == "double")
 			{
-<<<<<<< HEAD
-				 temp = new Property<double>();
-				std::vector<double> vectorDouble;
-=======
 				temp = new Property<double>();
->>>>>>> origin/game-engine
 				for(int i = 0; i < data.size(); i++)
 					temp->addData(std::stod(data.at(i)));
 			}
