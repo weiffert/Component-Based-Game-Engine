@@ -24,11 +24,13 @@
 
 StateLoading::StateLoading(SystemManager *s, AssetManager *a)
 {
+	//Sets defaults.
 	id = "Loading";
 	number = 0;
 	systemManager = s;
 	assetManager = a;
 
+	//Reads in the filenames and substrings.
 	std::ifstream file("file.txt");
 	if (file.is_open())
 	{
@@ -53,6 +55,8 @@ StateLoading::StateLoading(SystemManager *s, AssetManager *a)
 			}
 		}
 	}
+
+	//Sorts the substrings into the proper order.
 	substringSorter();
 }
 
@@ -62,10 +66,14 @@ StateLoading::~StateLoading()
 }
 
 
+//Determines the proper file to use based off of the current substring.
+//Deletes the filename once it has been determined. Deletes the substring after all of its files have been used.
 std::string StateLoading::fileDeterminer()
 {
+	//Passes through all of the filenames.
 	for (int i = 0; i < filenames.size(); i++)
 	{
+		//If the base substring is found in the filename...
 		if (filenames.at(i).find(substrings.at(0)) != std::string::npos)
 		{
 			std::string temp = filenames.at(i);
@@ -74,6 +82,7 @@ std::string StateLoading::fileDeterminer()
 		}
 	}
 
+	//There are no filenames with this substring name, so it is done.
 	substrings.erase(0);
 	return nullptr;
 }
@@ -82,8 +91,10 @@ std::string StateLoading::fileDeterminer()
 //Sorts the substrings into a particular order.
 void StateLoading::substringSorter()
 {
+	//Passes through all of the substrings.
 	for (int i = 0; i < substrings.size(); i++)
 	{
+		//Stores the substring that is supposed to be at that position.
 		std::string sub;
 		switch (i)
 		{
@@ -106,12 +117,16 @@ void StateLoading::substringSorter()
 			sub = "default";
 		}
 
+		//If it is not in the proper position...
 		if (substrings.at(1) != sub)
 		{
+			//Pass through all of the rest of the substrings.
 			for (int j = i; j < substrings.size(); i++)
 			{
+				//If one does equal the proper substring...
 				if (substrings.at(j) == sub)
 				{
+					//Switch positions.
 					std::string temp = substrings.at(j);
 					substrings.at(j) = substrings.at(i);
 					substrings.at(i) = temp;
@@ -122,21 +137,29 @@ void StateLoading::substringSorter()
 }
 
 
+//Initializes all of the other classes that go into the system and asset managers from files.
+//Takes in time elapsed and the window.
 void StateLoading::update(double totalTime, sf::RenderWindow *window)
 {
+	//Checks if there are substrings. If there are none, the process is done.
 	if (substrings.size() != 0)
 	{
 		std::string id;
 		std::string filename;
 		std::string word;
-		int lineNumber = 1; //The line number of the file
-		int wordNumber = 1; //Determines which word of the line (1st, 2nd, 3rd, words in a line or more)
-		//Determine the file to parse data from.
-		filename = fileDeterminer();
-		std::ifstream file (filename);
 		std::string type;
 
+		int lineNumber = 1; //The line number of the file
+		int wordNumber = 1; //Determines which word of the line (1st, 2nd, 3rd, words in a line or more)
+
+		//Determine the file to parse data from.
+		filename = fileDeterminer();
+
+		//Open the proper file.
+		std::ifstream file (filename);
+
 		//Determine the operation.
+		//If it is an image.
 		if (substrings.at(0) == "png")
 		{
 			sf::Image *temp;
@@ -144,18 +167,18 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			assetManager->add(temp);
 		}
 
+		//If it is a property.
 		else if (substrings.at(0) == "property")
 		{
 			std::vector<std::string> data;
-			
-
-			//Read data and take in these values. Includes id
 
 			//Read entire file
 			while (!file.eof())
 			{
 				file >> word;
-				while (word != ";") //Read until the end of the line
+				
+				//Read until the end of the line
+				while (word != ";")
 				{
 					if (lineNumber == 1)
 						id = word;
@@ -163,15 +186,18 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 						type = word;
 					if (lineNumber > 2)
 						data.push_back(word);
+
 					file >> word;
 				}
-				//Increase line number
+
 				lineNumber++;
 			}
 
 			//Create.
+			//BaseComponent is the parent class to the property class.
 			BaseComponent *temp;
 		
+			//Create a property based on the type.
 			if (type == "int")
 			{
 				temp = new Property<int>();
@@ -219,13 +245,13 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(data.at(i));
-
 			}
 
 			else if (type == "Entity")
 			{
 				temp = new Property<Entity>();
 
+				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
 					temp->add(systemManager->getEntity(data.at(i));
 			}
@@ -233,7 +259,8 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			else if (type == "Texture")
 			{
 				temp = new Property<sf::Texture>();
-				
+
+				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
 					temp->add(assetManager->getTexture(std::stoi(data.at(i)));
 			}
@@ -242,6 +269,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property<sf::Image>();
 
+				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
 					temp->add(assetManager->getTexture(data.at(i));
 			}
@@ -250,6 +278,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property<sf::Sound>();
 
+				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
 					temp->add(assetManager->getSound(data.at(i));
 			}
@@ -263,19 +292,20 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			}
 
-
 			//Edit.
 			temp->setId(id);
+
 			//Store.
 			systemManager->add(temp);
 
 		}
+		//If it is an entity.
 		else if (substrings.at(0) == "entity")
 		{
-			std::vector<std::vector<std::string>>properties;   //The first vector is for holding all properties. The second is for holding id 
-				//and data of the properties.
+			//The first vector is for holding all properties. The second is for holding id and data of the properties.
+			std::vector<std::vector<std::string>>properties;   
 
-			//Read data and take in these values. Includes id.
+			//Read in data.
 			while (!file.eof())
 			{
 				file >> word;
@@ -283,17 +313,23 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				{
 					if (lineNumber == 1)
 						id = word;
+					//If it is reading in properties...
 					if (lineNumber > 1)
 					{
+						//If it is the beginning of a new line...
 						if (wordNumber == 1)
-							properties.at(lineNumber - 1).at(wordNumber - 1);
+						{
+							//Push back a new string vector for the property.
+							properties.push_back(std::vector<std::string>);
+						}
+						properties.at(lineNumber - 1).push_back(word);
 					}
 
 					file >> word;
 					wordNumber++;
 				}
-				lineNumber++;	//Increase line number
-				wordNumber = 1; //Set wordNumber back to 1
+				lineNumber++;
+				wordNumber = 1;
 			}
 
 			//Create.
@@ -314,7 +350,9 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 						if (x == 0)
 						{
 							BaseComponent *component = systemManager->getComponent(properties.at(y).at(x));
+							//Stores the new property in systemManager.
 							systemManager->add(component);
+							//Links the Entity to the property.
 							temp->add(component);
 						}
 						//Change Data.
@@ -323,28 +361,28 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							//Needs to be converted to the proper type.
 							if (type == "int")
 							{
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(static_cast<int>(properties.at(y).at(x)) - 48, x - 1);
+								/*temp->getComponent(properties.at(y).at(0))->changeData
+									(static_cast<int>(properties.at(y).at(x)) - 48, x - 1);*/
 
 							}
 
 							else if (type == "char")
 							{
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(properties.at(y).at(x).at(1), x - 1);
+								/*temp->getComponent(properties.at(y).at(0))->changeData
+									(properties.at(y).at(x).at(1), x - 1);*/
 							}
 
 							else if (type == "double")
 							{
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(static_cast<double>(properties.at(y).at(x)) - 48, x - 1);
+								/*temp->getComponent(properties.at(y).at(0))->changeData
+									(static_cast<double>(properties.at(y).at(x)) - 48, x - 1);*/
 
 							}
 
 							else if (type == "float")
 							{
-								temp->getComponent(properties.at(y).at(0))->changeData
-									(static_cast<float>(properties.at(y).at(x)) - 48, x - 1);
+								/*temp->getComponent(properties.at(y).at(0))->changeData
+									(static_cast<float>(properties.at(y).at(x)) - 48, x - 1);*/
 
 							}
 							
@@ -352,8 +390,10 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							else if (type == "bool")
 							{
 								bool tOrF = false;
+
 								if (properties.at(y).at(x) == "true")
 									tOrF = true;
+
 								temp->getComponent(properties.at(y).at(0))->changeData
 									(tOrF, x - 1);
 							}
@@ -367,40 +407,41 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				
 							else if (type == "Entity")
 							{
+								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(0))->changeData
 									(systemManager->getMaterial(properties.at(y).at(x)), x - 1);
-
 							}
 				
 							else if (type == "Texture")
 							{
+								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(0))->changeData
 									(assetManager->getTexture(std::stoi(properties.at(y).at(x))), x - 1);
-
 							}
 				
 							else if (type == "Image")
 							{
+								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(0))->changeData
 									(assetManager->getComponent(properties.at(y).at(x)), x - 1);
-
 							}
 				
 							else if (type == "Sound")
 							{
+								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(0))->changeData
 									(assetManager->getSound(properties.at(y).at(x)), x - 1);
-
 							}
 				
 							else
 							{
+								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(0))->changeData
 									(properties.at(y).at(x), x - 1);
-
 							}
 						}
 					}
+
 					//Link the property.
 					else
 						temp->add(systemManager->getComponent(properties.at(y).at(x)));
@@ -409,39 +450,53 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			//Store.
 			systemManager->add(temp);
-
 		}
+		//If it is a controller.
 		else if (substrings.at(0) == "controller")
 		{
 			std::vector<std::string> properties;
-			//Get id and required properties.
+
+			//Read in data
 			while (!file.eof())
 			{
 				file >> word;
-				while (word != ";") //Read until the end of the line
+
+				//Read until the end of the line
+				while (word != ";") 
 				{
 					if (lineNumber == 1)
 						id = word;
+
 					if (lineNumber > 2)
 						properties.push_back(word);
+
 					file >> word;
 				}
-				//Increase line number
 				lineNumber++;
 			}
 			
-			BaseController *temp = new /*Id*/();
+			BaseController *temp;
 
-			vector<BaseComponent> components;
+			//Create a new controller based on id.
+			if (id == "Render")
+			{
+				temp = new Render();
+			}
+
+			//Get required properties.
+			vector<BaseComponent *> components;
 			for (int i = 0; i < properties.size(); i++)
 				components.push_back(systemManager->getProperty(properties.at(i));
 
+			//Set required properties.
+			temp->setRequiredProperties(components);
+
 		}
+		//If it is a state.
 		else if (substrings.at(0) == "state")
 		{
 			std::string number;
 			int intNumber;
-			BaseState *temp;
 
 			//read data and take in values. Includes id.
 			while (!file.eof())
@@ -459,8 +514,11 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				lineNumber++;
 			}
 
+			BaseState *temp;
+
 			//Determine the state.
-			intNumber = static_cast<int>(atoi(number.c_str))-48;
+			//Does this work?
+			intNumber = static_cast<int>(atoi(number.c_str))-48);
 
 			//Create
 			switch (intNumber)
@@ -494,10 +552,10 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			systemManager->add(temp);
 		}
 	}
-
 	//the process is done.
 	else
 	{
-		//change state.
+		BaseState::changeState(this, "Welcome")
 	}
+
 }

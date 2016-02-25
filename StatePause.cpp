@@ -12,9 +12,9 @@
 //include controllers.
 
 
-
 StatePause::StatePause(SystemManager *s, AssetManager *a)
 {
+	//Sets defaults.
 	id = "Pause";
 	number = 5;
 	systemManager = s;
@@ -27,6 +27,8 @@ StatePause::~StatePause()
 }
 
 
+//Polls for events and calls the PlayerInput controller accordingly.
+//Takes in the total time elapsed and the window.
 void StatePause::update(double totalTime, sf::RenderWindow *window)
 {
 	//Check for arrow key and space bar events

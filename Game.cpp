@@ -12,6 +12,7 @@
 #include "AssetManager.h"
 
 
+//Constructor. Takes in the window width, height, and name.
 Game::Game(int width, int height, std::string name)
 {
 	windowResolution.x = width;
@@ -21,26 +22,35 @@ Game::Game(int width, int height, std::string name)
 	assetManager = new AssetManager();
 }
 
+
 Game::~Game()
 {
 
 }
 
 
+//Runs the game.
+//Returns the exit code.
 int Game::run()
 {
+	//Create a state loading to start the game with.
 	state = new StateLoading* (systemManager, assetManager);
+	//Add it to the systemManager.
 	systemManager->add(state);
+	//run the game loop, which returns the exit code.
 	exitCode = gameLoop();
-	//cleanup
+
 	return exitCode;
 }
 
 
+//Runs the game loop.
+//Returns the exit code.
 int Game::gameLoop()
 {
 	bool running = true;
 	int changeStateFlag = 1;
+
 	//initialize time keepers
 	double totalTime = 0.0;
 	double frameRate = 0.01;
@@ -48,6 +58,7 @@ int Game::gameLoop()
 	double lag = 0.0;
 	double currentTime = time(NULL);
 
+	//Run while the game window is open.
 	while(gameWindow.isOpen())
 	{
 		//initialize current time keepers
@@ -60,6 +71,7 @@ int Game::gameLoop()
 		currentTime = newTime;
 
 		lag += frameTime;
+
 		//process input
 		while (lag >= frameRate)
 		{
@@ -72,5 +84,6 @@ int Game::gameLoop()
 		//render with parameters.
 		state->render(lag/frameRate, &gameWindow);
 	}
+
 	return exitCode;
 }

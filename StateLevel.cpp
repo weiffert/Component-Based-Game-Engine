@@ -15,8 +15,10 @@
 #include "Property.h"
 //include controllers
 
+
 StateLevel::StateLevel(SystemManager *s, AssetManager *a)
 {
+	//Sets defaults.
 	id = "Level";
 	number = 3;
 	systemManager = s;
@@ -29,6 +31,8 @@ StateLevel::~StateLevel()
 }
 
 
+//Polls for events and calls the required controllers accordingly.
+//Takes in the total time elapsed and the window.
 void StateLevel::update(double totalTime, sf::RenderWindow window)
 {
 	//Check for arrow key and space bar events

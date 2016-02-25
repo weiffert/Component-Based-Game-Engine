@@ -11,8 +11,10 @@
 #include "Entity.h"
 //include controllers.
 
+
 StateMenu::StateMenu(SystemManager *s, AssetManager *a)
 {
+	//Sets defaults.
 	id = "Menu";
 	number = 2;
 	systemManager = s;
@@ -25,6 +27,8 @@ StateMenu::~StateMenu()
 }
 
 
+//Polls for events and calls the PlayerInput controller accordingly.
+//Takes in the total time elapsed and the window.
 void StateMenu::update(double totalTime, sf::RenderWindow *window)
 {
 	//Check for arrow key and space bar events

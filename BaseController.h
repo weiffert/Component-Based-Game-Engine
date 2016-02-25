@@ -10,8 +10,12 @@ class BaseController
 public:
 	BaseController();
 	~BaseController();
+
+	//Change Id.
 	std::string getId();
 	void setId(std::string);
+
+	//Set required properties.
 	void setRequiredProperties(std::vector<BaseComponent*> *);
 
 protected:

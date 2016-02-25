@@ -20,11 +20,13 @@
 
 StateEnd::StateEnd(SystemManager *s, AssetManager *a)
 {
+	//Sets defaults.
 	id = "End";
 	number = 4;
 	systemManager = s;
 	assetManager = a;
 
+	//Reads in the filenames and substrings.
 	std::ifstream file("file.txt");
 	if (file.is_open())
 	{
@@ -49,6 +51,9 @@ StateEnd::StateEnd(SystemManager *s, AssetManager *a)
 			}
 		}
 	}
+
+	//Sorts the substrings into the proper order.
+	substringSorter();
 }
 
 
@@ -57,10 +62,14 @@ StateEnd::~StateEnd()
 }
 
 
+//Determines the proper file to use based off of the current substring.
+//Deletes the filename once it has been determined. Deletes the substring after all of its files have been used.
 std::string StateLoading::fileDeterminer()
 {
+	//Passes through all of the filenames.
 	for (int i = 0; i < filenames.size(); i++)
 	{
+		//If the base substring is found in the filename...
 		if (filenames.at(i).find(substrings.at(0)) != std::string::npos)
 		{
 			std::string temp = filenames.at(i);
@@ -69,6 +78,7 @@ std::string StateLoading::fileDeterminer()
 		}
 	}
 
+	//There are no filenames with this substring name, so it is done.
 	substrings.erase(0);
 	return nullptr;
 }
@@ -77,11 +87,16 @@ std::string StateLoading::fileDeterminer()
 //Sorts the substrings into a particular order.
 void StateLoading::substringSorter()
 {
+	//Passes through all of the substrings.
 	for (int i = 0; i < substrings.size(); i++)
 	{
+		//Stores the substring that is supposed to be at that position.
 		std::string sub;
 		switch (i)
 		{
+		case 0:
+			sub = "png";
+			break;
 		case 1:
 			sub = "property";
 			break;
@@ -98,12 +113,16 @@ void StateLoading::substringSorter()
 			sub = "default";
 		}
 
+		//If it is not in the proper position...
 		if (substrings.at(1) != sub)
 		{
+			//Pass through all of the rest of the substrings.
 			for (int j = i; j < substrings.size(); i++)
 			{
+				//If one does equal the proper substring...
 				if (substrings.at(j) == sub)
 				{
+					//Switch positions.
 					std::string temp = substrings.at(j);
 					substrings.at(j) = substrings.at(i);
 					substrings.at(i) = temp;

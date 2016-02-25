@@ -6,13 +6,17 @@
 class StateWelcome :
 	public BaseState
 {
-private:
-
-	SystemManager* systemManager;
-
 public:
+	//Takes in Game's systemManager and assetManager.
 	StateWelcome(SystemManager *, AssetManager *);
 	~StateWelcome();
-	int update(double, sf::RenderWindow *);
+
+	//Update function. Overloads the pure virtual update function in BaseState.
+	void update(double, sf::RenderWindow *);
+
+private:
+	//This should be in BaseState.
+	SystemManager* systemManager;
+
 };
 

@@ -6,13 +6,16 @@
 class StatePause :
 	public BaseState
 {
-private:
-
-	SystemManager* systemManager;
-
 public:
+	//Takes in Game's systemManager and assetManager.
 	StatePause(SystemManager *, AssetManager *);
 	~StatePause();
+
+	//Update function. Overloads the pure virtual update function in BaseState.
 	void update(double, sf::RenderWindow*);
+
+private:
+	//This should be in BaseState.
+	SystemManager* systemManager;
 };
 

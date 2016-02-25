@@ -15,6 +15,8 @@ class Render :
 public:
 	Render();
 	~Render();
-	void control(sf::RenderWindow *, Entity *);
+
+	//Control function
+	void control(double, sf::RenderWindow *, Entity *);
 };
 

@@ -6,13 +6,16 @@
 class StateMenu :
 	public BaseState
 {
-private:
-
-	SystemManager* systemManger;
-
 public:
+	//Takes in Game's systemManager and assetManager.
 	StateMenu(SystemManager *, AssetManager *);
 	~StateMenu();
+
+	//Update function. Overloads the pure virtual update function in BaseState.
 	void update(double, sf::RenderWindow *);
+
+private:
+	//This should be in BaseState.
+	SystemManager* systemManager;
 };
 

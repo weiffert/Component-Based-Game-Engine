@@ -9,7 +9,8 @@
 
 BaseController::BaseController()
 {
-	id = "BaseController"; //Autoset id to BaseController
+	//Autoset id to BaseController
+	id = "BaseController";
 }
 
 
@@ -26,6 +27,7 @@ std::string BaseController::getId()
 
 
 //Sets id
+//Takes in a string.
 void BaseController::setId(std::string a)
 {
 	id = a;
@@ -33,6 +35,8 @@ void BaseController::setId(std::string a)
 }
 
 
+//Sets the required properties.
+//Takes in a pointer of a vector of BaseComponent pointers.
 void BaseController::setRequiredProperties(std::vector<BaseComponent*> *a)
 {
 	for (int i = 0; i < a->size(); i++)

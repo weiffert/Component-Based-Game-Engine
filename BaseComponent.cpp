@@ -6,8 +6,9 @@
 
 
 BaseComponent::BaseComponent()
-{
-	id = "BaseComponent"; //Autoset the id to BaseComponent
+{ 
+	//Autoset the id to BaseComponent
+	id = "BaseComponent";
 }
 
 
@@ -24,8 +25,8 @@ std::string BaseComponent::getId()
 
 
 //Sets id
+//Takes in a string.
 void BaseComponent::setId(std::string a)
 {
 	id = a;
-	return;
 }

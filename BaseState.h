@@ -13,25 +13,34 @@
 class BaseState
 {
 public:
-	BaseState();
 	BaseState(SystemManager *, AssetManager *);
 	~BaseState();
+
+	//Returns the state identification.
 	int getNumber();
 	std::string getId();
+
+	//Set the state identification
 	void setId(std::string);
 	void setNumber(int);
+
+	//Set the entities contained in the state.
 	void setMaterial(std::vector<Entity*>);
 
-	virtual void update(double, sf::RenderWindow *) = 0;
+	//Render a state.
 	void render(double, sf::RenderWindow *);
+
+	//Update function.
+	virtual void update(double, sf::RenderWindow *) = 0;
 
 protected:
 	int number;
-	std::vector<Entity*> material;
 	std::string id;
+	std::vector<Entity*> material;
 	SystemManager* systemMananger;
 	AssetManager *assetManager;
 
+	//Change the current state.
 	void changeState(BaseState *);
 	void changeState(BaseState *, std::string);
 	void changeState(BaseState *, int);

@@ -14,17 +14,21 @@ class Game
 public:
 	Game(int, int, std::string);
 	~Game();
+	
+	//Runs the game.
 	int run();
 	
 private:
-	int gameLoop();
-
 	int exitCode;
 	std::string gameName;
-	sf::Vector2i windowResolution;
+
 	BaseState* state;
 	SystemManager* systemManager;
 	AssetManager* assetManager;
 
+	sf::Vector2i windowResolution;
 	sf::RenderWindow gameWindow{ sf::VideoMode(windowResolution.x, windowResolution.y), gameName };
+
+	//The game loop
+	int gameLoop();
 };

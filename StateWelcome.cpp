@@ -12,10 +12,11 @@
 #include "AssetManager.h"
 #include "Property.h"
 #include "Entity.h"
-//include controllers.
+
 
 StateWelcome::StateWelcome(SystemManager *s, AssetManager *a)
 {
+	//Sets defaults.
 	id = "Welcome";
 	number = 1;
 	systemManager = s;
@@ -27,10 +28,15 @@ StateWelcome::~StateWelcome()
 {
 }
 
-int StateWelcome::update(double totalTime, sf::RenderWindow *window)
+
+//Runs until a certain amount of time has elapsed.
+//Takes in a double which contains the amount of time elapsed. Takes in the window for consistency.
+void StateWelcome::update(double totalTime, sf::RenderWindow *window)
 {
+	//If the game has been running for more than five seconds, change states.
 	if (totalTime > 5)
-		return 1;
+		BaseState::changeState(this, "Menu");
+
 	else
 	{
 		sleep(0.1);

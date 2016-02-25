@@ -8,6 +8,8 @@ class BaseComponent
 public:
 	BaseComponent();
 	~BaseComponent();
+
+	//Edit id.
 	std::string getId();
 	void setId(std::string);
 

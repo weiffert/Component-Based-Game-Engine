@@ -4,20 +4,26 @@
 template <class T>
 class Property
 {
-private:
-	//contains the data in a vector style format.
-	std::vector<T> data;
-
 public:
+	//Allows for simpler data initialization.
 	Property();
 	Property(T);
 	Property(T, T);
 	~Property();
+
+	//Returns the data as a vector.
 	std::vector<T> getData();
+	T getData(int);
+
+	//Edit the data.
 	void addData(T);
 	void deleteData(T);
 	void deleteDataPosition(int);
 	void changeData(T, int);
+
+private:
+	//contains the data in a vector style format.
+	std::vector<T> data;
 };
 
 
@@ -30,6 +36,7 @@ Property<T>::Property()
 
 
 //Constructor and sets data to hold T
+//Takes in a value.
 template <class T>
 Property<T>::Property(T value)
 {
@@ -37,7 +44,8 @@ Property<T>::Property(T value)
 }
 
 
-//Constructor and sets data to hold T and T
+//Constructor and sets data to hold T and T.
+//Takes in two values.
 template <class T>
 Property<T>::Property(T value1, T value2)
 {
@@ -54,8 +62,7 @@ Property<T>::~Property()
 }
 
 
-//returns the data held in the vector.
-//Needs to return data only if there is data.
+//Returns the data held in the vector.
 template <class T>
 std::vector<T> Property<T>::getData()
 {
@@ -65,15 +72,29 @@ std::vector<T> Property<T>::getData()
 }
 
 
+//Returns the data at the location.
 template <class T>
-void Property<T>::addData(T value)//adds value to existing data
+T Property<T>::getData(int location)
+{
+	if (location != data.size())
+		return data.at(location);
+	return nullptr;
+}
+
+
+//Adds value to existing data
+//Takes in data.
+template <class T>
+void Property<T>::addData(T value)
 {
 	data.push_back(value);
 }
 
 
+//Subtracts value from existing data.
+//Takes in the data to be deleted.
 template <class T>
-void Property<T>::deleteData(T value)//subtracts value from existing data
+void Property<T>::deleteData(T value)
 {
 	for (int i = 0; i < data.size(); i++)
 	{
@@ -84,8 +105,11 @@ void Property<T>::deleteData(T value)//subtracts value from existing data
 	}
 }
 
+
+//Subtracts value from existing data with the position.
+//Takes in the position with data to be deleted.
 template <class T>
-void Property<T>::deleteDataPosition(int position)//subtracts value from existing data
+void Property<T>::deleteDataPosition(int position)
 {
 	if (position < data.size())
 	{
@@ -94,8 +118,10 @@ void Property<T>::deleteDataPosition(int position)//subtracts value from existin
 }
 
 
+//Value changes the data at position.
+//Takes in a value to change to and the position to change it at.
 template <class T>
-void Property<T>::changeData(T value, int position) //Value changes the data at position
+void Property<T>::changeData(T value, int position) 
 {
 	if (position < data.size())
 		data.at(position) = value;

@@ -1,7 +1,7 @@
 /*
 Authors: William Eiffert, Adam Sawyer, Zane Durante, Kendrick Austin
 Date Begin: 3 February 2016
-Last Edit: 20 February 2016
+Last Edit: 24 February 2016
 Purpose: This is a game engine designed to use entities and component based design.
 The implementation of the engine will be missile command.
 */
@@ -23,6 +23,7 @@ int main()
 	std::filebuf fileControl;
 	std::ostream file(&fileControl);
 	fileControl.open("log.txt", std::ios::app);
+
 	if (fileControl.is_open())
 		file << "Program run at: " << time(NULL) << "\nExit Code: ";
 

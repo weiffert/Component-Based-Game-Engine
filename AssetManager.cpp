@@ -20,7 +20,9 @@ AssetManager::~AssetManager()
 }
 
 
-sf::Image* AssetManager::getImage(int location) //Returns an image for a property.
+//Takes in the location in the vector.
+//Returns an image for a property.
+sf::Image* AssetManager::getImage(int location)
 {
 	if (location < image.size() && location >= 0)
 	{
@@ -31,7 +33,22 @@ sf::Image* AssetManager::getImage(int location) //Returns an image for a propert
 }
 
 
-sf::Sound* AssetManager::getSound(int location) //Returns a sound for a property.
+//Takes in the filename.
+//Returns an image for a property.
+sf::Image* AssetManager::getImage(std::string filename)
+{
+	if (filename)
+	{
+		return image.at(location);
+	}
+
+	return nullptr;
+}
+
+
+//Takes in the location in the vector.
+//Returns a sound for a property.
+sf::Sound* AssetManager::getSound(int location)
 {
 	if (location < sound.size() && location >= 0)
 	{
@@ -42,7 +59,22 @@ sf::Sound* AssetManager::getSound(int location) //Returns a sound for a property
 }
 
 
-sf::Texture* AssetManager::getTexture(int location) //Returns a texture for a property.
+//Takes in the location in the vector.
+//Returns a sound for a property.
+sf::Sound* AssetManager::getSound(std::string)
+{
+	if (location < sound.size() && location >= 0)
+	{
+		return sound.at(location);
+	}
+
+	return nullptr;
+}
+
+
+//Takes in the location in the vector.
+//Returns a texture for a property.
+sf::Texture* AssetManager::getTexture(int location)
 {
 	if (location < texture.size() && location >= 0)
 	{
@@ -53,19 +85,25 @@ sf::Texture* AssetManager::getTexture(int location) //Returns a texture for a pr
 }
 
 
-void AssetManager::add(sf::Image* newImage) //Adds an image to the vector for the state.
+//Adds an image to the vector for the state.
+//Takes in a image.
+void AssetManager::add(sf::Image* newImage)
 {
 	image.push_back(newImage);
 }
 
 
-void AssetManager::add(sf::Sound* newSound) //Adds a sound to the vector for the state.
+//Adds a sound to the vector for the state.
+//Takes in a sound.
+void AssetManager::add(sf::Sound* newSound)
 {
 	sound.push_back(newSound);
 }
 
 
-void AssetManager::add(sf::Texture* newTexture) //Adds an image to the vector for the state.
+//Adds an image to the vector for the state.
+//Takes in a texture.
+void AssetManager::add(sf::Texture* newTexture) 
 {
 	texture.push_back(newTexture);
 }
