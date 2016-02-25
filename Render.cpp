@@ -55,12 +55,12 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 			if (a->hasComponent("Image"))
 			{
 				drawable = true;
-				temp = a->getComponent("Image");
+				temp = a->getComponent("Sprite");
 			}
 			if (a->hasComponent("Texture"))
 			{
 				drawable = true;
-				temp = a->getComponent("Texture");
+				temp = a->getComponent("Sprite");
 			}
 		}
 		else if (a->hasComponent("Text"))
