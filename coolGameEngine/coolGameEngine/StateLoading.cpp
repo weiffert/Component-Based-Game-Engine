@@ -298,7 +298,34 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(assetManager->getSound(data.at(i)));
 			}
+			
+			else if(type == "Sprite")
+			{
+				temp = new PropertySprite();
+				
+				//Get the proper data from the id in the file.
+				for(int i = 0; i < data.size(); i++)
+					temp->addData(&sf::Sprite sprite);
+			}
+			
+			else if(type == "Shape")
+			{
+				temp = new PropertySprite();
+				
+				//Get the proper data from the id in the file.
+				for(int i = 0; i < data.size(); i++)
+					temp->addData(&sf::Shape shape);
+			}
 
+			else if(type == "Text")
+			{
+				temp = new PropertySprite();
+				
+				//Get the proper data from the id in the file.
+				for(int i = 0; i < data.size(); i++)
+					temp->addData(&sf::Text text);
+			}
+			
 			else
 			{
 				 temp = new PropertyString();
@@ -443,6 +470,27 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getSound(properties.at(y).at(x)));
 							}
 
+							else if (type == "Sprite")
+							{
+								temp->deleteData();
+								//Get the proper data from the id in the file.
+								temp->getComponent(properties.at(y).at(x))->addData(&sf::Sprite sprite));
+							}
+
+							else if (type == "Shape")
+							{
+								temp->deleteData();
+								//Get the proper data from the id in the file.
+								temp->getComponent(properties.at(y).at(x))->addData(&sf::Shape shape));
+							}
+
+
+							else if (type == "Text")
+							{
+								temp->deleteData();
+								//Get the proper data from the id in the file.
+								temp->getComponent(properties.at(y).at(x))->addData(&sf::Text text));
+							}
 							else
 							{
 								temp->deleteData();
