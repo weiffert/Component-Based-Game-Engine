@@ -9,6 +9,10 @@ public:
 	Property();
 	~Property();
 
+public:
+	Property();
+	~Property();
+
 	//Returns the data as a vector.
 	std::vector<T> getData();
 	T getData(int);
@@ -45,9 +49,7 @@ Property<T>::~Property()
 template <class T>
 std::vector<T> Property<T>::getData()
 {
-	if (data.at(0) != nullptr)
-		return data;
-	return nullptr;
+	return data;
 }
 
 
@@ -57,7 +59,7 @@ T Property<T>::getData(int location)
 {
 	if (location != data.size())
 		return data.at(location);
-	return nullptr;
+	return NULL;
 }
 
 
@@ -77,7 +79,7 @@ void Property<T>::deleteData()
 {
 	for (int i = 0; i < data.size(); i++)
 	{
-		data.erase(i);
+		data.erase(data.begin() + i);
 	}
 }
 
@@ -91,7 +93,7 @@ void Property<T>::deleteData(T value)
 	{
 		if (data.at(i) == value)
 		{
-			data.erase(i);
+			data.erase(data.begin() + i);
 		}
 	}
 }
@@ -104,7 +106,7 @@ void Property<T>::deleteDataPosition(int position)
 {
 	if (position < data.size())
 	{
-		data.erase(position);
+		data.erase(data.begin() + position);
 	}
 }
 

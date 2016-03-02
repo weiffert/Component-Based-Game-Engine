@@ -15,7 +15,19 @@
 #include "StateMenu.h"
 #include "StatePause.h"
 #include "StateLevel.h"
-#include "Property.h"
+#include "PropertyInt.h"
+#include "PropertyDouble.h"
+#include "PropertyFloat.h"
+#include "PropertyChar.h"
+#include "PropertyBool.h"
+#include "PropertyString.h"
+#include "PropertyImage.h"
+#include "PropertyTexture.h"
+#include "PropertySound.h"
+#include "PropertyShape.h"
+#include "PropertyText.h"
+#include "PropertySprite.h"
+#include "PropertyEntity.h"
 #include "Entity.h"
 #include "BaseController.h"
 #include "SystemManager.h"
@@ -205,35 +217,35 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//Create a property based on the type.
 			if (type == "int")
 			{
-				 temp = new Property<int>();
+				 temp = new PropertyInt();
 					for (int i = 0; i < data.size(); i++)
 						temp->addData(std::stoi(data.at(i)));
 			}
 				
 			else if (type == "char")
 			{
-				temp = new Property<char>();
+				temp = new PropertyChar();
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(data.at(i).c_str());
 			}
 
 			else if (type == "double")
 			{
-				temp = new Property<double>();
+				temp = new PropertyDouble();
 				for(int i = 0; i < data.size(); i++)
 					temp->addData(std::stod(data.at(i)));
 			}
 
 			else if (type == "float")
 			{
-				 temp = new Property<float>();
+				 temp = new PropertyFloat();
 				for(int i = 0; i < data.size(); i++)
 					temp->addData(std::stof(data.at(i)));
 			}
 
 			else if (type == "bool")
 			{
-				 temp = new Property<bool>();
+				 temp = new PropertyBool();
 
 				bool tOrF = false;
 				if (data.at(0) == "true")
@@ -245,7 +257,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "string")
 			{
-				 temp = new Property<std::string>();
+				 temp = new PropertyString();
 
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(data.at(i));
@@ -253,7 +265,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "Entity")
 			{
-				 temp = new Property<Entity>();
+				 temp = new PropertyEntity();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
@@ -262,7 +274,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "Texture")
 			{
-				 temp = new Property<sf::Texture>();
+				 temp = new PropertyTexture();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
@@ -271,7 +283,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "Image")
 			{
-				 temp = new Property<sf::Image>();
+				 temp = new PropertyImage();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
@@ -280,7 +292,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "Sound")
 			{
-				 temp = new Property<sf::Sound>();
+				 temp = new PropertySound();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
@@ -289,7 +301,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else
 			{
-				 temp = new Property<std::string>();
+				 temp = new PropertyString();
 
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(data.at(i));
