@@ -212,7 +212,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//Create.
 			//BaseComponent is the parent class to the property class.
 
-			BaseComponent*  temp;
+			BaseComponent *temp;
 		
 			//Create a property based on the type.
 			if (type == "int")
@@ -403,25 +403,25 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							//Needs to be converted to the proper type.
 							if (type == "int")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(std::stoi(properties.at(y).at(x)));
 							}
 
 							else if (type == "char")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x).c_str());
 							}
 
 							else if (type == "double")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(std::stod(properties.at(y).at(x)));
 							}
 
 							else if (type == "float")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(std::stof(properties.at(y).at(x)));
 							}
 
@@ -432,68 +432,68 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 								if (properties.at(y).at(x) == "true")
 									tOrF = true;
 
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(tOrF);
 							}
 
 							else if (type == "string")
 							{
-								temp->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y)).at(x);
+								temp->getComponent(properties.at(y).at(x))->deleteData();
+								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x));
 							}
 
 							else if (type == "Entity")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(systemManager->getMaterial(properties.at(y).at(x)));
 							}
 
 							else if (type == "Texture")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getTexture(std::stoi(properties.at(y).at(x))));
 							}
 
 							else if (type == "Image")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getComponent(properties.at(y).at(x)));
+								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getImage(properties.at(y).at(x)));
 							}
 
 							else if (type == "Sound")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getSound(properties.at(y).at(x)));
 							}
 
 							else if (type == "Sprite")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(&sf::Sprite sprite));
+								temp->getComponent(properties.at(y).at(x))->addData(sf::Sprite sprite));
 							}
 
 							else if (type == "Shape")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(&sf::Shape shape));
+								temp->getComponent(properties.at(y).at(x))->addData(sf::Shape shape));
 							}
 
 
 							else if (type == "Text")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(&sf::Text text));
+								temp->getComponent(properties.at(y).at(x))->addData(sf::Text text));
 							}
 							else
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(x).addData(properties.at(y)).at(x));
 							}

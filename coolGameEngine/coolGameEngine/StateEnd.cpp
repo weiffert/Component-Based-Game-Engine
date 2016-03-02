@@ -13,6 +13,20 @@
 #include "AssetManager.h"
 #include "StateLoading.h"
 #include "Entity.h"
+#include "BaseComponent.h"
+#include "PropertyInt.h"
+#include "PropertyDouble.h"
+#include "PropertyFloat.h"
+#include "PropertyChar.h"
+#include "PropertyBool.h"
+#include "PropertyString.h"
+#include "PropertyImage.h"
+#include "PropertyTexture.h"
+#include "PropertySound.h"
+#include "PropertyShape.h"
+#include "PropertyText.h"
+#include "PropertySprite.h"
+#include "PropertyEntity.h"
 
 
 
@@ -223,7 +237,7 @@ void StateEnd::update(double totalTime, sf::RenderWindow* window)
 				temp->deleteData();
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(systemManager->getMaterial(data.at(i));
+					temp->addData(systemManager->getMaterial(data.at(i)));
 			}
 
 			else if (type == "Texture")
@@ -231,7 +245,7 @@ void StateEnd::update(double totalTime, sf::RenderWindow* window)
 				temp->deleteData();
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getTexture(std::stoi(data.at(i)));
+					temp->addData(assetManager->getTexture(std::stoi(data.at(i))));
 			}
 
 			else if (type == "Image")
@@ -239,7 +253,7 @@ void StateEnd::update(double totalTime, sf::RenderWindow* window)
 				temp->deleteData();
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getTexture(data.at(i));
+					temp->addData(assetManager->getTexture(data.at(i)));
 			}
 
 			else if (type == "Sound")
@@ -247,7 +261,7 @@ void StateEnd::update(double totalTime, sf::RenderWindow* window)
 				temp->deleteData();
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getSound(data.at(i));
+					temp->addData(assetManager->getSound(data.at(i)));
 			}
 
 			else
@@ -311,25 +325,25 @@ void StateEnd::update(double totalTime, sf::RenderWindow* window)
 							//Needs to be converted to the proper type.
 							if (type == "int")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(std::stoi(properties.at(y).at(x)));
 							}
 
 							else if (type == "char")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x).c_str());
 							}
 
 							else if (type == "double")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(std::stod(properties.at(y).at(x)));
 							}
 
 							else if (type == "float")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(std::stof(properties.at(y).at(x)));
 							}
 
@@ -340,49 +354,49 @@ void StateEnd::update(double totalTime, sf::RenderWindow* window)
 								if (properties.at(y).at(x) == "true")
 									tOrF = true;
 
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								temp->getComponent(properties.at(y).at(x))->addData(tOrF);
 							}
 
 							else if (type == "string")
 							{
-								temp->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x);
+								temp->getComponent(properties.at(y).at(x))->deleteData();
+								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x));
 							}
 
 							else if (type == "Entity")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(systemManager->getMaterial(properties.at(y).at(x)));
 							}
 
 							else if (type == "Texture")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getTexture(std::stoi(properties.at(y).at(x))));
 							}
 
 							else if (type == "Image")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getComponent(properties.at(y).at(x)));
+								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getImage(properties.at(y).at(x)));
 							}
 
 							else if (type == "Sound")
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getSound(properties.at(y).at(x)));
 							}
 
 							else
 							{
-								temp->deleteData();
+								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x).addData(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x));
 							}
 						}
 					}
