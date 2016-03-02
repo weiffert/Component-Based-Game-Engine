@@ -6,10 +6,7 @@ template <class T>
 class Property : public BaseComponent
 {
 public:
-	//Allows for simpler data initialization.
 	Property();
-	Property(T);
-	Property(T, T);
 	~Property();
 
 	//Returns the data as a vector.
@@ -22,6 +19,9 @@ public:
 	void deleteData(T);
 	void deleteDataPosition(int);
 	void changeData(T, int);
+
+private:
+	std::vector<T> data;
 };
 
 
@@ -30,25 +30,6 @@ template <class T>
 Property<T>::Property()
 {
 
-}
-
-
-//Constructor and sets data to hold T
-//Takes in a value.
-template <class T>
-Property<T>::Property(T value)
-{
-	data.push_back(value);
-}
-
-
-//Constructor and sets data to hold T and T.
-//Takes in two values.
-template <class T>
-Property<T>::Property(T value1, T value2)
-{
-	data.push_back(value1);
-	data.push_back(value2);
 }
 
 
