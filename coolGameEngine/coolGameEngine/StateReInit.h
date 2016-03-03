@@ -6,13 +6,13 @@
 #include "SystemManager.h"
 #include "AssetManager.h"
 
-class StateEnd :
+class StateReInit :
 	public BaseState
 {
 public:
 	//Takes in Game's systemManager and assetManager.
-	StateEnd(SystemManager *, AssetManager *);
-	~StateEnd();
+	StateReInit(SystemManager *, AssetManager *);
+	~StateReInit();
 
 	//Update function. Overloads the pure virtual update function in BaseState.
 	void update(double, sf::RenderWindow*);

@@ -7,7 +7,7 @@
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
 
-#include "StateEnd.h"
+#include "StateReInit.h"
 #include "BaseState.h"
 #include "SystemManager.h"
 #include "AssetManager.h"
@@ -32,7 +32,7 @@
 
 //SFML includes
 
-StateEnd::StateEnd(SystemManager *s, AssetManager *a)
+StateReInit::StateReInit(SystemManager *s, AssetManager *a)
 {
 	//Sets defaults.
 	id = "End";
@@ -71,7 +71,7 @@ StateEnd::StateEnd(SystemManager *s, AssetManager *a)
 }
 
 
-StateEnd::~StateEnd()
+StateReInit::~StateReInit()
 {
 }
 
@@ -147,7 +147,7 @@ void StateLoading::substringSorter()
 }
 
 
-void StateEnd::update(double totalTime, sf::RenderWindow* window)
+void StateReInit::update(double totalTime, sf::RenderWindow* window)
 {
 	if (substrings.size() != 0)
 	{

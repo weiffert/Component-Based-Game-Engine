@@ -54,19 +54,10 @@
     <ClInclude Include="AssetManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StateEnd.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StateLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StateMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StatePause.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StateWelcome.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Render.h">
@@ -111,6 +102,12 @@
     <ClInclude Include="PropertyString.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StateReInit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateStatic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -143,19 +140,10 @@
     <ClCompile Include="AssetManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StateEnd.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="StateLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StateMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StatePause.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StateWelcome.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -201,6 +189,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PropertyString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateReInit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateStatic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

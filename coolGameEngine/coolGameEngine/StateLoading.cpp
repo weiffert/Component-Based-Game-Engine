@@ -10,10 +10,9 @@
 
 #include "BaseState.h"
 #include "StateLoading.h"
-#include "StateWelcome.h"
-#include "StateEnd.h"
+#include "StateStatic.h"
+#include "StateReInit.h"
 #include "StateMenu.h"
-#include "StatePause.h"
 #include "StateLevel.h"
 #include "PropertyInt.h"
 #include "PropertyDouble.h"
@@ -545,7 +544,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//Get required properties.
 			std::vector<BaseComponent *> *components;
 			for (int i = 0; i < properties.size(); i++)
-				components->push_back(systemManager->getProperty(properties.at(i)));
+				components->push_back(systemManager->getMaterial(properties.at(i)));
 
 			//Set required properties.
 			temp->setRequiredProperties(components);
@@ -586,7 +585,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				temp = new StateLoading(systemManager, assetManager);
 				break;
 			case 2:
-				temp = new StateWelcome(systemManager, assetManager);
+				temp = new StateStatic(systemManager, assetManager);
 				break;
 			case 3:
 				temp = new StateMenu(systemManager, assetManager);
@@ -595,10 +594,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				temp = new StateLevel(systemManager, assetManager);
 				break;
 			case 5:
-				temp = new StateEnd(systemManager, assetManager);
-				break;
-			case 6:
-				temp = new StatePause(systemManager, assetManager);
+				temp = new StateReInit(systemManager, assetManager);
 				break;
 			}
 

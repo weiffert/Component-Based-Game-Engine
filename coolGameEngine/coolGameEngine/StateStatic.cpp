@@ -7,8 +7,7 @@
 #include <stdlib.h>
 #include <Windows.h>
 
-#include "StateWelcome.h"
-#include "StatePause.h"
+#include "StateStatic.h"
 #include "SystemManager.h"
 #include "AssetManager.h"
 #include "Property.h"
@@ -16,7 +15,7 @@
 
 
 
-StateWelcome::StateWelcome(SystemManager *s, AssetManager *a)
+StateStatic::StateStatic(SystemManager *s, AssetManager *a)
 {
 	//Sets defaults.
 	id = "Welcome";
@@ -26,14 +25,14 @@ StateWelcome::StateWelcome(SystemManager *s, AssetManager *a)
 }
 
 
-StateWelcome::~StateWelcome()
+StateStatic::~StateStatic()
 {
 }
 
 
 //Runs until a certain amount of time has elapsed.
 //Takes in a double which contains the amount of time elapsed. Takes in the window for consistency.
-void StateWelcome::update(double totalTime, sf::RenderWindow *window)
+void StateStatic::update(double totalTime, sf::RenderWindow *window)
 {
 	//If the game has been running for more than five seconds, change states.
 	if (totalTime > 5)

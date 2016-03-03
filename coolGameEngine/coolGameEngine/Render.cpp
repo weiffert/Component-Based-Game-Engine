@@ -77,7 +77,7 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 		//If it can be drawn, draw the drawable property.
 		if (drawable)
 		{
-			temp->move(temp3->getData(0), temp3->getData(1));
+			temp->getData(0).move(temp3->getData(0), temp3->getData(1));
 			window->draw(temp);
 		}
 	}
