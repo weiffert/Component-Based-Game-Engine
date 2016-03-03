@@ -10,5 +10,7 @@ public:
 	//performing actions such as moving or shooting.
 	void control(bool, bool, bool, bool, bool, std::vector<sf::Entity>);
 	~PlayerInput();
+private:
+	int currentControl;
 };
 
