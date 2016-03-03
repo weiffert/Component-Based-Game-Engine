@@ -16,8 +16,8 @@
 //Constructor. Takes in the window width, height, and name.
 Game::Game(int width, int height, std::string name)
 {
-	windowResolution.x = width;
-	windowResolution.y = height;
+	sf::windowResolution.x = width;
+	sf::windowResolution.y = height;
 	gameName = name;
 	systemManager = new SystemManager();
 	assetManager = new AssetManager();
