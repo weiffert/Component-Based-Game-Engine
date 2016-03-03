@@ -16,9 +16,9 @@ public:
 
 	//Edit the data.
 	void addData(sf::Sound);
-	void deleteData();
+	virtual void deleteData();
 	void deleteData(sf::Sound);
-	void deleteDataPosition(int);
+	virtual void deleteDataPosition(int);
 	void changeData(sf::Sound, int);
 
 private:

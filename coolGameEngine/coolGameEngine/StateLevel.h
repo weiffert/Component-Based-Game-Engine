@@ -12,6 +12,6 @@ public:
 	~StateLevel();
 
 	//Update function. Overloads the pure virtual update function in BaseState.
-	void update(double, sf::RenderWindow*);
+	virtual void update(double, sf::RenderWindow*);
 };
 

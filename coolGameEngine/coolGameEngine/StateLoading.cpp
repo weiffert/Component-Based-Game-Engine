@@ -216,121 +216,134 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//Create a property based on the type.
 			if (type == "int")
 			{
-				 temp = new PropertyInt();
-					for (int i = 0; i < data.size(); i++)
-						temp->addData(std::stoi(data.at(i)));
+				PropertyInt *temp2 = new PropertyInt();
+				for (int i = 0; i < data.size(); i++)
+					temp2->addData(std::stoi(data.at(i)));
+				temp = temp2;
 			}
-				
 			else if (type == "char")
 			{
-				temp = new PropertyChar();
+				PropertyChar*temp2 = new PropertyChar();
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(data.at(i).c_str());
+					temp2->addData(data.at(i).c_str());
+				temp = temp2;
 			}
 
 			else if (type == "double")
 			{
-				temp = new PropertyDouble();
+				PropertyDouble* temp2 = new PropertyDouble();
 				for(int i = 0; i < data.size(); i++)
-					temp->addData(std::stod(data.at(i)));
+					temp2->addData(std::stod(data.at(i)));
+				temp = temp2;
 			}
 
 			else if (type == "float")
 			{
-				 temp = new PropertyFloat();
+				PropertyFloat *temp2 = new PropertyFloat();
 				for(int i = 0; i < data.size(); i++)
-					temp->addData(std::stof(data.at(i)));
+					temp2->addData(std::stof(data.at(i)));
+				temp = temp2;
 			}
 
 			else if (type == "bool")
 			{
-				 temp = new PropertyBool();
+				PropertyBool *temp2 = new PropertyBool();
 
 				bool tOrF = false;
 				if (data.at(0) == "true")
 					tOrF = true;
 
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(tOrF);
+					temp2->addData(tOrF);
+				temp = temp2;
 			}
 
 			else if (type == "string")
 			{
-				 temp = new PropertyString();
+				PropertyString *temp2 = new PropertyString();
 
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(data.at(i));
+					temp2->addData(data.at(i));
+				temp = temp2;
 			}
 
 			else if (type == "Entity")
 			{
-				 temp = new PropertyEntity();
+				PropertyEntity *temp2 = new PropertyEntity();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(systemManager->getMaterial(data.at(i)));
+					temp2->addData(systemManager->getMaterial(data.at(i)));
+				temp = temp2;
 			}
 
 			else if (type == "Texture")
 			{
-				 temp = new PropertyTexture();
+				PropertyTexture *temp2 = new PropertyTexture();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getTexture(std::stoi(data.at(i))));
+					temp2->addData(assetManager->getTexture(std::stoi(data.at(i))));
+				temp = temp2;
 			}
 
 			else if (type == "Image")
 			{
-				 temp = new PropertyImage();
+				PropertyImage *temp2 = new PropertyImage();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getTexture(stoi(data.at(i))));
+					temp2->addData(assetManager->getTexture(stoi(data.at(i))));
+				temp = temp2;
 			}
 
 			else if (type == "Sound")
 			{
-				 temp = new PropertySound();
+				PropertySound *temp2 = new PropertySound();
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getSound(data.at(i)));
+					temp2->addData(assetManager->getSound(data.at(i)));
+				temp = temp2;
 			}
 			
 			else if(type == "Sprite")
 			{
-				temp = new PropertySprite();
+				PropertySprite *temp2 = new PropertySprite();
 				
 				//Get the proper data from the id in the file.
 				for(int i = 0; i < data.size(); i++)
-					temp->addData(&sf::Sprite sprite);
+					temp2->addData(&sf::Sprite sprite);
+				temp = temp2;
 			}
 			
 			else if(type == "Shape")
 			{
-				temp = new PropertySprite();
+				PropertyShape *temp2 = new PropertyShape();
 				
 				//Get the proper data from the id in the file.
 				for(int i = 0; i < data.size(); i++)
-					temp->addData(&sf::Shape shape);
+					temp2->addData(&sf::Shape shape);
+				temp = temp2;
 			}
 
 			else if(type == "Text")
 			{
-				temp = new PropertySprite();
+				PropertyText *temp2 = new PropertyText();
 				
 				//Get the proper data from the id in the file.
 				for(int i = 0; i < data.size(); i++)
-					temp->addData(&sf::Text text);
+					temp2->addData(&sf::Text text);
+				temp = temp2;
 			}
 			
 			else
 			{
-				 temp = new PropertyString();
+				PropertyString *temp2 = new PropertyString();
 
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(data.at(i));
+					temp2->addData(data.at(i));
+				temp = temp2;
 			}
 
 			//Edit.

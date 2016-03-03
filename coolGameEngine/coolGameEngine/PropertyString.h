@@ -16,9 +16,9 @@ public:
 
 	//Edit the data.
 	void addData(std::string);
-	void deleteData();
+	virtual void deleteData();
 	void deleteData(std::string);
-	void deleteDataPosition(int);
+	virtual void deleteDataPosition(int);
 	void changeData(std::string, int);
 
 private:

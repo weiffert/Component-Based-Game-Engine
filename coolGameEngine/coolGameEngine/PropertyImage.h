@@ -16,9 +16,9 @@ public:
 
 	//Edit the data.
 	void addData(sf::Image);
-	void deleteData();
+	virtual void deleteData();
 	void deleteData(sf::Image);
-	void deleteDataPosition(int);
+	virtual void deleteDataPosition(int);
 	void changeData(sf::Image, int);
 
 private:

@@ -19,6 +19,9 @@ public:
 	std::string getId();
 	void setId(std::string);
 
+	//Edit the data.
+	virtual void deleteDataPosition(int) = 0;
+	virtual void deleteData() = 0;
 	//Returns the data as a vector.
 	/*
 	virtual std::vector<int> getData() = 0;
@@ -57,15 +60,13 @@ public:
 	virtual std::vector<Entity> getData() = 0;
 	virtual Entity getData(int) = 0;
 	*/
+	/*
 	template<class T>
 	virtual std::vector<T> getData() = 0;
 	template<class T>
 	virtual T getData(int) = 0;
-
-	//Edit the data.
-	virtual void deleteDataPosition(int) = 0;
-	virtual void deleteData() = 0;
-
+	*/
+	/*
 	virtual void addData(int) = 0;
 	virtual void deleteData(int) = 0;
 	virtual void changeData(int, int) = 0;
@@ -113,7 +114,7 @@ public:
 	virtual void addData(Entity) = 0;
 	virtual void deleteData(Entity) = 0;
 	virtual void changeData(Entity, int) = 0;
-
+	*/
 protected:
 	std::string id;
 };

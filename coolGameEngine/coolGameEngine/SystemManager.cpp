@@ -8,6 +8,8 @@
 #include "BaseState.h"
 #include "BaseController.h"
 #include "BaseComponent.h"
+#include "PropertyDouble.h"
+#include "PropertyString.h"
 
 
 SystemManager::SystemManager()
@@ -240,19 +242,21 @@ std::vector<Entity*> SystemManager::getMaterial(BaseState* a)
 	std::vector<Entity*> tempVector;
 
 	//Loops through all entities.
-	for(int i = 0; i < material.size(); i++)
+	for (int i = 0; i < material.size(); i++)
 	{
-		//Checks if it has a property that contains some form of state identification.
-		if (material.at(i)->getComponent("stateNumber")->getData().at(0) == a->getNumber())
+		if (PropertyDouble *p = dynamic_cast<PropertyDouble*>(material.at(i)->getComponent("stateNumber")))
 		{
-			tempVector.push_back(material.at(i));
+			if (p->getData().at(0) == a->getNumber())
+				tempVector.push_back(material.at(i));
 		}
-		else if (material.at(i)->getComponent("stateId")->getData().at(0) == a->getId())
+		//Checks if it has a property that contains some form of state identification.
+		if (PropertyString *p = dynamic_cast<PropertyString*>(material.at(i)->getComponent("stateNumber")))
 		{
-			tempVector.push_back(material.at(i));
+			if (p->getData().at(0) == a->getId())
+				tempVector.push_back(material.at(i));
 		}
 	}
-		return tempVector;
+	return tempVector;
 }
 
 

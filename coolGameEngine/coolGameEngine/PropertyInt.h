@@ -13,9 +13,9 @@ public:
 
 	//Edit the data.
 	void addData(int);
-	void deleteData();
+	virtual void deleteData();
 	void deleteData(int);
-	void deleteDataPosition(int);
+	virtual void deleteDataPosition(int);
 	void changeData(int, int);
 
 private:

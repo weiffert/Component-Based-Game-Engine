@@ -16,9 +16,9 @@ public:
 
 	//Edit the data.
 	void addData(sf::Texture);
-	void deleteData();
+	virtual void deleteData();
 	void deleteData(sf::Texture);
-	void deleteDataPosition(int);
+	virtual void deleteDataPosition(int);
 	void changeData(sf::Texture, int);
 
 private:

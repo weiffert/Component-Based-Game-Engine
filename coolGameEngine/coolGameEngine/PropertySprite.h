@@ -16,9 +16,9 @@ public:
 
 	//Edit the data.
 	void addData(sf::Sprite);
-	void deleteData();
+	virtual void deleteData();
 	void deleteData(sf::Sprite);
-	void deleteDataPosition(int);
+	virtual void deleteDataPosition(int);
 	void changeData(sf::Sprite, int);
 
 private:
