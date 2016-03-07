@@ -18,7 +18,7 @@
 StateStatic::StateStatic(SystemManager *s, AssetManager *a)
 {
 	//Sets defaults.
-	id = "Welcome";
+	id = "Static";
 	number = 1;
 	systemManager = s;
 	assetManager = a;
