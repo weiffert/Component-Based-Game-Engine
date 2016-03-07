@@ -1,123 +1,52 @@
 #pragma once
 #include <vector>
-#include "BaseComponent.h"
+#include <string>
+#include "Entity.h"
+#include "SFML\Graphics.hpp"
 
-template <class T>
-class Property : public BaseComponent
+class Property
 {
 public:
-	Property();
+	//Allows for simpler data initialization.
+	Property(std::string);
 	~Property();
 
-public:
-	Property();
-	~Property();
+	//Edit Id
+	std::string getId();
+	void setId(std::string);
 
 	//Returns the data as a vector.
+	template <class T>
 	std::vector<T> getData();
+	template <class T>
 	T getData(int);
 
 	//Edit the data.
-	void addData(T);
 	void deleteData();
-	void deleteData(T);
 	void deleteDataPosition(int);
+
+	template <class T>
+	void addData(T);
+
+	template <class T>
+	void deleteData(T);
+
+	template <class T>
 	void changeData(T, int);
 
 private:
-	std::vector<T> data;
+	std::string id;
+	std::string typeId;
+	std::vector<int> dataInt;
+	std::vector<double> dataDouble;
+	std::vector<float> dataFloat;
+	std::vector<char> dataChar;
+	std::vector<bool> dataBool;
+	std::vector<std::string> dataString;
+	std::vector<sf::Image> dataImage;
+	std::vector<sf::Texture> dataTexture;
+	std::vector<sf::Sprite> dataSprite;
+	std::vector<sf::Shape> dataShape;
+	std::vector<sf::Text> dataText;
+	std::vector<Entity> dataEntity;
 };
-
-
-//Default constructor
-template <class T>
-Property<T>::Property()
-{
-
-}
-
-
-//Default destructor
-template <class T>
-Property<T>::~Property()
-{
-
-}
-
-
-//Returns the data held in the vector.
-template <class T>
-std::vector<T> Property<T>::getData()
-{
-	return data;
-}
-
-
-//Returns the data at the location.
-template <class T>
-T Property<T>::getData(int location)
-{
-	if (location != data.size())
-		return data.at(location);
-	return NULL;
-}
-
-
-//Adds value to existing data
-//Takes in data.
-template <class T>
-void Property<T>::addData(T value)
-{
-	data.push_back(value);
-}
-
-
-//Subtracts value from existing data.
-//Takes in the data to be deleted.
-template <class T>
-void Property<T>::deleteData()
-{
-	for (int i = 0; i < data.size(); i++)
-	{
-		data.erase(data.begin() + i);
-	}
-}
-
-
-//Subtracts value from existing data.
-//Takes in the data to be deleted.
-template <class T>
-void Property<T>::deleteData(T value)
-{
-	for (int i = 0; i < data.size(); i++)
-	{
-		if (data.at(i) == value)
-		{
-			data.erase(data.begin() + i);
-		}
-	}
-}
-
-
-//Subtracts value from existing data with the position.
-//Takes in the position with data to be deleted.
-template <class T>
-void Property<T>::deleteDataPosition(int position)
-{
-	if (position < data.size())
-	{
-		data.erase(data.begin() + position);
-	}
-}
-
-
-//Value changes the data at position.
-//Takes in a value to change to and the position to change it at.
-template <class T>
-void Property<T>::changeData(T value, int position) 
-{
-	if (position < data.size())
-		data.at(position) = value;
-	else
-		addData(value);
-}

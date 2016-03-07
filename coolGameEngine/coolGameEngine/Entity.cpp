@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "Entity.h"
-#include "BaseComponent.h"
+#include "Property.h"
 #include "BaseController.h"
 
 
@@ -36,8 +36,8 @@ void Entity::setId(std::string newId)
 
 
 //Add to the component vector.
-//Takes in a BaseComponent pointer (a property).
-void Entity::add(BaseComponent* newComponent)
+//Takes in a Property pointer (a property).
+void Entity::add(Property* newComponent)
 {
 	component.push_back(newComponent);
 }
@@ -51,9 +51,9 @@ void Entity::add(BaseController* newComponent)
 }
 
 
-//Delete a BaseComponent.
-//Takes in the BaseComponent to be deleted.
-void Entity::remove(BaseComponent *a)
+//Delete a Property.
+//Takes in the Property to be deleted.
+void Entity::remove(Property *a)
 {
 	for (int i = 0; i < component.size(); i++)
 	{
@@ -85,8 +85,8 @@ void Entity::remove(BaseController *a)
 }
 
 
-//Delete a BaseComponent.
-//Takes in the BaseComponent id string to be deleted.
+//Delete a Property.
+//Takes in the Property id string to be deleted.
 void Entity::deleteComponent(std::string id)
 {
 	for (int i = 0; i < component.size(); i++)
@@ -120,7 +120,7 @@ void Entity::deleteController(std::string id)
 
 
 //Checks if the entity has a particular property.
-//Takes in the BaseComponent id.
+//Takes in the Property id.
 //Returns true or false.
 bool Entity::hasComponent(std::string id)
 {
@@ -150,9 +150,9 @@ bool Entity::hasController(std::string id)
 
 
 //Checks if the entity has a particular property.
-//Takes in the BaseComponent id.
-//Returns the BaseComponent.
-BaseComponent* Entity::getComponent(std::string id)
+//Takes in the Property id.
+//Returns the Property.
+Property* Entity::getComponent(std::string id)
 {
 	for (int i = 0; i < component.size(); i++)
 	{

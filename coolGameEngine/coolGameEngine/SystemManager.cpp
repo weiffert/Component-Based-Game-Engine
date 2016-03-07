@@ -7,9 +7,7 @@
 #include "Entity.h"
 #include "BaseState.h"
 #include "BaseController.h"
-#include "BaseComponent.h"
-#include "PropertyDouble.h"
-#include "PropertyString.h"
+#include "Property.h"
 
 
 SystemManager::SystemManager()
@@ -58,9 +56,9 @@ void SystemManager::add(Entity* a)
 }
 
 
-//Add to the vector of BaseComponents.
-//Takes in a BaseComponent pointer (a property).
-void SystemManager::add(BaseComponent* a)
+//Add to the vector of Propertys.
+//Takes in a Property pointer (a property).
+void SystemManager::add(Property* a)
 {
 	component.push_back(a);
 }
@@ -99,9 +97,9 @@ void SystemManager::remove(Entity* a)
 }
 
 
-//Deletes a BaseComponent.
-//Takes in a BaseComponent pointer (a property).
-void SystemManager::remove(BaseComponent* a)
+//Deletes a Property.
+//Takes in a Property pointer (a property).
+void SystemManager::remove(Property* a)
 {
 	for (int search = 0; search < component.size(); search++)
 	{
@@ -167,7 +165,7 @@ void SystemManager::deleteMaterial(std::string a)
 }
 
 
-//Delete a BaseComponent.
+//Delete a Property.
 //Takes in the id.
 void SystemManager::deleteComponent(std::string a)
 {
@@ -244,15 +242,15 @@ std::vector<Entity*> SystemManager::getMaterial(BaseState* a)
 	//Loops through all entities.
 	for (int i = 0; i < material.size(); i++)
 	{
-		if (PropertyDouble *p = dynamic_cast<PropertyDouble*>(material.at(i)->getComponent("stateNumber")))
+		if (material.at(i)->getComponent("stateId"))
 		{
-			if (p->getData().at(0) == a->getNumber())
+			if (material.at(i)->getComponent("stateId")->getData(0) == a->getId())
 				tempVector.push_back(material.at(i));
 		}
 		//Checks if it has a property that contains some form of state identification.
-		if (PropertyString *p = dynamic_cast<PropertyString*>(material.at(i)->getComponent("stateNumber")))
+		if (material.at(i)->getComponent("stateNumber"))
 		{
-			if (p->getData().at(0) == a->getId())
+			if (material.at(i)->getComponent("stateNumber")->getData(0) == a->getNumber())
 				tempVector.push_back(material.at(i));
 		}
 	}
@@ -275,9 +273,9 @@ Entity * SystemManager::getMaterial(std::string a)
 }
 
 
-//Returns the first BaseComponent pointer with a matching id.
+//Returns the first Property pointer with a matching id.
 //Takes in an id string.
-BaseComponent* SystemManager::getComponent(std::string a)
+Property* SystemManager::getComponent(std::string a)
 {
 	//Loops through all properties.
 	for (int i = 0; i < component.size(); i++)

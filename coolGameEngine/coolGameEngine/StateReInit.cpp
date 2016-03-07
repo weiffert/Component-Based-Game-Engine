@@ -13,7 +13,7 @@
 #include "AssetManager.h"
 #include "StateLoading.h"
 #include "Entity.h"
-#include "BaseComponent.h"
+#include "Property.h"
 #include "PropertyInt.h"
 #include "PropertyDouble.h"
 #include "PropertyFloat.h"
@@ -186,7 +186,7 @@ void StateReInit::update(double totalTime, sf::RenderWindow* window)
 				//Increase line number
 				lineNumber++;
 			}
-			BaseComponent *temp = systemManager->getComponent(id);
+			Property *temp = systemManager->getComponent(id);
 
 			if (type == "int")
 			{
@@ -314,7 +314,7 @@ void StateReInit::update(double totalTime, sf::RenderWindow* window)
 						//If it is the first iteration, clone the property.
 						if (x == 0)
 						{
-							BaseComponent *component = systemManager->getComponent(properties.at(y).at(x));
+							Property *component = systemManager->getComponent(properties.at(y).at(x));
 							systemManager->add(component);
 							temp->remove(component);
 							temp->add(component);

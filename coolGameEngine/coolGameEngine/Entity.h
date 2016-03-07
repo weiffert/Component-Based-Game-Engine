@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-#include "BaseComponent.h"
+#include "Property.h"
 #include "BaseController.h"
 
 
@@ -17,11 +17,11 @@ public:
 	void setId(std::string);
 
 	//Add classes to the proper vector.
-	void add(BaseComponent*);
+	void add(Property*);
 	void add(BaseController*);
 
 	//Remove the proper class from the proper vector.
-	void remove(BaseComponent*);
+	void remove(Property*);
 	void remove(BaseController*);
 	void deleteComponent(std::string);
 	void deleteController(std::string);
@@ -31,11 +31,11 @@ public:
 	bool hasController(std::string);
 
 	//Returns the correct class if there is one with the correct id.
-	BaseComponent* getComponent(std::string);
+	Property* getComponent(std::string);
 	BaseController* getController(std::string);
 
 private:
 	std::string id;
-	std::vector<BaseComponent*> component;
+	std::vector<Property*> component;
 	std::vector<BaseController*> controller;
 };

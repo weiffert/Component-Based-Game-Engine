@@ -86,25 +86,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
-    <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="BaseController.h" />
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Property.h" />
-    <ClInclude Include="PropertyBool.h" />
-    <ClInclude Include="PropertyChar.h" />
-    <ClInclude Include="PropertyDouble.h" />
-    <ClInclude Include="PropertyEntity.h" />
-    <ClInclude Include="PropertyFloat.h" />
-    <ClInclude Include="PropertyImage.h" />
-    <ClInclude Include="PropertyInt.h" />
-    <ClInclude Include="PropertyShape.h" />
-    <ClInclude Include="PropertySound.h" />
-    <ClInclude Include="PropertySprite.h" />
-    <ClInclude Include="PropertyString.h" />
-    <ClInclude Include="PropertyText.h" />
-    <ClInclude Include="PropertyTexture.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="StateReInit.h" />
@@ -118,26 +104,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
-    <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="BaseController.cpp" />
     <ClCompile Include="BaseState.cpp" />
     <ClCompile Include="coolGameEngine.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PropertyBool.cpp" />
-    <ClCompile Include="PropertyChar.cpp" />
-    <ClCompile Include="PropertyDouble.cpp" />
-    <ClCompile Include="PropertyEntity.cpp" />
-    <ClCompile Include="PropertyFloat.cpp" />
-    <ClCompile Include="PropertyImage.cpp" />
-    <ClCompile Include="PropertyInt.cpp" />
-    <ClCompile Include="PropertyShape.cpp" />
-    <ClCompile Include="PropertySound.cpp" />
-    <ClCompile Include="PropertySprite.cpp" />
-    <ClCompile Include="PropertyString.cpp" />
-    <ClCompile Include="PropertyText.cpp" />
-    <ClCompile Include="PropertyTexture.cpp" />
+    <ClCompile Include="Property.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="StateReInit.cpp" />
     <ClCompile Include="StateLevel.cpp" />

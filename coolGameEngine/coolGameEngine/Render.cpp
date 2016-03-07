@@ -20,7 +20,7 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 {
 	bool drawable = false;
 	//Temp stores the property to be drawn.
-	BaseComponent *temp, *temp2, *temp3;
+	Property *temp, *temp2, *temp3;
 
 	//Update position based on time lag.
 	double speed, x, y, changeX, changeY;

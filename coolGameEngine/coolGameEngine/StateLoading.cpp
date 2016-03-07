@@ -14,24 +14,11 @@
 #include "StateReInit.h"
 #include "StateMenu.h"
 #include "StateLevel.h"
-#include "PropertyInt.h"
-#include "PropertyDouble.h"
-#include "PropertyFloat.h"
-#include "PropertyChar.h"
-#include "PropertyBool.h"
-#include "PropertyString.h"
-#include "PropertyImage.h"
-#include "PropertyTexture.h"
-#include "PropertySound.h"
-#include "PropertyShape.h"
-#include "PropertyText.h"
-#include "PropertySprite.h"
-#include "PropertyEntity.h"
+#include "Property.h"
 #include "Entity.h"
 #include "BaseController.h"
 #include "SystemManager.h"
 #include "AssetManager.h"
-#include "BaseComponent.h"
 #include "Render.h"
 
 
@@ -209,141 +196,140 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			}
 
 			//Create.
-			//BaseComponent is the parent class to the property class.
+			//Property is the parent class to the property class.
 
-			BaseComponent *temp;
+			Property *temp;
 		
 			//Create a property based on the type.
 			if (type == "int")
 			{
-				PropertyInt *temp2 = new PropertyInt();
+				temp = new Property("int");
+
 				for (int i = 0; i < data.size(); i++)
-					temp2->addData(std::stoi(data.at(i)));
-				temp = temp2;
+					temp->addData(std::stoi(data.at(i)));
 			}
 			else if (type == "char")
 			{
-				PropertyChar*temp2 = new PropertyChar();
+				temp = new Property("char");
+
 				for (int i = 0; i < data.size(); i++)
-					temp2->addData(data.at(i).c_str());
-				temp = temp2;
+					temp->addData(data.at(i).c_str());
 			}
 
 			else if (type == "double")
 			{
-				PropertyDouble* temp2 = new PropertyDouble();
+				temp = new Property("double");
+
 				for(int i = 0; i < data.size(); i++)
-					temp2->addData(std::stod(data.at(i)));
-				temp = temp2;
+					temp->addData(std::stod(data.at(i)));
 			}
 
 			else if (type == "float")
 			{
-				PropertyFloat *temp2 = new PropertyFloat();
+				temp = new Property("float");
+
 				for(int i = 0; i < data.size(); i++)
-					temp2->addData(std::stof(data.at(i)));
-				temp = temp2;
+					temp->addData(std::stof(data.at(i)));
 			}
 
 			else if (type == "bool")
 			{
-				PropertyBool *temp2 = new PropertyBool();
+				temp = new Property("bool");
 
 				bool tOrF = false;
 				if (data.at(0) == "true")
 					tOrF = true;
 
 				for (int i = 0; i < data.size(); i++)
-					temp2->addData(tOrF);
-				temp = temp2;
+					temp->addData(tOrF);
 			}
 
 			else if (type == "string")
 			{
-				PropertyString *temp2 = new PropertyString();
+				temp = new Property("string");
 
 				for (int i = 0; i < data.size(); i++)
-					temp2->addData(data.at(i));
-				temp = temp2;
+					temp->addData(data.at(i));
 			}
 
 			else if (type == "Entity")
 			{
-				PropertyEntity *temp2 = new PropertyEntity();
+				temp = new Property("Entity");
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp2->addData(systemManager->getMaterial(data.at(i)));
-				temp = temp2;
+					temp->addData(systemManager->getMaterial(data.at(i)));
 			}
 
 			else if (type == "Texture")
 			{
-				PropertyTexture *temp2 = new PropertyTexture();
+				temp = new Property("Texture");
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp2->addData(assetManager->getTexture(std::stoi(data.at(i))));
-				temp = temp2;
+					temp->addData(assetManager->getTexture(std::stoi(data.at(i))));
 			}
 
 			else if (type == "Image")
 			{
-				PropertyImage *temp2 = new PropertyImage();
+				temp = new Property("Image");
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp2->addData(assetManager->getTexture(stoi(data.at(i))));
-				temp = temp2;
+					temp->addData(assetManager->getTexture(stoi(data.at(i))));
 			}
 
 			else if (type == "Sound")
 			{
-				PropertySound *temp2 = new PropertySound();
+				temp = new Property("Sound");
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp2->addData(assetManager->getSound(data.at(i)));
-				temp = temp2;
+					temp->addData(assetManager->getSound(data.at(i)));
 			}
 			
 			else if(type == "Sprite")
 			{
-				PropertySprite *temp2 = new PropertySprite();
-				
+				temp = new Property("Sprite");
+
 				//Get the proper data from the id in the file.
-				for(int i = 0; i < data.size(); i++)
-					temp2->addData(&sf::Sprite sprite);
-				temp = temp2;
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::Sprite *sprite = new sf::Sprite();
+					temp->addData(sprite);
+				}
 			}
 			
 			else if(type == "Shape")
 			{
-				PropertyShape *temp2 = new PropertyShape();
-				
+				temp = new Property("Shape");
+
 				//Get the proper data from the id in the file.
-				for(int i = 0; i < data.size(); i++)
-					temp2->addData(&sf::Shape shape);
-				temp = temp2;
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::Shape *shape = new sf::Shape();
+					temp->addData(shape);
+				}
 			}
 
 			else if(type == "Text")
 			{
-				PropertyText *temp2 = new PropertyText();
-				
+				temp = new Property("Text");
+
 				//Get the proper data from the id in the file.
-				for(int i = 0; i < data.size(); i++)
-					temp2->addData(&sf::Text text);
-				temp = temp2;
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::Text *text = new sf::Text();
+					temp->addData(text);
+				}
 			}
 			
 			else
 			{
-				PropertyString *temp2 = new PropertyString();
+				temp = new Property("string");
 
 				for (int i = 0; i < data.size(); i++)
-					temp2->addData(data.at(i));
-				temp = temp2;
+					temp->addData(data.at(i));
 			}
 
 			//Edit.
@@ -403,7 +389,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 						//If it is the first iteration, clone the property.
 						if (x == 0)
 						{
-							BaseComponent *component = systemManager->getComponent(properties.at(y).at(x));
+							Property *component = systemManager->getComponent(properties.at(y).at(x));
 							//Stores the new property in systemManager.
 							systemManager->add(component);
 							//Links the Entity to the property.
@@ -486,14 +472,16 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(sf::Sprite sprite));
+								sf::Sprite sprite;
+								temp->getComponent(properties.at(y).at(x))->addData(sprite);
 							}
 
 							else if (type == "Shape")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(sf::Shape shape));
+								sf::Shape shape;
+								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
 
 
@@ -501,13 +489,14 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(sf::Text text));
+								sf::Text text;
+								temp->getComponent(properties.at(y).at(x))->addData(text);
 							}
 							else
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x).addData(properties.at(y)).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y)).at(x);
 							}
 						}
 					}
@@ -555,7 +544,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			}
 
 			//Get required properties.
-			std::vector<BaseComponent *> *components;
+			std::vector<Property *> *components;
 			for (int i = 0; i < properties.size(); i++)
 				components->push_back(systemManager->getMaterial(properties.at(i)));
 
