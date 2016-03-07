@@ -2,3 +2,4 @@ Missile ;
 Life ;
 Position ;
 Velocity ;
+Sprite ;
