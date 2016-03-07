@@ -1,2 +1,4 @@
-missile ;
-Sprite ;
+Missile ;
+Life ;
+Position ;
+Velocity ;
