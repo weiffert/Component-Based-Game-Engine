@@ -1,5 +1,4 @@
 Player ;
 Life ;
-Select ;
 MissileLauncher ;
 Points ;
