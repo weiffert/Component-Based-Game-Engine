@@ -1,4 +1,3 @@
 MissileLauncher ;
-MissileLauncher ;
-TotalMissileCOunt ;
 CurrentMissileCount ;
+TotalMissileCount ;
