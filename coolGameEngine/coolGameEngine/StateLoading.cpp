@@ -290,6 +290,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			
 			else if(type == "Sprite")
 			{
+<<<<<<< HEAD
 				temp = new Property("Sprite");
 
 				//Get the proper data from the id in the file.
@@ -298,6 +299,14 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 					sf::Sprite *sprite = new sf::Sprite();
 					temp->addData(sprite);
 				}
+=======
+				PropertySprite *temp2 = new PropertySprite();
+				sf::Sprite sprite;
+				//Get the proper data from the id in the file.
+				for(int i = 0; i < data.size(); i++)
+					temp2->addData(&sprite);
+				temp = temp2;
+>>>>>>> origin/game-engine
 			}
 			
 			else if(type == "Shape")
@@ -472,7 +481,13 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
+<<<<<<< HEAD
 								sf::Sprite sprite;
+=======
+
+								sf::Sprite sprite;
+
+>>>>>>> origin/game-engine
 								temp->getComponent(properties.at(y).at(x))->addData(sprite);
 							}
 
@@ -480,7 +495,13 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
+<<<<<<< HEAD
 								sf::Shape shape;
+=======
+
+								sf::Shape shape;
+
+>>>>>>> origin/game-engine
 								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
 
@@ -489,7 +510,13 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
+<<<<<<< HEAD
 								sf::Text text;
+=======
+
+								sf::Text text;
+
+>>>>>>> origin/game-engine
 								temp->getComponent(properties.at(y).at(x))->addData(text);
 							}
 							else

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 3/7/2016 10:12:18 AM.
      1>Project "C:\Users\17WBE01\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -69,11 +70,129 @@
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(296): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(308): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(310): error C2259: 'sf::Shape' : cannot instantiate abstract class
+=======
+﻿Build started 3/7/2016 9:00:07 AM.
+     1>Project "C:\Users\16kta01\Documents\GitHub\coolGameEngine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\boost\boost_1_60_0" /I"C:\SFML-2.3.2\include" /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BaseComponent.cpp BaseController.cpp BaseState.cpp Game.cpp PropertyBool.cpp PropertyChar.cpp PropertyDouble.cpp PropertyEntity.cpp PropertyFloat.cpp PropertyImage.cpp PropertyInt.cpp PropertyShape.cpp PropertySound.cpp PropertySprite.cpp PropertyString.cpp PropertyText.cpp PropertyTexture.cpp Render.cpp StateLevel.cpp StateLoading.cpp StateMenu.cpp StateReInit.cpp StateStatic.cpp
+         StateStatic.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(13): error C2535: 'Property<T>::Property(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(9) : see declaration of 'Property<T>::Property'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(29) : see reference to class template instantiation 'Property<T>' being compiled
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(14): error C2535: 'Property<T>::~Property(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(10) : see declaration of 'Property<T>::~Property'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statestatic.cpp(43): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
+         StateReInit.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.h(3): error C2236: unexpected token 'class'. Did you forget a ';'?
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.h(3): error C2143: syntax error : missing ';' before ':'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.h(3): error C2059: syntax error : ':'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.h(4): error C2059: syntax error : 'public'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.h(5): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.h(5): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(15): error C2259: 'sf::Shape' : cannot instantiate abstract class
                  due to following members:
                  'size_t sf::Shape::getPointCount(void) const' : is abstract
                  c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
                  'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
                  c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(18): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(20): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(22): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(84): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(105): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(134): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(194): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(195): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(201): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(202): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(208): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(209): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(215): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(216): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(225): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(231): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(232): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(239): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(240): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(247): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(248): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(255): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(256): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(263): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(264): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(270): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(271): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(306): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(309): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(329): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(335): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(341): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(347): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(358): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(364): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(371): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(378): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(385): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(392): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statereinit.cpp(399): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+         StateMenu.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(13): error C2535: 'Property<T>::Property(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(9) : see declaration of 'Property<T>::Property'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(29) : see reference to class template instantiation 'Property<T>' being compiled
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(14): error C2535: 'Property<T>::~Property(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(10) : see declaration of 'Property<T>::~Property'
+         StateLoading.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statestatic.h(6): error C2236: unexpected token 'class'. Did you forget a ';'?
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statestatic.h(6): error C2143: syntax error : missing ';' before ':'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statestatic.h(6): error C2059: syntax error : ':'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statestatic.h(6): error C2059: syntax error : 'public'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statestatic.h(7): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\statestatic.h(7): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(15): error C2259: 'sf::Shape' : cannot instantiate abstract class
+>>>>>>> origin/game-engine
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+<<<<<<< HEAD
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(310): error C2248: 'sf::Shape::Shape' : cannot access protected member declared in class 'sf::Shape'
                  c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(256) : see declaration of 'sf::Shape::Shape'
                  c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(44) : see declaration of 'sf::Shape'
@@ -87,11 +206,27 @@
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(381): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(384): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(483): error C2259: 'sf::Shape' : cannot instantiate abstract class
+=======
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(18): error C2259: 'sf::Shape' : cannot instantiate abstract class
                  due to following members:
                  'size_t sf::Shape::getPointCount(void) const' : is abstract
                  c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
                  'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
                  c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(20): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(22): error C2259: 'sf::Shape' : cannot instantiate abstract class
+>>>>>>> origin/game-engine
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+<<<<<<< HEAD
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(483): error C2248: 'sf::Shape::Shape' : cannot access protected member declared in class 'sf::Shape'
                  c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(256) : see declaration of 'sf::Shape::Shape'
                  c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(44) : see declaration of 'sf::Shape'
@@ -102,13 +237,96 @@
                  type is 'void'
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(548): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(549): error C2664: 'void std::vector<Property *,std::allocator<_Ty>>::push_back(Property *const &)' : cannot convert argument 1 from 'Entity *' to 'Property *&&'
+=======
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(88): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(109): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(138): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(220): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(227): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(228): error C2664: 'void PropertyChar::addData(char)' : cannot convert argument 1 from 'const char *' to 'char'
+                 There is no context in which this conversion is possible
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(235): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(243): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(256): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(265): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(275): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(276): error C2664: 'void PropertyEntity::addData(Entity)' : cannot convert argument 1 from 'Entity *' to 'Entity'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(285): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(286): error C2664: 'void PropertyTexture::addData(sf::Texture)' : cannot convert argument 1 from 'sf::Texture *' to 'sf::Texture'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(295): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(296): error C2664: 'void PropertyImage::addData(sf::Image)' : cannot convert argument 1 from 'sf::Texture *' to 'sf::Image'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(305): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(306): error C2664: 'void PropertySound::addData(sf::Sound)' : cannot convert argument 1 from 'sf::Sound *' to 'sf::Sound'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(315): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(316): error C2275: 'sf::Sprite' : illegal use of this type as an expression
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(316): error C2146: syntax error : missing ')' before identifier 'sprite'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(316): error C2059: syntax error : ')'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(325): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(326): error C2275: 'sf::Shape' : illegal use of this type as an expression
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(326): error C2146: syntax error : missing ')' before identifier 'shape'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(326): error C2059: syntax error : ')'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(335): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(336): error C2275: 'sf::Text' : illegal use of this type as an expression
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(336): error C2146: syntax error : missing ')' before identifier 'text'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(336): error C2059: syntax error : ')'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(344): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(377): error C2275: 'std::vector<std::string,std::allocator<_Ty>>' : illegal use of this type as an expression
+>>>>>>> origin/game-engine
                  with
                  [
                      _Ty=Property *
                  ]
+<<<<<<< HEAD
                  Reason: cannot convert from 'Entity *' to 'Property *'
                  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(552): error C2664: 'void BaseController::setRequiredProperties(std::vector<BaseComponent *,std::allocator<_Ty>> *)' : cannot convert argument 1 from 'std::vector<Property *,std::allocator<_Ty>> *' to 'std::vector<BaseComponent *,std::allocator<_Ty>> *'
+=======
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(395): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(398): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(419): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(425): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(431): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(437): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(448): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(454): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(461): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(468): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(475): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(482): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(492): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(500): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(500): error C2248: 'sf::Shape::Shape' : cannot access protected member declared in class 'sf::Shape'
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(256) : see declaration of 'sf::Shape::Shape'
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(44) : see declaration of 'sf::Shape'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(502): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(513): error C2039: 'addData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(519): error C2039: 'addData' : is not a member of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(519): error C2228: left of '.at' must have class/struct/union
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(568): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(569): error C2664: 'void std::vector<BaseComponent *,std::allocator<_Ty>>::push_back(BaseComponent *const &)' : cannot convert argument 1 from 'Entity *' to 'BaseComponent *&&'
+>>>>>>> origin/game-engine
                  with
                  [
                      _Ty=BaseComponent *
@@ -122,6 +340,7 @@
                      _Ty=BaseComponent *
                  ]
                  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+<<<<<<< HEAD
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(581): error C3867: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str': function call missing argument list; use '&std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str' to create a pointer to member
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(590): error C2061: syntax error : identifier 'StateStatic'
          StateLevel.cpp
@@ -232,9 +451,516 @@
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\entity.h(40): error C2976: 'std::vector' : too few template arguments
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
      1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basecontroller.cpp(42): warning C4018: '<' : signed/unsigned mismatch
+=======
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(601): error C3867: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str': function call missing argument list; use '&std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str' to create a pointer to member
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\stateloading.cpp(610): error C2061: syntax error : identifier 'StateStatic'
+         StateLevel.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(13): error C2535: 'Property<T>::Property(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(9) : see declaration of 'Property<T>::Property'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(29) : see reference to class template instantiation 'Property<T>' being compiled
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(14): error C2535: 'Property<T>::~Property(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\property.h(10) : see declaration of 'Property<T>::~Property'
+         Render.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(21): error C2061: syntax error : identifier 'BaseController'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(21): error C2535: 'void Entity::add(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20) : see declaration of 'Entity::add'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(25): error C2061: syntax error : identifier 'BaseController'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(25): error C2535: 'void Entity::remove(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24) : see declaration of 'Entity::remove'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(35): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(35): warning C4183: 'getController': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(40): error C2065: 'BaseController' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(40): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(40): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(30): error C2440: '=' : cannot convert from 'int *' to 'BaseComponent *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(35): error C2440: '=' : cannot convert from 'int *' to 'BaseComponent *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(39): error C2039: 'getData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(40): error C2039: 'getData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(41): error C2039: 'getData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(42): error C2039: 'getData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(45): error C2039: 'changeData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(46): error C2039: 'changeData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(58): error C2440: '=' : cannot convert from 'int *' to 'BaseComponent *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(63): error C2440: '=' : cannot convert from 'int *' to 'BaseComponent *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(69): error C2440: '=' : cannot convert from 'int *' to 'BaseComponent *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(74): error C2440: '=' : cannot convert from 'int *' to 'BaseComponent *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(80): error C2039: 'getData' : is not a member of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(80): error C2228: left of '.move' must have class/struct/union
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecomponent.h(13) : see declaration of 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\render.cpp(81): error C2664: 'void sf::RenderTarget::draw(const sf::Vertex *,size_t,sf::PrimitiveType,const sf::RenderStates &)' : cannot convert argument 1 from 'BaseComponent *' to 'const sf::Drawable &'
+                 Reason: cannot convert from 'BaseComponent *' to 'const sf::Drawable'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+         PropertyTexture.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertytexture.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertytexture.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertytexture.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertytexture.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+         PropertyText.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertytext.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertytext.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertytext.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertytext.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+         PropertyString.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertystring.cpp(20): error C2664: 'std::vector<std::string,std::allocator<_Ty>>::vector(std::initializer_list<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>,const std::allocator<_Ty> &)' : cannot convert argument 1 from 'std::vector<float,std::allocator<_Ty>>' to 'const std::vector<std::string,std::allocator<_Ty>> &'
+                 with
+                 [
+                     _Ty=std::string
+                 ]
+                 and
+                 [
+                     _Ty=float
+                 ]
+                 and
+                 [
+                     _Ty=std::string
+                 ]
+                 Reason: cannot convert from 'std::vector<float,std::allocator<_Ty>>' to 'const std::vector<std::string,std::allocator<_Ty>>'
+                 with
+                 [
+                     _Ty=float
+                 ]
+                 and
+                 [
+                     _Ty=std::string
+                 ]
+                 No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertystring.cpp(27): error C2664: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string(std::initializer_list<_Elem>,const std::allocator<char> &)' : cannot convert argument 1 from 'float' to 'const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &'
+                 with
+                 [
+                     _Elem=char
+                 ]
+                 Reason: cannot convert from 'float' to 'const std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertystring.cpp(35): error C2664: 'void std::vector<float,std::allocator<_Ty>>::push_back(const float &)' : cannot convert argument 1 from 'std::string' to 'float &&'
+                 with
+                 [
+                     _Ty=float
+                 ]
+                 Reason: cannot convert from 'std::string' to 'float'
+                 No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertystring.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertystring.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertystring.cpp(56): error C2678: binary '==' : no operator found which takes a left-hand operand of type 'float' (or there is no acceptable conversion)
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\exception(497): could be 'bool std::operator ==(const std::exception_ptr &,const std::exception_ptr &)' [found using argument-dependent lookup]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\exception(502): or       'bool std::operator ==(std::nullptr_t,const std::exception_ptr &)' [found using argument-dependent lookup]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\exception(507): or       'bool std::operator ==(const std::exception_ptr &,std::nullptr_t)' [found using argument-dependent lookup]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\system_error(402): or       'bool std::operator ==(const std::error_code &,const std::error_condition &) throw()' [found using argument-dependent lookup]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\system_error(410): or       'bool std::operator ==(const std::error_condition &,const std::error_code &) throw()' [found using argument-dependent lookup]
+                 while trying to match the argument list '(float, std::string)'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertystring.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertystring.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertystring.cpp(80): error C2440: '=' : cannot convert from 'std::string' to 'float'
+                 No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+         PropertySprite.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertysprite.cpp(27): error C2664: 'sf::Sprite::Sprite(const sf::Sprite &)' : cannot convert argument 1 from 'int' to 'const sf::Sprite &'
+                 Reason: cannot convert from 'int' to 'const sf::Sprite'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertysprite.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertysprite.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertysprite.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertysprite.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+         PropertySound.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertysound.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertysound.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertysound.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertysound.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+         PropertyShape.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(15): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(18): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(20): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.h(22): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.cpp(26): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.cpp(33): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.cpp(52): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.cpp(77): error C2259: 'sf::Shape' : cannot instantiate abstract class
+                 due to following members:
+                 'size_t sf::Shape::getPointCount(void) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(196) : see declaration of 'sf::Shape::getPointCount'
+                 'sf::Vector2f sf::Shape::getPoint(size_t) const' : is abstract
+                 c:\sfml-2.3.2\include\sfml\graphics\shape.hpp(213) : see declaration of 'sf::Shape::getPoint'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyshape.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+         PropertyInt.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.cpp(41): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.cpp(52): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.cpp(66): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyint.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+         PropertyImage.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyimage.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyimage.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyimage.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyimage.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+         PropertyFloat.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyfloat.cpp(41): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyfloat.cpp(52): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyfloat.cpp(66): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyfloat.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+         PropertyEntity.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyentity.cpp(27): error C2558: class 'Entity' : no copy constructor available or copy constructor is declared 'explicit'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyentity.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyentity.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyentity.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyentity.cpp(79): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyentity.cpp(80): error C2582: 'operator =' function is unavailable in 'Entity'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertyentity.cpp(82): error C2664: 'void PropertyEntity::addData(Entity)' : cannot convert argument 1 from 'Entity' to 'Entity'
+                 Cannot copy construct class 'Entity' due to ambiguous copy constructors or no available copy constructor
+         PropertyDouble.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertydouble.cpp(41): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertydouble.cpp(52): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertydouble.cpp(66): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertydouble.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+         PropertyChar.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertychar.cpp(41): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertychar.cpp(52): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertychar.cpp(66): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertychar.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+         PropertyBool.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertybool.cpp(41): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertybool.cpp(52): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertybool.cpp(66): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\propertybool.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+         Game.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\game.cpp(18): error C2533: 'Game::{ctor}' : constructors not allowed a return type
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\game.cpp(58): warning C4244: 'initializing' : conversion from 'time_t' to 'double', possible loss of data
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\game.cpp(64): warning C4244: 'initializing' : conversion from 'time_t' to 'double', possible loss of data
          Generating Code...
-     1>Done Building Project "C:\Users\17WBE01\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" (Build target(s)) -- FAILED.
+         Compiling...
+         BaseState.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basestate.cpp(80): error C3867: 'sf::RenderTarget::clear': function call missing argument list; use '&sf::RenderTarget::clear' to create a pointer to member
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basestate.cpp(84): warning C4018: '<' : signed/unsigned mismatch
+         BaseController.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(21): error C2061: syntax error : identifier 'BaseController'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(21): error C2535: 'void Entity::add(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20) : see declaration of 'Entity::add'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(25): error C2061: syntax error : identifier 'BaseController'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(25): error C2535: 'void Entity::remove(void)' : member function already defined or declared
+                 c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24) : see declaration of 'Entity::remove'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(35): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(35): warning C4183: 'getController': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(40): error C2065: 'BaseController' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(40): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(40): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.cpp(42): warning C4018: '<' : signed/unsigned mismatch
+         BaseComponent.cpp
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(19): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\basecontroller.h(23): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(20): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(24): error C2061: syntax error : identifier 'BaseComponent'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(34): warning C4183: 'getComponent': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2065: 'BaseComponent' : undeclared identifier
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2059: syntax error : '>'
+     1>c:\users\16kta01\documents\github\coolgameengine\coolgameengine\coolgameengine\entity.h(39): error C2976: 'std::vector' : too few template arguments
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector(650) : see declaration of 'std::vector'
+>>>>>>> origin/game-engine
+         Generating Code...
+     1>Done Building Project "C:\Users\16kta01\Documents\GitHub\coolGameEngine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
+<<<<<<< HEAD
 Time Elapsed 00:00:06.73
+=======
+Time Elapsed 00:00:10.79
+>>>>>>> origin/game-engine
