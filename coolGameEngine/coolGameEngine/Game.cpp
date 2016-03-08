@@ -18,7 +18,7 @@ Game::Game(int width, int height, std::string name)
 {
 	sf::VideoMode windowResolution;
 	windowResolution.width = width;
-	windowResolution.height= height;
+	windowResolution.height = height;
 	gameName = name;
 	systemManager = new SystemManager();
 	assetManager = new AssetManager();

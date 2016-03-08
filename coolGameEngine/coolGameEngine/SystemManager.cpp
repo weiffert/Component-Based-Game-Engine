@@ -260,7 +260,7 @@ std::vector<Entity*> SystemManager::getMaterial(BaseState* a)
 
 //Returns the first Entity pointer with a matching id.
 //Takes in an id string.
-Entity * SystemManager::getMaterial(std::string a)
+Entity* SystemManager::getMaterial(std::string a)
 {
 	//Loops through all entities.
 	for (int i = 0; i < material.size(); i++)

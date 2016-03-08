@@ -1,8 +1,13 @@
 #include "stdafx.h"
 #include "Property.h"
+
 #include <vector>
 #include <string>
+
 #include "SFML\Graphics.hpp"
+#include "SFML\Audio.hpp"
+
+#include "Entity.h"
 
 
 Property::Property(std::string type)
@@ -13,8 +18,7 @@ Property::Property(std::string type)
 
 
 //Default destructor
-template <class T>
-Property::~Property()
+Property::~Property();
 {
 
 }
@@ -63,6 +67,8 @@ std::vector<T> Property::getData()
 		return dataText;
 	if (typeId == "Shape")
 		return dataShape;
+	if (typeId == "Entity")
+		return dataEntity;
 }
 
 
@@ -130,6 +136,11 @@ T Property::getData(int location)
 		if (location < dataShape.size())
 			return dataShape.at(location);
 	}
+	if (typeId == "Entity")
+	{
+		if (location < dataEntity.size())
+			return dataEntity.at(location);
+	}
 }
 
 
@@ -139,29 +150,31 @@ template <class T>
 void Property::addData(T value)
 {
 	if (typeId == "int")
-		data.push_back(value);
+		dataInt.push_back(value);
 	if (typeId == "double")
-		data.push_back(value);
+		dataDouble.push_back(value);
 	if (typeId == "float")
-		data.push_back(value);
+		dataFloat.push_back(value);
 	if (typeId == "char")
-		data.push_back(value);
+		dataChar.push_back(value);
 	if (typeId == "bool")
-		data.push_back(value);
+		dataBool.push_back(value);
 	if (typeId == "string")
-		data.push_back(value);
+		dataString.push_back(value);
 	if (typeId == "Sprite")
-		data.push_back(value);
+		dataSprite.push_back(value);
 	if (typeId == "Image")
-		data.push_back(value);
+		dataImage.push_back(value);
 	if (typeId == "Texture")
-		data.push_back(value);
+		dataTexture.push_back(value);
 	if (typeId == "Sound")
-		data.push_back(value);
+		dataSound.push_back(value);
 	if (typeId == "Text")
-		data.push_back(value);
+		dataText.push_back(value);
 	if (typeId == "Shape")
-		data.push_back(value);
+		dataShape.push_back(value);
+	if (typeId == "Entity")
+		dataEntity.push_back(value);
 }
 
 
@@ -254,6 +267,13 @@ void Property::deleteData()
 			dataShape.erase(i);
 		}
 	}
+	if (typeId == "Entity")
+	{
+		for (int i = 0; i < dataEntity.size(); i++)
+		{
+			dataEntity.erase(i);
+		}
+	}
 }
 
 
@@ -268,7 +288,7 @@ void Property::deleteData(T value)
 		{
 			if (dataInt.at(i) == value)
 			{
-				dataInt.erase(i);
+				dataInt.erase(dataInt.begin() + i);
 			}
 		}
 	}
@@ -278,7 +298,7 @@ void Property::deleteData(T value)
 		{
 			if (dataDouble.at(i) == value)
 			{
-				dataDouble.erase(i);
+				dataDouble.erase(dataDouble.begin() + i);
 			}
 		}
 	}
@@ -288,7 +308,7 @@ void Property::deleteData(T value)
 		{
 			if (dataFloat.at(i) == value)
 			{
-				dataFloat.erase(i);
+				dataFloat.erase(dataFloat.begin() + i);
 			}
 		}
 	}
@@ -298,7 +318,7 @@ void Property::deleteData(T value)
 		{
 			if (dataChar.at(i) == value)
 			{
-				dataChar.erase(i);
+				dataChar.erase(dataChar.begin() + i);
 			}
 		}
 	}
@@ -308,7 +328,7 @@ void Property::deleteData(T value)
 		{
 			if (dataBool.at(i) == value)
 			{
-				dataBool.erase(i);
+				dataBool.erase(dataBool.begin() + i);
 			}
 		}
 	}
@@ -318,7 +338,7 @@ void Property::deleteData(T value)
 		{
 			if (dataString.at(i) == value)
 			{
-				dataString.erase(i);
+				dataString.erase(dataString.begin() + i);
 			}
 		}
 	}
@@ -328,7 +348,7 @@ void Property::deleteData(T value)
 		{
 			if (dataSprite.at(i) == value)
 			{
-				dataSprite.erase(i);
+				dataSprite.erase(dataSprite.begin() + i);
 			}
 		}
 	}
@@ -338,7 +358,7 @@ void Property::deleteData(T value)
 		{
 			if (dataImage.at(i) == value)
 			{
-				dataImage.erase(i);
+				dataImage.erase(dataImage.begin() + i);
 			}
 		}
 	}
@@ -348,7 +368,7 @@ void Property::deleteData(T value)
 		{
 			if (dataTexture.at(i) == value)
 			{
-				dataTexture.erase(i);
+				dataTexture.erase(dataTexture.begin() + i);
 			}
 		}
 	}
@@ -358,7 +378,7 @@ void Property::deleteData(T value)
 		{
 			if (dataSound.at(i) == value)
 			{
-				dataSound.erase(i);
+				dataSound.erase(dataSound.begin() + i);
 			}
 		}
 	}
@@ -368,7 +388,7 @@ void Property::deleteData(T value)
 		{
 			if (dataText.at(i) == value)
 			{
-				dataText.erase(i);
+				dataText.erase(dataText.begin() + i);
 			}
 		}
 	}
@@ -378,7 +398,17 @@ void Property::deleteData(T value)
 		{
 			if (dataShape.at(i) == value)
 			{
-				dataShape.erase(i);
+				dataShape.erase(dataShape.begin() + i);
+			}
+		}
+	}
+	if (typeId == "Entity")
+	{
+		for (int i = 0; i < dataEntity.size(); i++)
+		{
+			if (dataEntity.at(i) == value)
+			{
+				dataEntity.erase(dataEntity.begin() + i);
 			}
 		}
 	}
@@ -387,91 +417,97 @@ void Property::deleteData(T value)
 
 //Subtracts value from existing data with the position.
 //Takes in the position with data to be deleted.
-template <class T>
 void Property::deleteDataPosition(int position)
 {
 	if (typeId == "int")
 	{
 		if (position < dataInt.size())
 		{
-			dataInt.erase(position);
+			dataInt.erase(dataInt.begin() + position);
 		}
 	}
 	if (typeId == "double")
 	{
 		if (position < dataDouble.size())
 		{
-			dataDouble.erase(position);
+			dataDouble.erase(dataDouble.begin() + position);
 		}
 	}
 	if (typeId == "float")
 	{
 		if (position < dataFloat.size())
 		{
-			dataFloat.erase(position);
+			dataFloat.erase(dataFloat.begin() + position);
 		}
 	}
 	if (typeId == "char")
 	{
 		if (position < dataChar.size())
 		{
-			dataChar.erase(position);
+			dataChar.erase(dataChar.begin() + position);
 		}
 	}
 	if (typeId == "bool")
 	{
 		if (position < dataBool.size())
 		{
-			dataBool.erase(position);
+			dataBool.erase(dataBool.begin() + position);
 		}
 	}
 	if (typeId == "string")
 	{
 		if (position < dataString.size())
 		{
-			dataString.erase(position);
+			dataString.erase(dataString.begin() + position);
 		}
 	}
 	if (typeId == "Sprite")
 	{
 		if (position < dataSprite.size())
 		{
-			dataSprite.erase(position);
+			dataSprite.erase(dataSprite.begin() + position);
 		}
 	}
 	if (typeId == "Image")
 	{
 		if (position < dataImage.size())
 		{
-			dataImage.erase(position);
+			dataImage.erase(dataImage.begin() + position);
 		}
 	}
 	if (typeId == "Texture")
 	{
 		if (position < dataTexture.size())
 		{
-			dataTexture.erase(position);
+			dataTexture.erase(dataTexture.begin() + position);
 		}
 	}
 	if (typeId == "Sound")
 	{
 		if (position < dataSound.size())
 		{
-			dataSound.erase(position);
+			dataSound.erase(dataSound.begin() + position);
 		}
 	}
 	if (typeId == "Text")
 	{
 		if (position < dataText.size())
 		{
-			dataText.erase(position);
+			dataText.erase(dataText.begin() + position);
 		}
 	}
 	if (typeId == "Shape")
 	{
 		if (position < dataShape.size())
 		{
-			dataShape.erase(position);
+			dataShape.erase(dataShape.begin() + position);
+		}
+	}
+	if (typeId == "Entity")
+	{
+		if (position < dataEntity.size())
+		{
+			dataEntity.erase(dataEntity.begin() + position);
 		}
 	}
 }
@@ -563,6 +599,13 @@ void Property::changeData(T value, int position)
 	{
 		if (position < dataShape.size())
 			dataShape.at(position) = value;
+		else
+			addData(value);
+	}
+	if (typeId == "Entity")
+	{
+		if (position < dataEntity.size())
+			dataEntity.at(position) = value;
 		else
 			addData(value);
 	}

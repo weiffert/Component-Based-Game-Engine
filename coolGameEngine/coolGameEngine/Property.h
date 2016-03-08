@@ -1,8 +1,15 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "Entity.h"
+
 #include "SFML\Graphics.hpp"
+#include "SFML\Audio.hpp"
+
+/*
+#include "Entity.h"
+*/
+
+class Entity;
 
 class Property
 {
@@ -18,6 +25,7 @@ public:
 	//Returns the data as a vector.
 	template <class T>
 	std::vector<T> getData();
+
 	template <class T>
 	T getData(int);
 
@@ -37,6 +45,7 @@ public:
 private:
 	std::string id;
 	std::string typeId;
+
 	std::vector<int> dataInt;
 	std::vector<double> dataDouble;
 	std::vector<float> dataFloat;
@@ -49,4 +58,5 @@ private:
 	std::vector<sf::Shape> dataShape;
 	std::vector<sf::Text> dataText;
 	std::vector<Entity> dataEntity;
+	std::vector<sf::Sound> dataSound;
 };

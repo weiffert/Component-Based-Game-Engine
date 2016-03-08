@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+
 /*
 #include "Entity.h"
 #include "BaseState.h"
@@ -12,6 +13,7 @@ class BaseState;
 class Entity;
 class BaseController;
 class Property;
+
 class SystemManager
 {
 public:

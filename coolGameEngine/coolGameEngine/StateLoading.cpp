@@ -290,7 +290,6 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			
 			else if(type == "Sprite")
 			{
-<<<<<<< HEAD
 				temp = new Property("Sprite");
 
 				//Get the proper data from the id in the file.
@@ -299,14 +298,6 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 					sf::Sprite *sprite = new sf::Sprite();
 					temp->addData(sprite);
 				}
-=======
-				PropertySprite *temp2 = new PropertySprite();
-				sf::Sprite sprite;
-				//Get the proper data from the id in the file.
-				for(int i = 0; i < data.size(); i++)
-					temp2->addData(&sprite);
-				temp = temp2;
->>>>>>> origin/game-engine
 			}
 			
 			else if(type == "Shape")
@@ -369,7 +360,8 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 						if (wordNumber == 1)
 						{
 							//Push back a new string vector for the property.
-							properties.push_back(std::vector<std::string>);
+							std::vector<std::string> temp;
+							properties.push_back(temp);
 						}
 						properties.at(lineNumber - 1).push_back(word);
 					}
@@ -481,13 +473,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-<<<<<<< HEAD
 								sf::Sprite sprite;
-=======
-
-								sf::Sprite sprite;
-
->>>>>>> origin/game-engine
 								temp->getComponent(properties.at(y).at(x))->addData(sprite);
 							}
 
@@ -495,35 +481,22 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-<<<<<<< HEAD
 								sf::Shape shape;
-=======
-
-								sf::Shape shape;
-
->>>>>>> origin/game-engine
 								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
-
 
 							else if (type == "Text")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-<<<<<<< HEAD
 								sf::Text text;
-=======
-
-								sf::Text text;
-
->>>>>>> origin/game-engine
 								temp->getComponent(properties.at(y).at(x))->addData(text);
 							}
 							else
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y)).at(x);
+								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x));
 							}
 						}
 					}
@@ -573,7 +546,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//Get required properties.
 			std::vector<Property *> *components;
 			for (int i = 0; i < properties.size(); i++)
-				components->push_back(systemManager->getMaterial(properties.at(i)));
+				components->push_back(systemManager->getComponent(properties.at(i)));
 
 			//Set required properties.
 			temp->setRequiredProperties(components);
@@ -610,19 +583,19 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//Create
 			switch (intNumber)
 			{
-			case 1:
+			case 0:
 				temp = new StateLoading(systemManager, assetManager);
 				break;
-			case 2:
+			case 1:
 				temp = new StateStatic(systemManager, assetManager);
 				break;
-			case 3:
+			case 2:
 				temp = new StateMenu(systemManager, assetManager);
 				break;
-			case 4:
+			case 3:
 				temp = new StateLevel(systemManager, assetManager);
 				break;
-			case 5:
+			case 4:
 				temp = new StateReInit(systemManager, assetManager);
 				break;
 			}

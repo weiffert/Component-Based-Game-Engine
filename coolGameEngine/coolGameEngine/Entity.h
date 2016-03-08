@@ -2,9 +2,13 @@
 #include <string>
 #include <vector>
 
+/*
 #include "Property.h"
 #include "BaseController.h"
+*/
 
+class Property;
+class BaseController;
 
 class Entity
 {
@@ -36,6 +40,6 @@ public:
 
 private:
 	std::string id;
-	std::vector<Property*> component;
-	std::vector<BaseController*> controller;
+	std::vector<Property *> component;
+	std::vector<BaseController *> controller;
 };

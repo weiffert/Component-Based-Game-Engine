@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include "SFML\Graphics\RenderWindow.hpp"
+#include "SFML\Window.hpp"
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
 

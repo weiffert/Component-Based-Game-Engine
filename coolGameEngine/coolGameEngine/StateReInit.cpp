@@ -14,19 +14,6 @@
 #include "StateLoading.h"
 #include "Entity.h"
 #include "Property.h"
-#include "PropertyInt.h"
-#include "PropertyDouble.h"
-#include "PropertyFloat.h"
-#include "PropertyChar.h"
-#include "PropertyBool.h"
-#include "PropertyString.h"
-#include "PropertyImage.h"
-#include "PropertyTexture.h"
-#include "PropertySound.h"
-#include "PropertyShape.h"
-#include "PropertyText.h"
-#include "PropertySprite.h"
-#include "PropertyEntity.h"
 
 
 

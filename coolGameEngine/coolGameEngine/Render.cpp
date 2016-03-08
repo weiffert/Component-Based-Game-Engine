@@ -1,6 +1,11 @@
 #include "stdafx.h"
 
+#include "SFML\Window.hpp"
+#include "SFML\Graphics.hpp"
+
 #include "Render.h"
+#include "Property.h"
+#include "Entity.h"
 
 Render::Render()
 {
@@ -78,7 +83,7 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 		if (drawable)
 		{
 			temp->getData(0).move(temp3->getData(0), temp3->getData(1));
-			window->draw(temp);
+			window->draw(temp->getData(0));
 		}
 	}
 }
