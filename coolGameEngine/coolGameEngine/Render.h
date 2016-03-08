@@ -7,11 +7,7 @@
 #include "SFML\Graphics.hpp"
 
 #include "BaseController.h"
-/*
 #include "Entity.h"
-*/
-
-class Entity;
 
 class Render :
 	public BaseController

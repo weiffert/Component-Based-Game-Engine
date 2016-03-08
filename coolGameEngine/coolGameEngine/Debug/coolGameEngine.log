@@ -1,4 +1,4 @@
-﻿Build started 3/7/2016 8:33:36 PM.
+﻿Build started 3/7/2016 8:57:06 PM.
      1>Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\boost\boost_1_60_0" /I"C:\SFML-2.3.2\include" /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BaseState.cpp Game.cpp Property.cpp Render.cpp StateLoading.cpp StateReInit.cpp SystemManager.cpp
@@ -17,14 +17,16 @@
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(206): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(223): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(243): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(247): error C2783: 'T Property::getData(int)' : could not deduce template argument for 'T'
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(247): error C2780: 'T Property::getData(int)' : expects 1 arguments - 0 provided
                  c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.h(30) : see declaration of 'Property::getData'
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(247): error C2780: 'std::vector<T,std::allocator<_Ty>> Property::getData(void)' : expects 0 arguments - 1 provided
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(247): error C2783: 'std::vector<T,std::allocator<_Ty>> Property::getData(void)' : could not deduce template argument for 'T'
                  c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.h(27) : see declaration of 'Property::getData'
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(253): error C2783: 'T Property::getData(int)' : could not deduce template argument for 'T'
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(247): error C2228: left of '.at' must have class/struct/union
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(253): error C2780: 'T Property::getData(int)' : expects 1 arguments - 0 provided
                  c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.h(30) : see declaration of 'Property::getData'
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(253): error C2780: 'std::vector<T,std::allocator<_Ty>> Property::getData(void)' : expects 0 arguments - 1 provided
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(253): error C2783: 'std::vector<T,std::allocator<_Ty>> Property::getData(void)' : could not deduce template argument for 'T'
                  c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.h(27) : see declaration of 'Property::getData'
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(253): error C2228: left of '.at' must have class/struct/union
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(266): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(281): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(296): warning C4018: '<' : signed/unsigned mismatch
@@ -51,9 +53,9 @@
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.h(6): error C2236: unexpected token 'class'. Did you forget a ';'?
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.h(6): error C2143: syntax error : missing ';' before ':'
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.h(6): error C2059: syntax error : ':'
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.h(6): error C2059: syntax error : 'public'
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.h(7): error C2143: syntax error : missing ';' before '{'
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.h(7): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.h(7): error C2059: syntax error : 'public'
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.h(8): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.h(8): error C2447: '{' : missing function header (old-style formal list?)
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(75): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(96): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(125): warning C4018: '<' : signed/unsigned mismatch
@@ -95,20 +97,6 @@
                  With the following template arguments:
                  'T=sf::Shape'
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(548): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(552): error C2664: 'void BaseController::setRequiredProperties(std::vector<BaseComponent *,std::allocator<_Ty>> *)' : cannot convert argument 1 from 'std::vector<Property *,std::allocator<_Ty>> *' to 'std::vector<BaseComponent *,std::allocator<_Ty>> *'
-                 with
-                 [
-                     _Ty=BaseComponent *
-                 ]
-                 and
-                 [
-                     _Ty=Property *
-                 ]
-                 and
-                 [
-                     _Ty=BaseComponent *
-                 ]
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(581): error C3867: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str': function call missing argument list; use '&std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str' to create a pointer to member
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(590): error C2061: syntax error : identifier 'StateStatic'
          Render.cpp
@@ -142,27 +130,7 @@
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\render.cpp(86): error C2780: 'std::vector<T,std::allocator<_Ty>> Property::getData(void)' : expects 0 arguments - 1 provided
                  c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.h(27) : see declaration of 'Property::getData'
          Property.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(21): error C2761: 'Property::~Property(void)' : member function redeclaration not allowed
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(22): error C2447: '{' : missing function header (old-style formal list?)
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(277): error C2244: 'Property::deleteData' : unable to match function definition to an existing declaration
-                 definition
-                 'void Property::deleteData(void)'
-                 existing declarations
-                 'void Property::deleteData(T)'
-                 'void Property::deleteData(void)'
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(424): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(431): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(438): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(445): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(452): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(459): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(466): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(473): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(480): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(487): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(494): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(501): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(508): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp : fatal error C1041: cannot open program database 'c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\debug\vc120.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS
          Game.cpp
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\game.cpp(18): error C2533: 'Game::{ctor}' : constructors not allowed a return type
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\game.cpp(58): warning C4244: 'initializing' : conversion from 'time_t' to 'double', possible loss of data
@@ -175,4 +143,4 @@
 
 Build FAILED.
 
-Time Elapsed 00:00:04.26
+Time Elapsed 00:00:04.07

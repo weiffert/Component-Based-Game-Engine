@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "BaseController.h"
-#include "BaseComponent.h"
+#include "Property.h"
 
 
 BaseController::BaseController()
@@ -36,8 +36,8 @@ void BaseController::setId(std::string a)
 
 
 //Sets the required properties.
-//Takes in a pointer of a vector of BaseComponent pointers.
-void BaseController::setRequiredProperties(std::vector<BaseComponent*> *a)
+//Takes in a pointer of a vector of Property pointers.
+void BaseController::setRequiredProperties(std::vector<Property*> *a)
 {
 	for (int i = 0; i < a->size(); i++)
 		requiredProperty.push_back(a->at(i));

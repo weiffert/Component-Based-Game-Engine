@@ -3,7 +3,8 @@
 #include "SystemManager.h"
 #include "AssetManager.h"
 
-class StateStatic : public BaseState
+class StateStatic : 
+	public BaseState
 {
 public:
 	//Takes in Game's systemManager and assetManager.
@@ -12,6 +13,5 @@ public:
 
 	//Update function. Overloads the pure virtual update function in BaseState.
 	virtual void update(double, sf::RenderWindow *);
-
 };
 

@@ -2,8 +2,11 @@
 #include <string>
 #include <vector>
 
-#include "BaseComponent.h"
+/*
+#include "Property.h"
+*/
 
+class Property;
 
 class BaseController
 {
@@ -16,10 +19,10 @@ public:
 	void setId(std::string);
 
 	//Set required properties.
-	void setRequiredProperties(std::vector<BaseComponent*> *);
+	void setRequiredProperties(std::vector<Property*> *);
 
 protected:
 	std::string id;
-	std::vector<BaseComponent*> requiredProperty;
+	std::vector<Property*> requiredProperty;
 };
 

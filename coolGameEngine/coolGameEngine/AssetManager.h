@@ -1,10 +1,12 @@
 #pragma once
 #include <string>
 #include <vector>
+
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
 
 class BaseState;
+
 class AssetManager
 {
 public:
