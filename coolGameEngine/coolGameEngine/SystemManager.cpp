@@ -244,7 +244,10 @@ std::vector<Entity*> SystemManager::getMaterial(BaseState* a)
 	{
 		if (material.at(i)->getComponent("stateId"))
 		{
-			if (material.at(i)->getComponent("stateId")->getData().at(0) == a->getId())
+			Property *temp = material.at(i)->getComponent("stateId");
+			std::vector<std::string> tempString = temp->getData();
+			//if (material.at(i)->getComponent("stateId")->getData()
+			if (temp->getData().at(0) == a->getId())
 				tempVector.push_back(material.at(i));
 		}
 		//Checks if it has a property that contains some form of state identification.

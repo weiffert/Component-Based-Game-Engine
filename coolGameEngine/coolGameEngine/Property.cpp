@@ -18,7 +18,7 @@ Property::Property(std::string type)
 
 
 //Default destructor
-Property::~Property();
+Property::~Property()
 {
 
 }
@@ -40,7 +40,7 @@ void Property::setId(std::string a)
 
 
 //Returns the data held in the vector.
-template <class T>
+template <typename T>
 std::vector<T> Property::getData()
 {
 	if(typeId == "int")
@@ -65,15 +65,19 @@ std::vector<T> Property::getData()
 		return dataSound;
 	if (typeId == "Text")
 		return dataText;
-	if (typeId == "Shape")
-		return dataShape;
+	if (typeId == "CircleShape")
+		return dataCircleShape;
+	if (typeId == "ConvexShape")
+		return dataConvexShape;
+	if (typeId == "RectangleShape")
+		return dataRectangleShape;
 	if (typeId == "Entity")
 		return dataEntity;
 }
 
-
+/*
 //Returns the data at the location.
-template <class T>
+template <typename T>
 T Property::getData(int location)
 {
 	if (typeId == "int")
@@ -131,10 +135,20 @@ T Property::getData(int location)
 		if (location < dataText.size())
 			return dataText.at(location);
 	}
-	if (typeId == "Shape")
+	if (typeId == "CircleShape")
 	{
-		if (location < dataShape.size())
-			return dataShape.at(location);
+		if (location < dataCircleShape.size())
+			return dataCircleShape.at(location);
+	}
+	if (typeId == "ConvexShape")
+	{
+		if (location < dataConvexShape.size())
+			return dataConvexShape.at(location);
+	}
+	if (typeId == "RectangleShape")
+	{
+		if (location < dataRectangleShape.size())
+			return dataRectangleShape.at(location);
 	}
 	if (typeId == "Entity")
 	{
@@ -142,11 +156,11 @@ T Property::getData(int location)
 			return dataEntity.at(location);
 	}
 }
-
+*/
 
 //Adds value to existing data
 //Takes in data.
-template <class T>
+template <typename T>
 void Property::addData(T value)
 {
 	if (typeId == "int")
@@ -171,8 +185,12 @@ void Property::addData(T value)
 		dataSound.push_back(value);
 	if (typeId == "Text")
 		dataText.push_back(value);
-	if (typeId == "Shape")
-		dataShape.push_back(value);
+	if (typeId == "CircleShape")
+		dataCircleShape.push_back(value);
+	if (typeId == "ConvexShape")
+		dataConvexShape.push_back(value);
+	if (typeId == "RectangleShape")
+		dataRectangleShape.push_back(value);
 	if (typeId == "Entity")
 		dataEntity.push_back(value);
 }
@@ -180,98 +198,111 @@ void Property::addData(T value)
 
 //Subtracts value from existing data.
 //Takes in the data to be deleted.
-template <class T>
 void Property::deleteData()
 {
 	if (typeId == "int")
 	{
 		for (int i = 0; i < dataInt.size(); i++)
 		{
-			dataInt.erase(i);
+			dataInt.erase(dataInt.begin() + i);
 		}
 	}
 	if (typeId == "double")
 	{
 		for (int i = 0; i < dataDouble.size(); i++)
 		{
-			dataDouble.erase(i);
+			dataDouble.erase(dataDouble.begin() + i);
 		}
 	}
 	if (typeId == "float")
 	{
 		for (int i = 0; i < dataFloat.size(); i++)
 		{
-			dataFloat.erase(i);
+			dataFloat.erase(dataFloat.begin() + i);
 		}
 	}
 	if (typeId == "char")
 	{
 		for (int i = 0; i < dataChar.size(); i++)
 		{
-			dataChar.erase(i);
+			dataChar.erase(dataChar.begin() + i);
 		}
 	}
 	if (typeId == "bool")
 	{
 		for (int i = 0; i < dataBool.size(); i++)
 		{
-			dataBool.erase(i);
+			dataBool.erase(dataBool.begin() + i);
 		}
 	}
 	if (typeId == "string")
 	{
 		for (int i = 0; i < dataString.size(); i++)
 		{
-			dataString.erase(i);
+			dataString.erase(dataString.begin() + i);
 		}
 	}
 	if (typeId == "Sprite")
 	{
 		for (int i = 0; i < dataSprite.size(); i++)
 		{
-			dataSprite.erase(i);
+			dataSprite.erase(dataSprite.begin() + i);
 		}
 	}
 	if (typeId == "Image")
 	{
 		for (int i = 0; i < dataImage.size(); i++)
 		{
-			dataImage.erase(i);
+			dataImage.erase(dataImage.begin() + i);
 		}
 	}
 	if (typeId == "Texture")
 	{
 		for (int i = 0; i < dataTexture.size(); i++)
 		{
-			dataTexture.erase(i);
+			dataTexture.erase(dataTexture.begin() + i);
 		}
 	}
 	if (typeId == "Sound")
 	{
 		for (int i = 0; i < dataSound.size(); i++)
 		{
-			dataSound.erase(i);
+			dataSound.erase(dataSound.begin() + i);
 		}
 	}
 	if (typeId == "Text")
 	{
 		for (int i = 0; i < dataText.size(); i++)
 		{
-			dataText.erase(i);
+			dataText.erase(dataText.begin() + i);
 		}
 	}
-	if (typeId == "Shape")
+	if (typeId == "CircleShape")
 	{
-		for (int i = 0; i < dataShape.size(); i++)
+		for (int i = 0; i < dataCircleShape.size(); i++)
 		{
-			dataShape.erase(i);
+			dataCircleShape.erase(dataCircleShape.begin() + i);
+		}
+	}
+	if (typeId == "ConvexShape")
+	{
+		for (int i = 0; i < dataConvexShape.size(); i++)
+		{
+			dataConvexShape.erase(dataConvexShape.begin() + i);
+		}
+	}
+	if (typeId == "RectangleShape")
+	{
+		for (int i = 0; i < dataRectangleShape.size(); i++)
+		{
+			dataRectangleShape.erase(dataRectangleShape.begin() + i);
 		}
 	}
 	if (typeId == "Entity")
 	{
 		for (int i = 0; i < dataEntity.size(); i++)
 		{
-			dataEntity.erase(i);
+			dataEntity.erase(dataEntity.begin() + i);
 		}
 	}
 }
@@ -279,7 +310,7 @@ void Property::deleteData()
 
 //Subtracts value from existing data.
 //Takes in the data to be deleted.
-template <class T>
+template <typename T>
 void Property::deleteData(T value)
 {
 	if (typeId == "int")
@@ -392,13 +423,33 @@ void Property::deleteData(T value)
 			}
 		}
 	}
-	if (typeId == "Shape")
+	if (typeId == "CircleShape")
 	{
-		for (int i = 0; i < dataShape.size(); i++)
+		for (int i = 0; i < dataCircleShape.size(); i++)
 		{
-			if (dataShape.at(i) == value)
+			if (dataCircleShape.at(i) == value)
 			{
-				dataShape.erase(dataShape.begin() + i);
+				dataCircleShape.erase(dataCircleShape.begin() + i);
+			}
+		}
+	}
+	if (typeId == "ConvexShape")
+	{
+		for (int i = 0; i < dataConvexShape.size(); i++)
+		{
+			if (dataConvexShape.at(i) == value)
+			{
+				dataConvexShape.erase(dataConvexShape.begin() + i);
+			}
+		}
+	}
+	if (typeId == "RectangleShape")
+	{
+		for (int i = 0; i < dataRectangleShape.size(); i++)
+		{
+			if (dataRectangleShape.at(i) == value)
+			{
+				dataRectangleShape.erase(dataRectangleShape.begin() + i);
 			}
 		}
 	}
@@ -496,11 +547,25 @@ void Property::deleteDataPosition(int position)
 			dataText.erase(dataText.begin() + position);
 		}
 	}
-	if (typeId == "Shape")
+	if (typeId == "CircleShape")
 	{
-		if (position < dataShape.size())
+		if (position < dataCircleShape.size())
 		{
-			dataShape.erase(dataShape.begin() + position);
+			dataCircleShape.erase(dataCircleShape.begin() + position);
+		}
+	}
+	if (typeId == "ConvexShape")
+	{
+		if (position < dataConvexShape.size())
+		{
+			dataConvexShape.erase(dataConvexShape.begin() + position);
+		}
+	}
+	if (typeId == "RectangleShape")
+	{
+		if (position < dataRectangleShape.size())
+		{
+			dataRectangleShape.erase(dataRectangleShape.begin() + position);
 		}
 	}
 	if (typeId == "Entity")
@@ -515,7 +580,7 @@ void Property::deleteDataPosition(int position)
 
 //Value changes the data at position.
 //Takes in a value to change to and the position to change it at.
-template <class T>
+template <typename T>
 void Property::changeData(T value, int position)
 {
 	if (typeId == "int")
@@ -595,10 +660,24 @@ void Property::changeData(T value, int position)
 		else
 			addData(value);
 	}
-	if (typeId == "Shape")
+	if (typeId == "CircleShape")
 	{
-		if (position < dataShape.size())
-			dataShape.at(position) = value;
+		if (position < dataCircleShape.size())
+			dataCircleShape.at(position) = value;
+		else
+			addData(value);
+	}
+	if (typeId == "ConvexShape")
+	{
+		if (position < dataConvexShape.size())
+			dataConvexShape.at(position) = value;
+		else
+			addData(value);
+	}
+	if (typeId == "RectangleShape")
+	{
+		if (position < dataRectangleShape.size())
+			dataRectangleShape.at(position) = value;
 		else
 			addData(value);
 	}

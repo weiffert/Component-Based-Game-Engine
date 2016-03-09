@@ -41,10 +41,10 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 
 			//Update Position.
 			//speed * lag = distance.
-			x = temp3->getData(0);
-			y = temp3->getData(1);
-			changeX = temp2->getData(0) * lag;
-			changeY = temp2->getData(1) * lag;
+			x = temp3->getData().at(0);
+			y = temp3->getData().at(1);
+			changeX = temp2->getData().at(0) * lag;
+			changeY = temp2->getData().at(1) * lag;
 
 			//Store new position.
 			temp3->changeData(changeX + x, 0);
@@ -82,8 +82,8 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 		//If it can be drawn, draw the drawable property.
 		if (drawable)
 		{
-			temp->getData(0).move(temp3->getData(0), temp3->getData(1));
-			window->draw(temp->getData(0));
+			temp->getData().at(0).move(temp3->getData().at(0), temp3->getData().at(1));
+			window->draw(temp->getData().at(0));
 		}
 	}
 }

@@ -299,15 +299,39 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 					temp->addData(sprite);
 				}
 			}
-			
-			else if(type == "Shape")
+
+			else if (type == "CircleShape")
 			{
 				temp = new Property("Shape");
 
 				//Get the proper data from the id in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::Shape *shape = new sf::Shape();
+					sf::CircleShape *shape = new sf::CircleShape();
+					temp->addData(shape);
+				}
+			}
+
+			else if (type == "ConvexShape")
+			{
+				temp = new Property("Shape");
+
+				//Get the proper data from the id in the file.
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::ConvexShape *shape = new sf::ConvexShape();
+					temp->addData(shape);
+				}
+			}
+
+			else if (type == "RectangleShape")
+			{
+				temp = new Property("RectangleShape");
+
+				//Get the proper data from the id in the file.
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::RectangleShape *shape = new sf::RectangleShape();
 					temp->addData(shape);
 				}
 			}
@@ -477,11 +501,27 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 								temp->getComponent(properties.at(y).at(x))->addData(sprite);
 							}
 
-							else if (type == "Shape")
+							else if (type == "CircleShape")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the id in the file.
-								sf::Shape shape;
+								sf::CircleShape shape;
+								temp->getComponent(properties.at(y).at(x))->addData(shape);
+							}
+
+							else if (type == "ConvexShape")
+							{
+								temp->getComponent(properties.at(y).at(x))->deleteData();
+								//Get the proper data from the id in the file.
+								sf::ConvexShape shape;
+								temp->getComponent(properties.at(y).at(x))->addData(shape);
+							}
+
+							else if (type == "RectangleShape")
+							{
+								temp->getComponent(properties.at(y).at(x))->deleteData();
+								//Get the proper data from the id in the file.
+								sf::RectangleShape shape;
 								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
 

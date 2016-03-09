@@ -23,23 +23,23 @@ public:
 	void setId(std::string);
 
 	//Returns the data as a vector.
-	template <class T>
+	template <typename T>
 	std::vector<T> getData();
 
-	template <class T>
-	T getData(int);
+	//template <typename T>
+	//T getData(int);
 
 	//Edit the data.
 	void deleteData();
 	void deleteDataPosition(int);
 
-	template <class T>
+	template <typename T>
 	void addData(T);
 
-	template <class T>
+	template <typename T>
 	void deleteData(T);
 
-	template <class T>
+	template <typename T>
 	void changeData(T, int);
 
 private:
@@ -55,7 +55,9 @@ private:
 	std::vector<sf::Image> dataImage;
 	std::vector<sf::Texture> dataTexture;
 	std::vector<sf::Sprite> dataSprite;
-	std::vector<sf::Shape> dataShape;
+	std::vector<sf::CircleShape> dataCircleShape;
+	std::vector<sf::ConvexShape> dataConvexShape;
+	std::vector<sf::RectangleShape> dataRectangleShape;
 	std::vector<sf::Text> dataText;
 	std::vector<Entity> dataEntity;
 	std::vector<sf::Sound> dataSound;

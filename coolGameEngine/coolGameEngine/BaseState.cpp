@@ -77,7 +77,7 @@ void BaseState::setMaterial(std::vector<Entity*> a)
 //Takes in the amount of time lag and the window.
 void BaseState::render(double lag, sf::RenderWindow *window)
 {
-	window->clear;
+	window->clear();
 
 	Render controller;
 	///Pass through all of the materials.
