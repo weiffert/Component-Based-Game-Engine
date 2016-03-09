@@ -1,4 +1,3 @@
 EnemyMissile ;
 Sprite ;
-Position ;
 Velocity ;
