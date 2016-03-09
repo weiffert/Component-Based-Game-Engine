@@ -1,4 +1,0 @@
-MissileLauncher ;
-Entity MissileLauncherIndividual1 ;
-Entity MissileLauncherIndividual2 ;
-Entity MissileLauncherIndividual3 ;
