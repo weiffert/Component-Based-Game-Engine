@@ -1,3 +1,0 @@
-Position ;
-int ;
-0 0 ;
