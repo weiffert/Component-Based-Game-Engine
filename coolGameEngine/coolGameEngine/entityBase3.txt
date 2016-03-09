@@ -2,3 +2,4 @@ Base3 ;
 Life ;
 CurrentMissileCount ;
 TotalMissileCount ;
+Sprite ;
