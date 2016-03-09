@@ -1,3 +1,2 @@
 Crosshairs ;
-Position ;
 Sprite ;
