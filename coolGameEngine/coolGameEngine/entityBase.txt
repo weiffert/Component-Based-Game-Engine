@@ -1,7 +1,6 @@
 Base ;
 Life ;
 Sprite ;
-Position ;
 Select ;
 CurrentMissileCount ;
 TotalMissileCount ;
