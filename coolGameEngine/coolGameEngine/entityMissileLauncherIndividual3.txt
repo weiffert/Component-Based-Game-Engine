@@ -1,4 +1,4 @@
-MissileLauncherIndividual3;
+MissileLauncherIndividual3 ;
 Life ;
 CurrentMissileCount ;
 TotalMissileCount ;
