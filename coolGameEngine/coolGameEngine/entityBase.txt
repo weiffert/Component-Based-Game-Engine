@@ -1,6 +1,0 @@
-Base ;
-Life ;
-Sprite ;
-Select ;
-CurrentMissileCount ;
-TotalMissileCount ;
