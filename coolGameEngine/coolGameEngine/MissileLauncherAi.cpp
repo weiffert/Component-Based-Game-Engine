@@ -56,24 +56,21 @@ void MissileLauncherAi::launchMissiles()
 
 bool MissileLauncherAi::checkForMissiles()
 {
-  if(activeMissiles.empty = true)
+   for(int x = 0; x < activeMissiles.size(); x++)
+  {
+    if(activeMissiles.at(x)= nullptr)
+    {
+      activeMissiles.erase(x);
+    }
+  }
+  
+  if(activeMissiles.empty() = true)
   {
     return false;
   }
   else
   {
     return true;
-  }
-}
-
-void MissileLauncherAi::updateMissiles()
-{
-  for(int x = 0; x < activeMissiles.size(); x++)
-  {
-    if(activeMissiles.at(x)= nullptr)
-    {
-      activeMissiles.erase(x);
-    }
   }
 }
 
