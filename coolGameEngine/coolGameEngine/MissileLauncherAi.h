@@ -20,7 +20,7 @@ MissileLauncherAi(int, int);
 void changeTotal(int);
 void changeCurrent(int);
 void launchMissiles();
-void checkForMissiles();
+bool checkForMissiles();
 
 ~MissleLauncherAi();
 
