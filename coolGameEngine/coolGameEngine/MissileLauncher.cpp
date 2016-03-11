@@ -11,6 +11,7 @@ MissileLauncher::~MissileLauncher()
 }
 
 
-int MissileLauncher::getMissiles()
+int MissileLauncher::getMissilesLeft()
 {
+  return missilesLeft;
 }
