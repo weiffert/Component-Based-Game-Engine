@@ -6,8 +6,10 @@ public:
 	~MissileLauncher();
 	int getMissiles();
 	void fire();
-	void setMissilesLeft();
-	void setTotalMissiles();
+	void setMissilesLeft(int);
+	void setTotalMissiles(int);
+	int getMissilesLeft();
+	int getTotalMissiles();
 private:
 	int missilesLeft;
 	int totalMissiles;
