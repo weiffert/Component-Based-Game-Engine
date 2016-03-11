@@ -13,5 +13,4 @@ MissileLauncher::~MissileLauncher()
 
 int MissileLauncher::getMissiles()
 {
-
 }
