@@ -1,19 +1,29 @@
+#include "stdafx.h"
 #include <time.h>
 #include <stdlib.h>
 #include <vector>;
 #include "MissileLauncherAi.h"
 #include "SFML/Graphics.hpp"
 
-int x;
-std::vector<EnemyMissile*> activeMissiles; 
 
-
-srand(time(NULL));
-
-if(activeMissiles.empty() == true)
+MissileLauncherAi::MissileLauncherAi()
 {
+  totalMissiles = 10;
+  currentMissiles = 10;
+}
 
-  if(CurrentMissileCount >= 2)
+MissileLauncherAi::MissileLauncherAi(int totalMis, int currMis)
+{
+  totalMissiles = totalMis;
+  currentMissiles = currMis;
+}
+
+void MissileLauncherAi::launchMissiles()
+{
+  int x;
+  srand(time(NULL));  
+
+  if(currentMissiles >= 2)
   {
     x = rand() % 3;
   
@@ -27,7 +37,7 @@ if(activeMissiles.empty() == true)
       activeMissiles.push_back(new EnemyMissile);
     }
   }
-  else if(CurrentMissileCount == 1)
+  else if(currentMissiles == 1)
   {
     x = rand() % 2;
   
@@ -40,49 +50,30 @@ if(activeMissiles.empty() == true)
   for(x = 0; x < activeMissiles.size(); x++)
   {
     activeMissiles.at(x).setPosition(rand() % 1279 + 1, -5)
-    currentMissile--;
+    currentMissiles--;
   }
-  
-  
-  do
-  {
-    for(x = 0; x < activeMissiles.size(); x++)
-    {
-      sf::FloatRect missileBox = activeMissile.at(x).getGlobalBounds()
-      if(missileBox.intersects(baseBox) | missileBox.intersects(boomBox))
-      {
-        activeMissile.erase(x);
-      }
-    }
-  }while(ativeMissile.empty() == false);
-
-
 }
 
+bool MissileLauncherAi::checkForMissiles()
+{
+  if(activeMissiles.empty = true)
+  {
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void MissileLauncherAi::updateMissiles()
+{
+  for(int x = 0; x < activeMissiles.size(); x++)
+  {
+    if(activeMissiles.at(x)= nullptr)
+    {
+      activeMissiles.erase(x);
+    }
+  }
+}
 
