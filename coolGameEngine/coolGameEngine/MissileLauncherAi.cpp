@@ -43,7 +43,18 @@ if(activeMissiles.empty() == true)
     currentMissile--;
   }
   
-  if(sf::FloatRect missileBox = activeMissile.at(i).getGlobalBounds()
+  
+  do
+  {
+    for(x = 0; x < activeMissiles.size(); x++)
+    {
+      sf::FloatRect missileBox = activeMissile.at(x).getGlobalBounds()
+      if(missileBox.intersects(baseBox) | missileBox.intersects(boomBox))
+      {
+        activeMissile.erase(x);
+      }
+    }
+  }while(ativeMissile.empty() == false);
 
 
 }
