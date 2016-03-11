@@ -9,3 +9,9 @@ MissileLauncher::MissileLauncher()
 MissileLauncher::~MissileLauncher()
 {
 }
+
+
+int MissileLauncher::getMissiles()
+{
+
+}
