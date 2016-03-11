@@ -15,3 +15,4 @@ int MissileLauncher::getMissilesLeft()
 {
   return missilesLeft;
 }
+
