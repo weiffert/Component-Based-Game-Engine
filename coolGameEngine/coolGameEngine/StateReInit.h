@@ -10,6 +10,7 @@ class StateReInit :
 	public BaseState
 {
 public:
+	StateReInit();
 	//Takes in Game's systemManager and assetManager.
 	StateReInit(SystemManager *, AssetManager *);
 	~StateReInit();

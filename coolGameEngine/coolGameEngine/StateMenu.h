@@ -7,6 +7,7 @@ class StateMenu :
 	public BaseState
 {
 public:
+	StateMenu();
 	//Takes in Game's systemManager and assetManager.
 	StateMenu(SystemManager *, AssetManager *);
 	~StateMenu();

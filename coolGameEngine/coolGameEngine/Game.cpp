@@ -13,9 +13,15 @@
 #include "StateLoading.h"
 
 
+Game::Game()
+{
+}
+
+
 //Constructor. Takes in the window width, height, and name.
 Game::Game(int width, int height, std::string name)
 {
+	exitCode = 0;
 	sf::VideoMode windowResolution;
 	windowResolution.width = width;
 	windowResolution.height = height;

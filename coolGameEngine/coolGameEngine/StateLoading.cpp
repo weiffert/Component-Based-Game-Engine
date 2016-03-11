@@ -22,6 +22,46 @@
 #include "Render.h"
 
 
+StateLoading::StateLoading()
+{
+	//Sets defaults.
+	id = "Loading";
+	number = 0;
+	systemManager = nullptr;
+	assetManager = nullptr;
+
+	//Reads in the filenames and substrings.
+	std::ifstream file("file.txt");
+	if (file.is_open())
+	{
+		std::string temp;
+		while (!file.eof())
+		{
+			file >> temp;
+			if (temp == "Filenames")
+			{
+				while (temp != "Substrings" && !file.eof())
+				{
+					file >> temp;
+					filenames.push_back(temp);
+				}
+			}
+			if (temp == "Substrings")
+			{
+				while (temp != "Filenames" && !file.eof())
+				{
+					file >> temp;
+					filenames.push_back(temp);
+				}
+			}
+		}
+	}
+
+	//Sorts the substrings into the proper order.
+	substringSorter();
+}
+
+
 StateLoading::StateLoading(SystemManager *s, AssetManager *a)
 {
 	//Sets defaults.
@@ -145,7 +185,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 	//Checks if there are substrings. If there are none, the process is done.
 	if (substrings.size() != 0)
 	{
-		std::string id;
+		std::string tempId;
 		std::string filename;
 		std::string word;
 		std::string type;
@@ -163,7 +203,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		//If it is an image.
 		if (substrings.at(0) == "png")
 		{
-			sf::Image *temp;
+			sf::Image *temp = new sf::Image;
 			temp->loadFromFile(filename);
 			assetManager->add(temp);
 			assetManager->addImageString(filename);
@@ -256,7 +296,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("Entity");
 
-				//Get the proper data from the id in the file.
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(systemManager->getMaterial(data.at(i)));
 			}
@@ -265,7 +305,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("Texture");
 
-				//Get the proper data from the id in the file.
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(assetManager->getTexture(std::stoi(data.at(i))));
 			}
@@ -274,7 +314,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("Image");
 
-				//Get the proper data from the id in the file.
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(assetManager->getTexture(stoi(data.at(i))));
 			}
@@ -283,7 +323,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("Sound");
 
-				//Get the proper data from the id in the file.
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 					temp->addData(assetManager->getSound(data.at(i)));
 			}
@@ -292,7 +332,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("Sprite");
 
-				//Get the proper data from the id in the file.
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
 					sf::Sprite *sprite = new sf::Sprite();
@@ -304,7 +344,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("Shape");
 
-				//Get the proper data from the id in the file.
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
 					sf::CircleShape *shape = new sf::CircleShape();
@@ -316,7 +356,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("Shape");
 
-				//Get the proper data from the id in the file.
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
 					sf::ConvexShape *shape = new sf::ConvexShape();
@@ -328,7 +368,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("RectangleShape");
 
-				//Get the proper data from the id in the file.
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
 					sf::RectangleShape *shape = new sf::RectangleShape();
@@ -340,7 +380,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("Text");
 
-				//Get the proper data from the id in the file.
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
 					sf::Text *text = new sf::Text();
@@ -366,7 +406,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		//If it is an entity.
 		else if (substrings.at(0) == "entity")
 		{
-			//The first vector is for holding all properties. The second is for holding id and data of the properties.
+			//The first vector is for holding all properties. The second is for holding tempId and data of the properties.
 			std::vector<std::vector<std::string>>properties;
 
 			//Read in data.
@@ -468,35 +508,35 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							else if (type == "Entity")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(systemManager->getMaterial(properties.at(y).at(x)));
 							}
 
 							else if (type == "Texture")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getTexture(std::stoi(properties.at(y).at(x))));
 							}
 
 							else if (type == "Image")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getImage(properties.at(y).at(x)));
 							}
 
 							else if (type == "Sound")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getSound(properties.at(y).at(x)));
 							}
 
 							else if (type == "Sprite")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								sf::Sprite sprite;
 								temp->getComponent(properties.at(y).at(x))->addData(sprite);
 							}
@@ -504,7 +544,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							else if (type == "CircleShape")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								sf::CircleShape shape;
 								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
@@ -512,7 +552,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							else if (type == "ConvexShape")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								sf::ConvexShape shape;
 								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
@@ -520,7 +560,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							else if (type == "RectangleShape")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								sf::RectangleShape shape;
 								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
@@ -528,14 +568,14 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							else if (type == "Text")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								sf::Text text;
 								temp->getComponent(properties.at(y).at(x))->addData(text);
 							}
 							else
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x));
 							}
 						}
@@ -565,7 +605,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				while (word != ";") 
 				{
 					if (lineNumber == 1)
-						id = word;
+						tempId = word;
 
 					if (lineNumber > 2)
 						properties.push_back(word);
@@ -577,28 +617,21 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			
 			BaseController *temp;
 
-			//Create a new controller based on id.
-			if (id == "Render")
+			//Create a new controller based on tempId.
+			if (tempId == "Render")
 			{
 				temp = new Render();
+				initializeController(temp, tempId, properties);
 			}
-
-			//Get required properties.
-			std::vector<Property *> *components;
-			for (int i = 0; i < properties.size(); i++)
-				components->push_back(systemManager->getComponent(properties.at(i)));
-
-			//Set required properties.
-			temp->setRequiredProperties(components);
-
 		}
+
 		//If it is a state.
 		else if (substrings.at(0) == "state")
 		{
 			std::string number;
 			int intNumber;
 
-			//read data and take in values. Includes id.
+			//read data and take in values. Includes tempId.
 			while (!file.eof())
 			{
 				file >> word;
@@ -618,35 +651,32 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			//Determine the state.
 			//Does this work?
-			intNumber = static_cast<int>(atoi(number.c_str) - 48);
+			intNumber = static_cast<int>(atoi(number.c_str()) - 48);
 
 			//Create
 			switch (intNumber)
 			{
 			case 0:
 				temp = new StateLoading(systemManager, assetManager);
+				initializeState(temp, tempId, intNumber);
 				break;
 			case 1:
 				temp = new StateStatic(systemManager, assetManager);
+				initializeState(temp, tempId, intNumber);
 				break;
 			case 2:
 				temp = new StateMenu(systemManager, assetManager);
+				initializeState(temp, tempId, intNumber);
 				break;
 			case 3:
 				temp = new StateLevel(systemManager, assetManager);
+				initializeState(temp, tempId, intNumber);
 				break;
 			case 4:
 				temp = new StateReInit(systemManager, assetManager);
+				initializeState(temp, tempId, intNumber);
 				break;
 			}
-
-			//Edit
-			temp->setId(id);
-			temp->setNumber(intNumber);
-			temp->setMaterial(systemManager->getMaterial(temp));
-
-			//Store
-			systemManager->add(temp);
 		}
 	}
 	//the process is done.
@@ -655,4 +685,30 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		BaseState::changeState(this, "Welcome");
 	}
 
+}
+
+
+void StateLoading::initializeController(BaseController *temp, std::string tempId, std::vector<std::string> properties)
+{
+	//Get required properties.
+	std::vector<Property *> *components = new std::vector<Property *>;
+	for (int i = 0; i < properties.size(); i++)
+		components->push_back(systemManager->getComponent(properties.at(i)));
+
+	//Set required properties.
+	temp->setRequiredProperties(components);
+
+	systemManager->add(temp);
+}
+
+
+void StateLoading::initializeState(BaseState *temp, std::string tempId, int intNumber)
+{
+	//Edit
+	temp->setId(id);
+	temp->setNumber(intNumber);
+	temp->setMaterial(systemManager->getMaterial(temp));
+
+	//Store
+	systemManager->add(temp);
 }

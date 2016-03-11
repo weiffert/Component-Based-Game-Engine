@@ -14,6 +14,15 @@
 #include "Entity.h"
 
 
+StateStatic::StateStatic()
+{
+	//Sets defaults.
+	id = "Static";
+	number = 1;
+	systemManager = nullptr;
+	assetManager = nullptr;
+}
+
 
 StateStatic::StateStatic(SystemManager *s, AssetManager *a)
 {

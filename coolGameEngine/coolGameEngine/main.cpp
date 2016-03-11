@@ -45,12 +45,7 @@ int main()
 		//Convert the first two strings to ints.
 		int one = static_cast<int>(atoi(data.at(0).c_str())) - 48;
 		int two = static_cast<int>(atoi(data.at(1).c_str())) - 48;
-
-		//Create the game.
-		int width;
-		int height;
-		std::string name;
-
+		
 		Game game(one, two, data.at(2));
 
 		//run the game

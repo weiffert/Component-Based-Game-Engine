@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <string>
-
 #include "SFML\Graphics.hpp"
 #include "SFML\Audio.hpp"
 
@@ -14,6 +13,7 @@ class Entity;
 class Property
 {
 public:
+	Property();
 	//Allows for simpler data initialization.
 	Property(std::string);
 	~Property();
@@ -23,8 +23,24 @@ public:
 	void setId(std::string);
 
 	//Returns the data as a vector.
-	template <typename T>
-	std::vector<T> getData();
+	//template <typename T>
+	//std::vector<T> getData();
+
+	std::vector<int> getDataInt();
+	std::vector<double> getDataDouble();
+	std::vector<float> getDataFloat();
+	std::vector<char> getDataChar();
+	std::vector<bool> getDataBool();
+	std::vector<std::string> getDataString();
+	std::vector<sf::Image> getDataImage();
+	std::vector<sf::Texture> getDataTexture();
+	std::vector<sf::Sprite> getDataSprite();
+	std::vector<sf::CircleShape> getDataCircleShape();
+	std::vector<sf::ConvexShape> getDataConvexShape();
+	std::vector<sf::RectangleShape> getDataRectangleShape();
+	std::vector<sf::Text> getDataText();
+	std::vector<Entity> getDataEntity();
+	std::vector<sf::Sound> getDataSound();
 
 	//template <typename T>
 	//T getData(int);

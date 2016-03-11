@@ -18,6 +18,45 @@
 
 
 //SFML includes
+StateReInit::StateReInit()
+{
+	//Sets defaults.
+	id = "End";
+	number = 4;
+	systemManager = nullptr;
+	assetManager = nullptr;
+
+	
+	//Reads in the filenames and substrings.
+	std::ifstream file("file.txt");
+	if (file.is_open())
+	{
+		std::string temp;
+		while (!file.eof())
+		{
+			if (temp == "Filenames")
+			{
+				while (temp != "Substrings" && !file.eof())
+				{
+					file >> temp;
+					filenames.push_back(temp);
+				}
+			}
+			if (temp == "Substrings")
+			{
+				while (temp != "Filenames" && !file.eof())
+				{
+					file >> temp;
+					filenames.push_back(temp);
+				}
+			}
+		}
+	}
+
+	//Sorts the substrings into the proper order.
+	substringSorter();
+}
+
 
 StateReInit::StateReInit(SystemManager *s, AssetManager *a)
 {

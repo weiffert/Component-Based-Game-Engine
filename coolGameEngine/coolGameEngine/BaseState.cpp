@@ -16,16 +16,10 @@
 
 BaseState::BaseState()
 {
-}
-
-
-BaseState::BaseState(SystemManager *s, AssetManager *a)
-{
-	//Set defaults.
 	id = "BaseState";
 	number = -1;
-	systemManager = s;
-	assetManager = a;
+	systemManager = nullptr;
+	assetManager = nullptr;
 }
 
 

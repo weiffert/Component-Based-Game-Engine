@@ -10,6 +10,13 @@
 #include "Entity.h"
 
 
+Property::Property()
+{
+	typeId = "type";
+	id = "Property";
+}
+
+
 Property::Property(std::string type)
 {
 	typeId = type;
@@ -38,7 +45,7 @@ void Property::setId(std::string a)
 }
 
 
-
+/*
 //Returns the data held in the vector.
 template <typename T>
 std::vector<T> Property::getData()
@@ -73,6 +80,84 @@ std::vector<T> Property::getData()
 		return dataRectangleShape;
 	if (typeId == "Entity")
 		return dataEntity;
+}
+*/
+
+
+std::vector<int> Property::getDataInt()
+{
+	if (typeId == "int")
+		return dataInt;
+}
+std::vector<double> Property::getDataDouble()
+{
+	if (typeId == "double")
+		return dataDouble;
+}
+std::vector<float> Property::getDataFloat()
+{
+	if (typeId == "float")
+		return dataFloat;
+}
+std::vector<char> Property::getDataChar()
+{
+	if (typeId == "char")
+		return dataChar;
+}
+std::vector<bool> Property::getDataBool()
+{
+	if (typeId == "bool")
+		return dataBool;
+}
+std::vector<std::string> Property::getDataString()
+{
+	if (typeId == "string")
+		return dataString;
+}
+std::vector<sf::Image> Property::getDataImage()
+{
+	if (typeId == "Image")
+		return dataImage;
+}
+std::vector<sf::Texture> Property::getDataTexture()
+{
+	if (typeId == "Texture")
+		return dataTexture;
+}
+std::vector<sf::Sprite> Property::getDataSprite()
+{
+	if (typeId == "Sprite")
+		return dataSprite;
+}
+std::vector<sf::CircleShape> Property::getDataCircleShape()
+{
+	if (typeId == "CircleShape")
+		return dataCircleShape;
+}
+std::vector<sf::ConvexShape> Property::getDataConvexShape()
+{
+	if (typeId == "ConvexShape")
+		return dataConvexShape;
+}
+std::vector<sf::RectangleShape> Property::getDataRectangleShape()
+{
+	if (typeId == "RectangleShape")
+		return dataRectangleShape;
+}
+std::vector<sf::Text> Property::getDataText()
+{
+	if (typeId == "Text")
+		return dataText;
+}
+std::vector<Entity> Property::getDataEntity()
+{
+	if (typeId == "Entity")
+		return dataEntity;
+}
+std::vector<sf::Sound> Property::getDataSound()
+{
+	if (typeId == "Sound")
+		return dataSound;
 }
 
 /*

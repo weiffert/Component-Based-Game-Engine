@@ -12,6 +12,15 @@
 //include controllers.
 
 
+StateMenu::StateMenu()
+{
+	//Sets defaults.
+	id = "Menu";
+	number = 2;
+	systemManager = nullptr;
+	assetManager = nullptr;
+}
+
 StateMenu::StateMenu(SystemManager *s, AssetManager *a)
 {
 	//Sets defaults.

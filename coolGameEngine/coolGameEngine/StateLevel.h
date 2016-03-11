@@ -8,6 +8,7 @@ class StateLevel :
 {
 public:
 	//Takes in Game's systemManager and assetManager.
+	StateLevel();
 	StateLevel(SystemManager*, AssetManager *);
 	~StateLevel();
 

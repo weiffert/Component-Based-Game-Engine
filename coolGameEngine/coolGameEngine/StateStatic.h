@@ -7,6 +7,7 @@ class StateStatic :
 	public BaseState
 {
 public:
+	StateStatic();
 	//Takes in Game's systemManager and assetManager.
 	StateStatic(SystemManager *, AssetManager *);
 	~StateStatic();
@@ -14,4 +15,3 @@ public:
 	//Update function. Overloads the pure virtual update function in BaseState.
 	virtual void update(double, sf::RenderWindow *);
 };
-

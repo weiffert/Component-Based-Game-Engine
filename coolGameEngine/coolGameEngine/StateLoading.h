@@ -10,6 +10,7 @@ class StateLoading :
 	public BaseState
 {
 public:
+	StateLoading();
 	//Takes in Game's systemManager and assetManager.
 	StateLoading(SystemManager *, AssetManager *);
 	~StateLoading();
@@ -28,6 +29,6 @@ private:
 
 	//Sorts the substrings into the proper usage order.
 	void substringSorter();
-}
-
-
+	void initializeController(BaseController*, std::string, std::vector<std::string>);
+	void initializeState(BaseState*, std::string, int);
+};

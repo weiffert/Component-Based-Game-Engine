@@ -16,6 +16,16 @@
 //include controllers
 
 
+StateLevel::StateLevel()
+{
+	//Sets defaults.
+	id = "Level";
+	number = 3;
+	systemManager = nullptr;
+	assetManager = nullptr;
+}
+
+
 StateLevel::StateLevel(SystemManager *s, AssetManager *a)
 {
 	//Sets defaults.

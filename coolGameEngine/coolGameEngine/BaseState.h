@@ -14,7 +14,6 @@ class BaseState
 {
 public:
 	BaseState();
-	BaseState(SystemManager *, AssetManager *);
 	~BaseState();
 
 	//Returns the state identification.

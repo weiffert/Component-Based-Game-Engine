@@ -8,6 +8,7 @@
 
 #include "BaseController.h"
 #include "Entity.h"
+#include "Property.h"
 
 class Render :
 	public BaseController
@@ -18,5 +19,8 @@ public:
 
 	//Control function
 	void control(double, sf::RenderWindow *, Entity *);
+
+private:
+	bool movement(double, Entity*, Property*, Property*);
 };
 

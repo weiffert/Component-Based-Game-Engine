@@ -12,6 +12,7 @@
 class Game
 {
 public:
+	Game();
 	Game(int, int, std::string);
 	~Game();
 	
