@@ -1,38 +1,53 @@
-﻿Build started 3/12/2016 11:00:52 AM.
+﻿Build started 3/12/2016 12:43:29 PM.
      1>Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\boost\boost_1_60_0" /I"C:\SFML-2.3.2\include" /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Property.cpp
          Property.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(316): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(323): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(330): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(337): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(344): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(351): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(358): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(365): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(372): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(379): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(386): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(393): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(400): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(407): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(414): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(586): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(593): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(600): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(607): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(614): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(621): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(628): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(635): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(642): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(649): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(656): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(663): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(670): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(677): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(684): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(423): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(430): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(437): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(444): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(451): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(458): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(465): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(472): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(479): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(486): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(493): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(500): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(507): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(514): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(521): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(693): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(700): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(707): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(714): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(721): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(728): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(735): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(742): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(749): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(756): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(763): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(770): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(777): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(784): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(791): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(809): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(819): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(829): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(839): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(849): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(859): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(869): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(879): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(889): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(899): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(909): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(919): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(929): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(939): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(949): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(91): warning C4715: 'Property::getDataInt' : not all control paths return a value
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(98): warning C4715: 'Property::getDataDouble' : not all control paths return a value
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(105): warning C4715: 'Property::getDataFloat' : not all control paths return a value
@@ -44,8 +59,8 @@
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(147): warning C4715: 'Property::getDataSprite' : not all control paths return a value
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(154): warning C4715: 'Property::getDataCircleShape' : not all control paths return a value
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(161): warning C4715: 'Property::getDataConvexShape' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(175): warning C4715: 'Property::getDataText' : not all control paths return a value
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(168): warning C4715: 'Property::getDataRectangleShape' : not all control paths return a value
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(175): warning C4715: 'Property::getDataText' : not all control paths return a value
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(180): warning C4715: 'Property::getDataEntity' : not all control paths return a value
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(187): warning C4715: 'Property::getDataSound' : not all control paths return a value
        Link:
@@ -67,19 +82,8 @@
          Debug\stdafx.obj
          Debug\SystemManager.obj
      1>LINK : warning LNK4067: ambiguous entry point; selected 'mainCRTStartup'
-     1>Render.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::changeData<double>(double,int)" (??$changeData@N@Property@@QAEXNH@Z) referenced in function "private: bool __thiscall Render::movement(double,class Entity *,class Property *,class Property *)" (?movement@Render@@AAE_NNPAVEntity@@PAVProperty@@1@Z)
-     1>StateReInit.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<int>(int)" (??$addData@H@Property@@QAEXH@Z) referenced in function "public: virtual void __thiscall StateReInit::update(double,class sf::RenderWindow *)" (?update@StateReInit@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2001: unresolved external symbol "public: void __thiscall Property::addData<int>(int)" (??$addData@H@Property@@QAEXH@Z)
      1>StateReInit.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<char const *>(char const *)" (??$addData@PBD@Property@@QAEXPBD@Z) referenced in function "public: virtual void __thiscall StateReInit::update(double,class sf::RenderWindow *)" (?update@StateReInit@@UAEXNPAVRenderWindow@sf@@@Z)
      1>StateLoading.obj : error LNK2001: unresolved external symbol "public: void __thiscall Property::addData<char const *>(char const *)" (??$addData@PBD@Property@@QAEXPBD@Z)
-     1>StateReInit.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<double>(double)" (??$addData@N@Property@@QAEXN@Z) referenced in function "public: virtual void __thiscall StateReInit::update(double,class sf::RenderWindow *)" (?update@StateReInit@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2001: unresolved external symbol "public: void __thiscall Property::addData<double>(double)" (??$addData@N@Property@@QAEXN@Z)
-     1>StateReInit.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<float>(float)" (??$addData@M@Property@@QAEXM@Z) referenced in function "public: virtual void __thiscall StateReInit::update(double,class sf::RenderWindow *)" (?update@StateReInit@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2001: unresolved external symbol "public: void __thiscall Property::addData<float>(float)" (??$addData@M@Property@@QAEXM@Z)
-     1>StateReInit.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<bool>(bool)" (??$addData@_N@Property@@QAEX_N@Z) referenced in function "public: virtual void __thiscall StateReInit::update(double,class sf::RenderWindow *)" (?update@StateReInit@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2001: unresolved external symbol "public: void __thiscall Property::addData<bool>(bool)" (??$addData@_N@Property@@QAEX_N@Z)
-     1>StateReInit.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??$addData@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Property@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function "public: virtual void __thiscall StateReInit::update(double,class sf::RenderWindow *)" (?update@StateReInit@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2001: unresolved external symbol "public: void __thiscall Property::addData<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??$addData@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Property@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
      1>StateReInit.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class Entity *>(class Entity *)" (??$addData@PAVEntity@@@Property@@QAEXPAVEntity@@@Z) referenced in function "public: virtual void __thiscall StateReInit::update(double,class sf::RenderWindow *)" (?update@StateReInit@@UAEXNPAVRenderWindow@sf@@@Z)
      1>StateLoading.obj : error LNK2001: unresolved external symbol "public: void __thiscall Property::addData<class Entity *>(class Entity *)" (??$addData@PAVEntity@@@Property@@QAEXPAVEntity@@@Z)
      1>StateReInit.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class sf::Texture *>(class sf::Texture *)" (??$addData@PAVTexture@sf@@@Property@@QAEXPAVTexture@sf@@@Z) referenced in function "public: virtual void __thiscall StateReInit::update(double,class sf::RenderWindow *)" (?update@StateReInit@@UAEXNPAVRenderWindow@sf@@@Z)
@@ -93,14 +97,9 @@
      1>StateLoading.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class sf::ConvexShape *>(class sf::ConvexShape *)" (??$addData@PAVConvexShape@sf@@@Property@@QAEXPAVConvexShape@sf@@@Z) referenced in function "public: virtual void __thiscall StateLoading::update(double,class sf::RenderWindow *)" (?update@StateLoading@@UAEXNPAVRenderWindow@sf@@@Z)
      1>StateLoading.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class sf::RectangleShape *>(class sf::RectangleShape *)" (??$addData@PAVRectangleShape@sf@@@Property@@QAEXPAVRectangleShape@sf@@@Z) referenced in function "public: virtual void __thiscall StateLoading::update(double,class sf::RenderWindow *)" (?update@StateLoading@@UAEXNPAVRenderWindow@sf@@@Z)
      1>StateLoading.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class sf::Text *>(class sf::Text *)" (??$addData@PAVText@sf@@@Property@@QAEXPAVText@sf@@@Z) referenced in function "public: virtual void __thiscall StateLoading::update(double,class sf::RenderWindow *)" (?update@StateLoading@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class sf::Sprite>(class sf::Sprite)" (??$addData@VSprite@sf@@@Property@@QAEXVSprite@sf@@@Z) referenced in function "public: virtual void __thiscall StateLoading::update(double,class sf::RenderWindow *)" (?update@StateLoading@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class sf::CircleShape>(class sf::CircleShape)" (??$addData@VCircleShape@sf@@@Property@@QAEXVCircleShape@sf@@@Z) referenced in function "public: virtual void __thiscall StateLoading::update(double,class sf::RenderWindow *)" (?update@StateLoading@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class sf::ConvexShape>(class sf::ConvexShape)" (??$addData@VConvexShape@sf@@@Property@@QAEXVConvexShape@sf@@@Z) referenced in function "public: virtual void __thiscall StateLoading::update(double,class sf::RenderWindow *)" (?update@StateLoading@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class sf::RectangleShape>(class sf::RectangleShape)" (??$addData@VRectangleShape@sf@@@Property@@QAEXVRectangleShape@sf@@@Z) referenced in function "public: virtual void __thiscall StateLoading::update(double,class sf::RenderWindow *)" (?update@StateLoading@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>StateLoading.obj : error LNK2019: unresolved external symbol "public: void __thiscall Property::addData<class sf::Text>(class sf::Text)" (??$addData@VText@sf@@@Property@@QAEXVText@sf@@@Z) referenced in function "public: virtual void __thiscall StateLoading::update(double,class sf::RenderWindow *)" (?update@StateLoading@@UAEXNPAVRenderWindow@sf@@@Z)
-     1>C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe : fatal error LNK1120: 21 unresolved externals
+     1>C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe : fatal error LNK1120: 10 unresolved externals
      1>Done Building Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:01.92
+Time Elapsed 00:00:01.70

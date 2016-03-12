@@ -271,6 +271,7 @@ T Property::getData(int location)
 
 //Adds value to existing data
 //Takes in data.
+/*
 template <typename T>
 void Property::addData(T value)
 {
@@ -304,6 +305,112 @@ void Property::addData(T value)
 		dataRectangleShape.push_back(value);
 	if (typeId == "Entity")
 		dataEntity.push_back(value);
+}
+*/
+
+
+template <>
+void Property::addData<int>(int value)
+{
+	dataInt.push_back(value);
+}
+
+
+template <>
+void Property::addData<double>(double value)
+{
+	dataDouble.push_back(value);
+}
+
+
+template <>
+void Property::addData<float>(float value)
+{
+	dataFloat.push_back(value);
+}
+
+
+template <>
+void Property::addData<char>(char value)
+{
+	dataChar.push_back(value);
+}
+
+
+template <>
+void Property::addData<bool>(bool value)
+{
+	dataBool.push_back(value);
+}
+
+
+template <>
+void Property::addData<std::string>(std::string value)
+{
+	dataString.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::Image>(sf::Image value)
+{
+	dataImage.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::Texture>(sf::Texture value)
+{
+	dataTexture.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::Sound>(sf::Sound value)
+{
+	dataSound.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::Sprite>(sf::Sprite value)
+{
+	dataSprite.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::CircleShape>(sf::CircleShape value)
+{
+	dataCircleShape.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::ConvexShape>(sf::ConvexShape value)
+{
+	dataConvexShape.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::RectangleShape>(sf::RectangleShape value)
+{
+	dataRectangleShape.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::Text>(sf::Text value)
+{
+	dataText.push_back(value);
+}
+
+
+template <>
+void Property::addData<Entity>(Entity value)
+{
+	dataEntity.push_back(value);
 }
 
 
@@ -691,112 +798,156 @@ void Property::deleteDataPosition(int position)
 
 //Value changes the data at position.
 //Takes in a value to change to and the position to change it at.
-template <typename T>
-void Property::changeData(T value, int position)
+//template <typename T>
+//void Property::changeData(T value, int position)
+//{
+
+
+template <>
+void Property::changeData<int>(int value, int position)
 {
-	if (typeId == "int")
-	{
-		if (position < dataInt.size())
-			dataInt.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "double")
-	{
-		if (position < dataDouble.size())
-			dataDouble.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "float")
-	{
-		if (position < dataFloat.size())
-			dataFloat.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "char")
-	{ 
-		if (position < dataChar.size())
-			dataChar.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "bool")
-	{
-		if (position < dataBool.size())
-			dataBool.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "string")
-	{
-		if (position < dataString.size())
-			dataString.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "Sprite")
-	{
-		if (position < dataSprite.size())
-			dataSprite.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "Image")
-	{
-		if (position < dataImage.size())
-			dataImage.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "Texture")
-	{
-		if (position < dataTexture.size())
-			dataTexture.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "Sound")
-	{ 
-		if (position < dataSound.size())
-			dataSound.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "Text")
-	{
-		if (position < dataText.size())
-			dataText.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "CircleShape")
-	{
-		if (position < dataCircleShape.size())
-			dataCircleShape.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "ConvexShape")
-	{
-		if (position < dataConvexShape.size())
-			dataConvexShape.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "RectangleShape")
-	{
-		if (position < dataRectangleShape.size())
-			dataRectangleShape.at(position) = value;
-		else
-			addData(value);
-	}
-	if (typeId == "Entity")
-	{
-		if (position < dataEntity.size())
-			dataEntity.at(position) = value;
-		else
-			addData(value);
-	}
+	if (position < dataInt.size())
+		dataInt.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<double>(double value, int position)
+{
+	if (position < dataDouble.size())
+		dataDouble.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<float>(float value, int position)
+{
+	if (position < dataFloat.size())
+		dataFloat.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<char>(char value, int position)
+{
+	if (position < dataChar.size())
+		dataChar.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<bool>(bool value, int position)
+{
+	if (position < dataBool.size())
+		dataBool.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<std::string>(std::string value, int position)
+{
+	if (position < dataString.size())
+		dataString.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::Sprite>(sf::Sprite value, int position)
+{
+	if (position < dataSprite.size())
+		dataSprite.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::Image>(sf::Image value, int position)
+{
+	if (position < dataImage.size())
+		dataImage.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::Texture>(sf::Texture value, int position)
+{
+	if (position < dataTexture.size())
+		dataTexture.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::Sound>(sf::Sound value, int position)
+{
+	if (position < dataSound.size())
+		dataSound.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::Text>(sf::Text value, int position)
+{
+	if (position < dataText.size())
+		dataText.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::CircleShape>(sf::CircleShape value, int position)
+{
+	if (position < dataCircleShape.size())
+		dataCircleShape.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::ConvexShape>(sf::ConvexShape value, int position)
+{
+	if (position < dataConvexShape.size())
+		dataConvexShape.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::RectangleShape>(sf::RectangleShape value, int position)
+{
+	if (position < dataRectangleShape.size())
+		dataRectangleShape.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<Entity>(Entity value, int position)
+{
+	if (position < dataEntity.size())
+		dataEntity.at(position) = value;
+	else
+		addData(value);
 }
