@@ -20,27 +20,27 @@ int main()
 	int exitCode = 0;
 	
 	//Log run
-	std::filebuf fileControl;
-	std::ostream file(&fileControl);
-	fileControl.open("log.txt", std::ios::app);
+	std::ofstream file;
+	file.open("log.txt", std::ios::app);
 
-	if (fileControl.is_open())
+	if (file.is_open())
 		file << "Program run at: " << time(NULL) << "\nExit Code: ";
 
 	//Read from file.
-	std::istream read(&fileControl);
+	std::ifstream read;
 	std::vector<std::string> data;
-	int increment = 0;
 
-	fileControl.open("game.txt", std::ios::app);
-	if (fileControl.is_open())
+	read.open("game.txt", std::ios::app);
+	
+	if (read.is_open())
 	{
 		while (!read.eof())
 		{
-			read >> data.at(increment);
-			increment++;
+			std::string temp;
+			read >> temp;
+			data.push_back(temp);
 		}
-		fileControl.close();
+		read.close();
 
 		//Convert the first two strings to ints.
 		int one = static_cast<int>(atoi(data.at(0).c_str())) - 48;
@@ -52,19 +52,19 @@ int main()
 		exitCode = game.run();
 
 		//log exit code
-		if (fileControl.is_open())
+		if (file.is_open())
 			file << exitCode;
 
 	}
 
-	else if (fileControl.is_open())
+	else if (file.is_open())
 	{
 		file << "404. Could not open game.txt";
 	}
 
 
 	//clean up
-	fileControl.close();
+	file.close();
 	
 	return 0;
 }
