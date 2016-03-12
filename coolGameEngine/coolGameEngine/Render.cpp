@@ -36,24 +36,40 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 				temp = a->getComponent("Sprite");
 				bool move = movement(lag, a, temp2, temp3);
 				if (move)
-					temp->getDataSprite().at(0).move(temp3->getDataDouble().at(0), temp3->getDataDouble().at(1));
-				window->draw(temp->getDataSprite().at(0));
+					temp->getDataSprite().at(0)->move(temp3->getDataDouble().at(0), temp3->getDataDouble().at(1));
+				window->draw(*(temp->getDataSprite().at(0)));
 		}
-		else if (a->hasComponent("Text"))
+		if (a->hasComponent("Text"))
 		{
 			temp = a->getComponent("Text");
 			bool move = movement(lag, a, temp2, temp3);
 			if (move)
-				temp->getDataSprite().at(0).move(temp3->getDataDouble().at(0), temp3->getDataDouble().at(1));
-			window->draw(temp->getDataSprite().at(0));
+				temp->getDataText().at(0)->move(temp3->getDataDouble().at(0), temp3->getDataDouble().at(1));
+			window->draw(*(temp->getDataText().at(0)));
 		}
-		else if (a->hasComponent("Shape"))
+		if (a->hasComponent("CircleShape"))
 		{
-			temp = a->getComponent("Shape");
+			temp = a->getComponent("CircleShape");
 			bool move = movement(lag, a, temp2, temp3);
 			if (move)
-				temp->getDataSprite().at(0).move(temp3->getDataDouble().at(0), temp3->getDataDouble().at(1));
-			window->draw(temp->getDataSprite().at(0));
+				temp->getDataCircleShape().at(0)->move(temp3->getDataDouble().at(0), temp3->getDataDouble().at(1));
+			window->draw(*(temp->getDataCircleShape().at(0)));
+		}
+		if (a->hasComponent("ConvexShape"))
+		{
+			temp = a->getComponent("ConvexShape");
+			bool move = movement(lag, a, temp2, temp3);
+			if (move)
+				temp->getDataConvexShape().at(0)->move(temp3->getDataDouble().at(0), temp3->getDataDouble().at(1));
+			window->draw(*(temp->getDataConvexShape().at(0)));
+		}
+		if (a->hasComponent("RectangleShape"))
+		{
+			temp = a->getComponent("RectangleShape");
+			bool move = movement(lag, a, temp2, temp3);
+			if (move)
+				temp->getDataRectangleShape().at(0)->move(temp3->getDataDouble().at(0), temp3->getDataDouble().at(1));
+			window->draw(*(temp->getDataRectangleShape().at(0)));
 		}
 	}
 }
@@ -79,10 +95,11 @@ bool Render::movement(double lag, Entity* a, Property* temp2, Property* temp3)
 			y = temp3->getDataDouble().at(1);
 			changeX = temp2->getDataDouble().at(0) * lag;
 			changeY = temp2->getDataDouble().at(1) * lag;
-
+			x += changeX;
+			y += changeY;
 			//Store new position.
-			temp3->changeData(changeX + x, 0);
-			temp3->changeData(changeY + y, 1);
+			temp3->changeData(&x, 0);
+			temp3->changeData(&y, 1);
 
 			return true;
 		}

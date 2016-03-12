@@ -217,29 +217,44 @@ void StateReInit::update(double totalTime, sf::RenderWindow* window)
 			if (type == "int")
 			{
 				temp->deleteData();
+
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(std::stoi(data.at(i)));
+				{
+					int integer = std::stoi(data.at(i));
+					temp->addData(&integer);
+				}
 			}
 
 			else if (type == "char")
 			{
 				temp->deleteData();
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(data.at(i).c_str());
+				{
+					char character = data.at(i).at(0);
+					temp->addData(&character);
+				}
 			}
 
 			else if (type == "double")
 			{
 				temp->deleteData();
+
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(std::stod(data.at(i)));
+				{
+					double reals = std::stod(data.at(i));
+					temp->addData(&reals);
+				}
 			}
 
 			else if (type == "float")
 			{
 				temp->deleteData();
+
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(std::stof(data.at(i)));
+				{
+					float smallerReals = std::stof(data.at(i));
+					temp->addData(&smallerReals);
+				}
 			}
 
 			else if (type == "bool")
@@ -248,53 +263,130 @@ void StateReInit::update(double totalTime, sf::RenderWindow* window)
 				bool tOrF = false;
 				if (data.at(0) == "true")
 					tOrF = true;
-				temp->addData(tOrF);
+				temp->addData(&tOrF);
 			}
 
 			else if (type == "string")
 			{
 				temp->deleteData();
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(data.at(i));
+					temp->addData(&(data.at(i)));
 			}
 
 			else if (type == "Entity")
 			{
 				temp->deleteData();
-				//Get the proper data from the id in the file.
+
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(systemManager->getMaterial(data.at(i)));
+				{
+					Entity *entity = systemManager->getMaterial(data.at(i));
+					temp->addData(entity);
+				}
 			}
 
 			else if (type == "Texture")
 			{
 				temp->deleteData();
-				//Get the proper data from the id in the file.
+
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getTexture(std::stoi(data.at(i))));
+				{
+					sf::Texture *texture = assetManager->getTexture(std::stoi(data.at(i)));
+					temp->addData(texture);
+				}
 			}
 
 			else if (type == "Image")
 			{
 				temp->deleteData();
-				//Get the proper data from the id in the file.
+
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getTexture(data.at(i)));
+				{
+					sf::Image *image = assetManager->getImage(stoi(data.at(i)));
+					temp->addData(image);
+				}
 			}
 
 			else if (type == "Sound")
 			{
 				temp->deleteData();
-				//Get the proper data from the id in the file.
+
+				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getSound(data.at(i)));
+				{
+					sf::Sound *sound = assetManager->getSound(data.at(i));
+					temp->addData(sound);
+				}
+			}
+
+
+			else if (type == "Sprite")
+			{
+				temp->deleteData();
+
+				//Get the proper data from the tempId in the file.
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::Sprite *sprite = new sf::Sprite();
+					temp->addData(sprite);
+				}
+			}
+
+			else if (type == "CircleShape")
+			{
+				temp->deleteData();
+
+				//Get the proper data from the tempId in the file.
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::CircleShape *shape = new sf::CircleShape();
+					temp->addData(shape);
+				}
+			}
+
+			else if (type == "ConvexShape")
+			{
+				temp->deleteData();
+
+				//Get the proper data from the tempId in the file.
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::ConvexShape *shape = new sf::ConvexShape();
+					temp->addData(shape);
+				}
+			}
+
+			else if (type == "RectangleShape")
+			{
+				temp->deleteData();
+
+				//Get the proper data from the tempId in the file.
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::RectangleShape *shape = new sf::RectangleShape();
+					temp->addData(shape);
+				}
+			}
+
+			else if (type == "Text")
+			{
+				temp->deleteData();
+
+				//Get the proper data from the tempId in the file.
+				for (int i = 0; i < data.size(); i++)
+				{
+					sf::Text *text = new sf::Text();
+					temp->addData(text);
+				}
 			}
 
 			else
 			{
 				temp->deleteData();
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(data.at(i));
+					temp->addData(&(data.at(i)));
 			}
 
 		}
@@ -352,25 +444,29 @@ void StateReInit::update(double totalTime, sf::RenderWindow* window)
 							if (type == "int")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(std::stoi(properties.at(y).at(x)));
+								int integer = std::stoi(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(&integer);
 							}
 
 							else if (type == "char")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x).c_str());
+								char character = properties.at(y).at(x).at(0);
+								temp->getComponent(properties.at(y).at(x))->addData(&character);
 							}
 
 							else if (type == "double")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(std::stod(properties.at(y).at(x)));
+								double doubler = std::stod(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(&doubler);
 							}
 
 							else if (type == "float")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(std::stof(properties.at(y).at(x)));
+								float floater = std::stof(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(&floater);
 							}
 
 							else if (type == "bool")
@@ -381,48 +477,87 @@ void StateReInit::update(double totalTime, sf::RenderWindow* window)
 									tOrF = true;
 
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(tOrF);
+								temp->getComponent(properties.at(y).at(x))->addData(&tOrF);
 							}
 
 							else if (type == "string")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(&(properties.at(y).at(x)));
 							}
 
 							else if (type == "Entity")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(systemManager->getMaterial(properties.at(y).at(x)));
 							}
 
 							else if (type == "Texture")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getTexture(std::stoi(properties.at(y).at(x))));
 							}
 
 							else if (type == "Image")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getImage(properties.at(y).at(x)));
 							}
 
 							else if (type == "Sound")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
+								//Get the proper data from the tempId in the file.
 								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getSound(properties.at(y).at(x)));
 							}
 
+							else if (type == "Sprite")
+							{
+								temp->getComponent(properties.at(y).at(x))->deleteData();
+								//Get the proper data from the tempId in the file.
+								sf::Sprite *sprite = new sf::Sprite;
+								temp->getComponent(properties.at(y).at(x))->addData(sprite);
+							}
+
+							else if (type == "CircleShape")
+							{
+								temp->getComponent(properties.at(y).at(x))->deleteData();
+								//Get the proper data from the tempId in the file.
+								sf::CircleShape *shape = new sf::CircleShape;
+								temp->getComponent(properties.at(y).at(x))->addData(shape);
+							}
+
+							else if (type == "ConvexShape")
+							{
+								temp->getComponent(properties.at(y).at(x))->deleteData();
+								//Get the proper data from the tempId in the file.
+								sf::ConvexShape *shape = new sf::ConvexShape;
+								temp->getComponent(properties.at(y).at(x))->addData(shape);
+							}
+
+							else if (type == "RectangleShape")
+							{
+								temp->getComponent(properties.at(y).at(x))->deleteData();
+								//Get the proper data from the tempId in the file.
+								sf::RectangleShape *shape = new sf::RectangleShape;
+								temp->getComponent(properties.at(y).at(x))->addData(shape);
+							}
+
+							else if (type == "Text")
+							{
+								temp->getComponent(properties.at(y).at(x))->deleteData();
+								//Get the proper data from the tempId in the file.
+								sf::Text *text = new sf::Text;
+								temp->getComponent(properties.at(y).at(x))->addData(text);
+							}
 							else
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the id in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x));
+								//Get the proper data from the tempId in the file.
+								temp->getComponent(properties.at(y).at(x))->addData(&(properties.at(y).at(x)));
 							}
 						}
 					}

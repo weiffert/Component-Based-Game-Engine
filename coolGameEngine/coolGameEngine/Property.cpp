@@ -27,7 +27,72 @@ Property::Property(std::string type)
 //Default destructor
 Property::~Property()
 {
-
+	for (int i = 0; i < dataInt.size(); i++)
+	{
+		dataInt.erase(dataInt.begin() + i);
+	}
+	for (int i = 0; i < dataDouble.size(); i++)
+	{
+		dataDouble.erase(dataDouble.begin() + i);
+	}
+	for (int i = 0; i < dataFloat.size(); i++)
+	{
+		dataFloat.erase(dataFloat.begin() + i);
+	}
+	for (int i = 0; i < dataChar.size(); i++)
+	{
+		dataChar.erase(dataChar.begin() + i);
+	}
+	for (int i = 0; i < dataBool.size(); i++)
+	{
+		dataBool.erase(dataBool.begin() + i);
+	}
+	for (int i = 0; i < dataString.size(); i++)
+	{
+		dataString.erase(dataString.begin() + i);
+	}
+	for (int i = 0; i < dataSprite.size(); i++)
+	{
+		delete dataSprite.at(i);
+		dataSprite.erase(dataSprite.begin() + i);
+	}
+	for (int i = 0; i < dataImage.size(); i++)
+	{
+		dataImage.erase(dataImage.begin() + i);
+	}
+	for (int i = 0; i < dataTexture.size(); i++)
+	{
+		delete dataTexture.at(i);
+		dataTexture.erase(dataTexture.begin() + i);
+	}
+	for (int i = 0; i < dataSound.size(); i++)
+	{
+		dataSound.erase(dataSound.begin() + i);
+	}
+	for (int i = 0; i < dataText.size(); i++)
+	{
+		delete dataText.at(i);
+		dataText.erase(dataText.begin() + i);
+	}
+	for (int i = 0; i < dataCircleShape.size(); i++)
+	{
+		delete dataCircleShape.at(i);
+		dataCircleShape.erase(dataCircleShape.begin() + i);
+	}
+	for (int i = 0; i < dataConvexShape.size(); i++)
+	{
+		delete dataConvexShape.at(i);
+		dataConvexShape.erase(dataConvexShape.begin() + i);
+	}
+	for (int i = 0; i < dataRectangleShape.size(); i++)
+	{
+		delete dataRectangleShape.at(i);
+		dataRectangleShape.erase(dataRectangleShape.begin() + i);
+	}
+	for (int i = 0; i < dataEntity.size(); i++)
+	{
+		dataEntity.erase(dataEntity.begin() + i);
+	}
 }
 
 //Returns id
@@ -126,61 +191,63 @@ std::vector<std::string> Property::getDataString()
 }
 
 
-std::vector<sf::Image> Property::getDataImage()
+std::vector<sf::Image *> Property::getDataImage()
 {
 	if (typeId == "Image")
 		return dataImage;
 }
 
 
-std::vector<sf::Texture> Property::getDataTexture()
+std::vector<sf::Texture *> Property::getDataTexture()
 {
 	if (typeId == "Texture")
 		return dataTexture;
 }
 
 
-std::vector<sf::Sprite> Property::getDataSprite()
+std::vector<sf::Sprite *> Property::getDataSprite()
 {
 	if (typeId == "Sprite")
 		return dataSprite;
 }
 
 
-std::vector<sf::CircleShape> Property::getDataCircleShape()
+std::vector<sf::CircleShape *> Property::getDataCircleShape()
 {
 	if (typeId == "CircleShape")
 		return dataCircleShape;
 }
 
 
-std::vector<sf::ConvexShape> Property::getDataConvexShape()
+std::vector<sf::ConvexShape *> Property::getDataConvexShape()
 {
 	if (typeId == "ConvexShape")
 		return dataConvexShape;
 }
 
 
-std::vector<sf::RectangleShape> Property::getDataRectangleShape()
+std::vector<sf::RectangleShape *> Property::getDataRectangleShape()
 {
 	if (typeId == "RectangleShape")
 		return dataRectangleShape;
 }
 
 
-std::vector<sf::Text> Property::getDataText()
+std::vector<sf::Text *> Property::getDataText()
 {
 	if (typeId == "Text")
 		return dataText;
 }
-std::vector<Entity> Property::getDataEntity()
+
+
+std::vector<Entity *> Property::getDataEntity()
 {
 	if (typeId == "Entity")
 		return dataEntity;
 }
 
 
-std::vector<sf::Sound> Property::getDataSound()
+std::vector<sf::Sound *> Property::getDataSound()
 {
 	if (typeId == "Sound")
 		return dataSound;
@@ -310,105 +377,105 @@ void Property::addData(T value)
 
 
 template <>
-void Property::addData<int>(int value)
+void Property::addData<int>(int *value)
 {
-	dataInt.push_back(value);
+	dataInt.push_back(*value);
 }
 
 
 template <>
-void Property::addData<double>(double value)
+void Property::addData<double>(double *value)
 {
-	dataDouble.push_back(value);
+	dataDouble.push_back(*value);
 }
 
 
 template <>
-void Property::addData<float>(float value)
+void Property::addData<float>(float *value)
 {
-	dataFloat.push_back(value);
+	dataFloat.push_back(*value);
 }
 
 
 template <>
-void Property::addData<char>(char value)
+void Property::addData<char>(char *value)
 {
-	dataChar.push_back(value);
+	dataChar.push_back(*value);
 }
 
 
 template <>
-void Property::addData<bool>(bool value)
+void Property::addData<bool>(bool *value)
 {
-	dataBool.push_back(value);
+	dataBool.push_back(*value);
 }
 
 
 template <>
-void Property::addData<std::string>(std::string value)
+void Property::addData<std::string>(std::string *value)
 {
-	dataString.push_back(value);
+	dataString.push_back(*value);
 }
 
 
 template <>
-void Property::addData<sf::Image>(sf::Image value)
+void Property::addData<sf::Image>(sf::Image *value)
 {
 	dataImage.push_back(value);
 }
 
 
 template <>
-void Property::addData<sf::Texture>(sf::Texture value)
+void Property::addData<sf::Texture>(sf::Texture *value)
 {
 	dataTexture.push_back(value);
 }
 
 
 template <>
-void Property::addData<sf::Sound>(sf::Sound value)
+void Property::addData<sf::Sound>(sf::Sound *value)
 {
 	dataSound.push_back(value);
 }
 
 
 template <>
-void Property::addData<sf::Sprite>(sf::Sprite value)
+void Property::addData<sf::Sprite>(sf::Sprite *value)
 {
 	dataSprite.push_back(value);
 }
 
 
 template <>
-void Property::addData<sf::CircleShape>(sf::CircleShape value)
+void Property::addData<sf::CircleShape>(sf::CircleShape *value)
 {
 	dataCircleShape.push_back(value);
 }
 
 
 template <>
-void Property::addData<sf::ConvexShape>(sf::ConvexShape value)
+void Property::addData<sf::ConvexShape>(sf::ConvexShape *value)
 {
 	dataConvexShape.push_back(value);
 }
 
 
 template <>
-void Property::addData<sf::RectangleShape>(sf::RectangleShape value)
+void Property::addData<sf::RectangleShape>(sf::RectangleShape *value)
 {
 	dataRectangleShape.push_back(value);
 }
 
 
 template <>
-void Property::addData<sf::Text>(sf::Text value)
+void Property::addData<sf::Text>(sf::Text *value)
 {
 	dataText.push_back(value);
 }
 
 
 template <>
-void Property::addData<Entity>(Entity value)
+void Property::addData<Entity>(Entity *value)
 {
 	dataEntity.push_back(value);
 }
@@ -464,6 +531,7 @@ void Property::deleteData()
 	{
 		for (int i = 0; i < dataSprite.size(); i++)
 		{
+			delete dataSprite.at(i);
 			dataSprite.erase(dataSprite.begin() + i);
 		}
 	}
@@ -478,6 +546,7 @@ void Property::deleteData()
 	{
 		for (int i = 0; i < dataTexture.size(); i++)
 		{
+			delete dataTexture.at(i);
 			dataTexture.erase(dataTexture.begin() + i);
 		}
 	}
@@ -492,6 +561,7 @@ void Property::deleteData()
 	{
 		for (int i = 0; i < dataText.size(); i++)
 		{
+			delete dataText.at(i);
 			dataText.erase(dataText.begin() + i);
 		}
 	}
@@ -499,6 +569,7 @@ void Property::deleteData()
 	{
 		for (int i = 0; i < dataCircleShape.size(); i++)
 		{
+			delete dataCircleShape.at(i);
 			dataCircleShape.erase(dataCircleShape.begin() + i);
 		}
 	}
@@ -506,6 +577,7 @@ void Property::deleteData()
 	{
 		for (int i = 0; i < dataConvexShape.size(); i++)
 		{
+			delete dataConvexShape.at(i);
 			dataConvexShape.erase(dataConvexShape.begin() + i);
 		}
 	}
@@ -513,6 +585,7 @@ void Property::deleteData()
 	{
 		for (int i = 0; i < dataRectangleShape.size(); i++)
 		{
+			delete dataRectangleShape.at(i);
 			dataRectangleShape.erase(dataRectangleShape.begin() + i);
 		}
 	}
@@ -528,70 +601,91 @@ void Property::deleteData()
 
 //Subtracts value from existing data.
 //Takes in the data to be deleted.
-template <typename T>
-void Property::deleteData(T value)
+//template <typename T>
+//void Property::deleteData(T value)
+//{
+
+
+template <>
+void Property::deleteData<int>(int *value)
 {
-	if (typeId == "int")
+	for (int i = 0; i < dataInt.size(); i++)
 	{
-		for (int i = 0; i < dataInt.size(); i++)
+		if (dataInt.at(i) == *value)
 		{
-			if (dataInt.at(i) == value)
-			{
-				dataInt.erase(dataInt.begin() + i);
-			}
+			dataInt.erase(dataInt.begin() + i);
 		}
 	}
-	if (typeId == "double")
+}
+
+
+template <>
+void Property::deleteData<double>(double *value)
+{
+	for (int i = 0; i < dataDouble.size(); i++)
 	{
-		for (int i = 0; i < dataDouble.size(); i++)
+		if (dataDouble.at(i) == *value)
 		{
-			if (dataDouble.at(i) == value)
-			{
-				dataDouble.erase(dataDouble.begin() + i);
-			}
+			dataDouble.erase(dataDouble.begin() + i);
 		}
 	}
-	if (typeId == "float")
+}
+
+
+template <>
+void Property::deleteData<float>(float *value)
 	{
 		for (int i = 0; i < dataFloat.size(); i++)
 		{
-			if (dataFloat.at(i) == value)
+			if (dataFloat.at(i) == *value)
 			{
 				dataFloat.erase(dataFloat.begin() + i);
 			}
 		}
-	}
-	if (typeId == "char")
+}
+
+
+template <>
+void Property::deleteData<char>(char *value)
 	{
 		for (int i = 0; i < dataChar.size(); i++)
 		{
-			if (dataChar.at(i) == value)
+			if (dataChar.at(i) == *value)
 			{
 				dataChar.erase(dataChar.begin() + i);
 			}
 		}
-	}
-	if (typeId == "bool")
+}
+
+
+template <>
+void Property::deleteData<bool>(bool *value)
 	{
 		for (int i = 0; i < dataBool.size(); i++)
 		{
-			if (dataBool.at(i) == value)
+			if (dataBool.at(i) == *value)
 			{
 				dataBool.erase(dataBool.begin() + i);
 			}
 		}
-	}
-	if (typeId == "string")
+}
+
+
+template <>
+void Property::deleteData<std::string>(std::string *value)
 	{
 		for (int i = 0; i < dataString.size(); i++)
 		{
-			if (dataString.at(i) == value)
+			if (dataString.at(i) == *value)
 			{
 				dataString.erase(dataString.begin() + i);
 			}
 		}
-	}
-	if (typeId == "Sprite")
+}
+
+
+template <>
+void Property::deleteData<sf::Sprite>(sf::Sprite *value)
 	{
 		for (int i = 0; i < dataSprite.size(); i++)
 		{
@@ -600,8 +694,11 @@ void Property::deleteData(T value)
 				dataSprite.erase(dataSprite.begin() + i);
 			}
 		}
-	}
-	if (typeId == "Image")
+}
+
+
+template <>
+void Property::deleteData<sf::Image>(sf::Image *value)
 	{
 		for (int i = 0; i < dataImage.size(); i++)
 		{
@@ -610,8 +707,11 @@ void Property::deleteData(T value)
 				dataImage.erase(dataImage.begin() + i);
 			}
 		}
-	}
-	if (typeId == "Texture")
+}
+
+
+template <>
+void Property::deleteData<sf::Texture>(sf::Texture *value)
 	{ 
 		for (int i = 0; i < dataTexture.size(); i++)
 		{
@@ -620,8 +720,11 @@ void Property::deleteData(T value)
 				dataTexture.erase(dataTexture.begin() + i);
 			}
 		}
-	}
-	if (typeId == "Sound")
+}
+
+
+template <>
+void Property::deleteData<sf::Sound>(sf::Sound *value)
 	{
 		for (int i = 0; i < dataSound.size(); i++)
 		{
@@ -630,55 +733,69 @@ void Property::deleteData(T value)
 				dataSound.erase(dataSound.begin() + i);
 			}
 		}
-	}
-	if (typeId == "Text")
+}
+
+
+template <>
+void Property::deleteData<sf::Text>(sf::Text *value)
+{
+	for (int i = 0; i < dataText.size(); i++)
 	{
-		for (int i = 0; i < dataText.size(); i++)
+		if (dataText.at(i) == value)
 		{
-			if (dataText.at(i) == value)
-			{
-				dataText.erase(dataText.begin() + i);
-			}
+			dataText.erase(dataText.begin() + i);
 		}
 	}
-	if (typeId == "CircleShape")
+}
+
+
+template <>
+void Property::deleteData<sf::CircleShape>(sf::CircleShape *value)
+{
+	for (int i = 0; i < dataCircleShape.size(); i++)
 	{
-		for (int i = 0; i < dataCircleShape.size(); i++)
+		if (dataCircleShape.at(i) == value)
 		{
-			if (dataCircleShape.at(i) == value)
-			{
-				dataCircleShape.erase(dataCircleShape.begin() + i);
-			}
+			dataCircleShape.erase(dataCircleShape.begin() + i);
 		}
 	}
-	if (typeId == "ConvexShape")
+}
+
+
+template <>
+void Property::deleteData<sf::ConvexShape>(sf::ConvexShape *value)
+{
+	for (int i = 0; i < dataConvexShape.size(); i++)
 	{
-		for (int i = 0; i < dataConvexShape.size(); i++)
+		if (dataConvexShape.at(i) == value)
 		{
-			if (dataConvexShape.at(i) == value)
-			{
-				dataConvexShape.erase(dataConvexShape.begin() + i);
-			}
+			dataConvexShape.erase(dataConvexShape.begin() + i);
 		}
 	}
-	if (typeId == "RectangleShape")
+}
+
+
+template <>
+void Property::deleteData<sf::RectangleShape >(sf::RectangleShape *value)
+{
+	for (int i = 0; i < dataRectangleShape.size(); i++)
 	{
-		for (int i = 0; i < dataRectangleShape.size(); i++)
+		if (dataRectangleShape.at(i) == value)
 		{
-			if (dataRectangleShape.at(i) == value)
-			{
-				dataRectangleShape.erase(dataRectangleShape.begin() + i);
-			}
+			dataRectangleShape.erase(dataRectangleShape.begin() + i);
 		}
 	}
-	if (typeId == "Entity")
+}
+
+
+template <>
+void Property::deleteData<Entity>(Entity *value)
+{
+	for (int i = 0; i < dataEntity.size(); i++)
 	{
-		for (int i = 0; i < dataEntity.size(); i++)
+		if (dataEntity.at(i)->getId() == value->getId())
 		{
-			if (dataEntity.at(i) == value)
-			{
-				dataEntity.erase(dataEntity.begin() + i);
-			}
+			dataEntity.erase(dataEntity.begin() + i);
 		}
 	}
 }
@@ -804,67 +921,67 @@ void Property::deleteDataPosition(int position)
 
 
 template <>
-void Property::changeData<int>(int value, int position)
+void Property::changeData<int>(int *value, int position)
 {
 	if (position < dataInt.size())
-		dataInt.at(position) = value;
+		dataInt.at(position) = *value;
 	else
 		addData(value);
 }
 
 
 template <>
-void Property::changeData<double>(double value, int position)
+void Property::changeData<double>(double *value, int position)
 {
 	if (position < dataDouble.size())
-		dataDouble.at(position) = value;
+		dataDouble.at(position) = *value;
 	else
 		addData(value);
 }
 
 
 template <>
-void Property::changeData<float>(float value, int position)
+void Property::changeData<float>(float *value, int position)
 {
 	if (position < dataFloat.size())
-		dataFloat.at(position) = value;
+		dataFloat.at(position) = *value;
 	else
 		addData(value);
 }
 
 
 template <>
-void Property::changeData<char>(char value, int position)
+void Property::changeData<char>(char *value, int position)
 {
 	if (position < dataChar.size())
-		dataChar.at(position) = value;
+		dataChar.at(position) = *value;
 	else
 		addData(value);
 }
 
 
 template <>
-void Property::changeData<bool>(bool value, int position)
+void Property::changeData<bool>(bool *value, int position)
 {
 	if (position < dataBool.size())
-		dataBool.at(position) = value;
+		dataBool.at(position) = *value;
 	else
 		addData(value);
 }
 
 
 template <>
-void Property::changeData<std::string>(std::string value, int position)
+void Property::changeData<std::string>(std::string *value, int position)
 {
 	if (position < dataString.size())
-		dataString.at(position) = value;
+		dataString.at(position) = *value;
 	else
 		addData(value);
 }
 
 
 template <>
-void Property::changeData<sf::Sprite>(sf::Sprite value, int position)
+void Property::changeData<sf::Sprite>(sf::Sprite *value, int position)
 {
 	if (position < dataSprite.size())
 		dataSprite.at(position) = value;
@@ -874,7 +991,7 @@ void Property::changeData<sf::Sprite>(sf::Sprite value, int position)
 
 
 template <>
-void Property::changeData<sf::Image>(sf::Image value, int position)
+void Property::changeData<sf::Image>(sf::Image *value, int position)
 {
 	if (position < dataImage.size())
 		dataImage.at(position) = value;
@@ -884,7 +1001,7 @@ void Property::changeData<sf::Image>(sf::Image value, int position)
 
 
 template <>
-void Property::changeData<sf::Texture>(sf::Texture value, int position)
+void Property::changeData<sf::Texture>(sf::Texture *value, int position)
 {
 	if (position < dataTexture.size())
 		dataTexture.at(position) = value;
@@ -894,7 +1011,7 @@ void Property::changeData<sf::Texture>(sf::Texture value, int position)
 
 
 template <>
-void Property::changeData<sf::Sound>(sf::Sound value, int position)
+void Property::changeData<sf::Sound>(sf::Sound *value, int position)
 {
 	if (position < dataSound.size())
 		dataSound.at(position) = value;
@@ -904,7 +1021,7 @@ void Property::changeData<sf::Sound>(sf::Sound value, int position)
 
 
 template <>
-void Property::changeData<sf::Text>(sf::Text value, int position)
+void Property::changeData<sf::Text>(sf::Text *value, int position)
 {
 	if (position < dataText.size())
 		dataText.at(position) = value;
@@ -914,7 +1031,7 @@ void Property::changeData<sf::Text>(sf::Text value, int position)
 
 
 template <>
-void Property::changeData<sf::CircleShape>(sf::CircleShape value, int position)
+void Property::changeData<sf::CircleShape>(sf::CircleShape *value, int position)
 {
 	if (position < dataCircleShape.size())
 		dataCircleShape.at(position) = value;
@@ -924,7 +1041,7 @@ void Property::changeData<sf::CircleShape>(sf::CircleShape value, int position)
 
 
 template <>
-void Property::changeData<sf::ConvexShape>(sf::ConvexShape value, int position)
+void Property::changeData<sf::ConvexShape>(sf::ConvexShape *value, int position)
 {
 	if (position < dataConvexShape.size())
 		dataConvexShape.at(position) = value;
@@ -934,7 +1051,7 @@ void Property::changeData<sf::ConvexShape>(sf::ConvexShape value, int position)
 
 
 template <>
-void Property::changeData<sf::RectangleShape>(sf::RectangleShape value, int position)
+void Property::changeData<sf::RectangleShape>(sf::RectangleShape *value, int position)
 {
 	if (position < dataRectangleShape.size())
 		dataRectangleShape.at(position) = value;
@@ -944,7 +1061,7 @@ void Property::changeData<sf::RectangleShape>(sf::RectangleShape value, int posi
 
 
 template <>
-void Property::changeData<Entity>(Entity value, int position)
+void Property::changeData<Entity>(Entity *value, int position)
 {
 	if (position < dataEntity.size())
 		dataEntity.at(position) = value;

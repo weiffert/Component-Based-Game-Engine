@@ -246,30 +246,42 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				temp = new Property("int");
 
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(std::stoi(data.at(i)));
+				{
+					int integer = std::stoi(data.at(i));
+					temp->addData(&integer);
+				}
 			}
 			else if (type == "char")
 			{
 				temp = new Property("char");
 
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(data.at(i).c_str());
+				{
+					char character = data.at(i).at(0);
+					temp->addData(&character);
+				}
 			}
 
 			else if (type == "double")
 			{
 				temp = new Property("double");
 
-				for(int i = 0; i < data.size(); i++)
-					temp->addData(std::stod(data.at(i)));
+				for (int i = 0; i < data.size(); i++)
+				{
+					double reals = std::stod(data.at(i));
+					temp->addData(&reals);
+				}
 			}
 
 			else if (type == "float")
 			{
 				temp = new Property("float");
 
-				for(int i = 0; i < data.size(); i++)
-					temp->addData(std::stof(data.at(i)));
+				for (int i = 0; i < data.size(); i++)
+				{
+					float smallerReals = std::stof(data.at(i));
+					temp->addData(&smallerReals);
+				}
 			}
 
 			else if (type == "bool")
@@ -281,7 +293,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 					tOrF = true;
 
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(tOrF);
+					temp->addData(&tOrF);
 			}
 
 			else if (type == "string")
@@ -289,7 +301,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				temp = new Property("string");
 
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(data.at(i));
+					temp->addData(&(data.at(i)));
 			}
 
 			else if (type == "Entity")
@@ -298,7 +310,10 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(systemManager->getMaterial(data.at(i)));
+				{
+					Entity *entity = systemManager->getMaterial(data.at(i));
+					temp->addData(entity);
+				}
 			}
 
 			else if (type == "Texture")
@@ -307,7 +322,10 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getTexture(std::stoi(data.at(i))));
+				{
+					sf::Texture *texture = assetManager->getTexture(std::stoi(data.at(i)));
+					temp->addData(texture);
+				}
 			}
 
 			else if (type == "Image")
@@ -316,7 +334,10 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getTexture(stoi(data.at(i))));
+				{
+					sf::Image *image = assetManager->getImage(stoi(data.at(i)));
+					temp->addData(image);
+				}
 			}
 
 			else if (type == "Sound")
@@ -325,7 +346,10 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(assetManager->getSound(data.at(i)));
+				{
+					sf::Sound *sound = assetManager->getSound(data.at(i));
+					temp->addData(sound);
+				}
 			}
 			
 			else if(type == "Sprite")
@@ -342,7 +366,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "CircleShape")
 			{
-				temp = new Property("Shape");
+				temp = new Property("CircleShape");
 
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
@@ -354,7 +378,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 			else if (type == "ConvexShape")
 			{
-				temp = new Property("Shape");
+				temp = new Property("ConvexShape");
 
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
@@ -393,7 +417,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				temp = new Property("string");
 
 				for (int i = 0; i < data.size(); i++)
-					temp->addData(data.at(i));
+					temp->addData(&(data.at(i)));
 			}
 
 			//Edit.
@@ -467,25 +491,29 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							if (type == "int")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(std::stoi(properties.at(y).at(x)));
+								int integer = std::stoi(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(&integer);
 							}
 
 							else if (type == "char")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x).c_str());
+								char character = properties.at(y).at(x).at(0);
+								temp->getComponent(properties.at(y).at(x))->addData(&character);
 							}
 
 							else if (type == "double")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(std::stod(properties.at(y).at(x)));
+								double doubler = std::stod(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(&doubler);
 							}
 
 							else if (type == "float")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(std::stof(properties.at(y).at(x)));
+								float floater = std::stof(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(&floater);
 							}
 
 							else if (type == "bool")
@@ -496,13 +524,13 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 									tOrF = true;
 
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(tOrF);
+								temp->getComponent(properties.at(y).at(x))->addData(&tOrF);
 							}
 
 							else if (type == "string")
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(&(properties.at(y).at(x)));
 							}
 
 							else if (type == "Entity")
@@ -537,7 +565,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the tempId in the file.
-								sf::Sprite sprite;
+								sf::Sprite *sprite = new sf::Sprite;
 								temp->getComponent(properties.at(y).at(x))->addData(sprite);
 							}
 
@@ -545,7 +573,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the tempId in the file.
-								sf::CircleShape shape;
+								sf::CircleShape *shape = new sf::CircleShape;
 								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
 
@@ -553,7 +581,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the tempId in the file.
-								sf::ConvexShape shape;
+								sf::ConvexShape *shape = new sf::ConvexShape;
 								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
 
@@ -561,7 +589,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the tempId in the file.
-								sf::RectangleShape shape;
+								sf::RectangleShape *shape = new sf::RectangleShape;
 								temp->getComponent(properties.at(y).at(x))->addData(shape);
 							}
 
@@ -569,14 +597,14 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the tempId in the file.
-								sf::Text text;
+								sf::Text *text = new sf::Text;
 								temp->getComponent(properties.at(y).at(x))->addData(text);
 							}
 							else
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the tempId in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(properties.at(y).at(x));
+								temp->getComponent(properties.at(y).at(x))->addData(&(properties.at(y).at(x)));
 							}
 						}
 					}
