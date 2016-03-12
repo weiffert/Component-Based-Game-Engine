@@ -62,7 +62,7 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 bool Render::movement(double lag, Entity* a, Property* temp2, Property* temp3)
 {
 	//Update position based on time lag.
-	double speed, x, y, changeX, changeY;
+	double x, y, changeX, changeY;
 	if (a->hasComponent("velocity"))
 	{
 		//Holds the velocity.

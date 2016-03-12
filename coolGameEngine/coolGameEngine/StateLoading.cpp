@@ -125,7 +125,7 @@ std::string StateLoading::fileDeterminer()
 
 	//There are no filenames with this substring name, so it is done.
 	substrings.erase(substrings.begin());
-	return nullptr;
+	return fileDeterminer();
 }
 
 

@@ -104,7 +104,7 @@ StateReInit::~StateReInit()
 
 //Determines the proper file to use based off of the current substring.
 //Deletes the filename once it has been determined. Deletes the substring after all of its files have been used.
-std::string StateLoading::fileDeterminer()
+std::string StateReInit::fileDeterminer()
 {
 	//Passes through all of the filenames.
 	for (int i = 0; i < filenames.size(); i++)
@@ -120,12 +120,12 @@ std::string StateLoading::fileDeterminer()
 
 	//There are no filenames with this substring name, so it is done.
 	substrings.erase(substrings.begin());
-	return nullptr;
+	return fileDeterminer();
 }
 
 
 //Sorts the substrings into a particular order.
-void StateLoading::substringSorter()
+void StateReInit::substringSorter()
 {
 	//Passes through all of the substrings.
 	for (int i = 0; i < substrings.size(); i++)
