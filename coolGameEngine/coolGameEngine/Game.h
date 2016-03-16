@@ -28,7 +28,7 @@ private:
 	AssetManager* assetManager;
 
 	sf::Vector2i windowResolution;
-	sf::RenderWindow gameWindow{ sf::VideoMode(windowResolution.x, windowResolution.y), gameName };
+	sf::RenderWindow gameWindow;
 
 	//The game loop
 	int gameLoop();

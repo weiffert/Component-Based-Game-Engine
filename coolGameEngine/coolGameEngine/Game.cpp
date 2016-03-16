@@ -26,6 +26,7 @@ Game::Game(int width, int height, std::string name)
 	windowResolution.width = width;
 	windowResolution.height = height;
 	gameName = name;
+	gameWindow.create( windowResolution, gameName);
 	systemManager = new SystemManager();
 	assetManager = new AssetManager();
 }
