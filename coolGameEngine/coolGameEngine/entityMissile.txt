@@ -2,3 +2,5 @@ Missile ;
 Life ;
 Velocity ;
 Sprite ;
+StartingPosition ;
+EndingPosition ;

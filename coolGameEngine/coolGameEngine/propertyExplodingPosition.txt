@@ -1,0 +1,3 @@
+ExplodingPosition ;
+int ;
+0 0 ;

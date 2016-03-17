@@ -1,3 +1,5 @@
 EnemyMissile ;
 Sprite ;
 Velocity ;
+StartingPosition ;
+Ending Position ;
