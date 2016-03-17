@@ -16,7 +16,11 @@ class MissileGuidance
     
     MissileGuidance(int);
     
-    void findBase();
+    void selectBase();
+    
+    void setSloap();
+    
+    sf::Vector2f getSloap();
     
     ~MissileGuidance();
   
