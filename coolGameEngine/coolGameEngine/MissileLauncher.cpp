@@ -31,11 +31,13 @@ void MissileLauncher::setMissilesLeft(int a)
   missilesLeft = a;
 }
 
+
 //Sets the amount of missiles left in the missile launcher to an int 
 void MissileLauncher::setTotalMissiles(int a)
 {
   totalMissiles = a;
 }
+
 
 void MissileGuidance::setSloap()
 {
@@ -46,10 +48,12 @@ void MissileGuidance::setSloap()
   sloap = (speedX, 1);
 }
 
+
 sf::Vector2f MissileGuidance::getSloap()
 {
   return sloap;
 }
+
 
 int MissileLauncher::getMissilesLeft()
 {
