@@ -426,6 +426,13 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//Store.
 			systemManager->add(temp);
 
+			sf::Event event;
+			while (window->pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+					window->close();
+			}
+
 		}
 		//If it is an entity.
 		else if (substrings.at(0) == "entity")
