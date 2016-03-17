@@ -3,4 +3,4 @@ Life ;
 Velocity ;
 Sprite ;
 StartingPosition ;
-Ending Position ;
+EndingPosition ;
