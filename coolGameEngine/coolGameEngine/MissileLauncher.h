@@ -4,7 +4,7 @@ class MissileLauncher
 public:
 	MissileLauncher();
 	~MissileLauncher();
-	void fire(Missile);
+	void fire();
 	void setMissilesLeft(int);
 	void setTotalMissiles(int);
 	int getMissilesLeft();
