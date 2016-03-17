@@ -12,15 +12,19 @@ MissileLauncher::~MissileLauncher()
 
 
 //Fires a missile
-void MissileLauncher::fire()
+int MissileLauncher::fire()
 {
   //Shoots missile if it has missiles left
+  if (missilesLeft > 0)
+  {
+    //Gets starting and ending positions and sets slope
   
-  //Gets starting and ending positions and sets slope
+
+  
+    //Decrease current missile count
+  }
   
   //If it doesn't, do not fire and possibly tell the user
-  
-  //Decrease current missile count
   
 }
 
