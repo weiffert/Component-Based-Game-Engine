@@ -23,7 +23,5 @@ entityMissileLauncherAi.txt
 entityMissileLauncher.txt
 entityPlayer.txt
 propertyPoints.txt
-entityMissileLauncherIndividual1.txt
-entityMissileLauncherIndividual2.txt
-entityMissileLauncherIndividual3.txt
-propertyMissileLauncher.txt
+propertyStartingPosition.txt
+propertyEndingPosition.txt
