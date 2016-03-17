@@ -37,6 +37,19 @@ void MissileLauncher::setTotalMissiles(int a)
   totalMissiles = a;
 }
 
+void MissileGuidance::setSloap()
+{
+  double speedX;
+  
+  speedX = double(pathX) / double(pathY);
+  
+  sloap = (speedX, 1);
+}
+
+sf::Vector2f MissileGuidance::getSloap()
+{
+  return sloap;
+}
 
 int MissileLauncher::getMissilesLeft()
 {
