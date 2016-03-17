@@ -54,16 +54,16 @@ void StateLevel::update(double totalTime, sf::RenderWindow* window)
 		mouse.setPosition(centerCoordinates, *window);
 		bool moveUp = false, moveDown = false, moveRight = false, moveLeft = false, spaceBarReleased = false;
 
-		//Checks if up arrow key pressed
+		//Checks if trackball moved up
 		if (mouse.getPosition.y > centerCoordinates.y)
 			moveUp = true;
-		//Checks if down arrow key pressed
+		//Checks if trackball moved down
 		if (mouse.getPosition.y < centerCoordinates.y)
 			moveDown = true;
-		//Checks if right arrow key pressed
+		//Checks if trackball moved right
 		if (mouse.getPosition.x > centerCoordinates.x)
 			moveRight = true;
-		//Checks if left arrow key pressed
+		//Checks if trackball moved left
 		if (mouse.getPosition.x < centerCoordinates.x)
 			moveLeft = true;
 		//Checks if space bar released

@@ -32,16 +32,10 @@ void contol(bool moveUp, bool moveDown, bool moveRight, bool moveLeft, bool spac
 			material.at(x)->getComponent("PlayerSprite")->move(1, 0);
 		}
 		else if (moveDown == true)
-		{
 			material.at(x)->getComponent("PlayerSprite")->move(-1, 0);
-		}
 		if (moveRight == true)
-		{
 			material.at(x)->getComponent("PlayerSprite")->move(1, 0);
-		}
 		if (moveLeft == true)
-		{
 			material.at(x)->getComponent("PlayerSprite")->move(-1, 0);
-		}
 	}
 }
