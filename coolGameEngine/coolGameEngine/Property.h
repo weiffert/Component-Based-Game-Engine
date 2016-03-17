@@ -22,10 +22,6 @@ public:
 	std::string getId();
 	void setId(std::string);
 
-	//Returns the data as a vector.
-	//template <typename T>
-	//std::vector<T> getData();
-
 	std::vector<int> getDataInt();
 	std::vector<double> getDataDouble();
 	std::vector<float> getDataFloat();
@@ -41,9 +37,6 @@ public:
 	std::vector<sf::Text *> getDataText();
 	std::vector<Entity *> getDataEntity();
 	std::vector<sf::Sound *> getDataSound();
-
-	//template <typename T>
-	//T getData(int);
 
 	//Edit the data.
 	void deleteData();
