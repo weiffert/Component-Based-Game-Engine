@@ -12,20 +12,30 @@ MissileLauncher::~MissileLauncher()
 
 
 //Fires a missile
-int MissileLauncher::fire()
+int MissileLauncher::fire(Entity *currentMissile)
 {
   //Shoots missile if it has missiles left
   if (missilesLeft > 0)
   {
-    //Gets starting and ending positions and sets slope
-  
-
-  
-    //Decrease current missile count
+    //Delete data for exploding position and starting position for missile
+    currentMissile->getProperty("StartingPosition")->deleteData();
+    currentMissile->getProperty("ExplodingPosition")->deleteData();
+    
+    //Push back new values with starting and ending positions
+    
+    
+    //Sets slope
+    
+    
+    
+    
+    //Decrease missiles left
+    
+    return 1;
   }
   
   //If it doesn't, do not fire and possibly tell the user
-  
+  return 0;
 }
 
 
@@ -68,4 +78,10 @@ int MissileLauncher::getMissilesLeft()
 int MissileLauncher::getTotalMissiles()
 {
   return totalMissiles;
+}
+
+
+void MissileLauncher::update()
+{
+  
 }
