@@ -1,5 +1,5 @@
 #include "MissileLauncher.h"
-
+#include <Mouse.hpp>
 
 MissileLauncher::MissileLauncher()
 {
@@ -12,7 +12,7 @@ MissileLauncher::~MissileLauncher()
 
 
 //Fires a missile
-int MissileLauncher::fire(Entity *currentMissile)
+int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Window window)
 {
   //Shoots missile if it has missiles left
   if (missilesLeft > 0)
@@ -22,10 +22,29 @@ int MissileLauncher::fire(Entity *currentMissile)
     currentMissile->getProperty("ExplodingPosition")->deleteData();
     
     //Push back new values with starting and ending positions
+    if(currentBase->getId() == "Base1")
+    {
+      currentMissile->getProperty("StartingPosition")->addData(); //y for Base1
+      currentMissile->getProperty("StartingPosition")->addData(); //x for Base1
+    }
     
+    else if(currentBase->getId() == "Base2")
+    {
+      currentMissile->getProperty("StartingPosition")->addData(); //y for Base2
+      currentMissile->getProperty("StartingPosition")->addData(); //x for Base2
+    }
     
-    //Sets slope
+    else if(currentBase->getId() == "Base3")
+    {
+      currentMissile->getProperty("StartingPosition")->addData(); //y for Base3
+      currentMissile->getProperty("StartingPosition")->addData(); //x for Base3
+    }
     
+    currentMissile->getProperty("ExplodingPosition")->addData(sf::Mouse::getPosition(window).y);
+    currentMissile->getProperty("ExplodingPosition")->addData(sf::Mouse::getPosition(window).x);
+    
+    //Sets slope (Which is x/y)
+    this->setSloap
     
     
     
@@ -53,7 +72,7 @@ void MissileLauncher::setTotalMissiles(int a)
 }
 
 
-void MissileGuidance::setSloap()
+void MissileLauncher::setSloap(int pathX, int pathY)
 {
   double speedX;
   
