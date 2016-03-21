@@ -9,13 +9,12 @@ public:
 	void setTotalMissiles(int);
 	int getMissilesLeft();
 	int getTotalMissiles();
-	void setSloap();
+	void setSloap(int, int);
 	sf::Vector2f getSloap();
 	void update();
 private:
 	int missilesLeft;
 	int totalMissiles;
-	int pathX, pathY;
 	sf::Vector2f sloap;
 	std::vector<Missile*> activeMissiles;
 };
