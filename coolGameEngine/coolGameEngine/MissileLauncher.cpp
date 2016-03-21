@@ -44,12 +44,18 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Windo
     currentMissile->getProperty("ExplodingPosition")->addData(sf::Mouse::getPosition(window).x);
     
     //Sets slope (Which is x/y)
-    this->setSloap
+    currentMissile->getProperty("Slope")->deleteData();
     
+    int changeX = currentMissile->getProperty("ExplodingPosition")->getDataInt().at(0)- 
+    currentMissile->getProperty("StartingPosition")->getDataInt().at(0);
     
+    int changeY = currentMissile->getProperty("ExplodingPosition")->getDataInt().at(1)- 
+    currentMissile->getProperty("StartingPosition")->getDataInt().at(1);
+    
+    currentMissile->getProperty("Slope")->addData(setSlope(changeX, changeY));
     
     //Decrease missiles left
-    
+    missilesLeft--;
     return 1;
   }
   
@@ -72,19 +78,19 @@ void MissileLauncher::setTotalMissiles(int a)
 }
 
 
-void MissileLauncher::setSloap(int pathX, int pathY)
+double MissileLauncher::setSlope(int pathX, int pathY)
 {
   double speedX;
   
   speedX = double(pathX) / double(pathY);
   
-  sloap = (speedX, 1);
+  return speedX;
 }
 
 
-sf::Vector2f MissileGuidance::getSloap()
+sf::Vector2f MissileGuidance::getSlope()
 {
-  return sloap;
+  return slope;
 }
 
 
