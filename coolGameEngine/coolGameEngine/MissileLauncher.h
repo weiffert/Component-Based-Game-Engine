@@ -14,5 +14,4 @@ public:
 private:
 	int missilesLeft;
 	int totalMissiles;
-	std::vector<Missile*> activeMissiles;
 };
