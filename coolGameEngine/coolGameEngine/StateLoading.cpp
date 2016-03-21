@@ -182,6 +182,12 @@ void StateLoading::substringSorter()
 //Takes in time elapsed and the window.
 void StateLoading::update(double totalTime, sf::RenderWindow *window)
 {
+	sf::Event event;
+	while (window->pollEvent(event))
+	{
+		if (event.type == sf::Event::Closed)
+			window->close();
+	}
 	//Checks if there are substrings. If there are none, the process is done.
 	if (substrings.size() != 0)
 	{

@@ -51,20 +51,20 @@ void StateLevel::update(double totalTime, sf::RenderWindow* window)
 	{
 		centerCoordinates.x = (window->getSize().x) / 2;
 		centerCoordinates.y = (window->getSize().y) / 2;
-		mouse.setPosition(centerCoordinates, *window);
+		sf::Mouse::setPosition(centerCoordinates, *window);
 		bool moveUp = false, moveDown = false, moveRight = false, moveLeft = false, spaceBarReleased = false;
 
 		//Checks if trackball moved up
-		if (mouse.getPosition.y > centerCoordinates.y)
+		if (sf::Mouse::getPosition(*window).y > centerCoordinates.y)
 			moveUp = true;
 		//Checks if trackball moved down
-		if (mouse.getPosition.y < centerCoordinates.y)
+		if (sf::Mouse::getPosition(*window).y < centerCoordinates.y)
 			moveDown = true;
 		//Checks if trackball moved right
-		if (mouse.getPosition.x > centerCoordinates.x)
+		if (sf::Mouse::getPosition(*window).x > centerCoordinates.x)
 			moveRight = true;
 		//Checks if trackball moved left
-		if (mouse.getPosition.x < centerCoordinates.x)
+		if (sf::Mouse::getPosition(*window).x < centerCoordinates.x)
 			moveLeft = true;
 		//Checks if space bar released
 		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Space))

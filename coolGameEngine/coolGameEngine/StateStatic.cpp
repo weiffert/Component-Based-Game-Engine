@@ -51,4 +51,11 @@ void StateStatic::update(double totalTime, sf::RenderWindow *window)
 	{
 		Sleep(0.1);
 	}
+
+	sf::Event event;
+	while (window->pollEvent(event))
+	{
+		if (event.type == sf::Event::Closed)
+			window->close();
+	}
 }
