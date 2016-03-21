@@ -4,4 +4,4 @@ Velocity ;
 Sprite ;
 StartingPosition ;
 ExplodingPosition ;
-Sloap ;
+Slope ;
