@@ -7,5 +7,7 @@ public:
   ~MissileExploder();
   void control(sf::Window&, Entity *);
 private:
+sf::CircleShape explosion;
+sf::Transform wave;
 
 }
