@@ -6,3 +6,4 @@ StartingPosition ;
 ExplodingPosition ;
 Slope ;
 Fired ;
+CurrentPosition ;
