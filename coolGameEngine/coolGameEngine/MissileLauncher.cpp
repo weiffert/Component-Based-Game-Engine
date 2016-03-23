@@ -12,7 +12,7 @@ MissileLauncher::~MissileLauncher()
 
 
 //Fires a missile
-int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Window window)
+int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Window & window)
 {
   //Shoots missile if it has missiles left
   if (missilesLeft > 0)
