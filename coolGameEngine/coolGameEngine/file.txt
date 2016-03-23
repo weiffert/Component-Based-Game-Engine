@@ -56,3 +56,6 @@ entityMissile27.txt
 entityMissile28.txt
 entityMissile29.txt
 entityMissile30.txt
+propertyMissilesHeld1.txt
+propertyMissilesHeld2.txt
+propertyMissilesHeld3.txt
