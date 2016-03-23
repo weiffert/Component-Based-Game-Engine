@@ -1,8 +1,0 @@
-Missile ;
-Life ;
-Velocity ;
-Sprite ;
-StartingPosition ;
-ExplodingPosition ;
-Slope ;
-Fired ;
