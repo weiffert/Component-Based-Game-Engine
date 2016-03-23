@@ -4,5 +4,6 @@ Velocity ;
 Sprite ;
 StartingPosition ;
 ExplodingPosition ;
+CurrentPosition ;
 Slope ;
 Fired ;
