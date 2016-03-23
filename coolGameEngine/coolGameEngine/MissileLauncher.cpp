@@ -1,6 +1,7 @@
 #include "MissileLauncher.h"
 #include <Mouse.hpp>
 #include <SFML/Graphics.hpp>
+#include "MissileExploder.h"
 
 MissileLauncher::MissileLauncher()
 {
