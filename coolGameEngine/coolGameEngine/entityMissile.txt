@@ -5,3 +5,4 @@ Sprite ;
 StartingPosition ;
 ExplodingPosition ;
 Slope ;
+Fired ;
