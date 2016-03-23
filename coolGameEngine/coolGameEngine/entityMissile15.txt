@@ -1,0 +1,8 @@
+Missile15 ;
+Life ;
+Velocity ;
+Sprite ;
+StartingPosition ;
+ExplodingPosition ;
+Slope ;
+Fired ;
