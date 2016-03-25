@@ -1,0 +1,12 @@
+SmartBomb1 ;
+OuterBoundingBox ;
+Life ;
+Velocity ;
+SpriteSmartBomb ;
+StartingPosition ;
+ExplodingPosition ;
+Slope ;
+Fired ;
+CurrentPosition ;
+ExplosionPhase ;
+ExplosionRadius ;
