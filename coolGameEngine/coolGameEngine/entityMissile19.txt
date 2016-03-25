@@ -8,3 +8,4 @@ Slope ;
 Fired ;
 CurrentPosition ;
 ExplosionPhase ;
+ExplosionRadius ;
