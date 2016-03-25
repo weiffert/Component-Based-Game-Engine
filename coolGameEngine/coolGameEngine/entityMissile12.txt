@@ -1,7 +1,7 @@
 Missile12 ;
 Life ;
 Velocity ;
-Sprite ;
+SpriteMissile ;
 StartingPosition ;
 ExplodingPosition ;
 CurrentPosition ;
