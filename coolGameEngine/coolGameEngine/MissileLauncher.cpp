@@ -126,7 +126,7 @@ void MissileLauncher::update(sf::Window & window, Entity * Base1, Entity * Base2
     slope = Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Slope").at(0);
     Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
     Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) -= 1;
-    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Sprite").at(0)->move(slope, -1);
+    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("SpriteMissile").at(0)->move(slope, -1);
     }
   }
   
@@ -137,7 +137,7 @@ void MissileLauncher::update(sf::Window & window, Entity * Base1, Entity * Base2
     slope = Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Slope").at(0);
     Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
     Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) -= 1;
-    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Sprite").at(0)->move(slope, -1);
+    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("SpriteMissile").at(0)->move(slope, -1);
     }
   }
   
@@ -148,7 +148,7 @@ void MissileLauncher::update(sf::Window & window, Entity * Base1, Entity * Base2
     slope = Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Slope").at(0);
     Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
     Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) -= 1;
-    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Sprite").at(0)->move(slope, -1);
+    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("SpriteMissile").at(0)->move(slope, -1);
     }
   }
 }
