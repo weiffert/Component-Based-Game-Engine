@@ -1,7 +1,7 @@
 Missile21 ;
 Life ;
 Velocity ;
-Sprite ;
+SpriteMissile ;
 StartingPosition ;
 ExplodingPosition ;
 Slope ;
