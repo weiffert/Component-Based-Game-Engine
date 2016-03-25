@@ -7,3 +7,4 @@ ExplodingPosition ;
 Slope ;
 Fired ;
 CurrentPosition ;
+ExplosionPhase ;
