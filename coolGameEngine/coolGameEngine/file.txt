@@ -59,3 +59,4 @@ entityMissile30.txt
 propertyMissilesHeld1.txt
 propertyMissilesHeld2.txt
 propertyMissilesHeld3.txt
+propertyExplosionPhase.txt
