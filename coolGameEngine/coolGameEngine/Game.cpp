@@ -11,6 +11,7 @@
 #include "SystemManager.h"
 #include "AssetManager.h"
 #include "StateLoading.h"
+#include "StateDebug.h"
 
 
 Game::Game()
@@ -43,7 +44,7 @@ Game::~Game()
 int Game::run()
 {
 	//Create a state loading to start the game with.
-	state = new StateLoading (systemManager, assetManager);
+	state = new /*StateLoading*/ StateDebug(systemManager, assetManager, &gameWindow);
 	//Add it to the systemManager.
 	systemManager->add(state);
 	//run the game loop, which returns the exit code.

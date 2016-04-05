@@ -93,6 +93,7 @@
     <ClInclude Include="Property.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="StateDebug.h" />
     <ClInclude Include="StateReInit.h" />
     <ClInclude Include="StateLevel.h" />
     <ClInclude Include="StateLoading.h" />
@@ -112,6 +113,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Property.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="StateDebug.cpp" />
     <ClCompile Include="StateReInit.cpp" />
     <ClCompile Include="StateLevel.cpp" />
     <ClCompile Include="StateLoading.cpp" />
