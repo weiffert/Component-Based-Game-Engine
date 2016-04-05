@@ -4,3 +4,4 @@ TotalMissileCount ;
 Life ;
 Sprite ;
 MissilesHeld1 ;
+CurrentPosition ;
