@@ -98,13 +98,6 @@ double MissileLauncher::setSlope(int pathX, int pathY)
   return speedX;
 }
 
-
-sf::Vector2f MissileGuidance::getSlope()
-{
-  return slope;
-}
-
-
 int MissileLauncher::getMissilesLeft()
 {
   return missilesLeft;
