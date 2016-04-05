@@ -140,6 +140,26 @@ void MissileLauncherAi::launchMissiles(Entity *currentMissile, Entity *currentBa
   }
 }
 
+int MissileLauncherAi::LaunchAmmount()
+{
+  if(missilesLeft > 2)
+  {
+    return rand() % 3 + 1;
+  }
+  else if(missilesLeft > 1)
+  {
+    return rand() % 2 + 1;
+  }
+  else if(missilesLeft == 1)
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
+}
+
 void MissileGuidance::setSloap(int pathX, int pathY)
 {
   double speedX;
