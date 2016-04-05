@@ -9,7 +9,7 @@ public:
 	void setTotalMissiles(int);
 	int getMissilesLeft();
 	int getTotalMissiles();
-	double setSlope(Entity*, int, int);
+	double setSlope(int, int);
 	void update();
 private:
 	int missilesLeft;
