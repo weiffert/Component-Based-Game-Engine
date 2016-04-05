@@ -1,128 +1,152 @@
-#include "stdafx.h"
-#include <time.h>
-#include <stdlib.h>
-#include <vector>;
 #include "MissileLauncherAi.h"
-#include "SFML/Graphics.hpp"
+#include <Mouse.hpp>
+#include <SFML/Graphics.hpp>
+#include "MissileExploder.h"
 
 
 MissileLauncherAi::MissileLauncherAi()
 {
   totalMissiles = 10;
-  currentMissiles = 10;
+  missilesLeft = 10;
 }
 
 MissileLauncherAi::MissileLauncherAi(int totalMis, int currMis)
 {
   totalMissiles = totalMis;
-  currentMissiles = currMis;
+  missilesLeft = currMis;
 }
 
-void MissileLauncherAi::launchMissiles()
+void MissileLauncherAi::setTargets()
 {
-  int x;
-  srand(time(NULL));  
-
-  if(currentMissiles >= 2)
-  {
-    x = rand() % 3;
-  
-    if( x == 2)
+    targetOne = rand() % 9 + 1;
+    
+    targetTwo = rand() % 9 + 1;
+    
+    if(targetTwo == targetOne)
     {
-      activeMissiles.push_back(new EnemyMissile);
-      activeMissiles.push_back(new EnemyMissile);
+      do
+      {
+        targetTwo = rand() % 9 + 1;
+      }while (targetTwo == targetOne)
     }
-    else if( x == 1)
+    
+    targetThree = rand() % 9 + 1;
+    
+    if(targetThree == targetOne)
     {
-      activeMissiles.push_back(new EnemyMissile);
+      do
+      {
+        targetThree = rand() % 9 + 1;
+      }while(targetThree == targetOne)
     }
-  }
-  else if(currentMissiles == 1)
-  {
-    x = rand() % 2;
-  
-    if(x == 1)
+    
+    if(targetThree == targetTwo)
     {
-      activeMissiles.push_back(new EnemyMissile);
+      do
+      {
+        targetThree = rand() % 9 + 1;
+      }while(targetThree == targetTwo)
     }
-  }
-  
-  for(x = 0; x < activeMissiles.size(); x++)
-  {
-    activeMissiles.at(x).setPosition(rand() % 1279 + 1, -5)
-    currentMissiles--;
-  }
 }
 
-void MissileGuidance::selectBase()
+void MissileLauncherAi::launchMissiles(Entity *currentMissile, Entity *currentBase, sf::Window & window)
 {
-  srand(time(NULL));
-  
-  int x = rand() % 3 + 1, y;
-  
-  if(x == 3)
+  //Shoots missile if it has missiles left
+  if (missilesLeft > 0)
   {
-    x = rand() % (base image width) + 1;
+    //Delete data for exploding position and starting position for missile
+    currentMissile->getComponent("StartingPosition")->deleteData();
+    currentMissile->getComponent("ExplodingPosition")->deleteData();
     
-    pathX = (screen width) - (distance between base and right edge) - x;
     
-    y = rand() % (base image height) + 1;
     
-    pathY = (screen height) - (distance between base and screen bottom) - y;
+    
+    //Push back new values with starting and ending positions
+    if(targetOne == 1 || targetTwo == 1 || targetThree == 1)
+    {
+      currentMissile->getComponent("ExplodingPosition")->addData(); //y for Base1
+      currentMissile->getComponent("ExplodingPosition")->addData(); //x for Base1
+      //Set current position to above values
+    }
+    
+    else if(targetOne == 2 || targetTwo == 2 || targetThree == 2)
+    {
+      //set position to the first city
+    }
+    
+    else if(targetOne == 3 || targetTwo == 3 || targetThree == 3)
+    {
+      //set position to the second city
+    }
+    
+    else if(targetOne == 4 || targetTwo == 4 || targetThree == 4)
+    {
+      //set position to the third city
+    }
+    
+    else if(targetOne == 5 || targetTwo == 5 || targetThree == 5)
+    {
+      currentMissile->getComponent("ExplodingPosition")->addData(); //y for Base2
+      currentMissile->getComponent("ExplodingPosition")->addData(); //x for Base2
+      //Set current position to above values
+    }
+    
+    else if(targetOne == 6 || targetTwo == 6 || targetThree == 6)
+    {
+      //set position to the fourth city
+    }
+    
+    else if(targetOne == 7 || targetTwo == 7 || targetThree == 7)
+    {
+      //set position to the fifth city
+    }
+    
+    else if(targetOne == 8 || targetTwo == 8 || targetThree == 8)
+    {
+      //set position to the sixth city
+    }
+    
+    else if(targetOne == 9 || targetTwo == 9 || targetThree == 9)
+    {
+      currentMissile->getComponent("ExplodingPosition")->addData(); //y for Base3
+      currentMissile->getComponent("ExplodingPosition")->addData(); //x for Base3
+      //Set current position to above values
+    }
+    
+    currentMissile->getComponent("StartingPosition")->(someplace off-screen);
+    currentMissile->getComponent("StartingPosition")->(random x position);
+    
+    //Sets slope (Which is x/y)
+    currentMissile->getComponent("Slope")->deleteData();
+    
+    int changeX = currentMissile->getComponent("ExplodingPosition")->getDataInt().at(0)- 
+    currentMissile->getComponent("StartingPosition")->getDataInt().at(0);
+    
+    int changeY = currentMissile->getComponent("ExplodingPosition")->getDataInt().at(1)- 
+    currentMissile->getComponent("StartingPosition")->getDataInt().at(1);
+    
+    currentMissile->getComponent("Slope")->addData(setSlope(changeX, changeY));
+    
+    currentMissile->getComponent("Fired")->deleteData();
+    currentMissile->getComponent("Fired")->addData(true);
+    
+    //Decrease missiles left
+    missilesLeft--;
+    return 1;
   }
-  else if(x == 2)
-  {
-     x = rand() % (base image width) + 1;
-    
-    pathX = (screen width) - (distance between base and right edge) - x;
-    
-    y = rand() % (base image height) + 1;
-    
-    pathY = (screen height) - (distance between base and screen bottom) - y;
-  }
-  else
-  {
-    x = rand() % (base image width) + 1;
-    
-    pathX = (screen width) - (distance between base and right edge) - x;
-    
-    y = rand() % (base image height) + 1;
-    
-    pathY = (screen height) - (distance between base and screen bottom) - y;
+  
+  //If it doesn't, do not fire and possibly tell the user
+  return 0;
   }
 }
 
-void MissileGuidance::setSloap()
+void MissileGuidance::setSloap(int pathX, int pathY)
 {
   double speedX;
   
   speedX = double(pathX) / double(pathY);
   
-  sloap = (speedX, 1);
+  return speedX;
 }
 
-sf::Vector2f MissileGuidance::getSloap()
-{
-  return sloap;
-}
-
-bool MissileLauncherAi::checkForMissiles()
-{
-   for(int x = 0; x < activeMissiles.size(); x++)
-  {
-    if(activeMissiles.at(x)= nullptr)
-    {
-      activeMissiles.erase(x);
-    }
-  }
-  
-  if(activeMissiles.empty() = true)
-  {
-    return false;
-  }
-  else
-  {
-    return true;
-  }
-}
 
