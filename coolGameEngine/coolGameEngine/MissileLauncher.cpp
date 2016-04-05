@@ -2,6 +2,8 @@
 #include <Mouse.hpp>
 #include <SFML/Graphics.hpp>
 #include "MissileExploder.h"
+#include "SystemManager.h"
+
 
 MissileLauncher::MissileLauncher()
 {
@@ -14,8 +16,9 @@ MissileLauncher::~MissileLauncher()
 
 
 //Fires a missile
-int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Window & window)
+int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Window  *window, SystemManager *systemManager )
 {
+  
   //Shoots missile if it has missiles left
   if (missilesLeft > 0)
   {
@@ -23,25 +26,25 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Windo
     currentMissile->getComponent("StartingPosition")->deleteData();
     currentMissile->getComponent("ExplodingPosition")->deleteData();
     
-    //Push back new values with starting and ending positions
+    //Push back new values with starting and ending positions, Base1 will start at 1/4 of the screen
     if(currentBase->getId() == "Base1")
     {
-      currentMissile->getComponent("StartingPosition")->addData(); //y for Base1
-      currentMissile->getComponent("StartingPosition")->addData(); //x for Base1
+      currentMissile->getComponent("StartingPosition")->addData(window->getSize().y/6); //y for Base1
+      currentMissile->getComponent("StartingPosition")->addData(window->getSize().x/4); //x for Base1
       //Set current position to above values
     }
     
     else if(currentBase->getId() == "Base2")
     {
-      currentMissile->getComponent("StartingPosition")->addData(); //y for Base2
-      currentMissile->getComponent("StartingPosition")->addData(); //x for Base2
+      currentMissile->getComponent("StartingPosition")->addData(window->getSize().y/6); //y for Base2
+      currentMissile->getComponent("StartingPosition")->addData(window->getSize().x/2)); //x for Base2
       //Set current position to above values
     }
     
     else if(currentBase->getId() == "Base3")
     {
-      currentMissile->getComponent("StartingPosition")->addData(); //y for Base3
-      currentMissile->getComponent("StartingPosition")->addData(); //x for Base3
+      currentMissile->getComponent("StartingPosition")->addData(window->getSize().y/6); //y for Base3
+      currentMissile->getComponent("StartingPosition")->addData(window->getSize().x * 3 / 4); //x for Base3
       //Set current position to above values
     }
     
