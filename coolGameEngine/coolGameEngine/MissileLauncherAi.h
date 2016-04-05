@@ -1,29 +1,20 @@
 #pragma once
-
-#include <vector>
-
-#inlcude "SFML/Graphics.hpp"
-
 class MissileLauncherAi
 {
-public:
-
-std::vector<EnemyMissiles> activeMissiles;
-int currentMissile, totalMissile, pathX, pathY;
-sf::Vector2f sloap;
-
 private:
+  int missilesLeft, totalMissiles, targetOne, targetTwo, targetThree;
 
-MissileLauncherAi();
-
-MissileLauncherAi(int, int);
-void selectBase();
-void setSloap();
-sf::Vector2f getSloap();
-void changeTotal(int);
-void changeCurrent(int);
-void launchMissiles();
-bool checkForMissiles();
-
-~MissleLauncherAi();
+public:
+  MissileLauncherAi();
+  MissileLauncherAi(int, int);
+  ~MissleLauncherAi();
+  void setTargets();
+  double setSlope(Entity*, int, int);
+  void setTotalMissiles(int);
+  void setMissilesLeft(int);
+  int getMissilesLeft();
+	int getTotalMissiles();
+  int launchMissiles(Entity *, Entity *, sf::Window & ); //Returns 0 if it fails to launch, 1 if it successfully launches
+  void update();
+  
 
