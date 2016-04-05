@@ -24,6 +24,9 @@ private:
 	//Stores strings of function determiners.
 	std::vector<std::string> substrings;
 
+	std::vector<Property *> entityProperties;
+	std::vector<std::vector<std::string>> entityPropertiesData;
+
 	//Determines the current file to read.
 	std::string fileDeterminer();
 

@@ -314,12 +314,24 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			{
 				temp = new Property("Entity");
 
+				std::vector<std::string> vecTemp;
+				entityProperties.push_back(temp);
+
+				for (int i = 0; i < data.size(); i++)
+				{
+					vecTemp.push_back(data.at(i));
+				}
+
+				entityPropertiesData.push_back(vecTemp);
+
+				/*
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
 					Entity *entity = systemManager->getMaterial(data.at(i));
 					temp->addData(entity);
 				}
+				*/
 			}
 
 			else if (type == "Texture")
@@ -717,6 +729,18 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				temp = new StateReInit(systemManager, assetManager);
 				initializeState(temp, tempId, intNumber);
 				break;
+			}
+		}
+	}
+	else if (entityProperties.size() > 0)
+	{
+		for (int i = 0; i < entityProperties.size(); i++)
+		{
+			Property *temp = entityProperties.at(i);
+			//Get the proper data from the tempId in the file.
+			for (int j = 0; j < entityPropertiesData.at(i).size(); j++)
+			{
+				temp->addData(systemManager->getMaterial(entityPropertiesData.at(i).at(i)));
 			}
 		}
 	}
