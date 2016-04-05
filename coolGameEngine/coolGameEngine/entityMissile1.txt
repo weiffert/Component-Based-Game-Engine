@@ -1,4 +1,6 @@
 Missile1 ;
+StateNumber 0 ;
+StateId Loading ;
 Life ;
 Velocity ;
 SpriteMissile ;

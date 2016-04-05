@@ -66,8 +66,8 @@ StateDebug::StateDebug()
 StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *window)
 {
 	//Sets defaults.
-	id = "Loading";
-	number = 0;
+	id = "Debug";
+	number = 10;
 	systemManager = s;
 	assetManager = a;
 
@@ -298,6 +298,9 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 				{
 					sf::Sprite *sprite = new sf::Sprite();
 					temp->addData(sprite);
+					sf::Texture texture;
+					texture.loadFromFile("Missile.png");
+					sprite->setTexture(texture);
 				}
 			}
 
@@ -510,6 +513,14 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the tempId in the file.
 								sf::Sprite *sprite = new sf::Sprite;
+
+								/*STUFFFFFFF*/
+								sf::Texture texture;
+								texture.loadFromFile("missile.png");
+								sprite->setTexture(texture);
+								sprite->setPosition(10, 30);
+								/*STUFFFFFFF*/
+
 								temp->getComponent(properties.at(y).at(x))->addData(sprite);
 							}
 
@@ -753,12 +764,17 @@ void StateDebug::substringSorter()
 void StateDebug::update(double totalTime, sf::RenderWindow *window)
 {
 	//Check for arrow key and space bar events
+	std::cout << totalTime << std::endl;
+
 	sf::Event event;
 	while (window->pollEvent(event))
 	{
 		centerCoordinates.x = (window->getSize().x) / 2;
 		centerCoordinates.y = (window->getSize().y) / 2;
-		sf::Mouse::setPosition(centerCoordinates, *window);
+		
+		if (1 == 0)
+			sf::Mouse::setPosition(centerCoordinates, *window);
+		
 		bool moveUp = false, moveDown = false, moveRight = false, moveLeft = false, spaceBarReleased = false;
 
 		//Checks if trackball moved up
@@ -782,6 +798,8 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 		if (event.type == sf::Event::Closed)
 			window->close();
 
+		Render render;
+		render.control(totalTime, window, systemManager->getMaterial("Missile1"));
 
 		//Run through the game controllers.
 		//Example: Checking for collisions
