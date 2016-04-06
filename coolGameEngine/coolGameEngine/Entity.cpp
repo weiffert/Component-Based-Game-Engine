@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "Entity.h"
 #include "Property.h"
@@ -97,6 +98,7 @@ bool Entity::hasComponent(std::string id)
 //Returns the Property.
 Property* Entity::getComponent(std::string id)
 {
+	std::cout << component.size() << std::endl;
 	for (int i = 0; i < component.size(); i++)
 	{
 		if (component.at(i)->getId() == id)

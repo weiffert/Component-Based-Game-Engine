@@ -1,32 +1,10 @@
-﻿Build started 4/5/2016 10:20:20 AM.
+﻿Build started 4/6/2016 10:13:38 AM.
      1>Project "C:\Users\17WBE01\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\boost\boost_1_60_0" /I"C:\SFML-2.3.2\include" /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt StateDebug.cpp
-         StateDebug.cpp
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(173): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(183): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(194): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(205): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(220): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(228): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(239): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(261): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(273): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(285): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(297): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(312): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(324): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(336): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(348): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(359): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(417): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(420): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(667): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(671): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(696): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(717): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(746): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(825): warning C4018: '<' : signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\boost\boost_1_60_0" /I"C:\SFML-2.3.2\include" /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\17wbe01\documents\github\component-based-game-engine\coolgameengine\coolgameengine\main.cpp(81): warning C4018: '<' : signed/unsigned mismatch
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\17WBE01\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SFML-2.3.2\lib" /LIBPATH:"C:\SFML-2.3.2\lib" "sfml-graphics.lib" "sfml-window.lib" "sfml-system.lib" "sfml-audio.lib" "sfml-main.lib" "sfml-network.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\17WBE01\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\17WBE01\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.lib" /MACHINE:X86 Debug\coolGameEngine.res
          Debug\AssetManager.obj
@@ -51,4 +29,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.30
+Time Elapsed 00:00:01.40

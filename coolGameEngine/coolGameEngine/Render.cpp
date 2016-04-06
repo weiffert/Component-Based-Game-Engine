@@ -28,43 +28,40 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 	temp = nullptr;
 	int *x = 0, *y = 0;
 	//Check if it can be drawn.
-	if (a->hasComponent("draw"))
+	if (a->hasComponent("Sprite"))
 	{
-		if (a->hasComponent("Sprite"))
-		{
-			temp = a->getComponent("Sprite");
-			if (movement(lag, a, x, y))
-				temp->getDataSprite().at(0)->move(*x, *y);
-			window->draw(*(temp->getDataSprite().at(0)));
-		}
-		if (a->hasComponent("Text"))
-		{
-			temp = a->getComponent("Text");
-			if (movement(lag, a, x, y))
-				temp->getDataText().at(0)->move(*x, *y);
-			window->draw(*(temp->getDataText().at(0)));
-		}
-		if (a->hasComponent("CircleShape"))
-		{
-			temp = a->getComponent("CircleShape");
-			if (movement(lag, a, x, y))
-				temp->getDataCircleShape().at(0)->move(*x, *y);
-			window->draw(*(temp->getDataCircleShape().at(0)));
-		}
-		if (a->hasComponent("ConvexShape"))
-		{
-			temp = a->getComponent("ConvexShape");
-			if (movement(lag, a, x, y))
-				temp->getDataConvexShape().at(0)->move(*x, *y);
-			window->draw(*(temp->getDataConvexShape().at(0)));
-		}
-		if (a->hasComponent("RectangleShape"))
-		{
-			temp = a->getComponent("RectangleShape");
-			if (movement(lag, a, x, y))
-				temp->getDataRectangleShape().at(0)->move(*x, *y);
-			window->draw(*(temp->getDataRectangleShape().at(0)));
-		}
+		temp = a->getComponent("Sprite");
+		if (movement(lag, a, x, y))
+			temp->getDataSprite().at(0)->move(*x, *y);
+		window->draw(*(temp->getDataSprite().at(0)));
+	}
+	if (a->hasComponent("Text"))
+	{
+		temp = a->getComponent("Text");
+		if (movement(lag, a, x, y))
+			temp->getDataText().at(0)->move(*x, *y);
+		window->draw(*(temp->getDataText().at(0)));
+	}
+	if (a->hasComponent("CircleShape"))
+	{
+		temp = a->getComponent("CircleShape");
+		if (movement(lag, a, x, y))
+			temp->getDataCircleShape().at(0)->move(*x, *y);
+		window->draw(*(temp->getDataCircleShape().at(0)));
+	}
+	if (a->hasComponent("ConvexShape"))
+	{
+		temp = a->getComponent("ConvexShape");
+		if (movement(lag, a, x, y))
+			temp->getDataConvexShape().at(0)->move(*x, *y);
+		window->draw(*(temp->getDataConvexShape().at(0)));
+	}
+	if (a->hasComponent("RectangleShape"))
+	{
+		temp = a->getComponent("RectangleShape");
+		if (movement(lag, a, x, y))
+			temp->getDataRectangleShape().at(0)->move(*x, *y);
+		window->draw(*(temp->getDataRectangleShape().at(0)));
 	}
 }
 

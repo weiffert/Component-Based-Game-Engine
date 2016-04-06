@@ -1,13 +1,4 @@
 Missile1 ;
-StateNumber 0 ;
-StateId Loading ;
-Life ;
-Velocity ;
-SpriteMissile ;
-StartingPosition ;
-ExplodingPosition ;
-Slope ;
-Fired ;
-CurrentPosition ;
-ExplosionPhase ;
-ExplosionRadius ;
+StateNumber 10 ;
+StateId Debug ;
+Sprite ;

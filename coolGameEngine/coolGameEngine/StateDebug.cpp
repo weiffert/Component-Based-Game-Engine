@@ -107,8 +107,9 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 		if (event.type == sf::Event::Closed)
 			window->close();
 	}
+
 	//Checks if there are substrings. If there are none, the process is done.
-	if (substrings.size() != 0)
+	while (substrings.size() != 0)
 	{
 		std::string tempId;
 		std::string filename;
@@ -299,7 +300,10 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					sf::Sprite *sprite = new sf::Sprite();
 					temp->addData(sprite);
 					sf::Texture texture;
-					texture.loadFromFile("Missile.png");
+					if (!texture.loadFromFile("Missile.png", sf::IntRect(10, 10, 32, 32)))
+					{
+						time(NULL);
+					}
 					sprite->setTexture(texture);
 				}
 			}
@@ -662,24 +666,15 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 			}
 		}
 	}
-	else if (entityProperties.size() > 0)
+	for (int i = 0; i < entityProperties.size(); i++)
 	{
-		for (int i = 0; i < entityProperties.size(); i++)
+		Property *temp = entityProperties.at(i);
+		//Get the proper data from the tempId in the file.
+		for (int j = 0; j < entityPropertiesData.at(i).size(); j++)
 		{
-			Property *temp = entityProperties.at(i);
-			//Get the proper data from the tempId in the file.
-			for (int j = 0; j < entityPropertiesData.at(i).size(); j++)
-			{
-				temp->addData(systemManager->getMaterial(entityPropertiesData.at(i).at(i)));
-			}
+			temp->addData(systemManager->getMaterial(entityPropertiesData.at(i).at(i)));
 		}
 	}
-	//the process is done.
-	else
-	{
-		BaseState::changeState(this, "Welcome");
-	}
-
 }
 
 
