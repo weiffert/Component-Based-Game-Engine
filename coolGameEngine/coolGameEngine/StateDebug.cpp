@@ -655,158 +655,432 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 			//Loop for the vector.
 			for (int y = 0; y < properties.size(); y++)
 			{
-				//Loop for the vector in the vector.
-				for (int x = 0; x < properties.at(y).size(); x++)
+				int flag = 0;
+				//If there is data.
+				if (properties.at(y).size() > 1)
 				{
-					//If there is data.
-					if (properties.at(y).size() > 1)
+					Property *component = nullptr;
+					//If it is the first iteration, clone the property.
+					if (flag == 0)
 					{
-						//If it is the first iteration, clone the property.
-						if (x == 0)
-						{
-							Property *component = systemManager->getComponent(properties.at(y).at(x));
-							//Stores the new property in systemManager.
-							systemManager->add(component);
-							//Links the Entity to the property.
-							temp->add(component);
-						}
-						//Change Data.
-						else
-						{
-							//Needs to be converted to the proper type.
-							if (type == "int")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								int integer = std::stoi(properties.at(y).at(x));
-								temp->getComponent(properties.at(y).at(x))->addData(&integer);
-							}
-
-							else if (type == "char")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								char character = properties.at(y).at(x).at(0);
-								temp->getComponent(properties.at(y).at(x))->addData(&character);
-							}
-
-							else if (type == "double")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								double doubler = std::stod(properties.at(y).at(x));
-								temp->getComponent(properties.at(y).at(x))->addData(&doubler);
-							}
-
-							else if (type == "float")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								float floater = std::stof(properties.at(y).at(x));
-								temp->getComponent(properties.at(y).at(x))->addData(&floater);
-							}
-
-							else if (type == "bool")
-							{
-								bool tOrF = false;
-
-								if (properties.at(y).at(x) == "true")
-									tOrF = true;
-
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(&tOrF);
-							}
-
-							else if (type == "string")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								temp->getComponent(properties.at(y).at(x))->addData(&(properties.at(y).at(x)));
-							}
-
-							else if (type == "Entity")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(systemManager->getMaterial(properties.at(y).at(x)));
-							}
-
-							else if (type == "Texture")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getTexture(std::stoi(properties.at(y).at(x))));
-							}
-
-							else if (type == "Image")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getImage(properties.at(y).at(x)));
-							}
-
-							else if (type == "Sound")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getSound(properties.at(y).at(x)));
-							}
-
-							else if (type == "Sprite")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								sf::Sprite *sprite = new sf::Sprite;
-
-								/*STUFFFFFFF*/
-								sf::Texture texture;
-								texture.loadFromFile("missile.png");
-								sprite->setTexture(texture);
-								sprite->setPosition(10, 30);
-								/*STUFFFFFFF*/
-
-								temp->getComponent(properties.at(y).at(x))->addData(sprite);
-							}
-
-							else if (type == "CircleShape")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								sf::CircleShape *shape = new sf::CircleShape;
-								temp->getComponent(properties.at(y).at(x))->addData(shape);
-							}
-
-							else if (type == "ConvexShape")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								sf::ConvexShape *shape = new sf::ConvexShape;
-								temp->getComponent(properties.at(y).at(x))->addData(shape);
-							}
-
-							else if (type == "RectangleShape")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								sf::RectangleShape *shape = new sf::RectangleShape;
-								temp->getComponent(properties.at(y).at(x))->addData(shape);
-							}
-
-							else if (type == "Text")
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								sf::Text *text = new sf::Text;
-								temp->getComponent(properties.at(y).at(x))->addData(text);
-							}
-							else
-							{
-								temp->getComponent(properties.at(y).at(x))->deleteData();
-								//Get the proper data from the tempId in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(&(properties.at(y).at(x)));
-							}
-						}
+						component = systemManager->getComponent(properties.at(y).at(0));
+						//Stores the new property in systemManager.
+						systemManager->add(component);
+						//Links the Entity to the property.
+						temp->add(component);
 					}
+					//Change Data.
 					else
 					{
-						//Link the property.
-						temp->add(systemManager->getComponent(properties.at(y).at(x)));
+						//Delete the existing data for the new data.
+						component->deleteData();
+
+						//Needs to be converted to the proper type.
+						if (type == "int")
+						{ 
+							//Start at 1 because the first is not data. It is the property name.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								int integer = std::stoi(properties.at(y).at(i));
+								component->addData(&integer);
+							}
+						}
+						else if (type == "char")
+						{
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								char character = properties.at(y).at(i).at(0);
+								component->addData(&character);
+							}
+						}
+
+						else if (type == "double")
+						{
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								double reals = std::stod(properties.at(y).at(i));
+								component->addData(&reals);
+							}
+						}
+
+						else if (type == "float")
+						{
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								float smallerReals = std::stof(properties.at(y).at(i));
+								component->addData(&smallerReals);
+							}
+						}
+
+						else if (type == "bool")
+						{
+							bool tOrF = false;
+							if (properties.at(y).at(1) == "true")
+								tOrF = true;
+
+							for (int i = 1; i < properties.at(y).size(); i++)
+								component->addData(&tOrF);
+						}
+
+						else if (type == "string")
+						{
+							for (int i = 1; i < properties.at(y).size(); i++)
+								component->addData(&(properties.at(y).at(i)));
+						}
+
+						else if (type == "Entity")
+						{
+							std::vector<std::string> vecTemp;
+							entityProperties.push_back(component);
+
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								vecTemp.push_back(properties.at(y).at(i));
+							}
+
+							entityPropertiesData.push_back(vecTemp);
+
+						}
+
+						else if (type == "Texture")
+						{
+							//Get the proper data from the tempId in the file.
+
+							sf::Texture *texture = nullptr;
+
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i) == "loadFromFile")
+								{
+									texture->loadFromFile(properties.at(y).at(++i));
+								}
+								else if (properties.at(y).at(i) == "create")
+								{
+									texture->create(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+							}
+
+							assetManager->add(texture);
+							component->addData(texture);
+						}
+
+						else if (type == "Image")
+						{
+							sf::Image *image = nullptr;
+							//Get the proper data from the tempId in the file.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i) == "loadFromFile")
+								{
+									image->loadFromFile(properties.at(y).at(++i));
+								}
+							}
+
+							assetManager->add(image);
+							component->addData(image);
+						}
+
+						///FIXXXXXXXXXXX
+						else if (type == "Sound")
+						{
+							//Get the proper data from the tempId in the file.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								sf::Sound *sound = assetManager->getSound(properties.at(y).at(i));
+								component->addData(sound);
+							}
+						}
+						///FIXXXXXXXXXXXX
+
+						else if (type == "Sprite")
+						{
+							sf::Sprite *sprite = nullptr;
+
+							//Get the proper data from the tempId in the file.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i) == "setTexture")
+								{
+									sprite->setTexture(*(assetManager->getTexture(BaseState::conversionInt(properties.at(y).at(++i)))));
+								}
+								else if (properties.at(y).at(i) == "setTextureRect")
+								{
+									sf::IntRect r(0, 0, BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									sprite->setTextureRect(r);
+								}
+								else if (properties.at(y).at(i) == "setColor")
+								{
+									sf::Color c(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									sprite->setColor(c);
+								}
+								else if (properties.at(y).at(i) == "setPosition")
+								{
+									sprite->setPosition(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setRotation")
+								{
+									sprite->setRotation(BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setScale")
+								{
+									sprite->setScale(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setOrigin")
+								{
+									sprite->setOrigin(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+							}
+
+							component->addData(sprite);
+						}
+
+						else if (type == "CircleShape")
+						{
+							sf::CircleShape *shape = nullptr;
+
+							//Get the proper data from the tempId in the file.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i) == "setRadius")
+								{
+									shape->setRadius(BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setPointCount")
+								{
+									shape->setPointCount(BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setTexture")
+								{
+									shape->setTexture(assetManager->getTexture(BaseState::conversionInt(properties.at(y).at(++i))));
+								}
+								else if (properties.at(y).at(i) == "setTextureRect")
+								{
+									sf::IntRect r(0, 0, BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									shape->setTextureRect(r);
+								}
+								else if (properties.at(y).at(i) == "setFillColor")
+								{
+									sf::Color c(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									shape->setFillColor(c);
+								}
+								else if (properties.at(y).at(i) == "setOutlineColor")
+								{
+									sf::Color c(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									shape->setOutlineColor(c);
+								}
+								else if (properties.at(y).at(i) == "setPosition")
+								{
+									shape->setPosition(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setRotation")
+								{
+									shape->setRotation(BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setScale")
+								{
+									shape->setScale(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setOrigin")
+								{
+									shape->setOrigin(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+							}
+
+							component->addData(shape);
+						}
+
+						else if (type == "ConvexShape")
+						{
+							sf::ConvexShape *shape = nullptr;
+
+							//Get the proper data from the tempId in the file.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i) == "setPoint")
+								{
+									shape->setPoint(BaseState::conversionInt(properties.at(y).at(++i)), sf::Vector2f(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i))));
+								}
+								else if (properties.at(y).at(i) == "setPointCount")
+								{
+									shape->setPointCount(BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setTexture")
+								{
+									shape->setTexture(assetManager->getTexture(BaseState::conversionInt(properties.at(y).at(++i))));
+								}
+								else if (properties.at(y).at(i) == "setTextureRect")
+								{
+									sf::IntRect r(0, 0, BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									shape->setTextureRect(r);
+								}
+								else if (properties.at(y).at(i) == "setFillColor")
+								{
+									sf::Color c(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									shape->setFillColor(c);
+								}
+								else if (properties.at(y).at(i) == "setOutlineColor")
+								{
+									sf::Color c(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									shape->setOutlineColor(c);
+								}
+								else if (properties.at(y).at(i) == "setPosition")
+								{
+									shape->setPosition(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setRotation")
+								{
+									shape->setRotation(BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setScale")
+								{
+									shape->setScale(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setOrigin")
+								{
+									shape->setOrigin(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+							}
+
+							component->addData(shape);
+						}
+
+						else if (type == "RectangleShape")
+						{
+							sf::RectangleShape *shape = nullptr;
+
+							//Get the proper data from the tempId in the file.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i) == "setSize")
+								{
+									sf::Vector2f v(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+									shape->setSize(v);
+								}
+								else if (properties.at(y).at(i) == "setTexture")
+								{
+									shape->setTexture(assetManager->getTexture(BaseState::conversionInt(properties.at(y).at(++i))));
+								}
+								else if (properties.at(y).at(i) == "setTextureRect")
+								{
+									sf::IntRect r(0, 0, BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									shape->setTextureRect(r);
+								}
+								else if (properties.at(y).at(i) == "setFillColor")
+								{
+									sf::Color c(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									shape->setFillColor(c);
+								}
+								else if (properties.at(y).at(i) == "setOutlineColor")
+								{
+									sf::Color c(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									shape->setOutlineColor(c);
+								}
+								else if (properties.at(y).at(i) == "setOutlineThickness")
+								{
+									shape->setOutlineThickness(BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setPosition")
+								{
+									shape->setPosition(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setRotation")
+								{
+									shape->setRotation(BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setScale")
+								{
+									shape->setScale(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setOrigin")
+								{
+									shape->setOrigin(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+							}
+
+							component->addData(shape);
+						}
+
+						else if (type == "Text")
+						{
+							sf::Text *text = nullptr;
+
+							//Get the proper data from the tempId in the file.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i) == "setString")
+								{
+									text->setString(properties.at(y).at(++i));
+								}
+								else if (properties.at(y).at(i) == "setFont")
+								{
+									sf::Font f;
+									f.loadFromFile(properties.at(y).at(++i));
+
+									text->setFont(f);
+								}
+								else if (properties.at(y).at(i) == "setCharacterSize")
+								{
+									text->setCharacterSize(BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setStyle")
+								{
+									if (properties.at(y).at(++i) == "Bold")
+									{
+										text->setStyle(sf::Text::Bold);
+									}
+									else if (properties.at(y).at(i) == "Italic")
+									{
+										text->setStyle(sf::Text::Italic);
+									}
+									else if (properties.at(y).at(i) == "Regular")
+									{
+										text->setStyle(sf::Text::Regular);
+									}
+									else if (properties.at(y).at(i) == "StrikeThrough")
+									{
+										text->setStyle(sf::Text::StrikeThrough);
+									}
+									else if (properties.at(y).at(i) == "Underlined")
+									{
+										text->setStyle(sf::Text::Underlined);
+									}
+								}
+								else if (properties.at(y).at(i) == "setColor")
+								{
+									sf::Color c(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									text->setColor(c);
+								}
+								else if (properties.at(y).at(i) == "setPosition")
+								{
+									text->setPosition(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setRotation")
+								{
+									text->setRotation(BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setScale")
+								{
+									text->setScale(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+								else if (properties.at(y).at(i) == "setOrigin")
+								{
+									text->setOrigin(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+								}
+							}
+
+							component->addData(text);
+						}
+						else
+						{
+							for (int i = 1; i < properties.at(y).size(); i++)
+								component->addData(&(properties.at(y).at(i)));
+						}
 					}
+				}
+				else
+				{
+					//Link the property.
+					temp->add(systemManager->getComponent(properties.at(y).at(0)));
 				}
 			}
 
