@@ -780,15 +780,37 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 							component->addData(image);
 						}
 
-						///FIXXXXXXXXXXX
-						else if (type == "Sound")
+						else if (type == "SoundBuffer")
 						{
+							sf::SoundBuffer *buffer = nullptr;
 							//Get the proper data from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
-								sf::Sound *sound = assetManager->getSound(properties.at(y).at(i));
-								component->addData(sound);
+								if (properties.at(y).at(i) == "loadFromFile")
+								{
+									buffer->loadFromFile(properties.at(y).at(++i));
+								}
+								assetManager->add(buffer)
+								component->addData(buffer);
 							}
+						}
+
+						///FIXXXXXXXXXXX
+						else if (type == "Sound")
+						{
+							sf::Sound *sound = nullptr;
+							//Get the proper data from the tempId in the file.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i) == "setBuffer")
+								{
+									sound->setBuffer(assetManager->getSoundBuffer(BaseState::conversionInt(properties.at(y).at(++i)));
+								}
+			
+							}
+							assetManager->add(sound);
+							component->addData(sound);
+
 						}
 						///FIXXXXXXXXXXXX
 
