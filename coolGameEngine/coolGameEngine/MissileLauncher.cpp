@@ -117,34 +117,94 @@ void MissileLauncher::update(sf::Window & window, Entity * Base1, Entity * Base2
   //Goes through all the missiles for Base1
   for (int i = 0; i < 10; i++)
   {
-    if (Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Fired").at(0))
+    if (Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Fired").at(0) && 
+    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Life").at(0))
     {
     slope = Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Slope").at(0);
     Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
     Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) -= 1;
     Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("SpriteMissile").at(0)->move(slope, -1);
+    //If the current Missile is positioned on its explosion point, (give an error of .1)
+    
+    //Check x values
+    if(Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(0) - .1 <=
+    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) && 
+    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(0) + .1 >= 
+    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0))
+    
+    //check y values
+    if(Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(1) - .1 <=
+    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) && 
+    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(1) + .1 >= 
+    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1))
+    {
+      //Make the missile explode
+      MissileExploder::control(window, Base1->getComponent("MissilesHeld1")->getDataEntity().at(i));
+      Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Life")->deleteData();
+      Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Life")->addDataBool(false);
+    }
     }
   }
   
   for (int i = 0; i < 10; i++)
   {
-    if (Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Fired").at(0))
+    if (Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Fired").at(0) &&
+    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Life").at(0))
     {
     slope = Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Slope").at(0);
     Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
     Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) -= 1;
     Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("SpriteMissile").at(0)->move(slope, -1);
     }
+    //If the current Missile is positioned on its explosion point, (give an error of .1)
+    
+    //Check x values
+    if(Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(0) - .1 <=
+    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) && 
+    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(0) + .1 >= 
+    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0))
+    
+    //check y values
+    if(Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(1) - .1 <=
+    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) && 
+    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(1) + .1 >= 
+    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1))
+    {
+      //Make the missile explode
+      MissileExploder::control(window, Base2->getComponent("MissilesHeld2")->getDataEntity().at(i));
+      Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Life")->deleteData();
+      Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Life")->addDataBool(false);
+    }
   }
   
   for (int i = 0; i < 10; i++)
   {
-    if (Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Fired").at(0))
+    if (Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Fired").at(0) && 
+    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Life").at(0))
     {
     slope = Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Slope").at(0);
     Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
     Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) -= 1;
     Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("SpriteMissile").at(0)->move(slope, -1);
+    }
+    //If the current Missile is positioned on its explosion point, (give an error of .1)
+    
+    //Check x values
+    if(Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(0) - .1 <=
+    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) && 
+    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(0) + .1 >= 
+    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0))
+    
+    //check y values
+    if(Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(1) - .1 <=
+    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) && 
+    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(1) + .1 >= 
+    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1))
+    {
+      //Make the missile explode
+      MissileExploder::control(window, Base3->getComponent("MissilesHeld3")->getDataEntity().at(i));
+      Base3->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Life")->deleteData();
+      Base3->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Life")->addDataBool(false);
     }
   }
 }
