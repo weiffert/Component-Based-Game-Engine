@@ -1,5 +1,6 @@
 #include "MissileExploder.h"
-#include "Pro"
+#include "SystemManager.h"
+
 MissileExploder::MissileExploder()
 {
 }
@@ -12,25 +13,40 @@ MissileExploder::~MissileExploder()
 
 void MissileExploder::control(sf::Window &window, Entity * missile)
 {
-  Property phase* = missile->getComponent("ExplosionPhase");
-  Property radius* = missile->getComponent("ExplosionRadius");
   double rate;
   rate = 1;
-  //If it doesn't already have an explosion, create one (property "ExplosionPhase" is 0)
-  if (missile->getComponent("ExplosionPhase").at(0) == 0)
+  if (!(missile->getComponent("ExplosionPhase").at(0) == -2)) //Makes sure the explosion didn't already happen
   {
-    phase->deleteData();
-    phase->addDataInt(1);
-    tempRadius = missile->getComponent("ExplosionRadius")->getDataDouble().at(0);
-    tempRadius += rate * missile->getComponent("ExplosionPhase")->getDataDouble().at(0);
-    missile->getComponent("ExplosionRadius")->deleteData();
-    missile->getComponent("ExplosionRadius")->addDataDouble(tempRadius);
+      //If it doesn't already have an explosion, create one (property "ExplosionPhase" is 0)
+     if (missile->getComponent("ExplosionPhase").at(0) == 0)
+     {
+      missile->getComponent("ExplosionPhase")->deleteData();
+      missile->getComponent("ExplosionRadius")->addDataInt(1);
+      tempRadius = missile->getComponent("ExplosionRadius")->getDataDouble().at(0);
+      tempRadius += rate * missile->getComponent("ExplosionPhase")->getDataDouble().at(0);
+      missile->getComponent("ExplosionRadius")->deleteData();
+      missile->getComponent("ExplosionRadius")->addDataInt(tempRadius);
+      }
+  
+      //Check radius
+      if (missile->getComponent("ExplosionRadius")->getDataInt().at(0) == 20)
+      {
+        missile->getComponent("ExplosionPhase")->deleteData();
+        missile->getComponent("ExplosionPhase")->addDataInt(-1);
+      }
+    //Check to see if the explosion disappears
+    if(missile->getComponent("ExplosioRadius").at(0) - 
+    rate * missile->getComponent("ExplosionPhase").at(0) < 0)
+  {
+       missile->getComponent("ExplosionRadius")->deleteData();
+       missile->getComponent("ExplosionRadius")->addDataDouble(0);
+       missile->getComponent("ExplosionPhase")->deleteData();
+       missile->getComponent("ExplosionPhase")->addDataInt(-2);
+      
+    }
   }
   
-  //Check radius
-  if ()
-  
-  //If it already has an explosion, change the size 
+  //change the size 
   
   
 }
