@@ -52,7 +52,8 @@ StateDebug::StateDebug()
 				while (temp != "Filenames" && !file.eof())
 				{
 					file >> temp;
-					filenames.push_back(temp);
+					std::cout << temp << std::endl;
+					substrings.push_back(temp);
 				}
 			}
 		}
@@ -92,14 +93,14 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 				while (temp != "Filenames" && !file.eof())
 				{
 					file >> temp;
-					filenames.push_back(temp);
+					substrings.push_back(temp);
 				}
 			}
 		}
 	}
 
 	//Sorts the substrings into the proper order.
-	substringSorter();
+	//substringSorter();
 
 	sf::Event event;
 	while (window->pollEvent(event))
@@ -107,6 +108,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 		if (event.type == sf::Event::Closed)
 			window->close();
 	}
+
 
 	//Checks if there are substrings. If there are none, the process is done.
 	while (substrings.size() != 0)
@@ -637,7 +639,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 							std::vector<std::string> temp;
 							properties.push_back(temp);
 						}
-						properties.at(lineNumber - 1).push_back(word);
+						properties.at(lineNumber - 2).push_back(word);
 					}
 
 					file >> word;

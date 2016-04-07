@@ -1,12 +1,13 @@
 Filenames
 propertySprite.txt
+propertyTexture.txt
 propertyStateNumber.txt
 propertyStateId.txt
 entityMissile1.txt
 
 Substrings
-entity
 property
+entity
 png
 controller
 state
