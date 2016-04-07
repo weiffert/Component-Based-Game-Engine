@@ -117,8 +117,7 @@ void MissileLauncher::update(sf::Window & window, Entity * Base1, Entity * Base2
   //Goes through all the missiles for Base1
   for (int i = 0; i < 10; i++)
   {
-    if (Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Fired").at(0) && 
-    Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Life").at(0))
+    if (Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Fired").at(0))
     {
     slope = Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Slope").at(0);
     Base1->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
@@ -148,8 +147,7 @@ void MissileLauncher::update(sf::Window & window, Entity * Base1, Entity * Base2
   
   for (int i = 0; i < 10; i++)
   {
-    if (Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Fired").at(0) &&
-    Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Life").at(0))
+    if (Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Fired").at(0))
     {
     slope = Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("Slope").at(0);
     Base2->getComponent("MissilesHeld2")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
@@ -179,8 +177,7 @@ void MissileLauncher::update(sf::Window & window, Entity * Base1, Entity * Base2
   
   for (int i = 0; i < 10; i++)
   {
-    if (Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Fired").at(0) && 
-    Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Life").at(0))
+    if (Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Fired").at(0))
     {
     slope = Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Slope").at(0);
     Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
