@@ -244,14 +244,6 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 				entityPropertiesData.push_back(vecTemp);
 
-				/*
-				//Get the proper data from the tempId in the file.
-				for (int i = 0; i < data.size(); i++)
-				{
-				Entity *entity = systemManager->getMaterial(data.at(i));
-				temp->addData(entity);
-				}
-				*/
 			}
 
 			else if (type == "Texture")
@@ -259,25 +251,44 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 				temp = new Property("Texture");
 
 				//Get the proper data from the tempId in the file.
+
+				sf::Texture *texture = nullptr;
+
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::Texture *texture = assetManager->getTexture(std::stoi(data.at(i)));
-					temp->addData(texture);
+					if (data.at(i) == "loadFromFile")
+					{
+						texture->loadFromFile(data.at(++i));
+					}
+					else if (data.at(i) == "create")
+					{
+						texture->create(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+					}
 				}
+
+				assetManager->add(texture);
+				temp->addData(texture);
 			}
 
 			else if (type == "Image")
 			{
 				temp = new Property("Image");
 
+				sf::Image *image = nullptr;
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::Image *image = assetManager->getImage(stoi(data.at(i)));
-					temp->addData(image);
+					if (data.at(i) == "loadFromFile")
+					{
+						image->loadFromFile(data.at(++i));
+					}
 				}
+
+				assetManager->add(image);
+				temp->addData(image);
 			}
 
+			///FIXXXXXXXXXXX
 			else if (type == "Sound")
 			{
 				temp = new Property("Sound");
@@ -289,71 +300,295 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					temp->addData(sound);
 				}
 			}
+			///FIXXXXXXXXXXXX
 
 			else if (type == "Sprite")
 			{
 				temp = new Property("Sprite");
 
+				sf::Sprite *sprite = nullptr;
+
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::Sprite *sprite = new sf::Sprite();
-					temp->addData(sprite);
-					sf::Texture texture;
-					if (!texture.loadFromFile("Missile.png", sf::IntRect(10, 10, 32, 32)))
+					if (data.at(i) == "setTexture")
 					{
-						time(NULL);
+						sprite->setTexture(*(assetManager->getTexture(BaseState::conversionInt(data.at(++i)))));
 					}
-					sprite->setTexture(texture);
+					else if (data.at(i) == "setTextureRect")
+					{
+						sf::IntRect r(0, 0, BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						sprite->setTextureRect(r);
+					}
+					else if (data.at(i) == "setColor")
+					{
+						sf::Color c(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						sprite->setColor(c);
+					}
+					else if (data.at(i) == "setPosition")
+					{
+						sprite->setPosition(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+					}
+					else if (data.at(i) == "setRotation")
+					{
+						sprite->setRotation(BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setScale")
+					{
+						sprite->setScale(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setOrigin")
+					{
+						sprite->setOrigin(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
 				}
+
+				temp->addData(sprite);
 			}
 
 			else if (type == "CircleShape")
 			{
 				temp = new Property("CircleShape");
 
+				sf::CircleShape *shape = nullptr;
+
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::CircleShape *shape = new sf::CircleShape();
-					temp->addData(shape);
+					if (data.at(i) == "setRadius")
+					{
+						shape->setRadius(BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setPointCount")
+					{
+						shape->setPointCount(BaseState::conversionInt(data.at(++i)));
+					}
+					else if (data.at(i) == "setTexture")
+					{
+						shape->setTexture(assetManager->getTexture(BaseState::conversionInt(data.at(++i))));
+					}
+					else if (data.at(i) == "setTextureRect")
+					{
+						sf::IntRect r(0, 0, BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						shape->setTextureRect(r);
+					}
+					else if (data.at(i) == "setFillColor")
+					{
+						sf::Color c(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						shape->setFillColor(c);
+					}
+					else if (data.at(i) == "setOutlineColor")
+					{
+						sf::Color c(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						shape->setOutlineColor(c);
+					}
+					else if (data.at(i) == "setPosition")
+					{
+						shape->setPosition(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+					}
+					else if (data.at(i) == "setRotation")
+					{
+						shape->setRotation(BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setScale")
+					{
+						shape->setScale(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setOrigin")
+					{
+						shape->setOrigin(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
 				}
+
+				temp->addData(shape);
 			}
 
 			else if (type == "ConvexShape")
 			{
 				temp = new Property("ConvexShape");
+				
+				sf::ConvexShape *shape = nullptr;
 
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::ConvexShape *shape = new sf::ConvexShape();
-					temp->addData(shape);
+					if (data.at(i) == "setPoint")
+					{
+						shape->setPoint(BaseState::conversionInt(data.at(++i)), sf::Vector2f(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i))));
+					}
+					else if (data.at(i) == "setPointCount")
+					{
+						shape->setPointCount(BaseState::conversionInt(data.at(++i)));
+					}
+					else if (data.at(i) == "setTexture")
+					{
+						shape->setTexture(assetManager->getTexture(BaseState::conversionInt(data.at(++i))));
+					}
+					else if (data.at(i) == "setTextureRect")
+					{
+						sf::IntRect r(0, 0, BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						shape->setTextureRect(r);
+					}
+					else if (data.at(i) == "setFillColor")
+					{
+						sf::Color c(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						shape->setFillColor(c);
+					}
+					else if (data.at(i) == "setOutlineColor")
+					{
+						sf::Color c(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						shape->setOutlineColor(c);
+					}
+					else if (data.at(i) == "setPosition")
+					{
+						shape->setPosition(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+					}
+					else if (data.at(i) == "setRotation")
+					{
+						shape->setRotation(BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setScale")
+					{
+						shape->setScale(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setOrigin")
+					{
+						shape->setOrigin(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
 				}
+
+				temp->addData(shape);
 			}
 
 			else if (type == "RectangleShape")
 			{
 				temp = new Property("RectangleShape");
+				
+				sf::RectangleShape *shape = nullptr;
 
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::RectangleShape *shape = new sf::RectangleShape();
-					temp->addData(shape);
+					if (data.at(i) == "setSize")
+					{
+						sf::Vector2f v(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+						shape->setSize(v);
+					}
+					else if (data.at(i) == "setTexture")
+					{
+						shape->setTexture(assetManager->getTexture(BaseState::conversionInt(data.at(++i))));
+					}
+					else if (data.at(i) == "setTextureRect")
+					{
+						sf::IntRect r(0, 0, BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						shape->setTextureRect(r);
+					}
+					else if (data.at(i) == "setFillColor")
+					{
+						sf::Color c(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						shape->setFillColor(c);
+					}
+					else if (data.at(i) == "setOutlineColor")
+					{
+						sf::Color c(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						shape->setOutlineColor(c);
+					}
+					else if (data.at(i) == "setOutlineThickness")
+					{
+						shape->setOutlineThickness(BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setPosition")
+					{
+						shape->setPosition(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+					}
+					else if (data.at(i) == "setRotation")
+					{
+						shape->setRotation(BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setScale")
+					{
+						shape->setScale(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setOrigin")
+					{
+						shape->setOrigin(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
 				}
+
+				temp->addData(shape);
 			}
 
 			else if (type == "Text")
 			{
 				temp = new Property("Text");
+				
+				sf::Text *text = nullptr;
 
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::Text *text = new sf::Text();
-					temp->addData(text);
+					if (data.at(i) == "setString")
+					{
+						text->setString(data.at(++i));
+					}
+					else if (data.at(i) == "setFont")
+					{
+						sf::Font f;
+						f.loadFromFile(data.at(++i));
+
+						text->setFont(f);
+					}
+					else if (data.at(i) == "setCharacterSize")
+					{
+						text->setCharacterSize(BaseState::conversionInt(data.at(++i)));
+					}
+					else if (data.at(i) == "setStyle")
+					{
+						if (data.at(++i) == "Bold")
+						{
+							text->setStyle(sf::Text::Bold);
+						}
+						else if (data.at(i) == "Italic")
+						{
+							text->setStyle(sf::Text::Italic);
+						}
+						else if (data.at(i) == "Regular")
+						{
+							text->setStyle(sf::Text::Regular);
+						}
+						else if (data.at(i) == "StrikeThrough")
+						{
+							text->setStyle(sf::Text::StrikeThrough);
+						}
+						else if (data.at(i) == "Underlined")
+						{
+							text->setStyle(sf::Text::Underlined);
+						}
+					}
+					else if (data.at(i) == "setColor")
+					{
+						sf::Color c(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+						text->setColor(c);
+					}
+					else if (data.at(i) == "setPosition")
+					{
+						text->setPosition(BaseState::conversionInt(data.at(++i)), BaseState::conversionInt(data.at(++i)));
+					}
+					else if (data.at(i) == "setRotation")
+					{
+						text->setRotation(BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setScale")
+					{
+						text->setScale(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
+					else if (data.at(i) == "setOrigin")
+					{
+						text->setOrigin(BaseState::conversionFloat(data.at(++i)), BaseState::conversionFloat(data.at(++i)));
+					}
 				}
+
+				temp->addData(text);
 			}
 
 			else

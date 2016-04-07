@@ -112,3 +112,54 @@ void BaseState::changeState(BaseState *a, int i)
 {
 	a = systemManager->getState(i);
 }
+
+
+//Convert a string to an int.
+int BaseState::conversionInt(std::string s)
+{
+	int temp = 0;
+
+	//Repeat until the number has been extracted.
+	for (int i = 0; i < s.length(); i++)
+	{
+		//Conversion from string to base 10.
+		temp *= 10;
+		temp += static_cast<int>(s.at(i) - 48);
+	}
+
+	return temp;
+}
+
+
+//Convert a string to a float.
+float BaseState::conversionFloat(std::string s)
+{
+	float temp = 0;
+	int place = 0;
+
+	bool decimal = false;
+	//Repeat until the number has been extracted.
+	for (int i = 0; i < s.length(); i++)
+	{
+		//Conversion from string to base 10.
+		if (s.at(i) == '.')
+		{
+			decimal = true;
+		}
+
+		if (!decimal)
+		{
+			temp *= 10;
+			temp += static_cast<int>(s.at(i) - 48);
+		}
+		else
+		{
+			place += 10;
+			int small = static_cast<int>(s.at(i) - 48);
+			small /= place;
+			temp += small;
+		}
+	}
+
+	return temp;
+}

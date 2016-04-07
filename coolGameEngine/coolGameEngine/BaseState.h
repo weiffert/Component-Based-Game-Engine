@@ -44,4 +44,8 @@ protected:
 	void changeState(BaseState *);
 	void changeState(BaseState *, std::string);
 	void changeState(BaseState *, int);
+
+	//Conversion function
+	int conversionInt(std::string s);
+	float conversionFloat(std::string s);
 };
