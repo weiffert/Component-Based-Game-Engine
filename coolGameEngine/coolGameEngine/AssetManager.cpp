@@ -60,16 +60,26 @@ sf::Sound* AssetManager::getSound(int location)
 	return nullptr;
 }
 
+sf::Sound* AssetManager::getSoundBuffer(int location)
+{
+	if (location < soundBuffer.size() && location >= 0)
+	{
+		return soundBuffer.at(location);
+	}
+
+	return nullptr;
+}
+
 
 //Takes in the filename.
-//Returns an image for a property.
-sf::Sound* AssetManager::getSound(std::string filename)
+//Returns an sound buffer for a property.
+sf::Sound* AssetManager::getSoundBuffer(std::string filename)
 {
-	for (int i = 0; i < soundNames.size(); i++)
-		if (soundNames.at(i) == filename)
+	for (int i = 0; i < soundBufferNames.size(); i++)
+		if (soundBufferNames.at(i) == filename)
 		{
-			if (i < sound.size())
-				return sound.at(i);
+			if (i < soundBuffer.size())
+				return soundBuffer.at(i);
 		}
 
 	return nullptr;
@@ -119,6 +129,11 @@ void AssetManager::add(sf::Sound* a)
 	sound.push_back(a);
 }
 
+void AssetManager::add(sf::SoundBuffer* a)
+{
+	soundBuffer.push_back(a);
+}
+
 
 //Adds an image to the vector for the state.
 //Takes in a texture.
@@ -141,6 +156,11 @@ void AssetManager::addImageString(std::string a)
 void AssetManager::addSoundString(std::string a)
 {
 	soundNames.push_back(a);
+}
+
+void AssetManager::addBufferString(std::string a)
+{
+	soundBufferNames.push_back(a);
 }
 
 

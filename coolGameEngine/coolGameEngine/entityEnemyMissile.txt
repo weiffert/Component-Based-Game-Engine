@@ -1,6 +1,0 @@
-EnemyMissile ;
-Sprite ;
-Velocity ;
-StartingPosition ;
-ExplodingPosition ;
-Slope ;

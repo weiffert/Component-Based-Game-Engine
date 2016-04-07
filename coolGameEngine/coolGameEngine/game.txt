@@ -1,2 +1,2 @@
-1280 1024 ;
+480 480 ;
 missileCommand ;

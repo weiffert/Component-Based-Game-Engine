@@ -1,0 +1,10 @@
+EnemyMissile11 ;
+Life ;
+Velocity ;
+Sprite ;
+StartingPosition ;
+ExplodingPosition ;
+ExplosionPhase ;
+ExplosionRadius ;
+Slope ;
+Fired ;
