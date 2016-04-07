@@ -29,22 +29,22 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Windo
     //Push back new values with starting and ending positions, Base1 will start at 1/4 of the screen
     if(currentBase->getId() == "Base1")
     {
-      currentMissile->getComponent("StartingPosition")->addData(window->getSize().y/6); //y for Base1
-      currentMissile->getComponent("StartingPosition")->addData(window->getSize().x/4); //x for Base1
+      currentMissile->getComponent("StartingPosition")->addData(80); //y for Base1
+      currentMissile->getComponent("StartingPosition")->addData(120); //x for Base1
       //Set current position to above values
     }
     
     else if(currentBase->getId() == "Base2")
     {
-      currentMissile->getComponent("StartingPosition")->addData(window->getSize().y/6); //y for Base2
-      currentMissile->getComponent("StartingPosition")->addData(window->getSize().x/2)); //x for Base2
+      currentMissile->getComponent("StartingPosition")->addData(80); //y for Base2
+      currentMissile->getComponent("StartingPosition")->addData(240) //x for Base2
       //Set current position to above values
     }
     
     else if(currentBase->getId() == "Base3")
     {
-      currentMissile->getComponent("StartingPosition")->addData(window->getSize().y/6); //y for Base3
-      currentMissile->getComponent("StartingPosition")->addData(window->getSize().x * 3 / 4); //x for Base3
+      currentMissile->getComponent("StartingPosition")->addData(80); //y for Base3
+      currentMissile->getComponent("StartingPosition")->addData(360); //x for Base3
       //Set current position to above values
     }
     
@@ -203,8 +203,8 @@ void MissileLauncher::update(sf::Window & window, Entity * Base1, Entity * Base2
     {
       //Make the missile explode
       MissileExploder::control(window, Base3->getComponent("MissilesHeld3")->getDataEntity().at(i));
-      Base3->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Life")->deleteData();
-      Base3->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Life")->addDataBool(false);
+      Base3->getComponent("MissilesHel3")->getDataEntity().at(i)->getComponent("Life")->deleteData();
+      Base3->getComponent("MissilesHeld3")->getDataEntity().at(i)->getComponent("Life")->addDataBool(false);
     }
   }
 }
