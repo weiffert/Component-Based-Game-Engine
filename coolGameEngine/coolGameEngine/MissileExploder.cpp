@@ -1,5 +1,7 @@
 #include "MissileExploder.h"
 #include "SystemManager.h"
+#include <SFML/Graphics.hpp>
+
 
 MissileExploder::MissileExploder()
 {
@@ -23,7 +25,7 @@ void MissileExploder::control(sf::Window &window, Entity * missile)
      {
       missile->getComponent("ExplosionPhase")->deleteData();
       missile->getComponent("ExplosionPhase")->addDataInt(1);
-      }
+     }
       
       //Check radius
       if (missile->getComponent("ExplosionRadius")->getDataInt().at(0) == 20)
@@ -49,4 +51,13 @@ void MissileExploder::control(sf::Window &window, Entity * missile)
       missile->getComponent("ExplosionRadius")->addDataInt(tempRadius);
     }
   }
+  
+  //Actually draw the circle/explosion
+  sf::CircleShape explosion;
+  explosion.setRadius(missile->getComponent("ExplosionRadius")->getDataDouble().at(0));
+  explosion.setFillColor(sf::Color::Red);
+  explosion.setPosition(missile->getComponent("ExplodingPosition")->getDataDouble().at(0), 
+  missile->getComponent("ExplodingPosition")->getDataDouble().at(1));
+  
+  
 }
