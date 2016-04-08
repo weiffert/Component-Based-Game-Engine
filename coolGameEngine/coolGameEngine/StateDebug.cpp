@@ -112,7 +112,6 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 	//Checks if there are substrings. If there are none, the process is done.
 	while (substrings.size() > 0)
 	{
-		std::cout << "Iteration" << std::endl;
 		std::string tempId;
 		std::string filename;
 		std::string word;
@@ -1242,7 +1241,6 @@ StateDebug::~StateDebug()
 //Deletes the filename once it has been determined. Deletes the substring after all of its files have been used.
 std::string StateDebug::fileDeterminer()
 {
-	std::cout << "FileDeterminer" << std::endl;
 	if (substrings.size() > 0)
 	{
 		//Passes through all of the filenames.
