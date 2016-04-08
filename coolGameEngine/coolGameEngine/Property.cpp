@@ -110,6 +110,20 @@ void Property::setId(std::string a)
 }
 
 
+std::string Property::getType()
+{
+	return typeId;
+}
+
+
+//Sets id
+//Takes in a string.
+void Property::setType(std::string a)
+{
+	typeId = a;
+}
+
+
 /*
 //Returns the data held in the vector.
 template <typename T>
@@ -253,127 +267,11 @@ std::vector<sf::Sound *> Property::getDataSound()
 		return dataSound;
 }
 
-/*
-//Returns the data at the location.
-template <typename T>
-T Property::getData(int location)
+std::vector<sf::SoundBuffer *> Property::getDataSoundBuffer()
 {
-	if (typeId == "int")
-	{
-		if (location < dataInt.size())
-			return dataInt.at(location);
-	}
-	if (typeId == "double")
-	{
-		if (location < dataDouble.size())
-			return dataDouble.at(location);
-	}
-	if (typeId == "float")
-	{
-		if (location < dataFloat.size())
-			return dataFloat.at(location);
-	}
-	if (typeId == "char")
-	{
-		if (location < dataChar.size())
-			return dataChar.at(location);
-	}
-	if (typeId == "bool")
-	{
-		if (location < dataBool.size())
-			return dataBool.at(location);
-	}
-	if (typeId == "string")
-	{
-		if (location < dataString.size())
-			return dataString.at(location);
-	}
-	if (typeId == "Sprite")
-	{
-		if (location < dataSprite.size())
-			return dataSprite.at(location);
-	}
-	if (typeId == "Image")
-	{
-		if (location < dataImage.size())
-			return dataImage.at(location);
-	}
-	if (typeId == "Texture")
-	{
-		if (location < dataTexture.size())
-			return dataTexture.at(location);
-	}
-	if (typeId == "Sound")
-	{
-		if (location < dataSound.size())
-			return dataSound.at(location);
-	}
-	if (typeId == "Text")
-	{
-		if (location < dataText.size())
-			return dataText.at(location);
-	}
-	if (typeId == "CircleShape")
-	{
-		if (location < dataCircleShape.size())
-			return dataCircleShape.at(location);
-	}
-	if (typeId == "ConvexShape")
-	{
-		if (location < dataConvexShape.size())
-			return dataConvexShape.at(location);
-	}
-	if (typeId == "RectangleShape")
-	{
-		if (location < dataRectangleShape.size())
-			return dataRectangleShape.at(location);
-	}
-	if (typeId == "Entity")
-	{
-		if (location < dataEntity.size())
-			return dataEntity.at(location);
-	}
+	if (typeId == "SoundBuffer")
+		return dataSoundBuffer;
 }
-*/
-
-//Adds value to existing data
-//Takes in data.
-/*
-template <typename T>
-void Property::addData(T value)
-{
-	if (typeId == "int")
-		dataInt.push_back(value);
-	if (typeId == "double")
-		dataDouble.push_back(value);
-	if (typeId == "float")
-		dataFloat.push_back(value);
-	if (typeId == "char")
-		dataChar.push_back(value);
-	if (typeId == "bool")
-		dataBool.push_back(value);
-	if (typeId == "string")
-		dataString.push_back(value);
-	if (typeId == "Sprite")
-		dataSprite.push_back(value);
-	if (typeId == "Image")
-		dataImage.push_back(value);
-	if (typeId == "Texture")
-		dataTexture.push_back(value);
-	if (typeId == "Sound")
-		dataSound.push_back(value);
-	if (typeId == "Text")
-		dataText.push_back(value);
-	if (typeId == "CircleShape")
-		dataCircleShape.push_back(value);
-	if (typeId == "ConvexShape")
-		dataConvexShape.push_back(value);
-	if (typeId == "RectangleShape")
-		dataRectangleShape.push_back(value);
-	if (typeId == "Entity")
-		dataEntity.push_back(value);
-}
-*/
 
 
 template <>
@@ -436,6 +334,13 @@ template <>
 void Property::addData<sf::Sound>(sf::Sound *value)
 {
 	dataSound.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::SoundBuffer>(sf::SoundBuffer *value)
+{
+	dataSoundBuffer.push_back(value);
 }
 
 
@@ -555,6 +460,13 @@ void Property::deleteData()
 		for (int i = 0; i < dataSound.size(); i++)
 		{
 			dataSound.erase(dataSound.begin() + i);
+		}
+	}
+	if (typeId == "SoundBuffer")
+	{
+		for (int i = 0; i < dataSoundBuffer.size(); i++)
+		{
+			dataSoundBuffer.erase(dataSoundBuffer.begin() + i);
 		}
 	}
 	if (typeId == "Text")
@@ -737,6 +649,19 @@ void Property::deleteData<sf::Sound>(sf::Sound *value)
 
 
 template <>
+void Property::deleteData<sf::SoundBuffer>(sf::SoundBuffer *value)
+{
+	for (int i = 0; i < dataSoundBuffer.size(); i++)
+	{
+		if (dataSoundBuffer.at(i) == value)
+		{
+			dataSoundBuffer.erase(dataSoundBuffer.begin() + i);
+		}
+	}
+}
+
+
+template <>
 void Property::deleteData<sf::Text>(sf::Text *value)
 {
 	for (int i = 0; i < dataText.size(); i++)
@@ -873,6 +798,13 @@ void Property::deleteDataPosition(int position)
 		if (position < dataSound.size())
 		{
 			dataSound.erase(dataSound.begin() + position);
+		}
+	}
+	if (typeId == "SoundBuffer")
+	{
+		if (position < dataSoundBuffer.size())
+		{
+			dataSoundBuffer.erase(dataSoundBuffer.begin() + position);
 		}
 	}
 	if (typeId == "Text")
@@ -1015,6 +947,16 @@ void Property::changeData<sf::Sound>(sf::Sound *value, int position)
 {
 	if (position < dataSound.size())
 		dataSound.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::SoundBuffer>(sf::SoundBuffer *value, int position)
+{
+	if (position < dataSoundBuffer.size())
+		dataSoundBuffer.at(position) = value;
 	else
 		addData(value);
 }

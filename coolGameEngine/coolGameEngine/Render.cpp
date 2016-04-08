@@ -7,6 +7,8 @@
 #include "Property.h"
 #include "Entity.h"
 
+#include <iostream>
+
 Render::Render()
 {
 
@@ -23,6 +25,8 @@ Render::~Render()
 //Takes in the lag between updates, window, and the entity to be drawn.
 void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 {
+	window->clear();
+
 	//Temp stores the property to be drawn.
 	Property *temp;
 	temp = nullptr;
@@ -33,6 +37,11 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 		temp = a->getComponent("Sprite");
 		if (movement(lag, a, x, y))
 			temp->getDataSprite().at(0)->move(*x, *y);
+
+		sf::Sprite *s = temp->getDataSprite().at(0);
+		if (s->getPosition() == sf::Vector2f(0, 0))
+			std::cout << "TRUE" << std::endl;
+
 		window->draw(*(temp->getDataSprite().at(0)));
 	}
 	if (a->hasComponent("Text"))
@@ -63,6 +72,8 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 			temp->getDataRectangleShape().at(0)->move(*x, *y);
 		window->draw(*(temp->getDataRectangleShape().at(0)));
 	}
+
+	window->display();
 }
 
 

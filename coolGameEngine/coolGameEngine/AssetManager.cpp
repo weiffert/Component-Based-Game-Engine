@@ -60,7 +60,7 @@ sf::Sound* AssetManager::getSound(int location)
 	return nullptr;
 }
 
-sf::Sound* AssetManager::getSoundBuffer(int location)
+sf::SoundBuffer* AssetManager::getSoundBuffer(int location)
 {
 	if (location < soundBuffer.size() && location >= 0)
 	{
@@ -73,7 +73,7 @@ sf::Sound* AssetManager::getSoundBuffer(int location)
 
 //Takes in the filename.
 //Returns an sound buffer for a property.
-sf::Sound* AssetManager::getSoundBuffer(std::string filename)
+sf::SoundBuffer* AssetManager::getSoundBuffer(std::string filename)
 {
 	for (int i = 0; i < soundBufferNames.size(); i++)
 		if (soundBufferNames.at(i) == filename)

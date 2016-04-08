@@ -323,7 +323,7 @@ void StateReInit::update(double totalTime, sf::RenderWindow* window)
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::Sound *sound = assetManager->getSound(data.at(i));
+					sf::Sound *sound = assetManager->getSound(BaseState::conversionInt(data.at(i)));
 					temp->addData(sound);
 				}
 			}
@@ -736,7 +736,7 @@ void StateReInit::update(double totalTime, sf::RenderWindow* window)
 							{
 								temp->getComponent(properties.at(y).at(x))->deleteData();
 								//Get the proper data from the tempId in the file.
-								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getSound(properties.at(y).at(x)));
+								temp->getComponent(properties.at(y).at(x))->addData(assetManager->getSound(std::stoi(properties.at(y).at(x))));
 							}
 
 							else if (type == "Sprite")

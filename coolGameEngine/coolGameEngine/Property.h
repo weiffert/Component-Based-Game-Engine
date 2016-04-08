@@ -22,6 +22,9 @@ public:
 	std::string getId();
 	void setId(std::string);
 
+	std::string getType();
+	void setType(std::string);
+
 	std::vector<int> getDataInt();
 	std::vector<double> getDataDouble();
 	std::vector<float> getDataFloat();
@@ -37,6 +40,7 @@ public:
 	std::vector<sf::Text *> getDataText();
 	std::vector<Entity *> getDataEntity();
 	std::vector<sf::Sound *> getDataSound();
+	std::vector<sf::SoundBuffer *> getDataSoundBuffer();
 
 	//Edit the data.
 	void deleteData();
@@ -70,4 +74,5 @@ private:
 	std::vector<sf::Text*> dataText;
 	std::vector<Entity*> dataEntity;
 	std::vector<sf::Sound*> dataSound;
+	std::vector<sf::SoundBuffer*> dataSoundBuffer;
 };

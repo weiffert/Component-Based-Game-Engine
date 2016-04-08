@@ -384,7 +384,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 				//Get the proper data from the tempId in the file.
 				for (int i = 0; i < data.size(); i++)
 				{
-					sf::Sound *sound = assetManager->getSound(data.at(i));
+					sf::Sound *sound = assetManager->getSound(BaseState::conversionInt(data.at(i)));
 					temp->addData(sound);
 				}
 			}
@@ -874,7 +874,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							//Get the proper data from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
-								sf::Sound *sound = assetManager->getSound(properties.at(y).at(i));
+								sf::Sound *sound = assetManager->getSound(BaseState::conversionInt(properties.at(y).at(i)));
 								component->addData(sound);
 							}
 						}
