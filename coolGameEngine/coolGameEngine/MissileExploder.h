@@ -5,7 +5,7 @@ class MissileExploder
 public:
   MissileExploder();
   ~MissileExploder();
-  void control(sf::Window&, Entity *);
+  void control(sf::Window *, Entity *);
 private:
   sf::CircleShape explosion;
   sf::Transform wave;
