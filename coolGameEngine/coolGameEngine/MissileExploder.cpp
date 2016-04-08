@@ -13,7 +13,9 @@ MissileExploder::~MissileExploder()
 }
 
 
-void MissileExploder::control(sf::Window &window, Entity * missile)
+//This function currently explodes a missile, and creates a circle explosion
+//This function is called from MissileLauncher
+void MissileExploder::control(sf::Window * window, Entity * missile)
 {
   double rate;
   rate = 1;
@@ -58,6 +60,6 @@ void MissileExploder::control(sf::Window &window, Entity * missile)
   explosion.setFillColor(sf::Color::Red);
   explosion.setPosition(missile->getComponent("ExplodingPosition")->getDataDouble().at(0), 
   missile->getComponent("ExplodingPosition")->getDataDouble().at(1));
-  
+  window->draw(explosion);
   
 }
