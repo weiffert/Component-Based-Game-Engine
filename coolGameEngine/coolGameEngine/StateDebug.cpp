@@ -131,17 +131,19 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 			//Determine the operation.
 			//If it is an image.
+			/*
 			if (substrings.at(0) == "png")
 			{
 				sf::Image *temp = new sf::Image;
 				if (!temp->loadFromFile(filename))
-					std::cout << "Failed to load " << filename << std::endl;
+				{std::cout << "Failed to load " << filename << std::endl;}
 				assetManager->add(temp);
 				assetManager->addImageString(filename);
 			}
+			*/
 
 			//If it is a property.
-			else if (substrings.at(0) == "property")
+			if (substrings.at(0) == "property")
 			{
 				std::vector<std::string> data;
 
@@ -309,7 +311,6 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 				else if (type == "Sprite")
 				{
-					std::cout << "New Sprite Property\n";
 					temp = new Property("Sprite");
 
 					sf::Sprite *sprite = nullptr;
@@ -758,13 +759,12 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 								{
 									if (properties.at(y).at(i) == "loadFromFile")
 									{
-										std::cout << "-=" << properties.at(y).at(i + 1) << "=-" << std::endl;
-										std::string s = properties.at(y).at(++i);
-										if (!texture->loadFromFile(s))
-											std::cout << "Failed to load image " << s << std::endl;
+										if (!texture->loadFromFile(properties.at(y).at(++i)))
+											std::cout << "Failed to load image " << properties.at(y).at(i) << std::endl;
 									}
 									else if (properties.at(y).at(i) == "create")
 									{
+										std::cout << BaseState::conversionInt(properties.at(y).at(i + 1)) << std::endl << BaseState::conversionInt(properties.at(y).at(i + 2)) << std::endl;
 										texture->create(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
 									}
 								}

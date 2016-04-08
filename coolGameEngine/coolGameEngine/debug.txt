@@ -1,5 +1,4 @@
 Filenames
-missile.png
 propertySprite.txt
 propertyTexture.txt
 propertyStateNumber.txt
