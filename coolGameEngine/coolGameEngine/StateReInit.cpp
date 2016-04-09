@@ -155,9 +155,6 @@ void StateReInit::substringSorter()
 			sub = "entity";
 			break;
 		case 3:
-			sub = "controller";
-			break;
-		case 4:
 			sub = "state";
 			break;
 		default:

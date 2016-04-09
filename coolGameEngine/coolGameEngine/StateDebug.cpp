@@ -99,7 +99,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 	}
 
 	//Sorts the substrings into the proper order.
-	substringSorter();
+	//substringSorter();
 
 	sf::Event event;
 	while (window->pollEvent(event))
@@ -343,9 +343,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					{
 						if (data.at(i) == "setTexture")
 						{
-							sf::Texture texture;
-							texture.loadFromFile(data.at(++i));
-							sprite->setTexture(texture);
+							sf::Texture *texture = new sf::Texture;
+							if (!texture->loadFromFile(data.at(++i)))
+								std::cout << "Failed to load " << data.at(i) << std::endl;
+							sprite->setTexture(*texture);
+							assetManager->add(texture);
 						}
 						else if (data.at(i) == "setTextureRect")
 						{
@@ -690,18 +692,17 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					//If there is data.
 					if (properties.at(y).size() > 1)
 					{
-						Property *component = systemManager->getComponent(properties.at(y).at(0));
-						type = component->getType();
-						//Stores the new property in systemManager.
-						systemManager->add(component);
+						Property *componentTemp = systemManager->getComponent(properties.at(y).at(0));
+						type = componentTemp->getType();
+						tempId = componentTemp->getId();
 
-						//Delete the existing data for the new data.
-						component->deleteData();
+						Property *component = nullptr;
 
-						//Needs to be converted to the proper type.
+						//Create a property based on the type.
 						if (type == "int")
 						{
-							//Start at 1 because the first is not data. It is the property name.
+							component = new Property("int");
+
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								int integer = std::stoi(properties.at(y).at(i));
@@ -710,6 +711,8 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 						}
 						else if (type == "char")
 						{
+							component = new Property("char");
+
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								char character = properties.at(y).at(i).at(0);
@@ -719,6 +722,8 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "double")
 						{
+							component = new Property("double");
+
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								double reals = std::stod(properties.at(y).at(i));
@@ -728,6 +733,8 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "float")
 						{
+							component = new Property("float");
+
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								float smallerReals = std::stof(properties.at(y).at(i));
@@ -737,8 +744,10 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "bool")
 						{
+							component = new Property("bool");
+
 							bool tOrF = false;
-							if (properties.at(y).at(1) == "true")
+							if (properties.at(y).at(0) == "true")
 								tOrF = true;
 
 							for (int i = 1; i < properties.at(y).size(); i++)
@@ -747,12 +756,16 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "string")
 						{
+							component = new Property("string");
+
 							for (int i = 1; i < properties.at(y).size(); i++)
 								component->addData(&(properties.at(y).at(i)));
 						}
 
 						else if (type == "Entity")
 						{
+							component = new Property("Entity");
+
 							std::vector<std::string> vecTemp;
 							entityProperties.push_back(component);
 
@@ -767,9 +780,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "Texture")
 						{
-							//Get the proper data from the tempId in the file.
+							component = new Property("Texture");
 
-							sf::Texture *texture = new sf::Texture();
+							//Get the proper properties.at(y) from the tempId in the file.
+
+							sf::Texture *texture = new sf::Texture;
 
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
@@ -790,8 +805,10 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "Image")
 						{
+							component = new Property("Image");
+
 							sf::Image *image = new sf::Image;
-							//Get the proper data from the tempId in the file.
+							//Get the proper properties.at(y) from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								if (properties.at(y).at(i) == "loadFromFile")
@@ -806,8 +823,10 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "SoundBuffer")
 						{
+							component = new Property("SoundBuffer");
+
 							sf::SoundBuffer *buffer = new sf::SoundBuffer;
-							//Get the proper data from the tempId in the file.
+							//Get the proper properties.at(y) from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								if (properties.at(y).at(i) == "loadFromFile")
@@ -821,8 +840,10 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "Sound")
 						{
+							component = new Property("Sound");
+
 							sf::Sound *sound = new sf::Sound;
-							//Get the proper data from the tempId in the file.
+							//Get the proper properties.at(y) from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								if (properties.at(y).at(i) == "setBuffer")
@@ -838,9 +859,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "Sprite")
 						{
+							component = new Property("Sprite");
+
 							sf::Sprite *sprite = new sf::Sprite;
 
-							//Get the proper data from the tempId in the file.
+							//Get the proper properties.at(y) from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								if (properties.at(y).at(i) == "setTexture")
@@ -848,8 +871,8 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 									sf::Texture *texture = new sf::Texture;
 									if (!texture->loadFromFile(properties.at(y).at(++i)))
 										std::cout << "Failed to load " << properties.at(y).at(i) << std::endl;
-									assetManager->add(texture);
 									sprite->setTexture(*texture);
+									assetManager->add(texture);
 								}
 								else if (properties.at(y).at(i) == "setTextureRect")
 								{
@@ -863,7 +886,9 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 								}
 								else if (properties.at(y).at(i) == "setPosition")
 								{
-									sprite->setPosition(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									float f1 = BaseState::conversionInt(properties.at(y).at(++i));
+									float f2 = BaseState::conversionInt(properties.at(y).at(++i));
+									sprite->setPosition(f1, f2);
 								}
 								else if (properties.at(y).at(i) == "setRotation")
 								{
@@ -884,9 +909,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "CircleShape")
 						{
+							component = new Property("CircleShape");
+
 							sf::CircleShape *shape = new sf::CircleShape;
 
-							//Get the proper data from the tempId in the file.
+							//Get the proper properties.at(y) from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								if (properties.at(y).at(i) == "setRadius")
@@ -939,9 +966,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "ConvexShape")
 						{
+							component = new Property("ConvexShape");
+
 							sf::ConvexShape *shape = new sf::ConvexShape;
 
-							//Get the proper data from the tempId in the file.
+							//Get the proper properties.at(y) from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								if (properties.at(y).at(i) == "setPoint")
@@ -994,9 +1023,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "RectangleShape")
 						{
+							component = new Property("RectangleShape");
+
 							sf::RectangleShape *shape = new sf::RectangleShape;
 
-							//Get the proper data from the tempId in the file.
+							//Get the proper properties.at(y) from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								if (properties.at(y).at(i) == "setSize")
@@ -1050,9 +1081,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "Text")
 						{
+							component = new Property("Text");
+
 							sf::Text *text = new sf::Text;
 
-							//Get the proper data from the tempId in the file.
+							//Get the proper properties.at(y) from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								if (properties.at(y).at(i) == "setString")
@@ -1118,52 +1151,32 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 							component->addData(text);
 						}
+
 						else
 						{
+							component = new Property("string");
+
 							for (int i = 1; i < properties.at(y).size(); i++)
 								component->addData(&(properties.at(y).at(i)));
 						}
+
+						component->setId(tempId);
+
+						//Stores the new property in systemManager.
+						systemManager->add(component);
+
+						temp->add(component);
 					}
 
-					//Link the property.
-					temp->add(systemManager->getComponent(properties.at(y).at(0)));
+					else
+					{
+						//Link the property.
+						temp->add(systemManager->getComponent(properties.at(y).at(0)));
+					}
 				}
 
 				//Store.
 				systemManager->add(temp);
-			}
-			//If it is a controller.
-			else if (substrings.at(0) == "controller")
-			{
-				std::vector<std::string> properties;
-
-				//Read in data
-				while (!file.eof())
-				{
-					file >> word;
-
-					//Read until the end of the line
-					while (word != ";")
-					{
-						if (lineNumber == 1)
-							tempId = word;
-
-						if (lineNumber > 2)
-							properties.push_back(word);
-
-						file >> word;
-					}
-					lineNumber++;
-				}
-
-				BaseController *temp;
-
-				//Create a new controller based on tempId.
-				if (tempId == "Render")
-				{
-					temp = new Render();
-					initializeController(temp, tempId, properties);
-				}
 			}
 
 			//If it is a state.
@@ -1288,9 +1301,6 @@ void StateDebug::substringSorter()
 			sub = "entity";
 			break;
 		case 3:
-			sub = "controller";
-			break;
-		case 4:
 			sub = "state";
 			break;
 		default:
@@ -1328,8 +1338,7 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 		centerCoordinates.x = (window->getSize().x) / 2;
 		centerCoordinates.y = (window->getSize().y) / 2;
 		
-		if (1 == 0)
-			sf::Mouse::setPosition(centerCoordinates, *window);
+		//sf::Mouse::setPosition(centerCoordinates, *window);
 		
 		bool moveUp = false, moveDown = false, moveRight = false, moveLeft = false, spaceBarReleased = false;
 

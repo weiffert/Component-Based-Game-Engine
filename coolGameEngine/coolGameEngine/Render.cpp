@@ -25,8 +25,6 @@ Render::~Render()
 //Takes in the lag between updates, window, and the entity to be drawn.
 void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 {
-	window->clear();
-
 	//Temp stores the property to be drawn.
 	Property *temp;
 	temp = nullptr;
@@ -35,11 +33,8 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 	if (a->hasComponent("Sprite"))
 	{
 		temp = a->getComponent("Sprite");
-		/*sf::Texture t;
-		t.loadFromFile("missile.png");
-		temp->getDataSprite().at(0)->setTexture(t);
-		//if (movement(lag, a, x, y))
-			//temp->getDataSprite().at(0)->move(*x, *y);*/
+		if (movement(lag, a, x, y))
+			temp->getDataSprite().at(0)->move(*x, *y);
 		window->draw(*(temp->getDataSprite().at(0)));
 	}
 	if (a->hasComponent("Text"))
@@ -70,8 +65,6 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 			temp->getDataRectangleShape().at(0)->move(*x, *y);
 		window->draw(*(temp->getDataRectangleShape().at(0)));
 	}
-
-	window->display();
 }
 
 

@@ -1,3 +1,4 @@
+Filenames
 propertyCurrentMissileCount.txt
 propertyTotalMissileCount.txt
 propertyPoints.txt
@@ -59,7 +60,10 @@ entityMissileLauncherAi.txt
 entityMissileLauncher.txt
 entityPlayer.txt
 
-controllerRender.txt
-controllerPlayerInput.txt
-
 stateLoading.txt
+
+Substrings
+png
+property
+entity
+state

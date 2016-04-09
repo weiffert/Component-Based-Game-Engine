@@ -157,9 +157,6 @@ void StateLoading::substringSorter()
 			sub = "entity";
 			break;
 		case 3:
-			sub = "controller";
-			break;
-		case 4:
 			sub = "state";
 			break;
 		default:
@@ -1222,39 +1219,6 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 				//Store.
 				systemManager->add(temp);
-			}
-			//If it is a controller.
-			else if (substrings.at(0) == "controller")
-			{
-				std::vector<std::string> properties;
-
-				//Read in data
-				while (!file.eof())
-				{
-					file >> word;
-
-					//Read until the end of the line
-					while (word != ";")
-					{
-						if (lineNumber == 1)
-							tempId = word;
-
-						if (lineNumber > 2)
-							properties.push_back(word);
-
-						file >> word;
-					}
-					lineNumber++;
-				}
-
-				BaseController *temp;
-
-				//Create a new controller based on tempId.
-				if (tempId == "Render")
-				{
-					temp = new Render();
-					initializeController(temp, tempId, properties);
-				}
 			}
 
 			//If it is a state.
