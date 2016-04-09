@@ -47,6 +47,8 @@ int Game::run()
 	state = new /*StateLoading*/ StateDebug(systemManager, assetManager, &gameWindow);
 	//Add it to the systemManager.
 	systemManager->add(state);
+
+	state->setMaterial(systemManager->getMaterial(state));
 	//run the game loop, which returns the exit code.
 	exitCode = gameLoop();
 

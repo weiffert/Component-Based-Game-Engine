@@ -1,5 +1,4 @@
 Missile1 ;
 StateNumber 10 ;
 StateId Debug ;
-Texture create 3 8 loadFromFile missile.png ;
-Sprite setTexture 0 setColor 255 0 0 1 setPosition 0 0 ;
+Sprite setTexture missile.png setPosition 0 0 ;

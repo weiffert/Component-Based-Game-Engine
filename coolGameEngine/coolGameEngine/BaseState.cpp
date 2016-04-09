@@ -77,13 +77,6 @@ void BaseState::render(double lag, sf::RenderWindow *window)
 	///Pass through all of the materials.
 	for (int i = 0; i < material.size(); i++)
 	{
-		/*
-		if (material.at(i)->hasController("Render"))
-		{
-			BaseController *controller = material.at(i)->getController("Render");
-			controller->control(window, &material.at(i));
-		}
-		*/
 		//Render the current entity.
 		controller.control(lag, window, material.at(i));
 	}

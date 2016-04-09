@@ -48,7 +48,7 @@ int main()
 		int one = conversion(data.at(0));
 		int two = conversion(data.at(1));
 
-		Game game(one, two, data.at(2));
+		Game game(one, two, data.at(3));
 
 		//run the game
 		exitCode = game.run();
