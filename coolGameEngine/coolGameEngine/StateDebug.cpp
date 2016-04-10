@@ -20,7 +20,11 @@
 #include "BaseController.h"
 #include "SystemManager.h"
 #include "AssetManager.h"
-#include "Render.h"
+
+#include "MissileChecker.h"
+#include "MissileExploder.h"
+#include "MissileLauncher.h"
+#include "MissileLauncherAi.h"
 
 
 StateDebug::StateDebug()
@@ -179,7 +183,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					for (int i = 0; i < data.size(); i++)
 					{
 						int integer = std::stoi(data.at(i));
-						temp->addData(&integer);
+						temp->addData(integer);
 					}
 				}
 				else if (type == "char")
@@ -189,7 +193,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					for (int i = 0; i < data.size(); i++)
 					{
 						char character = data.at(i).at(0);
-						temp->addData(&character);
+						temp->addData(character);
 					}
 				}
 
@@ -200,7 +204,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					for (int i = 0; i < data.size(); i++)
 					{
 						double reals = std::stod(data.at(i));
-						temp->addData(&reals);
+						temp->addData(reals);
 					}
 				}
 
@@ -211,7 +215,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					for (int i = 0; i < data.size(); i++)
 					{
 						float smallerReals = std::stof(data.at(i));
-						temp->addData(&smallerReals);
+						temp->addData(smallerReals);
 					}
 				}
 
@@ -224,7 +228,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 						tOrF = true;
 
 					for (int i = 0; i < data.size(); i++)
-						temp->addData(&tOrF);
+						temp->addData(tOrF);
 				}
 
 				else if (type == "string")
@@ -232,7 +236,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					temp = new Property("string");
 
 					for (int i = 0; i < data.size(); i++)
-						temp->addData(&(data.at(i)));
+						temp->addData(data.at(i));
 				}
 
 				else if (type == "Entity")
@@ -697,7 +701,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								int integer = std::stoi(properties.at(y).at(i));
-								component->addData(&integer);
+								component->addData(integer);
 							}
 						}
 						else if (type == "char")
@@ -707,7 +711,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								char character = properties.at(y).at(i).at(0);
-								component->addData(&character);
+								component->addData(character);
 							}
 						}
 
@@ -718,7 +722,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								double reals = std::stod(properties.at(y).at(i));
-								component->addData(&reals);
+								component->addData(reals);
 							}
 						}
 
@@ -729,7 +733,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								float smallerReals = std::stof(properties.at(y).at(i));
-								component->addData(&smallerReals);
+								component->addData(smallerReals);
 							}
 						}
 
@@ -742,7 +746,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 								tOrF = true;
 
 							for (int i = 1; i < properties.at(y).size(); i++)
-								component->addData(&tOrF);
+								component->addData(tOrF);
 						}
 
 						else if (type == "string")
@@ -750,7 +754,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 							component = new Property("string");
 
 							for (int i = 1; i < properties.at(y).size(); i++)
-								component->addData(&(properties.at(y).at(i)));
+								component->addData(properties.at(y).at(i));
 						}
 
 						else if (type == "Entity")
@@ -878,8 +882,8 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 								}
 								else if (properties.at(y).at(i) == "setPosition")
 								{
-									float f1 = BaseState::conversionInt(properties.at(y).at(++i));
-									float f2 = BaseState::conversionInt(properties.at(y).at(++i));
+									float f1 = BaseState::conversionFloat(properties.at(y).at(++i));
+									float f2 = BaseState::conversionFloat(properties.at(y).at(++i));
 									sprite->setPosition(f1, f2);
 								}
 								else if (properties.at(y).at(i) == "setRotation")
@@ -1359,8 +1363,6 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 		//Run through the game controllers.
 		//Example: Checking for collisions
 		//systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
-		//Controls the Ai of the game
-		//systemManager->getController("Ai")->control(&material);
 		//If the game is not done...
 		//If the wave is finished and the level continures (check the city number: an entity with the id of "city" and a property of live.)
 		//Change to the next level. Color, velocity, and number of missiles has to change.
@@ -1368,22 +1370,7 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 		//return 't';
 		//else...
 		//return 'f';
-		//systemManager->getController("GameEnd")->control(&material);
 	}
-}
-
-
-void StateDebug::initializeController(BaseController *temp, std::string tempId, std::vector<std::string> properties)
-{
-	//Get required properties.
-	std::vector<Property *> *components = new std::vector<Property *>;
-	for (int i = 0; i < properties.size(); i++)
-		components->push_back(systemManager->getComponent(properties.at(i)));
-
-	//Set required properties.
-	temp->setRequiredProperties(components);
-
-	systemManager->add(temp);
 }
 
 

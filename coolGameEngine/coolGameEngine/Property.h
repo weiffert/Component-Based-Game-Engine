@@ -50,6 +50,9 @@ public:
 	void addData(T*);
 
 	template <typename T>
+	void addData(T);
+
+	template <typename T>
 	void deleteData(T*);
 
 	template <typename T>

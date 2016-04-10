@@ -1,4 +1,11 @@
 #pragma once
+
+#include "SFML\Window.hpp"
+#include "SFML\Graphics.hpp"
+
+#include "SystemManager.h"
+#include "Entity.h"
+
 class MissileLauncherAi
 {
 private:
@@ -7,14 +14,15 @@ private:
 public:
 	MissileLauncherAi();
 	MissileLauncherAi(int, int);
-	~MissleLauncherAi();
+	~MissileLauncherAi();
 	void setTargets();
 	int launchAmmount();
-	double setSlope(Entity*, int, int);
+	double setSlope(int, int);
 	void setTotalMissiles(int);
 	void setMissilesLeft(int);
 	int getMissilesLeft();
 	int getTotalMissiles();
-	int launchMissiles(SystemManager*, Entity *, sf::Window & ); //Returns 0 if it fails to launch, 1 if it successfully launches
-	void update(sf::Window & , Entity *);
-  
+	int launchMissiles(SystemManager*, Entity *, sf::RenderWindow *); //Returns 0 if it fails to launch, 1 if it successfully launches
+	void update(sf::RenderWindow *, Entity *);
+
+};

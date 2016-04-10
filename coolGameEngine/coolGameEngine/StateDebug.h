@@ -2,6 +2,9 @@
 #include <string>
 #include <vector>
 
+#include "SFML\Graphics.hpp"
+#include "SFML\Window.hpp"
+
 #include "BaseState.h"
 
 #include "SystemManager.h"
@@ -31,7 +34,6 @@ private:
 
 	//Sorts the substrings into the proper usage order.
 	void substringSorter();
-	void initializeController(BaseController*, std::string, std::vector<std::string>);
 	void initializeState(BaseState*, std::string, int);
 
 

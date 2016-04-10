@@ -111,15 +111,20 @@ void BaseState::changeState(BaseState *a, int i)
 int BaseState::conversionInt(std::string s)
 {
 	int temp = 0;
+	bool negative = false;
 
 	//Repeat until the number has been extracted.
 	for (int i = 0; i < s.length(); i++)
 	{
+		if (s.at(i) == '-')
+			negative = true;
 		//Conversion from string to base 10.
 		temp *= 10;
 		temp += static_cast<int>(s.at(i) - 48);
 	}
 
+	if (negative)
+		temp *= -1;
 	return temp;
 }
 
@@ -129,11 +134,14 @@ float BaseState::conversionFloat(std::string s)
 {
 	float temp = 0;
 	int place = 0;
+	bool negative = false;
 
 	bool decimal = false;
 	//Repeat until the number has been extracted.
 	for (int i = 0; i < s.length(); i++)
 	{
+		if (s.at(i) == '-')
+			negative = true;
 		//Conversion from string to base 10.
 		if (s.at(i) == '.')
 		{
@@ -153,6 +161,49 @@ float BaseState::conversionFloat(std::string s)
 			temp += small;
 		}
 	}
+
+	if (negative)
+		temp *= -1;
+
+	return temp;
+}
+
+
+//Convert a string to a double.
+double BaseState::conversionDouble(std::string s)
+{
+	double temp = 0;
+	int place = 0;
+	bool negative = false;
+
+	bool decimal = false;
+	//Repeat until the number has been extracted.
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s.at(i) == '-')
+			negative = true;
+		//Conversion from string to base 10.
+		if (s.at(i) == '.')
+		{
+			decimal = true;
+		}
+
+		if (!decimal)
+		{
+			temp *= 10;
+			temp += static_cast<int>(s.at(i) - 48);
+		}
+		else
+		{
+			place += 10;
+			int small = static_cast<int>(s.at(i) - 48);
+			small /= place;
+			temp += small;
+		}
+	}
+
+	if (negative)
+		temp *= -1;
 
 	return temp;
 }

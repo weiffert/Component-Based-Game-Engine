@@ -1,7 +1,7 @@
-﻿Build started 4/9/2016 10:26:02 PM.
+﻿Build started 4/10/2016 5:48:47 PM.
      1>Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt StateDebug.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BaseState.cpp StateDebug.cpp
          StateDebug.cpp
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(179): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(189): warning C4018: '<' : signed/unsigned mismatch
@@ -38,8 +38,6 @@
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(822): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(839): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(859): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(881): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(882): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(909): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(940): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(966): warning C4018: '<' : signed/unsigned mismatch
@@ -54,7 +52,12 @@
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1254): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1281): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1307): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1380): warning C4018: '<' : signed/unsigned mismatch
+         BaseState.cpp
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basestate.cpp(78): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basestate.cpp(117): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basestate.cpp(141): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basestate.cpp(181): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SFML-2.3.2\lib" openal32.lib ws2_32.lib ogg.lib vorbis.lib vorbisfile.lib vorbisenc.lib flac.lib gdi32.lib winmm.lib jpeg.lib freetype.lib opengl32.lib "sfml-graphics-s-d.lib" "sfml-window-s-d.lib" "sfml-system-s-d.lib" "sfml-audio-s-d.lib" "sfml-network-s-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.lib" /MACHINE:X86 Debug\coolGameEngine.res
          Debug\AssetManager.obj
@@ -64,6 +67,10 @@
          Debug\Entity.obj
          Debug\Game.obj
          Debug\main.obj
+         Debug\MissileChecker.obj
+         Debug\MissileExploder.obj
+         Debug\MissileLauncher.obj
+         Debug\MissileLauncherAi.obj
          Debug\Property.obj
          Debug\Render.obj
          Debug\StateDebug.obj
@@ -79,4 +86,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.12
+Time Elapsed 00:00:02.22

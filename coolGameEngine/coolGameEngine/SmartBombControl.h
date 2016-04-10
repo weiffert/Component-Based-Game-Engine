@@ -10,8 +10,8 @@ public:
 	SmartBombControl();
 	SmartBombControl(SystemManager*, AssetManager*);
 	~SmartBombControl();
-	control(Entity *);
+	void control(Entity *);
 private:
 	SystemManager *systemManager;
 	AssetManager *assetManager;
-}
+};

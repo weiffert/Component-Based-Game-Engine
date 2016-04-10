@@ -4,23 +4,23 @@
 #include "AssetManager.h"
 #include "Entity.h"
 
-SmartBombControl()
+SmartBombControl::SmartBombControl()
 {
 	systemManager = nullptr;
 	assetManager = nullptr;
 }
 
-SmartBombControl(SystemManager *s, AssetManager *a)
+SmartBombControl::SmartBombControl(SystemManager *s, AssetManager *a)
 {
 	systemManager = s;
 	assetManager = a;
 }
 
-~SmartBombControl()
+SmartBombControl::~SmartBombControl()
 {
 }
 
-control(Entity *e)
+void SmartBombControl::control(Entity *e)
 {
 	Property *p = e->getComponent("OuterBoundingBox");
 	//check for explosion collision with outer bounding box.

@@ -386,6 +386,49 @@ void Property::addData<Entity>(Entity *value)
 }
 
 
+template <>
+void Property::addData<int>(int value)
+{
+	dataInt.push_back(value);
+}
+
+
+template <>
+void Property::addData<double>(double value)
+{
+	dataDouble.push_back(value);
+}
+
+
+template <>
+void Property::addData<float>(float value)
+{
+	dataFloat.push_back(value);
+}
+
+
+template <>
+void Property::addData<char>(char value)
+{
+	dataChar.push_back(value);
+}
+
+
+template <>
+void Property::addData<bool>(bool value)
+{
+	dataBool.push_back(value);
+}
+
+
+template <>
+void Property::addData<std::string>(std::string value)
+{
+	dataString.push_back(value);
+}
+
+
+
 //Subtracts value from existing data.
 //Takes in the data to be deleted.
 void Property::deleteData()

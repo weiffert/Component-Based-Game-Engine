@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-#include "SFML\Graphics\RenderWindow.hpp"
+#include "SFML\Window.hpp"
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
 
@@ -48,4 +48,5 @@ protected:
 	//Conversion function
 	int conversionInt(std::string s);
 	float conversionFloat(std::string s);
+	double conversionDouble(std::string s);
 };
