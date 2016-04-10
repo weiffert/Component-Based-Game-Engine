@@ -1,12 +1,12 @@
 Missile18 ;
 StateNumber 10 ;
 StateId Debug ;
-Sprite setTexture missile.png setPosition 12 0 ;
-Life true;
+Sprite setTexture missile.png setPosition 235 438 ;
+Life true ;
 Velocity 0.0 ;
-StartingPosition 0 0 ;
+StartingPosition 235 438 ;
 ExplodingPosition 0 0 ;
-CurrentPosition 0 0 ;
+CurrentPosition 235 438 ;
 ExplosionPhase 0 ;
 ExplosionRadius 0 ;
 Slope 0 ;

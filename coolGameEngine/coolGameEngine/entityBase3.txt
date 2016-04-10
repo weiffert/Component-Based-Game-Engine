@@ -1,7 +1,8 @@
 Base3 ;
-Life ;
-CurrentMissileCount ;
+StateId Debug ;
+StateNumber 10 ;
+Life true ;
+CurrentMissileCount 10 ;
 TotalMissileCount ;
-Sprite ;
-MissilesHeld3 ;
-CurrentPosition ;
+MissilesHeld Missile21 Missile22 Missile23 Missile24 Missile25 Missile26 Missile27 Missile28 Missile29 Missile30 ;
+CurrentPosition 450 432 ;

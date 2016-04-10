@@ -169,9 +169,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 				}
 
 				//Create.
-				//Property is the parent class to the property class.
-
-				Property *temp;
+				Property *temp = nullptr;
 
 				//Create a property based on the type.
 				if (type == "int")
@@ -239,18 +237,18 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 				else if (type == "Entity")
 				{
+					//Save the pointer
 					temp = new Property("Entity");
-
-					std::vector<std::string> vecTemp;
 					entityProperties.push_back(temp);
 
+					//Save the data.
+					std::vector<std::string> vecTemp;
 					for (int i = 0; i < data.size(); i++)
 					{
 						vecTemp.push_back(data.at(i));
 					}
 
 					entityPropertiesData.push_back(vecTemp);
-
 				}
 
 				else if (type == "Texture")
@@ -638,14 +636,7 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 				//Store.
 				systemManager->add(temp);
-
-				sf::Event event;
-				while (window->pollEvent(event))
-				{
-					if (event.type == sf::Event::Closed)
-						window->close();
-				}
-
+				
 			}
 			//If it is an entity.
 			else if (substrings.at(0) == "entity")
@@ -764,11 +755,12 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 
 						else if (type == "Entity")
 						{
+							//Save the pointer
 							component = new Property("Entity");
-
-							std::vector<std::string> vecTemp;
 							entityProperties.push_back(component);
 
+							//Save the data.
+							std::vector<std::string> vecTemp;
 							for (int i = 1; i < properties.at(y).size(); i++)
 							{
 								vecTemp.push_back(properties.at(y).at(i));
@@ -1234,13 +1226,14 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 			}
 		}
 	}
+
 	for (int i = 0; i < entityProperties.size(); i++)
 	{
 		Property *temp = entityProperties.at(i);
 		//Get the proper data from the tempId in the file.
 		for (int j = 0; j < entityPropertiesData.at(i).size(); j++)
 		{
-			temp->addData(systemManager->getMaterial(entityPropertiesData.at(i).at(i)));
+			temp->addData(systemManager->getMaterial(entityPropertiesData.at(i).at(j)));
 		}
 	}
 }

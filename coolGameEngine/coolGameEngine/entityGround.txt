@@ -1,0 +1,4 @@
+Ground ;
+StateId Debug ;
+StateNumber 10 ;
+Sprite setTexture ground.png setPosition 0 431 ;

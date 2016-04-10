@@ -1,4 +1,7 @@
 Filenames
+
+propertyMissilesHeld.txt
+
 propertyStateNumber.txt
 propertyStateId.txt
 propertySprite.txt
@@ -15,6 +18,16 @@ propertyCurrentMissileCount.txt
 propertyTotalMissileCount.txt
 propertyPoints.txt
 propertyOrder.txt
+
+
+entityGround.txt
+
+entityCity1.txt
+entityCity2.txt
+entityCity3.txt
+entityCity4.txt
+entityCity5.txt
+entityCity6.txt
 
 entityMissile1.txt
 entityMissile2.txt
@@ -46,6 +59,10 @@ entityMissile27.txt
 entityMissile28.txt
 entityMissile29.txt
 entityMissile30.txt
+
+entityBase1.txt
+entityBase2.txt
+entityBase3.txt
 
 Substrings
 png
