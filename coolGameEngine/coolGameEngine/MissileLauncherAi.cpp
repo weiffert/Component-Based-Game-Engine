@@ -189,4 +189,39 @@ void MissileLauncherAi::setSloap(int pathX, int pathY)
   return speedX;
 }
 
+void MissileLauncher::update(sf::Window & window, Entity * MissileLauncherAi)
+{
+  double slope;
+  
+  //Goes through all the missiles
+  for (int i = 0; i < 30; i++)
+  {
+    if (MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("Fired").at(0))
+    {
+    slope = MissileLauncherAi->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("Slope").at(0);
+    MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) += slope;
+    MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) -= 1;
+    MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("SpriteMissile").at(0)->move(slope, -1);
+    //If the current Missile is positioned on its explosion point, (give an error of .1)
+    
+    //Check x values
+    if(MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(0) - .1 <=
+    MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0) && 
+    MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(0) + .1 >= 
+    MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("CurrentPosition").at(0))
+    
+    //check y values
+    if(MissileLauncherAi->getComponent("MissilesHeld1")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(1) - .1 <=
+    MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1) && 
+    MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("ExplodingPosition").at(1) + .1 >= 
+    MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("CurrentPosition").at(1))
+    {
+      //Make the missile explode
+      MissileExploder::control(window, MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i));
+      MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("Life")->deleteData();
+      MissileLauncherAi->getComponent("MissilesHeld")->getDataEntity().at(i)->getComponent("Life")->addDataBool(false);
+    }
+    }
+  }
+}
 
