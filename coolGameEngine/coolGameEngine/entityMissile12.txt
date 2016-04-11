@@ -11,3 +11,4 @@ ExplosionPhase 0 ;
 ExplosionRadius 0 ;
 Slope 0 ;
 Fired false ;
+CircleShape ;
