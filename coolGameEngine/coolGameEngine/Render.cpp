@@ -65,6 +65,11 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 //			temp->getDataRectangleShape().at(0)->move(x, y);
 		window->draw(*(temp->getDataRectangleShape().at(0)));
 	}
+	if (a->hasComponent("Line"))
+	{
+		temp = a->getComponent("Line");
+		window->draw(*(temp->getDataLine().at(0)), 2, sf::Lines);
+	}
 }
 
 
