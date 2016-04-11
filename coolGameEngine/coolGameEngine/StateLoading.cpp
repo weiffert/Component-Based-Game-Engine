@@ -1206,6 +1206,27 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 							component->addData(text);
 						}
+						else if (type == "Line")
+						{
+							//Set default to 0,0 to 0,0
+							sf::Vertex *line[] = {sf::Vertex(sf::Vector2f(0, 0)), sf::Vertex(sf::Vector2f(0, 0))};
+
+							//Get the proper data from the tempId in the file.
+							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i) == "setStart")
+								{
+									sf::Vector2f v(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+									*line[0] = sf::Vertex(v);
+								}
+								else if (properties.at(y).at(i) == "setEnd")
+								{
+									sf::Vector2f v(BaseState::conversionFloat(properties.at(y).at(++i)), BaseState::conversionFloat(properties.at(y).at(++i)));
+									*line[1] = sf::Vertex(v);
+								}
+							}
+						}
+						
 						else
 						{
 							for (int i = 1; i < properties.at(y).size(); i++)
