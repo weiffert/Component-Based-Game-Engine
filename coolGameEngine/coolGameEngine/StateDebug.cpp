@@ -21,8 +21,6 @@
 #include "SystemManager.h"
 #include "AssetManager.h"
 
-#include "MissileChecker.h"
-#include "MissileExploder.h"
 #include "MissileLauncher.h"
 #include "MissileLauncherAi.h"
 
@@ -1328,10 +1326,19 @@ void StateDebug::substringSorter()
 //Takes in time elapsed and the window.
 void StateDebug::update(double totalTime, sf::RenderWindow *window)
 {
+	MissileLauncher missileLauncher;
+
 	//Check for arrow key and space bar events
 	sf::Event event;
 	while (window->pollEvent(event))
 	{
+		//Checks if escape key pressed
+		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape))
+			//BaseState::changeState(this, "Pause");
+			window->close();
+		if (event.type == sf::Event::Closed)
+			window->close();
+
 		centerCoordinates.x = (window->getSize().x) / 2;
 		centerCoordinates.y = (window->getSize().y) / 2;
 		
@@ -1351,15 +1358,71 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 		//Checks if trackball moved left
 		if (sf::Mouse::getPosition(*window).x < centerCoordinates.x)
 			moveLeft = true;
-		//Checks if space bar released
-		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Space))
-			spaceBarReleased = true;
-		//Checks if escape key pressed
-		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape))
-			BaseState::changeState(this, "Pause");
-		if (event.type == sf::Event::Closed)
-			window->close();
 
+		//Launch from base1;
+		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::A))
+		{
+			bool found = false;
+			int decrement = 9;
+			Entity *missile = nullptr;
+			std::vector<Entity *> missiles = systemManager->getMaterial("Base1")->getComponent("MissilesHeld")->getDataEntity();
+			while (!found && decrement >= 0)
+			{
+				if (missiles.at(decrement)->hasComponent("Fired"))
+				{
+					if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
+					{
+						found = true;
+						missile = missiles.at(decrement);
+					}
+				}
+				decrement--;
+			}
+			missileLauncher.fire(missile, systemManager->getMaterial("Base1"), window, systemManager);
+		}
+		//Launch from base2;
+		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::S))
+		{
+			bool found = false;
+			int decrement = 9;
+			Entity *missile = nullptr;
+			std::vector<Entity *> missiles = systemManager->getMaterial("Base2")->getComponent("MissilesHeld")->getDataEntity();
+			while (!found && decrement >= 0)
+			{
+				if (missiles.at(decrement)->hasComponent("Fired"))
+				{
+					if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
+					{
+						found = true;
+						missile = missiles.at(decrement);
+					}
+				}
+				decrement--;
+			}
+			missileLauncher.fire(missile, systemManager->getMaterial("Base2"), window, systemManager);
+		}
+		//Launch from base3;
+		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::D))
+		{
+			bool found = false;
+			int decrement = 9;
+			Entity *missile = nullptr;
+			std::vector<Entity *> missiles = systemManager->getMaterial("Base3")->getComponent("MissilesHeld")->getDataEntity();
+			while (!found && decrement >= 0)
+			{
+				if (missiles.at(decrement)->hasComponent("Fired"))
+				{
+					if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
+					{
+						found = true;
+						missile = missiles.at(decrement);
+					}
+				}
+				decrement--;
+			}
+			missileLauncher.fire(missile, systemManager->getMaterial("Base3"), window, systemManager);
+		}
+		
 		//Run through the game controllers.
 		//Example: Checking for collisions
 		//systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
@@ -1371,6 +1434,8 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 		//else...
 		//return 'f';
 	}
+	
+	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 }
 
 

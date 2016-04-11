@@ -16,7 +16,7 @@ public:
 	void setTotalMissiles(int);
 	int getMissilesLeft();
 	int getTotalMissiles();
-	double setSlope(int, int);
+	double setSlope(double, double);
 	void update(sf::RenderWindow*, Entity *, Entity *, Entity *);
 private:
 	int missilesLeft;

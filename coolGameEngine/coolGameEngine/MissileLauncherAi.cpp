@@ -145,11 +145,11 @@ int MissileLauncherAi::launchMissiles(SystemManager* systemManager, Entity *curr
 		//Sets slope (Which is x/y)
 		currentMissile->getComponent("Slope")->deleteData();
 
-		int changeX = currentMissile->getComponent("ExplodingPosition")->getDataInt().at(0) -
-			currentMissile->getComponent("StartingPosition")->getDataInt().at(0);
+		int changeX = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0) -
+			currentMissile->getComponent("StartingPosition")->getDataDouble().at(0);
 
-		int changeY = currentMissile->getComponent("ExplodingPosition")->getDataInt().at(1) -
-			currentMissile->getComponent("StartingPosition")->getDataInt().at(1);
+		int changeY = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1) -
+			currentMissile->getComponent("StartingPosition")->getDataDouble().at(1);
 
 		currentMissile->getComponent("Slope")->addData(setSlope(changeX, changeY));
 

@@ -277,21 +277,32 @@ std::vector<sf::SoundBuffer *> Property::getDataSoundBuffer()
 template <>
 void Property::addData<int>(int *value)
 {
-	dataInt.push_back(*value);
+	if (typeId == "int")
+		dataInt.push_back(*value);
+	if (typeId == "double")
+		dataDouble.push_back(*value);
+	if (typeId == "float")
+		dataFloat.push_back(*value);
 }
 
 
 template <>
 void Property::addData<double>(double *value)
 {
-	dataDouble.push_back(*value);
+	if (typeId == "double")
+		dataDouble.push_back(*value);
+	if (typeId == "float")
+		dataFloat.push_back(*value);
 }
 
 
 template <>
 void Property::addData<float>(float *value)
 {
-	dataFloat.push_back(*value);
+	if (typeId == "double")
+		dataDouble.push_back(*value);
+	if (typeId == "float")
+		dataFloat.push_back(*value);
 }
 
 
@@ -389,21 +400,32 @@ void Property::addData<Entity>(Entity *value)
 template <>
 void Property::addData<int>(int value)
 {
-	dataInt.push_back(value);
+	if (typeId == "int")
+		dataInt.push_back(value);
+	if (typeId == "double")
+		dataDouble.push_back(value);
+	if (typeId == "float")
+		dataFloat.push_back(value);
 }
 
 
 template <>
 void Property::addData<double>(double value)
 {
-	dataDouble.push_back(value);
+	if (typeId == "double")
+		dataDouble.push_back(value);
+	if (typeId == "float")
+		dataFloat.push_back(value);
 }
 
 
 template <>
 void Property::addData<float>(float value)
 {
-	dataFloat.push_back(value);
+	if (typeId == "double")
+		dataDouble.push_back(value);
+	if (typeId == "float")
+		dataFloat.push_back(value);
 }
 
 

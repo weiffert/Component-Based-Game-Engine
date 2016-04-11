@@ -1,5 +1,7 @@
 #include "MissileLauncher.h"
 
+#include <iostream>
+
 #include "SFML\Graphics.hpp"
 #include "SFML\Window.hpp"
 
@@ -20,62 +22,69 @@ MissileLauncher::~MissileLauncher()
 
 
 //Fires a missile
-int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::RenderWindow *window, SystemManager *systemManager )
+int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::RenderWindow *window, SystemManager *systemManager)
 {
-  
-  //Shoots missile if it has missiles left
-  if (missilesLeft > 0)
-  {
-    //Delete data for exploding position and starting position for missile
-    currentMissile->getComponent("StartingPosition")->deleteData();
-    currentMissile->getComponent("ExplodingPosition")->deleteData();
-    
-    //Push back new values with starting and ending positions, Base1 will start at 1/4 of the screen
-    if(currentBase->getId() == "Base1")
-    {
-      currentMissile->getComponent("StartingPosition")->addData(80); //y for Base1
-      currentMissile->getComponent("StartingPosition")->addData(120); //x for Base1
-      //Set current position to above values
-    }
-    
-    else if(currentBase->getId() == "Base2")
-    {
-      currentMissile->getComponent("StartingPosition")->addData(80); //y for Base2
-	  currentMissile->getComponent("StartingPosition")->addData(240); //x for Base2
-      //Set current position to above values
-    }
-    
-    else if(currentBase->getId() == "Base3")
-    {
-      currentMissile->getComponent("StartingPosition")->addData(80); //y for Base3
-      currentMissile->getComponent("StartingPosition")->addData(360); //x for Base3
-      //Set current position to above values
-    }
-    
-    currentMissile->getComponent("ExplodingPosition")->addData(sf::Mouse::getPosition(*window).y);
-    currentMissile->getComponent("ExplodingPosition")->addData(sf::Mouse::getPosition(*window).x);
-    
-    //Sets slope (Which is x/y)
-    currentMissile->getComponent("Slope")->deleteData();
-    
-    int changeX = currentMissile->getComponent("ExplodingPosition")->getDataInt().at(0)- 
-    currentMissile->getComponent("StartingPosition")->getDataInt().at(0);
-    
-    int changeY = currentMissile->getComponent("ExplodingPosition")->getDataInt().at(1)- 
-    currentMissile->getComponent("StartingPosition")->getDataInt().at(1);
-    
-    currentMissile->getComponent("Slope")->addData(setSlope(changeX, changeY));
-    
-    currentMissile->getComponent("Fired")->deleteData();
-    currentMissile->getComponent("Fired")->addData(true);
-    
-    //Decrease missiles left
-    missilesLeft--;
-    return 1;
-  }
-  
-  //If it doesn't, do not fire and possibly tell the user
-  return 0;
+	if (currentBase->hasComponent("CurrentMissileCount"))
+	{
+		//Shoots missile if it has missiles left
+		int missileCount = currentBase->getComponent("CurrentMissileCount")->getDataInt().at(0);
+		if (missileCount > 0)
+		{
+			//Delete data for exploding position and starting position for missile
+			if (currentMissile->hasComponent("StartingPosition"))
+				currentMissile->getComponent("StartingPosition")->deleteData();
+			if (currentMissile->hasComponent("ExplodingPosition"))
+				currentMissile->getComponent("ExplodingPosition")->deleteData();
+
+			//Push back new values with starting and ending positions
+			if (currentMissile->hasComponent("StartingPosition") && currentBase->hasComponent("CurrentPosition"))
+			{
+				std::vector<double> startPosition = currentBase->getComponent("CurrentPosition")->getDataDouble();
+				currentMissile->getComponent("StartingPosition")->addData(startPosition.at(0)); //x for Base1
+				currentMissile->getComponent("StartingPosition")->addData(startPosition.at(1)); //y for Base1
+			}
+
+			//Set current position to above values
+			if (currentMissile->hasComponent("ExplodingPosition"))
+			{
+				std::cout << sf::Mouse::getPosition(*window).x << "x\ny " << sf::Mouse::getPosition(*window).y << std::endl;
+				currentMissile->getComponent("ExplodingPosition")->addData(sf::Mouse::getPosition(*window).x);
+				currentMissile->getComponent("ExplodingPosition")->addData(sf::Mouse::getPosition(*window).y);
+			}
+
+			//Sets slope (Which is x/y)
+			if (currentMissile->hasComponent("Slope"))
+				currentMissile->getComponent("Slope")->deleteData();
+
+			double changeX = 0;
+			if (currentMissile->hasComponent("ExplodingPosition") && currentMissile->hasComponent("StartingPosition"))
+				changeX = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0) - currentMissile->getComponent("StartingPosition")->getDataDouble().at(0);
+
+			double changeY = 0;
+			if (currentMissile->hasComponent("ExplodingPosition") && currentMissile->hasComponent("StartingPosition"))
+				changeY = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1) - currentMissile->getComponent("StartingPosition")->getDataDouble().at(1);
+
+			if (currentMissile->hasComponent("Slope"))
+			{
+				currentMissile->getComponent("Slope")->deleteData();
+				currentMissile->getComponent("Slope")->addData(setSlope(changeX, changeY));
+			}
+
+			if (currentMissile->hasComponent("Fired"))
+			{
+				currentMissile->getComponent("Fired")->deleteData();
+				currentMissile->getComponent("Fired")->addData(true);
+			}
+
+			//Decrease missiles left
+			currentBase->getComponent("CurrentMissileCount")->deleteData();
+			currentBase->getComponent("CurrentMissileCount")->addData(--missileCount);
+			return 1;
+		}
+	}
+
+	//If it doesn't, do not fire and possibly tell the user
+	return 0;
 }
 
 
@@ -93,14 +102,15 @@ void MissileLauncher::setTotalMissiles(int a)
 }
 
 
-double MissileLauncher::setSlope(int pathX, int pathY)
+double MissileLauncher::setSlope(double pathX, double pathY)
 {
   double speedX;
   
-  speedX = double(pathX) / double(pathY);
+  speedX =pathX / pathY;
   
   return speedX;
 }
+
 
 int MissileLauncher::getMissilesLeft()
 {
@@ -123,18 +133,17 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 	bases.push_back(Base3);
 
 	//Goes through all the missiles for the three bases
-	for (int base = 1; base < 4; base++)
+	for (int base = 0; base < 3; base++)
 	{
+		std::vector<Entity *> missiles = bases.at(base)->getComponent("MissilesHeld")->getDataEntity();
 		for (int i = 0; i < 10; i++)
 		{
-			std::vector<Entity *> missiles = bases.at(base)->getComponent("MissilesHeld")->getDataEntity();
 			if (missiles.at(i)->getComponent("Fired")->getDataBool().at(0))
 			{
 				slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
 				missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) += slope;
 				missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) -= 1;
-				sf::Sprite *sprite = missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0);
-				sprite->move(slope, -1);
+				missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0)->move(slope, -1);
 				//If the current Missile is positioned on its explosion point, (give an error of .1)
 
 				//Check x values
