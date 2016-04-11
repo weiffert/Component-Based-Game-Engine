@@ -8,3 +8,4 @@ ExplosionPhase ;
 ExplosionRadius ;
 Slope ;
 Fired ;
+ChemTrail ;
