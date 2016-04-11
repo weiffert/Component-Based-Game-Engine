@@ -142,10 +142,9 @@ int MissileLauncherAi::launchMissiles(SystemManager* systemManager, Entity *curr
 		}
 		//What does this do?
 		currentMissile->getComponent("StartingPosition")->deleteData();
-		currentMissile->getComponent("StartingPosition")->(-5);
-		
-		currentMissile->getComponent("StartingPosition")->deleteData();
-		currentMissile->getComponent("StartingPosition")->(rand() % 480 + 1);
+		currentMissile->getComponent("StartingPosition")->addData(-5);
+	
+		currentMissile->getComponent("StartingPosition")->addData(rand() % 480 + 1);
 
 		//Sets slope (Which is x/y)
 		currentMissile->getComponent("Slope")->deleteData();

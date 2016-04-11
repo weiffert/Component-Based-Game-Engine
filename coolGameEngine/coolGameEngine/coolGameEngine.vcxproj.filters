@@ -16,6 +16,31 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="propertyVelocity.txt" />
+    <Text Include="propertyTotalMissileCount.txt" />
+    <Text Include="propertyTexture.txt" />
+    <Text Include="propertyText.txt" />
+    <Text Include="propertyStateNumber.txt" />
+    <Text Include="propertyStateId.txt" />
+    <Text Include="propertyStartingPosition.txt" />
+    <Text Include="propertySprite.txt" />
+    <Text Include="propertySlope.txt" />
+    <Text Include="propertySelect.txt" />
+    <Text Include="propertyPoints.txt" />
+    <Text Include="propertyOrder.txt" />
+    <Text Include="propertyMissilesHeld.txt" />
+    <Text Include="propertyLife.txt" />
+    <Text Include="propertyFired.txt" />
+    <Text Include="propertyExplosionRadius.txt" />
+    <Text Include="propertyExplosionPhase.txt" />
+    <Text Include="propertyExplodingPosition.txt" />
+    <Text Include="propertyCurrentPosition.txt" />
+    <Text Include="propertyCurrentMissileCount.txt" />
+    <Text Include="propertyCircleShape.txt" />
+    <Text Include="game.txt" />
+    <Text Include="log.txt" />
+    <Text Include="file.txt" />
+    <Text Include="entitySelect.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -160,5 +185,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="coolGameEngine.aps" />
+    <None Include="sfml-audio-2.dll" />
+    <None Include="sfml-audio-d-2.dll" />
+    <None Include="sfml-graphics-2.dll" />
+    <None Include="sfml-graphics-d-2.dll" />
+    <None Include="sfml-network-2.dll" />
+    <None Include="sfml-network-d-2.dll" />
+    <None Include="sfml-system-2.dll" />
+    <None Include="sfml-system-d-2.dll" />
+    <None Include="sfml-window-2.dll" />
+    <None Include="sfml-window-d-2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="missile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="plane.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
