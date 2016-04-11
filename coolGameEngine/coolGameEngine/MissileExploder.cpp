@@ -65,6 +65,4 @@ void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
 	explosion.setRadius(missile->getComponent("ExplosionRadius")->getDataDouble().at(0));
 	explosion.setFillColor(sf::Color::Red);
 	explosion.setPosition(missile->getComponent("ExplodingPosition")->getDataDouble().at(0), missile->getComponent("ExplodingPosition")->getDataDouble().at(1));
-
-	window->draw(explosion);
 }
