@@ -41,7 +41,8 @@ public:
 	std::vector<Entity *> getDataEntity();
 	std::vector<sf::Sound *> getDataSound();
 	std::vector<sf::SoundBuffer *> getDataSoundBuffer();
-
+	std::vector<sf::Vertex[] *> getDataLine();
+	
 	//Edit the data.
 	void deleteData();
 	void deleteDataPosition(int);
@@ -78,4 +79,5 @@ private:
 	std::vector<Entity*> dataEntity;
 	std::vector<sf::Sound*> dataSound;
 	std::vector<sf::SoundBuffer*> dataSoundBuffer;
+	std::vector<sf::vertex [] *> dataLine;
 };
