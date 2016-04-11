@@ -19,6 +19,7 @@ propertyStateNumber.txt
 propertyStateId.txt
 propertyExplosionRadius.txt
 propertyText.txt
+propertyCircleShape.txt
 
 entityMissile.txt
 entityBase.txt
