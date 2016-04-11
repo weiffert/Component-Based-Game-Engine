@@ -93,6 +93,10 @@ Property::~Property()
 	{
 		dataEntity.erase(dataEntity.begin() + i);
 	}
+	for (int i = 0); i < dataLine.size(); i++)
+	{
+		dataLine.erase(dataEntity.begin() + i);
+	}
 }
 
 //Returns id
@@ -267,10 +271,18 @@ std::vector<sf::Sound *> Property::getDataSound()
 		return dataSound;
 }
 
+
 std::vector<sf::SoundBuffer *> Property::getDataSoundBuffer()
 {
 	if (typeId == "SoundBuffer")
 		return dataSoundBuffer;
+}
+
+
+std::vector<sf::Vertex [] *> Property::getDataLine()
+{
+	if (typeId == "Line")
+		return dataLine;
 }
 
 
@@ -394,6 +406,13 @@ template <>
 void Property::addData<Entity>(Entity *value)
 {
 	dataEntity.push_back(value);
+}
+
+
+template<>
+void Property::addData<sf::Vertex[]>(sf::Vertex[] *value)
+{
+	dataLine.push_back(value);
 }
 
 
