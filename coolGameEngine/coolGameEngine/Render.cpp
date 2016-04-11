@@ -28,62 +28,62 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 	//Temp stores the property to be drawn.
 	Property *temp;
 	temp = nullptr;
-	int *x = 0, *y = 0;
+	int x = 0, y = 0;
 	//Check if it can be drawn.
 	if (a->hasComponent("Sprite"))
 	{
 		temp = a->getComponent("Sprite");
-		if (movement(lag, a, x, y))
-			temp->getDataSprite().at(0)->move(*x, *y);
+//		if (movement(lag, a, x, y))
+//			temp->getDataSprite().at(0)->move(x, y);
 		window->draw(*(temp->getDataSprite().at(0)));
 	}
 	if (a->hasComponent("Text"))
 	{
 		temp = a->getComponent("Text");
-		if (movement(lag, a, x, y))
-			temp->getDataText().at(0)->move(*x, *y);
+//		if (movement(lag, a, x, y))
+//			temp->getDataText().at(0)->move(x, y);
 		window->draw(*(temp->getDataText().at(0)));
 	}
 	if (a->hasComponent("CircleShape"))
 	{
 		temp = a->getComponent("CircleShape");
-		if (movement(lag, a, x, y))
-			temp->getDataCircleShape().at(0)->move(*x, *y);
+//		if (movement(lag, a, x, y))
+//			temp->getDataCircleShape().at(0)->move(x, y);
 		window->draw(*(temp->getDataCircleShape().at(0)));
 	}
 	if (a->hasComponent("ConvexShape"))
 	{
 		temp = a->getComponent("ConvexShape");
-		if (movement(lag, a, x, y))
-			temp->getDataConvexShape().at(0)->move(*x, *y);
+//		if (movement(lag, a, x, y))
+//			temp->getDataConvexShape().at(0)->move(x, y);
 		window->draw(*(temp->getDataConvexShape().at(0)));
 	}
 	if (a->hasComponent("RectangleShape"))
 	{
 		temp = a->getComponent("RectangleShape");
-		if (movement(lag, a, x, y))
-			temp->getDataRectangleShape().at(0)->move(*x, *y);
+//		if (movement(lag, a, x, y))
+//			temp->getDataRectangleShape().at(0)->move(x, y);
 		window->draw(*(temp->getDataRectangleShape().at(0)));
 	}
 }
 
 
-bool Render::movement(double lag, Entity* a, int* i, int* j)
+bool Render::movement(double lag, Entity* a, int &i, int &j)
 {
 	Property * temp2, *temp3;
 	temp2 = nullptr;
 	temp3 = nullptr;
 	//Update position based on time lag.
 	double x, y, changeX, changeY;
-	if (a->hasComponent("velocity"))
+	if (a->hasComponent("Velocity"))
 	{
 		//Holds the velocity.
-		temp2 = a->getComponent("velocity");
+		temp2 = a->getComponent("Velocity");
 
-		if (a->hasComponent("position"))
+		if (a->hasComponent("CurrentPosition"))
 		{
 			//Holds the current position.
-			temp3 = a->getComponent("position");
+			temp3 = a->getComponent("CurrentPosition");
 
 			//Update Position.
 			//speed * lag = distance.
@@ -94,8 +94,8 @@ bool Render::movement(double lag, Entity* a, int* i, int* j)
 			x += changeX;
 			y += changeY;
 			//Store new position.
-			*i = x;
-			*j = y;
+			i = x;
+			j = y;
 
 			return true;
 		}
