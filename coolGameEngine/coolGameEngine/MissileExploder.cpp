@@ -40,8 +40,9 @@ void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
 			missile->getComponent("ExplosionPhase")->deleteData();
 			missile->getComponent("ExplosionPhase")->addData(-1);
 		}
+		
 		//Check to see if the explosion disappears
-		if (missile->getComponent("ExplosioRadius")->getDataDouble().at(0) - rate * missile->getComponent("ExplosionPhase")->getDataInt().at(0) < 0)
+		if (missile->getComponent("ExplosionRadius")->getDataDouble().at(0) - rate * missile->getComponent("ExplosionPhase")->getDataInt().at(0) < 0)
 		{
 			missile->getComponent("ExplosionRadius")->deleteData();
 			missile->getComponent("ExplosionRadius")->addData(0);
@@ -57,12 +58,4 @@ void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
 			missile->getComponent("ExplosionRadius")->addData(tempRadius);
 		}
 	}
-
-	//Allow for rendering to occur in Render.cpp
-	//Basically, push this to a property circleshape that belongs to missile.
-	//Actually draw the circle/explosion
-	sf::CircleShape explosion;
-	explosion.setRadius(missile->getComponent("ExplosionRadius")->getDataDouble().at(0));
-	explosion.setFillColor(sf::Color::Red);
-	explosion.setPosition(missile->getComponent("ExplodingPosition")->getDataDouble().at(0), missile->getComponent("ExplodingPosition")->getDataDouble().at(1));
 }
