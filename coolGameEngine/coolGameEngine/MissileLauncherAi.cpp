@@ -68,8 +68,10 @@ int MissileLauncherAi::launchMissiles(SystemManager* systemManager, Entity *curr
 		int missileTarget = rand() % 3 + 1;
 
 		//Delete data for exploding position and starting position for missile
-		currentMissile->getComponent("StartingPosition")->deleteData();
-		currentMissile->getComponent("ExplodingPosition")->deleteData();
+		if (currentMissile->hasComponent("StartingPosition"))
+			currentMissile->getComponent("StartingPosition")->deleteData();
+		if (currentMissile->hasComponent("ExplodingPosition"))
+			currentMissile->getComponent("ExplodingPosition")->deleteData();
 
 
 		if (missileTarget != 1)
@@ -139,8 +141,8 @@ int MissileLauncherAi::launchMissiles(SystemManager* systemManager, Entity *curr
 
 		}
 		//What does this do?
-		currentMissile->getComponent("StartingPosition")/*->(someplace off - screen)*/;
-		currentMissile->getComponent("StartingPosition")/*->(random x position)*/;
+		currentMissile->getComponent("StartingPosition")->(-5);
+		currentMissile->getComponent("StartingPosition")->(rand() % 480 + 1);
 
 		//Sets slope (Which is x/y)
 		currentMissile->getComponent("Slope")->deleteData();
