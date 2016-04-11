@@ -17,7 +17,7 @@ propertyCurrentMissileCount.txt
 propertyTotalMissileCount.txt
 propertyPoints.txt
 propertyCircleShape.txt
-
+propertyChemTrail.txt
 
 entityGround.txt
 

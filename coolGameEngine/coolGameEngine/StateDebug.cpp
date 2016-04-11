@@ -399,7 +399,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 						}
 						else if (data.at(i) == "setTexture")
 						{
-							shape->setTexture(assetManager->getTexture(BaseState::conversionInt(data.at(++i))));
+							sf::Texture *texture = new sf::Texture;
+							if (!texture->loadFromFile(data.at(++i)))
+								std::cout << "Failed to load " << data.at(i) << std::endl;
+							shape->setTexture(texture, false);
+							assetManager->add(texture);
 						}
 						else if (data.at(i) == "setTextureRect")
 						{
@@ -456,7 +460,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 						}
 						else if (data.at(i) == "setTexture")
 						{
-							shape->setTexture(assetManager->getTexture(BaseState::conversionInt(data.at(++i))));
+							sf::Texture *texture = new sf::Texture;
+							if (!texture->loadFromFile(data.at(++i)))
+								std::cout << "Failed to load " << data.at(i) << std::endl;
+							shape->setTexture(texture, false);
+							assetManager->add(texture);
 						}
 						else if (data.at(i) == "setTextureRect")
 						{
@@ -510,7 +518,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 						}
 						else if (data.at(i) == "setTexture")
 						{
-							shape->setTexture(assetManager->getTexture(BaseState::conversionInt(data.at(++i))));
+							sf::Texture *texture = new sf::Texture;
+							if (!texture->loadFromFile(data.at(++i)))
+								std::cout << "Failed to load " << data.at(i) << std::endl;
+							shape->setTexture(texture, false);
+							assetManager->add(texture);
 						}
 						else if (data.at(i) == "setTextureRect")
 						{
@@ -920,7 +932,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 								}
 								else if (properties.at(y).at(i) == "setTexture")
 								{
-									shape->setTexture(assetManager->getTexture(BaseState::conversionInt(properties.at(y).at(++i))));
+									sf::Texture *texture = new sf::Texture;
+									if (!texture->loadFromFile(properties.at(y).at(++i)))
+										std::cout << "Failed to load " << properties.at(y).at(i) << std::endl;
+									shape->setTexture(texture, false);
+									assetManager->add(texture);
 								}
 								else if (properties.at(y).at(i) == "setTextureRect")
 								{
@@ -977,7 +993,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 								}
 								else if (properties.at(y).at(i) == "setTexture")
 								{
-									shape->setTexture(assetManager->getTexture(BaseState::conversionInt(properties.at(y).at(++i))));
+									sf::Texture *texture = new sf::Texture;
+									if (!texture->loadFromFile(properties.at(y).at(++i)))
+										std::cout << "Failed to load " << properties.at(y).at(i) << std::endl;
+									shape->setTexture(texture, false);
+									assetManager->add(texture);
 								}
 								else if (properties.at(y).at(i) == "setTextureRect")
 								{
@@ -1031,7 +1051,11 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 								}
 								else if (properties.at(y).at(i) == "setTexture")
 								{
-									shape->setTexture(assetManager->getTexture(BaseState::conversionInt(properties.at(y).at(++i))));
+									sf::Texture *texture = new sf::Texture;
+									if (!texture->loadFromFile(properties.at(y).at(++i)))
+										std::cout << "Failed to load " << properties.at(y).at(i) << std::endl;
+									shape->setTexture(texture, false);
+									assetManager->add(texture);
 								}
 								else if (properties.at(y).at(i) == "setTextureRect")
 								{

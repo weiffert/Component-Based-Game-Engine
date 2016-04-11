@@ -130,7 +130,7 @@ int MissileLauncher::getTotalMissiles()
 void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Base2, Entity *Base3)
 {
 	double slope;
-	double temp1, temp2
+	double temp1, temp2;
 	std::vector<Entity*> bases;
 	bases.push_back(Base1);
 	bases.push_back(Base2);
@@ -144,25 +144,35 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 		{
 			if (missiles.at(i)->getComponent("Fired")->getDataBool().at(0))
 			{
-				slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
-				temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) + slope;
-				missiles.at(i)->getComponent("CurrentPosition")->deleteData();
-				missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
-				temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) - 1;
-				missiles.at(i)->getComponent("CurrentPosition")->deleteData();
-				missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
-				missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0)->move(slope, -1);
+				if (missiles.at(i)->hasComponent("Slope"))
+					slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
+				if (missiles.at(i)->hasComponent("CurrentPosition"))
+				{
+					temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) + slope;
+					missiles.at(i)->getComponent("CurrentPosition")->deleteData();
+					missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
+					temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) - 1;
+					missiles.at(i)->getComponent("CurrentPosition")->deleteData();
+					missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
+				}
+				if (missiles.at(i)->hasComponent("Sprite"))
+					missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0)->move(slope, -1);
 				
 				//Adjust Chem Trail
-				temp1 = missiles.at(i)->getComponent("ChemTrail")->getDataInt(0);
-				temp2 = missiles.at(i)->getComponent("ChemTrail")->getDataInt(1);
-				missiles.at(i)->getComponent("ChemTrail")->deleteData();
-				missiles.at(i)->getComponent("ChemTrail")->addData(temp1);
-				missiles.at(i)->getComponent("ChemTrail")->addData(temp2);
-				missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->
-				getComponent("CurrentPosition")->getDataDouble().at(0));
-				missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->
-				getComponent("CurrentPosition")->getDataDouble().at(1));
+
+				if (missiles.at(i)->hasComponent("ChemTrail"))
+				{
+					temp1 = missiles.at(i)->getComponent("ChemTrail")->getDataInt().at(0);
+					temp2 = missiles.at(i)->getComponent("ChemTrail")->getDataInt().at(1);
+					missiles.at(i)->getComponent("ChemTrail")->deleteData();
+					missiles.at(i)->getComponent("ChemTrail")->addData(temp1);
+					missiles.at(i)->getComponent("ChemTrail")->addData(temp2);
+					missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->
+						getComponent("CurrentPosition")->getDataDouble().at(0));
+					if (missiles.at(i)->hasComponent("CurrentPosition"))
+						missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+				}
+				
 				
 				//If the current Missile is positioned on its explosion point, (give an error of .1)
 
