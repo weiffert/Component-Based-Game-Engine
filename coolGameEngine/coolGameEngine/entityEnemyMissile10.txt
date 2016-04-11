@@ -6,5 +6,6 @@ StartingPosition ;
 ExplodingPosition ;
 ExplosionPhase ;
 ExplosionRadius ;
+ChemTrail ;
 Slope ;
 Fired ;
