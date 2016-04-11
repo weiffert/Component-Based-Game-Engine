@@ -127,6 +127,7 @@ int MissileLauncher::getTotalMissiles()
 void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Base2, Entity *Base3)
 {
 	double slope;
+	double temp;
 	std::vector<Entity*> bases;
 	bases.push_back(Base1);
 	bases.push_back(Base2);
@@ -141,9 +142,14 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 			if (missiles.at(i)->getComponent("Fired")->getDataBool().at(0))
 			{
 				slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
-				missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) += slope;
-				missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) -= 1;
+				temp = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) + slope;
+				missiles.at(i)->getComponent("CurrentPosition")->deleteData();
+				missiles.at(i)->getComponent("CurrentPosition")->addData(temp);
+				temp = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) - 1;
+				missiles.at(i)->getComponent("CurrentPosition")->deleteData();
+				missiles.at(i)->getComponent("CurrentPosition")->addData(temp);
 				missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0)->move(slope, -1);
+				
 				//If the current Missile is positioned on its explosion point, (give an error of .1)
 
 				//Check x values
