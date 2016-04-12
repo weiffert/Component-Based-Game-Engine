@@ -1225,6 +1225,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 									*line[1] = sf::Vertex(v);
 								}
 							}
+							component->addData(line);
 						}
 						
 						else
