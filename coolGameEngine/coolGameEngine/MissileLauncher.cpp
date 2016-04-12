@@ -149,6 +149,7 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 {
 	double slope;
 	double temp1, temp2;
+	sf::Vertex line[2];
 	std::vector<Entity*> bases;
 	bases.push_back(Base1);
 	bases.push_back(Base2);
@@ -184,13 +185,21 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 					s->setPosition(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
 				}
 				
+<<<<<<< HEAD
 				//Adjust Chem Trail
 				/*
 				if (missiles.at(i)->hasComponent("ChemTrail"))
+=======
+				///Adjust Chem Trail if missile is still alive
+				if (missiles.at(i)->getComponent("Life")->getDataBool() && missiles.at(i)->hasComponent("ChemTrail"))
+>>>>>>> 840e03cef478361d9c9754d025d4dc94450cfaaf
 				{
-					temp1 = missiles.at(i)->getComponent("ChemTrail")->getDataDouble().at(0);
-					temp2 = missiles.at(i)->getComponent("ChemTrail")->getDataDouble().at(1);
+					line[0] = sf::Vertex(sf::Vector2f(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)
+						, missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)));
+					line[1] = sf::Vertex(sf::Vector2f(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0)
+						, missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1)));
 					missiles.at(i)->getComponent("ChemTrail")->deleteData();
+<<<<<<< HEAD
 					missiles.at(i)->getComponent("ChemTrail")->addData(temp1);
 					missiles.at(i)->getComponent("ChemTrail")->addData(temp2);
 					missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->
@@ -198,6 +207,10 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 					if (missiles.at(i)->hasComponent("CurrentPosition"))
 						missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
 				}*/
+=======
+					missiles.at(i)->getComponent("ChemTrail")->addData(line);	
+				}
+>>>>>>> 840e03cef478361d9c9754d025d4dc94450cfaaf
 				
 				
 				//If the current Missile is positioned on its explosion point, (give an error of .1)
