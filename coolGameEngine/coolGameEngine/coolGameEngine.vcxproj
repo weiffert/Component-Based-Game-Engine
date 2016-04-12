@@ -95,7 +95,6 @@
     <Text Include="propertyFired.txt" />
     <Text Include="propertyLife.txt" />
     <Text Include="propertyMissilesHeld.txt" />
-    <Text Include="propertyOrder.txt" />
     <Text Include="propertyPoints.txt" />
     <Text Include="propertySelect.txt" />
     <Text Include="propertySlope.txt" />

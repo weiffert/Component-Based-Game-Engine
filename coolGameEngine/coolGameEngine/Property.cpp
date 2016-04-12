@@ -370,16 +370,13 @@ void Property::addData<Entity>(Entity *value)
 }
 
 
+/*
 template<>
-<<<<<<< HEAD
-void Property::addData<sf::Vertex>(sf::Vertex *value)
-=======
 void Property::addData<sf::Vertex[]>(sf::Vertex *value[])
->>>>>>> origin/game-engine
 {
 	dataLine.push_back(value);
 }
-
+*/
 
 template <>
 void Property::addData<int>(int value)
@@ -433,12 +430,13 @@ void Property::addData<std::string>(std::string value)
 	dataString.push_back(value);
 }
 
-
+/*
 template <>
 void property::addData<sf::Vertex[]>(sf::Vertex value[])
 {
 	dataLine.push_back(value);
 }
+*/
 
 
 //Subtracts value from existing data.
@@ -471,7 +469,7 @@ void Property::deleteData()
 	}
 	while (!dataSprite.empty())
 	{
-		delete dataSprite.at(dataSprite.size()-1);
+		delete dataSprite.at(dataSprite.size() - 1);
 		dataSprite.pop_back();
 	}
 	while (!dataImage.empty())
@@ -515,13 +513,10 @@ void Property::deleteData()
 	{
 		dataEntity.pop_back();
 	}
-	if (typeId == "Line")
+	while (!dataLine.empty())
 	{
-		for (int i = 0; i < dataLine,size(); i++)
-		{
-			delete dataLine.at(i);
-			dataLine.erase(dataLine.begin() + i);
-		}
+		delete dataLine.at(dataLine.size() - 1);
+		dataLine.pop_back();
 	}
 }
 
@@ -740,7 +735,7 @@ void Property::deleteData<Entity>(Entity *value)
 	}
 }
 
-
+/*
 template <>
 void Property::deleteData<sf::Vertex [] *>(sf::Vertex *value[])
 {
@@ -752,6 +747,7 @@ void Property::deleteData<sf::Vertex [] *>(sf::Vertex *value[])
 		}
 	}
 }
+*/
 
 //Subtracts value from existing data with the position.
 //Takes in the position with data to be deleted.
@@ -1046,6 +1042,7 @@ void Property::changeData<Entity>(Entity *value, int position)
 }
 
 
+/*
 template <>
 void Property::changeData<sf::Vertex [] *> (sf::Vertex *value[], int position)
 {
@@ -1054,3 +1051,4 @@ void Property::changeData<sf::Vertex [] *> (sf::Vertex *value[], int position)
 	else
 		addData(value);
 }
+*/

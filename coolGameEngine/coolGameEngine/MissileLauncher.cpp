@@ -250,6 +250,8 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 					}
 				}
 			}
+			MissileExploder exploder;
+			exploder.control(window, missiles.at(i));
 		}
 	}
 }

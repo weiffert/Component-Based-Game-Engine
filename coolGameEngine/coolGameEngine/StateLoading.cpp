@@ -1206,6 +1206,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 							component->addData(text);
 						}
+						/*
 						else if (type == "Line")
 						{
 							//Set default to 0,0 to 0,0
@@ -1227,7 +1228,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							}
 							component->addData(line);
 						}
-						
+						*/
 						else
 						{
 							for (int i = 1; i < properties.at(y).size(); i++)

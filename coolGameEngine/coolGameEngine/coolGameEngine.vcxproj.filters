@@ -27,7 +27,6 @@
     <Text Include="propertySlope.txt" />
     <Text Include="propertySelect.txt" />
     <Text Include="propertyPoints.txt" />
-    <Text Include="propertyOrder.txt" />
     <Text Include="propertyMissilesHeld.txt" />
     <Text Include="propertyLife.txt" />
     <Text Include="propertyFired.txt" />
