@@ -1,0 +1,5 @@
+Plane ;
+Life ;
+Velocity ;
+Sprite ;
+CurrentPosition ;
