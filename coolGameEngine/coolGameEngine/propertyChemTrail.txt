@@ -1,3 +1,4 @@
 ChemTrail ;
-double ;
-0 0 0 0 ;
+Line ;
+setStart 0 0 
+setEnd 0 0 ;
