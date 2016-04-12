@@ -28,28 +28,35 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 	//Temp stores the property to be drawn.
 	Property *temp;
 	temp = nullptr;
-	int x = 0, y = 0;
+	double x = 0, y = 0;
+
 	//Check if it can be drawn.
 	if (a->hasComponent("Draw"))
 	{
 		if (a->getComponent("Draw")->getDataBool().at(0) == true)
 		{
-			if (a->hasComponent("Sprite"))
+			if (a->hasComponent("DrawSprite"))
 			{
-				temp = a->getComponent("Sprite");
-/*				if (a->hasComponent("Move"))
-					if (a->getComponent("Move")->getDataBool().at(0))
-						if (movement(lag, a, x, y))
-							temp->getDataSprite().at(0)->move(x, y);*/
-				window->draw(*(temp->getDataSprite().at(0)));
+				if (a->getComponent("DrawSprite")->getDataBool().at(0) == true)
+				{
+					if (a->hasComponent("Sprite"))
+					{
+						temp = a->getComponent("Sprite");
+//						if (a->hasComponent("Move"))
+//							if (a->getComponent("Move")->getDataBool().at(0))
+//								if (movement(lag, a, x, y))
+//									temp->getDataSprite().at(0)->setPosition(x, y);
+						window->draw(*(temp->getDataSprite().at(0)));
+					}
+				}
 			}
 			if (a->hasComponent("Text"))
 			{
 				temp = a->getComponent("Text");
-/*				if (a->hasComponent("Move"))
+				if (a->hasComponent("Move"))
 					if (a->getComponent("Move")->getDataBool().at(0))
 						if (movement(lag, a, x, y))
-							temp->getDataText().at(0)->move(x, y);*/
+							temp->getDataText().at(0)->setPosition(x, y);
 				window->draw(*(temp->getDataText().at(0)));
 			}
 			if (a->hasComponent("CircleShape"))
@@ -58,7 +65,7 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 				if (a->hasComponent("Move"))
 					if (a->getComponent("Move")->getDataBool().at(0))
 						if (movement(lag, a, x, y))
-							temp->getDataCircleShape().at(0)->move(x, y);
+							temp->getDataCircleShape().at(0)->setPosition(x, y);
 				window->draw(*(temp->getDataCircleShape().at(0)));
 			}
 			if (a->hasComponent("ConvexShape"))
@@ -67,7 +74,7 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 				if (a->hasComponent("Move"))
 					if (a->getComponent("Move")->getDataBool().at(0))
 						if (movement(lag, a, x, y))
-							temp->getDataConvexShape().at(0)->move(x, y);
+							temp->getDataConvexShape().at(0)->setPosition(x, y);
 				window->draw(*(temp->getDataConvexShape().at(0)));
 			}
 			if (a->hasComponent("RectangleShape"))
@@ -76,7 +83,7 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 				if (a->hasComponent("Move"))
 					if (a->getComponent("Move")->getDataBool().at(0))
 						if (movement(lag, a, x, y))
-							temp->getDataRectangleShape().at(0)->move(x, y);
+							temp->getDataRectangleShape().at(0)->setPosition(x, y);
 				window->draw(*(temp->getDataRectangleShape().at(0)));
 			}
 			/*
@@ -95,7 +102,7 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 }
 
 
-bool Render::movement(double lag, Entity* a, int &i, int &j)
+bool Render::movement(double lag, Entity* a, double &i, double &j)
 {
 	Property * temp2, *temp3;
 	temp2 = nullptr;
@@ -116,8 +123,8 @@ bool Render::movement(double lag, Entity* a, int &i, int &j)
 			//speed * lag = distance.
 			x = temp3->getDataDouble().at(0);
 			y = temp3->getDataDouble().at(1);
-			changeX = temp2->getDataDouble().at(0) * lag;
-			changeY = temp2->getDataDouble().at(1) * lag;
+			changeX = temp2->getDataDouble().at(1) * lag;
+			changeY = temp2->getDataDouble().at(2) * lag;
 			x += changeX;
 			y += changeY;
 			//Store new position.

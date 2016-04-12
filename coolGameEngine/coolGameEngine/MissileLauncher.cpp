@@ -49,7 +49,6 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 			if (currentMissile->hasComponent("ExplodingPosition"))
 			{
 				currentMissile->getComponent("ExplodingPosition")->deleteData();
-				std::cout << sf::Mouse::getPosition(*window).x << "x\ny " << sf::Mouse::getPosition(*window).y << std::endl;
 				currentMissile->getComponent("ExplodingPosition")->addData(sf::Mouse::getPosition(*window).x);
 				currentMissile->getComponent("ExplodingPosition")->addData(sf::Mouse::getPosition(*window).y);
 			}
@@ -164,82 +163,90 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 		{
 			if (missiles.at(i)->getComponent("Fired")->getDataBool().at(0))
 			{
-				if (missiles.at(i)->hasComponent("Slope"))
-					slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
-				if (missiles.at(i)->hasComponent("CurrentPosition") && missiles.at(i)->hasComponent("StartingPosition") && missiles.at(i)->hasComponent("Velocity"))
+				if (missiles.at(i)->getComponent("Life")->getDataBool().at(0))
 				{
-					double theta = atan((missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)) / (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)));
-					theta *= -1;
-					double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);
-					double lengthX = velocity * cos(theta);
-
-					temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) + lengthX;
-					temp2 = slope * (temp1 - missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0)) + -1 * missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
-					temp2 *= -1;
-
-					//missiles.at(i)->getComponent("Velocity")->deleteData();
-					//missiles.at(i)->getComponent("Velocity")->addData(velocity);
-					//missiles.at(i)->getComponent("Velocity")->addData(temp2 - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
-
-					missiles.at(i)->getComponent("CurrentPosition")->deleteData();
-					missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
-					missiles.at(i)->getComponent("CurrentPosition")->addData(temp2);
-
-
-					sf::Sprite *s = missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0);
-					s->setPosition(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
-				}
-				/*
-<<<<<<< HEAD
-				//Adjust Chem Trail
-				/*
-				if (missiles.at(i)->hasComponent("ChemTrail"))
-=======
-				///Adjust Chem Trail if missile is still alive
-				if (missiles.at(i)->getComponent("Life")->getDataBool() && missiles.at(i)->hasComponent("ChemTrail"))
->>>>>>> 840e03cef478361d9c9754d025d4dc94450cfaaf
-				{
-					line[0] = sf::Vertex(sf::Vector2f(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)
-						, missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)));
-					line[1] = sf::Vertex(sf::Vector2f(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0)
-						, missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1)));
-					missiles.at(i)->getComponent("ChemTrail")->deleteData();
-<<<<<<< HEAD
-					missiles.at(i)->getComponent("ChemTrail")->addData(temp1);
-					missiles.at(i)->getComponent("ChemTrail")->addData(temp2);
-					missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->
-						getComponent("CurrentPosition")->getDataDouble().at(0));
-					if (missiles.at(i)->hasComponent("CurrentPosition"))
-						missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
-				}
-=======
-					missiles.at(i)->getComponent("ChemTrail")->addData(line);	
-				}
->>>>>>> 840e03cef478361d9c9754d025d4dc94450cfaaf
-				*/
-				
-				//If the current Missile is positioned on its explosion point, (give an error of .1)
-
-
-				//Check x values
-				if (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0) <=
-					missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) &&
-					missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) + missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0) >=
-					missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0))
-				{
-					//check y values
-					if (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - missiles.at(i)->getComponent("Velocity")->getDataDouble().at(1) <=
-						missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) &&
-						missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) + missiles.at(i)->getComponent("Velocity")->getDataDouble().at(1) >=
-						missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1))
+					if (missiles.at(i)->hasComponent("Slope"))
+						slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
+					if (missiles.at(i)->hasComponent("CurrentPosition") && missiles.at(i)->hasComponent("StartingPosition") && missiles.at(i)->hasComponent("Velocity"))
 					{
-						//Make the missile explode
-						MissileExploder exploder;
-						exploder.control(window, missiles.at(i));
-						bool notTrue = false;
-						missiles.at(i)->getComponent("Life")->changeData(&notTrue, 0);
-						missiles.at(i)->getComponent("Draw")->changeData(&notTrue, 0);
-						missiles.at(i)->getComponent("Move")->changeData(&notTrue, 0);
+						double theta = atan((missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)) / (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)));
+						theta *= -1;
+						double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);
+						double lengthX = velocity * cos(theta);
+						double lengthY = velocity * sin(theta);
+
+						temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) + lengthX;
+						temp2 = slope * (temp1 - missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0)) + -1 * missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
+						temp2 *= -1;
+
+						missiles.at(i)->getComponent("Velocity")->deleteData();
+						missiles.at(i)->getComponent("Velocity")->addData(velocity);
+						missiles.at(i)->getComponent("Velocity")->addData(lengthX);
+						missiles.at(i)->getComponent("Velocity")->addData(lengthY);
+
+						missiles.at(i)->getComponent("CurrentPosition")->deleteData();
+						missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
+						missiles.at(i)->getComponent("CurrentPosition")->addData(temp2);
+
+
+						sf::Sprite *s = missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0);
+						s->setPosition(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+					}
+					/*
+	<<<<<<< HEAD
+	//Adjust Chem Trail
+	/*
+	if (missiles.at(i)->hasComponent("ChemTrail"))
+	=======
+	///Adjust Chem Trail if missile is still alive
+	if (missiles.at(i)->getComponent("Life")->getDataBool() && missiles.at(i)->hasComponent("ChemTrail"))
+	>>>>>>> 840e03cef478361d9c9754d025d4dc94450cfaaf
+	{
+	line[0] = sf::Vertex(sf::Vector2f(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)
+	, missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)));
+	line[1] = sf::Vertex(sf::Vector2f(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0)
+	, missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1)));
+	missiles.at(i)->getComponent("ChemTrail")->deleteData();
+	<<<<<<< HEAD
+	missiles.at(i)->getComponent("ChemTrail")->addData(temp1);
+	missiles.at(i)->getComponent("ChemTrail")->addData(temp2);
+	missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->
+	getComponent("CurrentPosition")->getDataDouble().at(0));
+	if (missiles.at(i)->hasComponent("CurrentPosition"))
+	missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+	}
+	=======
+	missiles.at(i)->getComponent("ChemTrail")->addData(line);
+	}
+	>>>>>>> 840e03cef478361d9c9754d025d4dc94450cfaaf
+	*/
+
+					//If the current Missile is positioned on its explosion point, (give an error of the velocity amount)
+
+					double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);
+					velocity = abs(velocity);
+					//Check x values
+					if (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - velocity <=
+						missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) &&
+						missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) + velocity >=
+						missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0))
+					{
+						//check y values
+						if (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - velocity <=
+							missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) &&
+							missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) + velocity >=
+							missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1))
+						{
+							//Make the missile explode
+							MissileExploder exploder;
+							exploder.control(window, missiles.at(i));
+							missiles.at(i)->getComponent("Life")->deleteData();
+							missiles.at(i)->getComponent("Life")->addData(false);
+							missiles.at(i)->getComponent("DrawSprite")->deleteData();
+							missiles.at(i)->getComponent("DrawSprite")->addData(false);
+							missiles.at(i)->getComponent("Move")->deleteData();
+							missiles.at(i)->getComponent("Move")->addData(false);
+						}
 					}
 				}
 			}

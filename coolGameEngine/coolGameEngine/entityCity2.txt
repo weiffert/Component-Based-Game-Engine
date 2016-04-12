@@ -5,4 +5,5 @@ Sprite setTexture city.png setPosition 120 446 ;
 CurrentPosition 120 446 ;
 Life true ;
 Draw true ;
+DrawSprite true ;
 Move false ;

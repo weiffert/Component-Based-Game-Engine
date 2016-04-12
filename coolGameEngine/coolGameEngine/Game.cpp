@@ -82,14 +82,15 @@ int Game::gameLoop()
 		lag += frameTime;
 
 		//process input
-		while (lag >= frameRate)
-		{
+		//while (lag >= frameRate)
+		//{
 			//update
 			state->update(totalTime, &gameWindow);
 			//decrement current time keepers
 			totalTime += frameRate;
 			lag -= frameRate;
-		}
+		//}
+		//currentTime = time(NULL);
 		//render with parameters.
 		state->render(lag/frameRate, &gameWindow);
 	}

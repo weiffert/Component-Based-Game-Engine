@@ -15,6 +15,7 @@ propertySlope.txt
 propertyFired.txt
 propertyMove.txt
 propertyDraw.txt
+propertyDrawSprite.txt
 propertyCurrentMissileCount.txt
 propertyTotalMissileCount.txt
 propertyPoints.txt

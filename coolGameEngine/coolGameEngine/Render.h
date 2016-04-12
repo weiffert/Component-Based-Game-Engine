@@ -21,6 +21,6 @@ public:
 	void control(double, sf::RenderWindow *, Entity *);
 
 private:
-	bool movement(double, Entity*, int&, int&);
+	bool movement(double, Entity*, double&, double&);
 };
 
