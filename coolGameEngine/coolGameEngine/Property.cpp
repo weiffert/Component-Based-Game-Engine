@@ -93,9 +93,9 @@ Property::~Property()
 	{
 		dataEntity.erase(dataEntity.begin() + i);
 	}
-	for (int i = 0); i < dataLine.size(); i++)
+	for (int i = 0; i < dataLine.size(); i++)
 	{
-		dataLine.erase(dataEntity.begin() + i);
+		dataLine.erase(dataLine.begin() + i);
 	}
 }
 
@@ -126,45 +126,6 @@ void Property::setType(std::string a)
 {
 	typeId = a;
 }
-
-
-/*
-//Returns the data held in the vector.
-template <typename T>
-std::vector<T> Property::getData()
-{
-	if(typeId == "int")
-		return dataInt;
-	if (typeId == "double")
-		return dataDouble;
-	if (typeId == "float")
-		return dataFloat;
-	if (typeId == "char")
-		return dataChar;
-	if (typeId == "bool")
-		return dataBool;
-	if (typeId == "string")
-		return dataString;
-	if (typeId == "Sprite")
-		return dataSprite;
-	if (typeId == "Image")
-		return dataImage;
-	if (typeId == "Texture")
-		return dataTexture;
-	if (typeId == "Sound")
-		return dataSound;
-	if (typeId == "Text")
-		return dataText;
-	if (typeId == "CircleShape")
-		return dataCircleShape;
-	if (typeId == "ConvexShape")
-		return dataConvexShape;
-	if (typeId == "RectangleShape")
-		return dataRectangleShape;
-	if (typeId == "Entity")
-		return dataEntity;
-}
-*/
 
 
 std::vector<int> Property::getDataInt()
@@ -279,7 +240,7 @@ std::vector<sf::SoundBuffer *> Property::getDataSoundBuffer()
 }
 
 
-std::vector<sf::Vertex [] *> Property::getDataLine()
+std::vector<sf::Vertex *> Property::getDataLine()
 {
 	if (typeId == "Line")
 		return dataLine;
@@ -410,7 +371,7 @@ void Property::addData<Entity>(Entity *value)
 
 
 template<>
-void Property::addData<sf::Vertex[]>(sf::Vertex[] *value)
+void Property::addData<sf::Vertex>(sf::Vertex *value)
 {
 	dataLine.push_back(value);
 }
@@ -474,123 +435,75 @@ void Property::addData<std::string>(std::string value)
 //Takes in the data to be deleted.
 void Property::deleteData()
 {
-	if (typeId == "int")
+	while (!dataInt.empty())
 	{
-		for (int i = 0; i < dataInt.size(); i++)
-		{
-			dataInt.erase(dataInt.begin() + i);
-		}
+		dataInt.pop_back();
 	}
-	if (typeId == "double")
+	while (!dataDouble.empty())
 	{
-		for (int i = 0; i < dataDouble.size(); i++)
-		{
-			dataDouble.erase(dataDouble.begin() + i);
-		}
+		dataDouble.pop_back();
 	}
-	if (typeId == "float")
+	while (!dataFloat.empty())
 	{
-		for (int i = 0; i < dataFloat.size(); i++)
-		{
-			dataFloat.erase(dataFloat.begin() + i);
-		}
+		dataFloat.pop_back();
 	}
-	if (typeId == "char")
+	while (!dataChar.empty())
 	{
-		for (int i = 0; i < dataChar.size(); i++)
-		{
-			dataChar.erase(dataChar.begin() + i);
-		}
+		dataChar.pop_back();
 	}
-	if (typeId == "bool")
+	while (!dataBool.empty())
 	{
-		for (int i = 0; i < dataBool.size(); i++)
-		{
-			dataBool.erase(dataBool.begin() + i);
-		}
+		dataBool.pop_back();
 	}
-	if (typeId == "string")
+	while (!dataString.empty())
 	{
-		for (int i = 0; i < dataString.size(); i++)
-		{
-			dataString.erase(dataString.begin() + i);
-		}
+		dataString.pop_back();
 	}
-	if (typeId == "Sprite")
+	while (!dataSprite.empty())
 	{
-		for (int i = 0; i < dataSprite.size(); i++)
-		{
-			delete dataSprite.at(i);
-			dataSprite.erase(dataSprite.begin() + i);
-		}
+		delete dataSprite.at(dataSprite.size()-1);
+		dataSprite.pop_back();
 	}
-	if (typeId == "Image")
+	while (!dataImage.empty())
 	{
-		for (int i = 0; i < dataImage.size(); i++)
-		{
-			dataImage.erase(dataImage.begin() + i);
-		}
+		dataImage.pop_back();
 	}
-	if (typeId == "Texture")
+	while (!dataTexture.empty())
 	{
-		for (int i = 0; i < dataTexture.size(); i++)
-		{
-			delete dataTexture.at(i);
-			dataTexture.erase(dataTexture.begin() + i);
-		}
+		delete dataTexture.at(dataTexture.size() - 1);
+		dataTexture.pop_back();
 	}
-	if (typeId == "Sound")
+	while (!dataSound.empty())
 	{
-		for (int i = 0; i < dataSound.size(); i++)
-		{
-			dataSound.erase(dataSound.begin() + i);
-		}
+		dataSound.pop_back();
 	}
-	if (typeId == "SoundBuffer")
+	while (!dataSoundBuffer.empty())
 	{
-		for (int i = 0; i < dataSoundBuffer.size(); i++)
-		{
-			dataSoundBuffer.erase(dataSoundBuffer.begin() + i);
-		}
+		dataSoundBuffer.pop_back();
 	}
-	if (typeId == "Text")
+	while (!dataText.empty())
 	{
-		for (int i = 0; i < dataText.size(); i++)
-		{
-			delete dataText.at(i);
-			dataText.erase(dataText.begin() + i);
-		}
+		delete dataText.at(dataText.size() - 1);
+		dataText.pop_back();
 	}
-	if (typeId == "CircleShape")
+	while (!dataCircleShape.empty())
 	{
-		for (int i = 0; i < dataCircleShape.size(); i++)
-		{
-			delete dataCircleShape.at(i);
-			dataCircleShape.erase(dataCircleShape.begin() + i);
-		}
+		delete dataCircleShape.at(dataCircleShape.size() - 1);
+		dataCircleShape.pop_back();
 	}
-	if (typeId == "ConvexShape")
+	while (!dataConvexShape.empty())
 	{
-		for (int i = 0; i < dataConvexShape.size(); i++)
-		{
-			delete dataConvexShape.at(i);
-			dataConvexShape.erase(dataConvexShape.begin() + i);
-		}
+		delete dataConvexShape.at(dataConvexShape.size() - 1);
+		dataConvexShape.pop_back();
 	}
-	if (typeId == "RectangleShape")
+	while (!dataRectangleShape.empty())
 	{
-		for (int i = 0; i < dataRectangleShape.size(); i++)
-		{
-			delete dataRectangleShape.at(i);
-			dataRectangleShape.erase(dataRectangleShape.begin() + i);
-		}
+		delete dataRectangleShape.at(dataRectangleShape.size() - 1);
+		dataRectangleShape.pop_back();
 	}
-	if (typeId == "Entity")
+	while (!dataEntity.empty())
 	{
-		for (int i = 0; i < dataEntity.size(); i++)
-		{
-			dataEntity.erase(dataEntity.begin() + i);
-		}
+		dataEntity.pop_back();
 	}
 }
 

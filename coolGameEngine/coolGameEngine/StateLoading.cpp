@@ -1209,7 +1209,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 						else if (type == "Line")
 						{
 							//Set default to 0,0 to 0,0
-							sf::Vertex *line[] = {sf::Vertex(sf::Vector2f(0, 0)), sf::Vertex(sf::Vector2f(0, 0))};
+							sf::Vertex *line[] = {&sf::Vertex(sf::Vector2f(0, 0)), &sf::Vertex(sf::Vector2f(0, 0))};
 
 							//Get the proper data from the tempId in the file.
 							for (int i = 1; i < properties.at(y).size(); i++)

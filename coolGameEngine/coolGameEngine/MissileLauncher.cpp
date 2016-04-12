@@ -31,46 +31,37 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 		if (missileCount > 0)
 		{
 			//Delete data for exploding position and starting position for missile
-			if (currentMissile->hasComponent("StartingPosition"))
-				currentMissile->getComponent("StartingPosition")->deleteData();
+			//if (currentMissile->hasComponent("StartingPosition"))
+			//	currentMissile->getComponent("StartingPosition")->deleteData();
+
 			if (currentMissile->hasComponent("ExplodingPosition"))
+			{
 				currentMissile->getComponent("ExplodingPosition")->deleteData();
-
-			//Push back new values with starting and ending positions
-			if (currentMissile->hasComponent("StartingPosition") && currentBase->hasComponent("CurrentPosition"))
-			{
-				std::vector<double> startPosition = currentBase->getComponent("CurrentPosition")->getDataDouble();
-				currentMissile->getComponent("StartingPosition")->addData(startPosition.at(0)); //x for Base1
-				currentMissile->getComponent("StartingPosition")->addData(startPosition.at(1)); //y for Base1
-				currentMissile->getComponent("ChemTrail")->deleteData();
-				currentMissile->getComponent("ChemTrail")->addData(startPosition.at(0));
-				currentMissile->getComponent("ChemTrail")->addData(startPosition.at(1));
-			}
-
-			//Set current position to above values
-			if (currentMissile->hasComponent("ExplodingPosition"))
-			{
 				std::cout << sf::Mouse::getPosition(*window).x << "x\ny " << sf::Mouse::getPosition(*window).y << std::endl;
 				currentMissile->getComponent("ExplodingPosition")->addData(sf::Mouse::getPosition(*window).x);
 				currentMissile->getComponent("ExplodingPosition")->addData(sf::Mouse::getPosition(*window).y);
 			}
 
+			//Push back new values with starting and ending positions
+			if (currentMissile->hasComponent("StartingPosition") && currentMissile->hasComponent("ChemTrail"))
+			{
+				currentMissile->getComponent("ChemTrail")->addData(currentMissile->getComponent("StartingPosition")->getDataDouble().at(0));
+				currentMissile->getComponent("ChemTrail")->addData(currentMissile->getComponent("StartingPosition")->getDataDouble().at(1));
+			}
+
 			//Sets slope (Which is x/y)
-			if (currentMissile->hasComponent("Slope"))
-				currentMissile->getComponent("Slope")->deleteData();
-
 			double changeX = 0;
-			if (currentMissile->hasComponent("ExplodingPosition") && currentMissile->hasComponent("StartingPosition"))
-				changeX = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0) - currentMissile->getComponent("StartingPosition")->getDataDouble().at(0);
-
 			double changeY = 0;
 			if (currentMissile->hasComponent("ExplodingPosition") && currentMissile->hasComponent("StartingPosition"))
-				changeY = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1) - currentMissile->getComponent("StartingPosition")->getDataDouble().at(1);
+			{
+				changeX = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0) - currentMissile->getComponent("StartingPosition")->getDataDouble().at(0);
+				changeY = -1 * currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1) - -1 * currentMissile->getComponent("StartingPosition")->getDataDouble().at(1);
+			}
 
 			if (currentMissile->hasComponent("Slope"))
 			{
 				currentMissile->getComponent("Slope")->deleteData();
-				currentMissile->getComponent("Slope")->addData(setSlope(changeX, changeY));
+				currentMissile->getComponent("Slope")->addData(changeY/changeX);
 			}
 
 			if (currentMissile->hasComponent("Fired"))
@@ -82,6 +73,12 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 			//Decrease missiles left
 			currentBase->getComponent("CurrentMissileCount")->deleteData();
 			currentBase->getComponent("CurrentMissileCount")->addData(--missileCount);
+
+			if (currentMissile->hasComponent("Move"))
+			{
+				currentMissile->getComponent("Move")->deleteData();
+				currentMissile->getComponent("Move")->addData(true);
+			}
 			return 1;
 		}
 	}
@@ -107,11 +104,7 @@ void MissileLauncher::setTotalMissiles(int a)
 
 double MissileLauncher::setSlope(double pathX, double pathY)
 {
-  double speedX;
-  
-  speedX =pathX / pathY;
-  
-  return speedX;
+	return pathY / pathX;
 }
 
 
@@ -146,24 +139,32 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 			{
 				if (missiles.at(i)->hasComponent("Slope"))
 					slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
-				if (missiles.at(i)->hasComponent("CurrentPosition"))
+				if (missiles.at(i)->hasComponent("CurrentPosition") && missiles.at(i)->hasComponent("StartingPosition") && missiles.at(i)->hasComponent("Velocity"))
 				{
-					temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) + slope;
+					double velocityX = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);
+					temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) + velocityX;
+					temp2 = slope * (temp1 - missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0)) + -1 * missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
+					temp2 *= -1;
+
+					missiles.at(i)->getComponent("Velocity")->deleteData();
+					missiles.at(i)->getComponent("Velocity")->addData(velocityX);
+					missiles.at(i)->getComponent("Velocity")->addData(temp2 - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+
 					missiles.at(i)->getComponent("CurrentPosition")->deleteData();
 					missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
-					temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) - 1;
-					missiles.at(i)->getComponent("CurrentPosition")->deleteData();
-					missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
+					missiles.at(i)->getComponent("CurrentPosition")->addData(temp2);
+
+
+					sf::Sprite *s = missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0);
+					s->setPosition(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
 				}
-				if (missiles.at(i)->hasComponent("Sprite"))
-					missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0)->move(slope, -1);
 				
 				//Adjust Chem Trail
 
 				if (missiles.at(i)->hasComponent("ChemTrail"))
 				{
-					temp1 = missiles.at(i)->getComponent("ChemTrail")->getDataInt().at(0);
-					temp2 = missiles.at(i)->getComponent("ChemTrail")->getDataInt().at(1);
+					temp1 = missiles.at(i)->getComponent("ChemTrail")->getDataDouble().at(0);
+					temp2 = missiles.at(i)->getComponent("ChemTrail")->getDataDouble().at(1);
 					missiles.at(i)->getComponent("ChemTrail")->deleteData();
 					missiles.at(i)->getComponent("ChemTrail")->addData(temp1);
 					missiles.at(i)->getComponent("ChemTrail")->addData(temp2);
@@ -191,8 +192,10 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 						//Make the missile explode
 						MissileExploder exploder;
 						exploder.control(window, missiles.at(i));
-						missiles.at(i)->getComponent("Life")->deleteData();
-						missiles.at(i)->getComponent("Life")->addData(false);
+						bool notTrue = false;
+						missiles.at(i)->getComponent("Life")->changeData(&notTrue, 0);
+						missiles.at(i)->getComponent("Draw")->changeData(&notTrue, 0);
+						missiles.at(i)->getComponent("Move")->changeData(&notTrue, 0);
 					}
 				}
 			}

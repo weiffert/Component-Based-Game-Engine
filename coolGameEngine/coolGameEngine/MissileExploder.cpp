@@ -35,7 +35,7 @@ void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
 		}
 
 		//Check radius
-		if (missile->getComponent("ExplosionRadius")->getDataInt().at(0) == 20)
+		if (missile->getComponent("ExplosionRadius")->getDataDouble().at(0) == 20)
 		{
 			missile->getComponent("ExplosionPhase")->deleteData();
 			missile->getComponent("ExplosionPhase")->addData(-1);

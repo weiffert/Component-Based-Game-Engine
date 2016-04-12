@@ -30,45 +30,67 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 	temp = nullptr;
 	int x = 0, y = 0;
 	//Check if it can be drawn.
-	if (a->hasComponent("Sprite"))
+	if (a->hasComponent("Draw"))
 	{
-		temp = a->getComponent("Sprite");
-//		if (movement(lag, a, x, y))
-//			temp->getDataSprite().at(0)->move(x, y);
-		window->draw(*(temp->getDataSprite().at(0)));
-	}
-	if (a->hasComponent("Text"))
-	{
-		temp = a->getComponent("Text");
-//		if (movement(lag, a, x, y))
-//			temp->getDataText().at(0)->move(x, y);
-		window->draw(*(temp->getDataText().at(0)));
-	}
-	if (a->hasComponent("CircleShape"))
-	{
-		temp = a->getComponent("CircleShape");
-//		if (movement(lag, a, x, y))
-//			temp->getDataCircleShape().at(0)->move(x, y);
-		window->draw(*(temp->getDataCircleShape().at(0)));
-	}
-	if (a->hasComponent("ConvexShape"))
-	{
-		temp = a->getComponent("ConvexShape");
-//		if (movement(lag, a, x, y))
-//			temp->getDataConvexShape().at(0)->move(x, y);
-		window->draw(*(temp->getDataConvexShape().at(0)));
-	}
-	if (a->hasComponent("RectangleShape"))
-	{
-		temp = a->getComponent("RectangleShape");
-//		if (movement(lag, a, x, y))
-//			temp->getDataRectangleShape().at(0)->move(x, y);
-		window->draw(*(temp->getDataRectangleShape().at(0)));
-	}
-	if (a->hasComponent("Line"))
-	{
-		temp = a->getComponent("Line");
-		window->draw(*(temp->getDataLine().at(0)), 2, sf::Lines);
+		if (a->getComponent("Draw")->getDataBool().at(0) == true)
+		{
+			if (a->hasComponent("Sprite"))
+			{
+				temp = a->getComponent("Sprite");
+/*				if (a->hasComponent("Move"))
+					if (a->getComponent("Move")->getDataBool().at(0))
+						if (movement(lag, a, x, y))
+							temp->getDataSprite().at(0)->move(x, y);*/
+				window->draw(*(temp->getDataSprite().at(0)));
+			}
+			if (a->hasComponent("Text"))
+			{
+				temp = a->getComponent("Text");
+/*				if (a->hasComponent("Move"))
+					if (a->getComponent("Move")->getDataBool().at(0))
+						if (movement(lag, a, x, y))
+							temp->getDataText().at(0)->move(x, y);*/
+				window->draw(*(temp->getDataText().at(0)));
+			}
+			if (a->hasComponent("CircleShape"))
+			{
+				temp = a->getComponent("CircleShape");
+				if (a->hasComponent("Move"))
+					if (a->getComponent("Move")->getDataBool().at(0))
+						if (movement(lag, a, x, y))
+							temp->getDataCircleShape().at(0)->move(x, y);
+				window->draw(*(temp->getDataCircleShape().at(0)));
+			}
+			if (a->hasComponent("ConvexShape"))
+			{
+				temp = a->getComponent("ConvexShape");
+				if (a->hasComponent("Move"))
+					if (a->getComponent("Move")->getDataBool().at(0))
+						if (movement(lag, a, x, y))
+							temp->getDataConvexShape().at(0)->move(x, y);
+				window->draw(*(temp->getDataConvexShape().at(0)));
+			}
+			if (a->hasComponent("RectangleShape"))
+			{
+				temp = a->getComponent("RectangleShape");
+				if (a->hasComponent("Move"))
+					if (a->getComponent("Move")->getDataBool().at(0))
+						if (movement(lag, a, x, y))
+							temp->getDataRectangleShape().at(0)->move(x, y);
+				window->draw(*(temp->getDataRectangleShape().at(0)));
+			}
+			/*
+			if (a->hasComponent("ChemTrail"))
+			{
+			temp = a->getComponent("ChemTrail");
+			sf::VertexArray lines(sf::LinesStrip, 2);
+			lines[0].position = sf::Vector2f(temp->getDataLine().at(0), temp->getDataLine().at(1));
+			lines[1].position = sf::Vector2f(temp->getDataLine().at(2), temp->getDataLine().at(3));
+
+			window->draw(lines);
+			}
+			*/
+		}
 	}
 }
 

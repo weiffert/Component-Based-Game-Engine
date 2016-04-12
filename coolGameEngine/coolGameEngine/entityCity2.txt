@@ -4,3 +4,5 @@ StateNumber 10 ;
 Sprite setTexture city.png setPosition 120 446 ;
 CurrentPosition 120 446 ;
 Life true ;
+Draw true ;
+Move false ;

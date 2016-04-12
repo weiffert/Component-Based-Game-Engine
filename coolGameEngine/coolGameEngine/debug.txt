@@ -1,6 +1,6 @@
 Filenames
-propertyMissilesHeld.txt
 
+propertyMissilesHeld.txt
 propertyStateNumber.txt
 propertyStateId.txt
 propertySprite.txt
@@ -13,6 +13,8 @@ propertyExplosionPhase.txt
 propertyExplosionRadius.txt
 propertySlope.txt
 propertyFired.txt
+propertyMove.txt
+propertyDraw.txt
 propertyCurrentMissileCount.txt
 propertyTotalMissileCount.txt
 propertyPoints.txt

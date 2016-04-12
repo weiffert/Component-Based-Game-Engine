@@ -222,11 +222,13 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					temp = new Property("bool");
 
 					bool tOrF = false;
-					if (data.at(0) == "true")
-						tOrF = true;
 
 					for (int i = 0; i < data.size(); i++)
+					{
+						if (data.at(i).find("true") != std::string::npos)
+							tOrF = true;
 						temp->addData(tOrF);
+					}
 				}
 
 				else if (type == "string")
@@ -752,11 +754,12 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 							component = new Property("bool");
 
 							bool tOrF = false;
-							if (properties.at(y).at(0) == "true")
-								tOrF = true;
-
 							for (int i = 1; i < properties.at(y).size(); i++)
+							{
+								if (properties.at(y).at(i).find("true") != std::string::npos)
+									tOrF = true;
 								component->addData(tOrF);
+							}
 						}
 
 						else if (type == "string")

@@ -6,3 +6,5 @@ CurrentMissileCount 10 ;
 TotalMissileCount ;
 MissilesHeld Missile11 Missile12 Missile13 Missile14 Missile15 Missile16 Missile17 Missile18 Missile19 Missile20 ;
 CurrentPosition 231 432 ;
+Draw false ;
+Move false ;
