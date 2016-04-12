@@ -21,7 +21,7 @@ propertyTotalMissileCount.txt
 propertyPoints.txt
 propertyCircleShape.txt
 propertyChemTrail.txt
-propertyEnemyMissiles.txt
+
 entityGround.txt
 
 entityCity1.txt
