@@ -1405,7 +1405,7 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 				}
 				decrement--;
 			}
-			missileLauncher.fire(missile, systemManager->getMaterial("Base1"), window, systemManager);
+			missileLauncher.fire(missile, systemManager->getMaterial("Base1"), window, systemManager, assetManager);
 		}
 		//Launch from base2;
 		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::S))
@@ -1426,7 +1426,7 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 				}
 				decrement--;
 			}
-			missileLauncher.fire(missile, systemManager->getMaterial("Base2"), window, systemManager);
+			missileLauncher.fire(missile, systemManager->getMaterial("Base1"), window, systemManager, assetManager);
 		}
 		//Launch from base3;
 		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::D))
@@ -1447,7 +1447,7 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 				}
 				decrement--;
 			}
-			missileLauncher.fire(missile, systemManager->getMaterial("Base3"), window, systemManager);
+			missileLauncher.fire(missile, systemManager->getMaterial("Base1"), window, systemManager, assetManager);
 		}
 		
 		//Run through the game controllers.
