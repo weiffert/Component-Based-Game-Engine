@@ -410,7 +410,7 @@ void Property::addData<Entity>(Entity *value)
 
 
 template<>
-void Property::addData<sf::Vertex[]>(sf::Vertex[] *value)
+void Property::addData<sf::Vertex[]>(sf::Vertex *value[])
 {
 	dataLine.push_back(value);
 }
@@ -468,6 +468,12 @@ void Property::addData<std::string>(std::string value)
 	dataString.push_back(value);
 }
 
+
+template <>
+void property::addData<sf::Vertex[]>(sf::Vertex value[])
+{
+	dataLine.push_back(value);
+}
 
 
 //Subtracts value from existing data.
@@ -590,6 +596,14 @@ void Property::deleteData()
 		for (int i = 0; i < dataEntity.size(); i++)
 		{
 			dataEntity.erase(dataEntity.begin() + i);
+		}
+	}
+	if (typeId == "Line")
+	{
+		for (int i = 0; i < dataLine,size(); i++)
+		{
+			delete dataLine.at(i);
+			dataLine.erase(dataLine.begin() + i);
 		}
 	}
 }
@@ -810,6 +824,18 @@ void Property::deleteData<Entity>(Entity *value)
 }
 
 
+template <>
+void Property::deleteData<sf::Vertex [] *>(sf::Vertex *value[])
+{
+	for (int i = 0; i < dataLine.size(); i++)
+	{
+		if (dataLine.at(i)->getId == value->getId())
+		{
+			dataLine.erase(dataEntity.begin() + i);
+		}
+	}
+}
+
 //Subtracts value from existing data with the position.
 //Takes in the position with data to be deleted.
 void Property::deleteDataPosition(int position)
@@ -924,6 +950,13 @@ void Property::deleteDataPosition(int position)
 		if (position < dataEntity.size())
 		{
 			dataEntity.erase(dataEntity.begin() + position);
+		}
+	}
+	if (typeId == "Line")
+	{
+		if (position < dataLine.size())
+		{
+			dataLine.erase(dataLine.begin() + position);
 		}
 	}
 }
@@ -1090,6 +1123,16 @@ template <>
 void Property::changeData<Entity>(Entity *value, int position)
 {
 	if (position < dataEntity.size())
+		dataEntity.at(position) = value;
+	else
+		addData(value);
+}
+
+
+template <>
+void Property::changeData<sf::Vertex [] *> (sf::Vertex *value[], int position)
+{
+	if (position < dataLine.size())
 		dataEntity.at(position) = value;
 	else
 		addData(value);
