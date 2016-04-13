@@ -170,6 +170,7 @@ double Plane::setSlope(int pathX, int pathY)
 void Plane::update(sf::RenderWindow *window, Entity *launcherAi, SystemManager *systemManager)
 {
 	double slope;
+	
 	double tempPosition = systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->getDataDouble().at(0);
 	tempPosition += 1;
 	systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->deleteData();
