@@ -134,43 +134,60 @@ int MissileLauncherAi::launchMissiles(SystemManager* systemManager, Entity *curr
 
 		if (missileTarget != 1)
 		{
+			
+			int currentTarget = rand() % 3 + 1;
+			
+			if( currentTarget == 1)
+			{
+				currentTarget = targetOne;
+			}
+			else if (currentTarget == 2)
+			{
+				currentTarget = targetTwo;
+			}
+			else
+			{
+				currentTarget = targetThree;
+			}
+			
+			
 			//Push back new values with starting and ending positions
-			if (targetOne == 1 || targetTwo == 1 || targetThree == 1)
+			if (currentTarget == 1)
 			{
 				//set position to the first city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); //y for Base1
 				currentMissile->getComponent("ExplodingPosition")->addData(150);
 			}
 
-			else if (targetOne == 2 || targetTwo == 2 || targetThree == 2)
+			else if (currentTarget == 2)
 			{
 				//set position to the second city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); //y for Base1
 				currentMissile->getComponent("ExplodingPosition")->addData(180);
 			}
 
-			else if (targetOne == 3 || targetTwo == 3 || targetThree == 3)
+			else if (currentTarget == 3)
 			{
 				//set position to the third city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); //y for Base1
 				currentMissile->getComponent("ExplodingPosition")->addData(210);
 			}
 
-			else if (targetOne == 4 || targetTwo == 4 || targetThree == 4)
+			else if (currentTarget == 4)
 			{
 				//set position to the fourth city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); //y for Base1
 				currentMissile->getComponent("ExplodingPosition")->addData(270);
 			}
 
-			else if (targetOne == 5 || targetTwo == 5 || targetThree == 5)
+			else if (currentTarget == 5)
 			{
 				//set position to the fifth city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); //y for Base1
 				currentMissile->getComponent("ExplodingPosition")->addData(300);
 			}
 
-			else if (targetOne == 6 || targetTwo == 6 || targetThree == 6)
+			else if (currentTarget == 6)
 			{
 				//set position to the sixth city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); //y for Base1
