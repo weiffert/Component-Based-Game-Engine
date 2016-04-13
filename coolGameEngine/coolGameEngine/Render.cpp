@@ -59,14 +59,21 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 							temp->getDataText().at(0)->setPosition(x, y);
 				window->draw(*(temp->getDataText().at(0)));
 			}
-			if (a->hasComponent("CircleShape"))
+			if (a->hasComponent("DrawCircleShape"))
 			{
-				temp = a->getComponent("CircleShape");
-				if (a->hasComponent("Move"))
-					if (a->getComponent("Move")->getDataBool().at(0))
-						if (movement(lag, a, x, y))
-							temp->getDataCircleShape().at(0)->setPosition(x, y);
-				window->draw(*(temp->getDataCircleShape().at(0)));
+				if (a->getComponent("DrawCircleShape")->getDataBool().at(0) == true)
+				{
+					if (a->hasComponent("CircleShape"))
+					{
+						temp = a->getComponent("CircleShape");
+
+						//				if (a->hasComponent("Move"))
+						//					if (a->getComponent("Move")->getDataBool().at(0))
+						//						if (movement(lag, a, x, y))
+						//							temp->getDataCircleShape().at(0)->setPosition(x, y);
+						window->draw(*(temp->getDataCircleShape().at(0)));
+					}
+				}
 			}
 			if (a->hasComponent("ConvexShape"))
 			{

@@ -1354,6 +1354,7 @@ void StateDebug::substringSorter()
 void StateDebug::update(double totalTime, sf::RenderWindow *window)
 {
 	MissileLauncher missileLauncher;
+	//MissileLauncherAi missileLauncherAi;
 
 	//Check for arrow key and space bar events
 	sf::Event event;
@@ -1466,6 +1467,7 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 	}
 	
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
+	//missileLauncherAi.
 }
 
 

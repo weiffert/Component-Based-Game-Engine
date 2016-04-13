@@ -238,20 +238,32 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 							missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1))
 						{
 							//Make the missile explode
-							MissileExploder exploder;
-							exploder.control(window, missiles.at(i));
 							missiles.at(i)->getComponent("Life")->deleteData();
 							missiles.at(i)->getComponent("Life")->addData(false);
 							missiles.at(i)->getComponent("DrawSprite")->deleteData();
 							missiles.at(i)->getComponent("DrawSprite")->addData(false);
+							missiles.at(i)->getComponent("DrawCircleShape")->deleteData();
+							missiles.at(i)->getComponent("DrawCircleShape")->addData(true);
 							missiles.at(i)->getComponent("Move")->deleteData();
 							missiles.at(i)->getComponent("Move")->addData(false);
+							missiles.at(i)->getComponent("Explode")->deleteData();
+							missiles.at(i)->getComponent("Explode")->addData(true);
+							sf::CircleShape *c = missiles.at(i)->getComponent("CircleShape")->getDataCircleShape().at(0);
+							c->setPosition(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1));
+								MissileExploder exploder;
+							exploder.control(window, missiles.at(i));
 						}
 					}
 				}
 			}
-			MissileExploder exploder;
-			exploder.control(window, missiles.at(i));
+			if (missiles.at(i)->hasComponent("Explode"))
+			{
+				if (missiles.at(i)->getComponent("Explode")->getDataBool().at(0))
+				{
+					MissileExploder exploder;
+					exploder.control(window, missiles.at(i));
+				}
+			}
 		}
 	}
 }

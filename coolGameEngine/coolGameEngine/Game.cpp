@@ -62,7 +62,7 @@ int Game::gameLoop()
 {
 	//initialize time keepers
 	double totalTime = 0.0;
-	double frameRate = 0.01;
+	double frameRate = 1;
 
 	double lag = 0.0;
 	double currentTime = time(NULL);
@@ -90,7 +90,6 @@ int Game::gameLoop()
 			totalTime += frameRate;
 			lag -= frameRate;
 		//}
-		//currentTime = time(NULL);
 		//render with parameters.
 		state->render(lag/frameRate, &gameWindow);
 	}
