@@ -131,9 +131,9 @@ int Plane::launchMissiles(SystemManager* systemManager, Entity *currentMissile, 
 		//What does this do?
 		currentMissile->getComponent("StartingPosition")->deleteData();
 
-		currentMissile->getComponent("StartingPosition")->addData(systemManager->getMaterial("Plane")->getController("CurrentPosition").at(0));
+		currentMissile->getComponent("StartingPosition")->addData(systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->getDataDouble().at(0));
 	
-		currentMissile->getComponent("StartingPosition")->addData(systemManager->getMaterial("Plane")->getController("CurrentPosition").at(1));
+		currentMissile->getComponent("StartingPosition")->addData(systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->getDataDouble().at(1));
 
 		//Sets slope (Which is x/y)
 		currentMissile->getComponent("Slope")->deleteData();
@@ -167,14 +167,14 @@ double Plane::setSlope(int pathX, int pathY)
   return speedX;
 }
 
-void Plane::update(sf::RenderWindow *window, Entity *launcherAi)
+void Plane::update(sf::RenderWindow *window, Entity *launcherAi, SystemManager *systemManager)
 {
 	double slope;
-	int tempPosition = systemManager->getMaterial("Plane")->getController("CurrentPosition").at(0);
+	double tempPosition = systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->getDataDouble().at(0);
 	tempPosition += 1;
-	systemManager->getMaterial("Plane")->getController("CurrentPosition")->deleteData();
-	systemManager->getMaterial("Plane")->getController("CurrentPosition")->addData(tempPosition);
-	systemManager->getMaterial("Plane")->getController("CurrentPosition")->addData(0);
+	systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->deleteData();
+	systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(tempPosition);
+	systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(0);
 
 	//Goes through all the missiles
 	for (int i = 0; i < 5; i++)

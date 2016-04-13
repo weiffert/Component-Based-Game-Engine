@@ -40,6 +40,88 @@
     <Text Include="log.txt" />
     <Text Include="file.txt" />
     <Text Include="entitySelect.txt" />
+    <Text Include="propertyDraw.txt" />
+    <Text Include="propertyDrawCircleShape.txt" />
+    <Text Include="propertyDrawSprite.txt" />
+    <Text Include="propertyExplode.txt" />
+    <Text Include="propertyMove.txt" />
+    <Text Include="propertyChemTrail.txt" />
+    <Text Include="entityPlayer.txt" />
+    <Text Include="entityPlane.txt" />
+    <Text Include="entityMissileLauncherAi.txt" />
+    <Text Include="entityMissile30.txt" />
+    <Text Include="entityMissile29.txt" />
+    <Text Include="entityMissile28.txt" />
+    <Text Include="entityMissile27.txt" />
+    <Text Include="entityMissile26.txt" />
+    <Text Include="entityMissile25.txt" />
+    <Text Include="entityMissile24.txt" />
+    <Text Include="entityMissile22.txt" />
+    <Text Include="entityMissile23.txt" />
+    <Text Include="entityMissile21.txt" />
+    <Text Include="entityMissile20.txt" />
+    <Text Include="entityMissile19.txt" />
+    <Text Include="entityMissile18.txt" />
+    <Text Include="entityMissile17.txt" />
+    <Text Include="entityMissile16.txt" />
+    <Text Include="entityMissile15.txt" />
+    <Text Include="entityMissile14.txt" />
+    <Text Include="entityMissile13.txt" />
+    <Text Include="entityMissile12.txt" />
+    <Text Include="entityMissile11.txt" />
+    <Text Include="entityMissile10.txt" />
+    <Text Include="entityMissile9.txt" />
+    <Text Include="entityMissile8.txt" />
+    <Text Include="entityMissile7.txt" />
+    <Text Include="entityMissile6.txt" />
+    <Text Include="entityMissile5.txt" />
+    <Text Include="entityMissile4.txt" />
+    <Text Include="entityMissile3.txt" />
+    <Text Include="entityMissile2.txt" />
+    <Text Include="entityMissile1.txt" />
+    <Text Include="entityGround.txt" />
+    <Text Include="entityEnemyMissile30.txt" />
+    <Text Include="entityEnemyMissile29.txt" />
+    <Text Include="entityEnemyMissile28.txt" />
+    <Text Include="entityEnemyMissile27.txt" />
+    <Text Include="entityEnemyMissile25.txt" />
+    <Text Include="entityEnemyMissile26.txt" />
+    <Text Include="entityEnemyMissile24.txt" />
+    <Text Include="entityEnemyMissile23.txt" />
+    <Text Include="entityEnemyMissile22.txt" />
+    <Text Include="entityEnemyMissile21.txt" />
+    <Text Include="entityEnemyMissile20.txt" />
+    <Text Include="entityEnemyMissile19.txt" />
+    <Text Include="entityEnemyMissile18.txt" />
+    <Text Include="entityEnemyMissile17.txt" />
+    <Text Include="entityEnemyMissile16.txt" />
+    <Text Include="entityEnemyMissile15.txt" />
+    <Text Include="entityEnemyMissile14.txt" />
+    <Text Include="entityEnemyMissile13.txt" />
+    <Text Include="entityEnemyMissile12.txt" />
+    <Text Include="entityEnemyMissile11.txt" />
+    <Text Include="entityEnemyMissile10.txt" />
+    <Text Include="entityEnemyMissile9.txt" />
+    <Text Include="entityEnemyMissile8.txt" />
+    <Text Include="entityEnemyMissile7.txt" />
+    <Text Include="entityEnemyMissile6.txt" />
+    <Text Include="entityEnemyMissile5.txt" />
+    <Text Include="entityEnemyMissile4.txt" />
+    <Text Include="entityEnemyMissile3.txt" />
+    <Text Include="entityEnemyMissile2.txt" />
+    <Text Include="entityEnemyMissile1.txt" />
+    <Text Include="entityCrosshairs.txt" />
+    <Text Include="entityCity6.txt" />
+    <Text Include="entityCity5.txt" />
+    <Text Include="entityCity4.txt" />
+    <Text Include="entityCity3.txt" />
+    <Text Include="entityCity2.txt" />
+    <Text Include="entityCity1.txt" />
+    <Text Include="entityBase3.txt" />
+    <Text Include="entityBase2.txt" />
+    <Text Include="entityBase1.txt" />
+    <Text Include="debug.txt" />
+    <Text Include="stateLoading.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -106,6 +188,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SmartBombControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -176,6 +261,9 @@
     <ClCompile Include="SmartBombControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="coolGameEngine.rc">
@@ -203,6 +291,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="plane.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="missile-transit-enemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="missile-transit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="city.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

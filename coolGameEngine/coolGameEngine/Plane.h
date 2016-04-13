@@ -22,6 +22,6 @@ public:
 	int getMissilesLeft();
 	int getTotalMissiles();
 	int launchMissiles(SystemManager*, Entity *, sf::RenderWindow *); //Returns 0 if it fails to launch, 1 if it successfully launches
-	void update(sf::RenderWindow *, Entity *);
+	void update(sf::RenderWindow *, Entity *, SystemManager *);
 
 };
