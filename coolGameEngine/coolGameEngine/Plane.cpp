@@ -1,4 +1,4 @@
-#include "Planei.h"
+#include "Plane.h"
 
 #include <stdlib.h> 
 #include <time.h>
@@ -26,42 +26,30 @@ Plane::Plane(int totalMis, int currMis)
 
 void Plane::setTargets()
 {
+ //Shortened
     srand(time(NULL));
   
     targetOne = rand() % 6 + 1;
     
     targetTwo = rand() % 6 + 1;
     
-    if(targetTwo == targetOne)
+    while(targetTwo == targetOne)
     {
-      do
-      {
         targetTwo = rand() % 6 + 1;
-	  } while (targetTwo == targetOne);
     }
     
     targetThree = rand() % 6 + 1;
     
-    if(targetThree == targetOne)
+    while(targetThree == targetOne || targetThree == targetTwo)
     {
-      do
-      {
         targetThree = rand() % 6 + 1;
-	  } while (targetThree == targetOne);
-    }
-    
-    if(targetThree == targetTwo)
-    {
-      do
-      {
-        targetThree = rand() % 6 + 1;
-	  } while (targetThree == targetTwo);
     }
 }
 
 int Plane::launchMissiles(SystemManager* systemManager, Entity *currentMissile, sf::RenderWindow *window)
 {
 	//Shoots missile if it has missiles left
+	setTargets();
 	if (missilesLeft > 0)
 	{
 		srand(time(NULL));
