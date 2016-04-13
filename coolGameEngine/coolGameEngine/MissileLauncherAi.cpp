@@ -24,43 +24,101 @@ MissileLauncherAi::MissileLauncherAi(int totalMis, int currMis)
   missilesLeft = currMis;
 }
 
-void MissileLauncherAi::setTargets()
+void MissileLauncherAi::setTargets(bool cities[6])
 {
-    srand(time(NULL));
-  
-    targetOne = rand() % 6 + 1;
+	//Determine how many cities are left
+	int alive = 0;
+	int counter = 0;
+	for (int i = 0; i < 6; i++)
+	{
+		if (cities[i])
+			alive++;
+		
+	}
+	
+	//Now determines the order based on the cities surviving
+	srand(time(NULL));
+	if (alive > 3)
+	{
+		targetOne = rand() % alive + 1;
+		targetTwo = rand() % alive + 1;
+		while(targetTwo == targetOne)
+		{
+			targetTwo = rand() % alive + 1;
+		}
     
-    targetTwo = rand() % 6 + 1;
+		targetThree = rand() % 6 + 1;
     
-    if(targetTwo == targetOne)
-    {
-      do
-      {
-        targetTwo = rand() % 6 + 1;
-	  } while (targetTwo == targetOne);
-    }
-    
-    targetThree = rand() % 6 + 1;
-    
-    if(targetThree == targetOne)
-    {
-      do
-      {
-        targetThree = rand() % 6 + 1;
-	  } while (targetThree == targetOne);
-    }
-    
-    if(targetThree == targetTwo)
-    {
-      do
-      {
-        targetThree = rand() % 6 + 1;
-	  } while (targetThree == targetTwo);
-    }
+		while(targetThree == targetOne || targetThree == targetTwo)
+		{
+			targetThree = rand() % 6 + 1;
+		}	
+	}
+	else 
+	{
+		if (alive == 3)
+		{
+			targetOne = 1;
+			targetTwo = 2;
+			targetThree = 3;
+		}
+		else if (alive == 2)
+		{
+			targetOne = 1;
+			targetTwo = 2;
+			targetThree = 0; //Will be set so that it does not fire at target three
+		}
+		else
+		{
+			targetOne = 1;
+			targetTwo = 0; //Won't fire
+			targetThree = 0; //Won't fire
+		}
+	}
+	
+	//Now determines which cities to target
+	//Determine which city for targetOne
+	while(targetOne > counter + 1)
+	{
+		while (counter < 6 && !cities[counter])
+		{
+			counter++;
+		}
+			
+	}
+	targetOne = counter + 1;
+	
+	if (targetTwo != 0)
+	{
+		while(targetTwo > counter + 1)
+		{
+			while (counter < 6 && !cities[counter])
+			{
+				counter++;
+			}
+			
+		}
+		targetTwo = counter + 1;
+	}
+	
+	if (targetThree != 0)
+	{
+		while(targetThree > counter + 1)
+		{
+			while (counter < 6 && !cities[counter])
+			{
+				counter++;
+			}
+			
+		}
+		targetThree = counter + 1;
+	}	
+	
 }
 
 int MissileLauncherAi::launchMissiles(SystemManager* systemManager, Entity *currentMissile, sf::RenderWindow *window)
 {
+	
 	//Shoots missile if it has missiles left
 	if (missilesLeft > 0)
 	{
@@ -140,13 +198,14 @@ int MissileLauncherAi::launchMissiles(SystemManager* systemManager, Entity *curr
 			}
 
 		}
+		
 		//What does this do?
 		currentMissile->getComponent("StartingPosition")->deleteData();
 		currentMissile->getComponent("StartingPosition")->addData(-5);
 	
 		currentMissile->getComponent("StartingPosition")->addData(rand() % 480 + 1);
 
-		//Sets slope (Which is x/y)
+		//Sets slope (Which is x/y) (I think this has been changed)
 		currentMissile->getComponent("Slope")->deleteData();
 
 		int changeX = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0) -
