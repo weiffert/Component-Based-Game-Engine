@@ -17,4 +17,4 @@ DrawCircleShape false ;
 Move false ;
 Explode false ;
 CircleShape setRadius 0 setFillColor 255 160 122 1 setPosition 0 0 ;
-ChemTrail setSize 1 0 setFillColor 0 0 255 ;
+ChemTrail setSize 0 1 setFillColor 0 0 255 ;
