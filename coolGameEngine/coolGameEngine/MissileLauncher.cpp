@@ -26,6 +26,8 @@ MissileLauncher::~MissileLauncher()
 //Fires a missile
 int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::RenderWindow *window, SystemManager *systemManager, AssetManager *assetManager)
 {
+	sf::RectangleShape temp;
+	double angle;
 	if (currentMissile->hasComponent("Sprite") && currentMissile->hasComponent("Draw") && currentMissile->hasComponent("Fired"))
 	{
 		if (currentMissile->getComponent("Draw")->getDataBool().at(0) && !currentMissile->getComponent("Fired")->getDataBool().at(0))
@@ -56,8 +58,19 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 			//Push back new values with starting and ending positions
 			if (currentMissile->hasComponent("StartingPosition") && currentMissile->hasComponent("ChemTrail"))
 			{
-				currentMissile->getComponent("ChemTrail")->addData(currentMissile->getComponent("StartingPosition")->getDataDouble().at(0));
-				currentMissile->getComponent("ChemTrail")->addData(currentMissile->getComponent("StartingPosition")->getDataDouble().at(1));
+				temp = currentMissile->getComponent("ChemTrail")->getDataRectangle(0);
+				
+				//Set Rectangle/Chem trail origin
+				temp.setOrigin(currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0), 
+				currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1));
+				
+				//Set chem trail angle and convert from radians to degrees
+				angle = atan(currentMissile->getComponent("Velocity")->getDataDouble().at(1)/
+				currentMissile->getComponent("Velocity")->getDataDouble().at(2)) * 180 / 3.14159265;
+				angle * -1;
+				temp.setRotation(angle);
+				currentMissile->getComponent("ChemTrail")->deleteData();
+				currentMissile->getComponent("ChemTrail")->addData(temp);
 			}
 
 			//Sets slope (Which is x/y)
@@ -149,6 +162,9 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 {
 	double slope;
 	double temp1, temp2;
+	double length;
+	sf::Vector2f rectLength;
+	sf::RectangleShape temp;
 	sf::Vertex line[2];
 	std::vector<Entity*> bases;
 	bases.push_back(Base1);
@@ -191,35 +207,21 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 
 						sf::Sprite *s = missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0);
 						s->setPosition(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+					
+						//Update the chem trails, set the chem trail length to the velocity
+						double curX = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0);
+						double expX = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0);
+						double curY = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1);
+						double expY = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1);
+			
+						length = sqrt(pow(expX - curX, 2) + pow(expY - curY, 2)))
+						temp = currentMissile->getComponent("ChemTrail")->getDataRectangle().at(0);
+						rectLength = temp.getSize();
+						rectLength.x = rectLength.x + length;
+						temp.setSize(rectLength);
+						currentMissile->getComponent("ChemTrail")->deleteData();
+						currentMissile->getComponent("ChemTrail")->addData(temp);
 					}
-					/*
-	<<<<<<< HEAD
-	//Adjust Chem Trail
-	/*
-	if (missiles.at(i)->hasComponent("ChemTrail"))
-	=======
-	///Adjust Chem Trail if missile is still alive
-	if (missiles.at(i)->getComponent("Life")->getDataBool() && missiles.at(i)->hasComponent("ChemTrail"))
-	>>>>>>> 840e03cef478361d9c9754d025d4dc94450cfaaf
-	{
-	line[0] = sf::Vertex(sf::Vector2f(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)
-	, missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)));
-	line[1] = sf::Vertex(sf::Vector2f(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0)
-	, missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1)));
-	missiles.at(i)->getComponent("ChemTrail")->deleteData();
-	<<<<<<< HEAD
-	missiles.at(i)->getComponent("ChemTrail")->addData(temp1);
-	missiles.at(i)->getComponent("ChemTrail")->addData(temp2);
-	missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->
-	getComponent("CurrentPosition")->getDataDouble().at(0));
-	if (missiles.at(i)->hasComponent("CurrentPosition"))
-	missiles.at(i)->getComponent("ChemTrail")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
-	}
-	=======
-	missiles.at(i)->getComponent("ChemTrail")->addData(line);
-	}
-	>>>>>>> 840e03cef478361d9c9754d025d4dc94450cfaaf
-	*/
 
 					//If the current Missile is positioned on its explosion point, (give an error of the velocity amount)
 
