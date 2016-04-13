@@ -15,7 +15,7 @@ public:
 	MissileLauncherAi();
 	MissileLauncherAi(int, int);
 	~MissileLauncherAi();
-	void setTargets();
+	void setTargets(bool[6]); //Takes an array of bools respresenting which cities are alive
 	int launchAmmount();
 	double setSlope(int, int);
 	void setTotalMissiles(int);
