@@ -13,7 +13,7 @@ private:
 
 public:
 	Plane();
-	Plane(int, int);
+	Plane(int, int, int);
 	~Plane();
 	void setTargets();
 	double setSlope(int, int);
