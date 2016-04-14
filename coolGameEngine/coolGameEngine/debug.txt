@@ -25,6 +25,7 @@ propertyPoints.txt
 propertyCircleShape.txt
 propertyRectangleShape.txt
 propertyColorFriend.txt
+propertySounds.txt
 
 entityGround.txt
 
