@@ -639,6 +639,21 @@ StateDebug::StateDebug(SystemManager *s, AssetManager *a, sf::RenderWindow *wind
 					temp->addData(text);
 				}
 
+				else if (type == "Color")
+				{
+					temp = new Property("Color");
+
+					sf::Color *c = nullptr;
+					for (int i = 0; i < data.size(); i++)
+					{
+						int r = BaseState::conversionInt(data.at(i++));
+						int g = BaseState::conversionInt(data.at(i++));
+						int b = BaseState::conversionInt(data.at(i++));
+						c = new sf::Color(r, g, b);
+					}
+					temp->addData(c);
+				}
+
 				else
 				{
 					temp = new Property("string");

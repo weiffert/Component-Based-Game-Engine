@@ -1,3 +1,0 @@
-ExplosionRadius ;
-double ;
-0 ;

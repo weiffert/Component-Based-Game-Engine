@@ -1,4 +1,0 @@
-ChemTrail ;
-Line ;
-setStart 0 0 
-setEnd 0 0 ;

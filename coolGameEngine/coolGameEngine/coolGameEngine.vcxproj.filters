@@ -45,7 +45,6 @@
     <Text Include="propertyDrawSprite.txt" />
     <Text Include="propertyExplode.txt" />
     <Text Include="propertyMove.txt" />
-    <Text Include="propertyChemTrail.txt" />
     <Text Include="entityPlayer.txt" />
     <Text Include="entityPlane.txt" />
     <Text Include="entityMissileLauncherAi.txt" />
@@ -291,12 +290,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="plane.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="missile-transit-enemy.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="missile-transit.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="city.png">

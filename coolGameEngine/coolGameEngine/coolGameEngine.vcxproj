@@ -161,7 +161,6 @@
     <Text Include="file.txt" />
     <Text Include="game.txt" />
     <Text Include="log.txt" />
-    <Text Include="propertyChemTrail.txt" />
     <Text Include="propertyCircleShape.txt" />
     <Text Include="propertyCurrentMissileCount.txt" />
     <Text Include="propertyCurrentPosition.txt" />
@@ -262,8 +261,6 @@
   <ItemGroup>
     <Image Include="city.png" />
     <Image Include="ground.png" />
-    <Image Include="missile-transit-enemy.png" />
-    <Image Include="missile-transit.png" />
     <Image Include="missile.png" />
     <Image Include="plane.png" />
   </ItemGroup>

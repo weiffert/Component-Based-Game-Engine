@@ -93,6 +93,11 @@ Property::~Property()
 	{
 		dataEntity.erase(dataEntity.begin() + i);
 	}
+	for (int i = 0; i < dataColor.size(); i++)
+	{
+		delete dataColor.at(i);
+		dataColor.erase(dataColor.begin() + i);
+	}
 	for (int i = 0; i < dataLine.size(); i++)
 	{
 		dataLine.erase(dataLine.begin() + i);
@@ -240,6 +245,13 @@ std::vector<sf::SoundBuffer *> Property::getDataSoundBuffer()
 }
 
 
+std::vector<sf::Color *> Property::getDataColor()
+{
+	if (typeId == "Color")
+		return dataColor;
+}
+
+
 std::vector<sf::Vertex *> Property::getDataLine()
 {
 	if (typeId == "Line")
@@ -367,6 +379,13 @@ template <>
 void Property::addData<Entity>(Entity *value)
 {
 	dataEntity.push_back(value);
+}
+
+
+template <>
+void Property::addData<sf::Color>(sf::Color *value)
+{
+	dataColor.push_back(value);
 }
 
 
@@ -517,6 +536,11 @@ void Property::deleteData()
 	{
 		delete dataLine.at(dataLine.size() - 1);
 		dataLine.pop_back();
+	}
+	while (!dataColor.empty())
+	{
+		delete dataColor.at(dataColor.size() - 1);
+		dataColor.pop_back();
 	}
 }
 
@@ -735,6 +759,19 @@ void Property::deleteData<Entity>(Entity *value)
 	}
 }
 
+
+template <>
+void Property::deleteData<sf::Color>(sf::Color *value)
+{
+	for (int i = 0; i < dataColor.size(); i++)
+	{
+		if (dataColor.at(i) == value)
+		{
+			dataColor.erase(dataColor.begin() + i);
+		}
+	}
+}
+
 /*
 template <>
 void Property::deleteData<sf::Vertex [] *>(sf::Vertex *value[])
@@ -870,6 +907,13 @@ void Property::deleteDataPosition(int position)
 		if (position < dataLine.size())
 		{
 			dataLine.erase(dataLine.begin() + position);
+		}
+	}
+	if (typeId == "Color")
+	{
+		if (position < dataColor.size())
+		{
+			dataColor.erase(dataColor.begin() + position);
 		}
 	}
 }
@@ -1040,6 +1084,17 @@ void Property::changeData<Entity>(Entity *value, int position)
 	else
 		addData(value);
 }
+
+
+template <>
+void Property::changeData<sf::Color>(sf::Color *value, int position)
+{
+	if (position < dataColor.size())
+		dataColor.at(position) = value;
+	else
+		addData(value);
+}
+
 
 
 /*

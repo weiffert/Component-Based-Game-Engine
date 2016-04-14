@@ -41,6 +41,7 @@ public:
 	std::vector<Entity *> getDataEntity();
 	std::vector<sf::Sound *> getDataSound();
 	std::vector<sf::SoundBuffer *> getDataSoundBuffer();
+	std::vector<sf::Color *> getDataColor();
 	std::vector<sf::Vertex *> getDataLine();
 	
 	//Edit the data.
@@ -79,5 +80,6 @@ private:
 	std::vector<Entity*> dataEntity;
 	std::vector<sf::Sound*> dataSound;
 	std::vector<sf::SoundBuffer*> dataSoundBuffer;
+	std::vector<sf::Color *> dataColor;
 	std::vector<sf::Vertex *> dataLine;
 };

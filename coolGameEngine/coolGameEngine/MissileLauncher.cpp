@@ -26,19 +26,24 @@ MissileLauncher::~MissileLauncher()
 //Fires a missile
 int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::RenderWindow *window, SystemManager *systemManager, AssetManager *assetManager)
 {
-	sf::RectangleShape temp;
+	sf::RectangleShape *temp;
 	double angle;
 	if (currentMissile->hasComponent("Sprite") && currentMissile->hasComponent("Draw") && currentMissile->hasComponent("Fired"))
 	{
 		if (currentMissile->getComponent("Draw")->getDataBool().at(0) && !currentMissile->getComponent("Fired")->getDataBool().at(0))
 		{
 			sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
-			sf::Texture *t = new sf::Texture;
-			if (!t->loadFromFile("missile-transit.png"))
-				std::cout << "Failed to open missile-transit.png" << std::endl;
-			s->setTexture(*t, true);
+			sf::RectangleShape *r = currentMissile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
 
-			assetManager->add(t);
+			r->setFillColor(*(currentMissile->getComponent("ColorFriend")->getDataColor().at(0)));
+			r->setOutlineColor(*(currentMissile->getComponent("ColorFriend")->getDataColor().at(0)));
+
+			sf::Texture *t = new sf::Texture;
+			if (!t->loadFromFile("missile-transit-clear.png"))
+				std::cout << "Failed to open missile-transit-clear.png" << std::endl;
+			s->setTexture(*t, true);
+			s->setColor(*(currentMissile->getComponent("ColorFriend")->getDataColor().at(0)));
+			s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
 		}
 	}
 
@@ -55,24 +60,6 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 				currentMissile->getComponent("ExplodingPosition")->addData(sf::Mouse::getPosition(*window).y);
 			}
 
-			//Push back new values with starting and ending positions
-			if (currentMissile->hasComponent("StartingPosition") && currentMissile->hasComponent("ChemTrail"))
-			{
-				temp = *currentMissile->getComponent("ChemTrail")->getDataRectangleShape().at(0);
-				
-				//Set Rectangle/Chem trail origin
-				temp.setOrigin(currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0), 
-				currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1));
-				
-				//Set chem trail angle and convert from radians to degrees
-				angle = atan(currentMissile->getComponent("Velocity")->getDataDouble().at(1)/
-				currentMissile->getComponent("Velocity")->getDataDouble().at(2)) * 180 / 3.14159265;
-				angle * -1;
-				temp.setRotation(angle);
-				currentMissile->getComponent("ChemTrail")->deleteData();
-				currentMissile->getComponent("ChemTrail")->addData(&temp);
-			}
-
 			//Sets slope (Which is x/y)
 			double changeX = 0;
 			double changeY = 0;
@@ -85,7 +72,7 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 			if (currentMissile->hasComponent("Slope"))
 			{
 				currentMissile->getComponent("Slope")->deleteData();
-				currentMissile->getComponent("Slope")->addData(changeY/changeX);
+				currentMissile->getComponent("Slope")->addData(changeY / changeX);
 			}
 
 			double velX = currentMissile->getComponent("Velocity")->getDataDouble().at(0);
@@ -94,7 +81,7 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 			double velY = currentMissile->getComponent("Velocity")->getDataDouble().at(1);
 			double curY = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1);
 			double expY = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1);
-			
+
 			if (sqrt(pow(expX - curX - velX, 2) + pow(expY - curY - velY, 2)) > sqrt(pow(expX - curX + velX, 2) + pow(expY - curY + velY, 2)))
 			{
 				double temp = currentMissile->getComponent("Velocity")->getDataDouble().at(0);
@@ -117,6 +104,23 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 				currentMissile->getComponent("Move")->deleteData();
 				currentMissile->getComponent("Move")->addData(true);
 			}
+
+			if (currentMissile->hasComponent("DrawRectangleShape"))
+			{
+				currentMissile->getComponent("DrawRectangleShape")->deleteData();
+				currentMissile->getComponent("DrawRectangleShape")->addData(true);
+			}
+			sf::Sprite *s = new sf::Sprite();
+			sf::Texture *t = new sf::Texture();
+			if (!t->loadFromFile("location.png"))
+				std::cout << "Failed to load location.png" << std::endl;
+			s->setTexture(*t);
+			assetManager->add(t);
+
+			s->setOrigin(s->getLocalBounds().width / 2, s->getLocalBounds().height / 2);
+			s->setPosition(currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0), currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1));
+			currentMissile->getComponent("Sprite")->addData(s);
+
 			return 1;
 		}
 	}
@@ -164,8 +168,9 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 	double temp1, temp2;
 	double length;
 	sf::Vector2f rectLength;
-	sf::RectangleShape temp;
-	sf::Vertex line[2];
+	sf::RectangleShape *temp = nullptr;
+	//sf::Vertex line[2];
+
 	std::vector<Entity*> bases;
 	bases.push_back(Base1);
 	bases.push_back(Base2);
@@ -210,17 +215,21 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 					
 						//Update the chem trails, set the chem trail length to the velocity
 						double curX = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0);
-						double expX = missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0);
+						double staX = missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0);
 						double curY = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1);
-						double expY = missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1);
+						double staY = missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
 			
-						length = sqrt(pow(expX - curX, 2) + pow(expY - curY, 2));
-						temp = *missiles.at(i)->getComponent("ChemTrail")->getDataRectangleShape().at(0);
-						rectLength = temp.getSize();
-						rectLength.x = rectLength.x + length;
-						temp.setSize(rectLength);
-						missiles.at(i)->getComponent("ChemTrail")->deleteData();
-						missiles.at(i)->getComponent("ChemTrail")->addData(&temp);
+						length = sqrt(pow(staX - curX, 2) + pow(staY - curY, 2));
+						temp = missiles.at(i)->getComponent("RectangleShape")->getDataRectangleShape().at(0);
+						rectLength = temp->getSize();
+						rectLength.x = length;
+						temp->setSize(rectLength);
+						if (missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0) < 0)
+							temp->setRotation(-1 * theta * 180 / 3.141592654 + 180);
+						else
+							temp->setRotation(-1 * theta * 180 / 3.141592654);
+						temp->setPosition(missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1));
+						temp->setOrigin(0, temp->getLocalBounds().height);
 					}
 
 					//If the current Missile is positioned on its explosion point, (give an error of the velocity amount)
@@ -246,10 +255,13 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 							missiles.at(i)->getComponent("DrawSprite")->addData(false);
 							missiles.at(i)->getComponent("DrawCircleShape")->deleteData();
 							missiles.at(i)->getComponent("DrawCircleShape")->addData(true);
+							missiles.at(i)->getComponent("DrawRectangleShape")->deleteData();
+							missiles.at(i)->getComponent("DrawRectangleShape")->addData(false);
 							missiles.at(i)->getComponent("Move")->deleteData();
 							missiles.at(i)->getComponent("Move")->addData(false);
 							missiles.at(i)->getComponent("Explode")->deleteData();
 							missiles.at(i)->getComponent("Explode")->addData(true);
+
 							sf::CircleShape *c = missiles.at(i)->getComponent("CircleShape")->getDataCircleShape().at(0);
 							c->setPosition(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1));
 								MissileExploder exploder;

@@ -17,12 +17,14 @@ propertyMove.txt
 propertyDraw.txt
 propertyDrawSprite.txt
 propertyDrawCircleShape.txt
+propertyDrawRectangleShape.txt
 propertyExplode.txt
 propertyCurrentMissileCount.txt
 propertyTotalMissileCount.txt
 propertyPoints.txt
 propertyCircleShape.txt
-propertyChemTrail.txt
+propertyRectangleShape.txt
+propertyColorFriend.txt
 
 entityGround.txt
 

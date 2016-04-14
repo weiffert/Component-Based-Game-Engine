@@ -1,3 +1,0 @@
-Explode ;
-bool ;
-false ;

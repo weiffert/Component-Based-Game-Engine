@@ -1,4 +1,0 @@
-Player ;
-Life ;
-MissileLauncher ;
-Points ;

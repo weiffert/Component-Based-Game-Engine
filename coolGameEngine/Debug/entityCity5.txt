@@ -1,9 +1,0 @@
-City5 ;
-StateId Debug ;
-StateNumber 10 ;
-Sprite setTexture city.png setPosition 325 438 ;
-CurrentPosition 325 438 ;
-Life true ;
-Draw true ;
-DrawSprite true ;
-Move false ;
