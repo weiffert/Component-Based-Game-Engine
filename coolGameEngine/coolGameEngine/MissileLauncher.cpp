@@ -58,7 +58,7 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 			//Push back new values with starting and ending positions
 			if (currentMissile->hasComponent("StartingPosition") && currentMissile->hasComponent("ChemTrail"))
 			{
-				temp = currentMissile->getComponent("ChemTrail")->getDataRectangle(0);
+				temp = *currentMissile->getComponent("ChemTrail")->getDataRectangleShape().at(0);
 				
 				//Set Rectangle/Chem trail origin
 				temp.setOrigin(currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0), 
@@ -70,7 +70,7 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 				angle * -1;
 				temp.setRotation(angle);
 				currentMissile->getComponent("ChemTrail")->deleteData();
-				currentMissile->getComponent("ChemTrail")->addData(temp);
+				currentMissile->getComponent("ChemTrail")->addData(&temp);
 			}
 
 			//Sets slope (Which is x/y)
@@ -209,18 +209,18 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 						s->setPosition(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
 					
 						//Update the chem trails, set the chem trail length to the velocity
-						double curX = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0);
-						double expX = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0);
-						double curY = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1);
-						double expY = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1);
+						double curX = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0);
+						double expX = missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0);
+						double curY = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1);
+						double expY = missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1);
 			
-						length = sqrt(pow(expX - curX, 2) + pow(expY - curY, 2)))
-						temp = currentMissile->getComponent("ChemTrail")->getDataRectangle().at(0);
+						length = sqrt(pow(expX - curX, 2) + pow(expY - curY, 2));
+						temp = *missiles.at(i)->getComponent("ChemTrail")->getDataRectangleShape().at(0);
 						rectLength = temp.getSize();
 						rectLength.x = rectLength.x + length;
 						temp.setSize(rectLength);
-						currentMissile->getComponent("ChemTrail")->deleteData();
-						currentMissile->getComponent("ChemTrail")->addData(temp);
+						missiles.at(i)->getComponent("ChemTrail")->deleteData();
+						missiles.at(i)->getComponent("ChemTrail")->addData(&temp);
 					}
 
 					//If the current Missile is positioned on its explosion point, (give an error of the velocity amount)
