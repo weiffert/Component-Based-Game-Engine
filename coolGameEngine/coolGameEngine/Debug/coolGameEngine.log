@@ -1,344 +1,58 @@
-﻿Build started 4/13/2016 9:08:14 PM.
+﻿Build started 4/14/2016 8:21:03 AM.
      1>Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\coolGameEngine.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AssetManager.cpp BaseController.cpp BaseState.cpp coolGameEngine.cpp Entity.cpp Game.cpp main.cpp MissileChecker.cpp MissileExploder.cpp MissileLauncher.cpp MissileLauncherAi.cpp Plane.cpp Property.cpp Render.cpp SmartBombControl.cpp StateDebug.cpp StateReInit.cpp StateLevel.cpp StateLoading.cpp StateMenu.cpp StateStatic.cpp SystemManager.cpp
-         SystemManager.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(23): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(30): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(37): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(44): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(88): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(105): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(122): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(139): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(156): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(173): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(190): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(207): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(224): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(244): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(269): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(284): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(299): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(314): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\systemmanager.cpp(329): warning C4018: '<' : signed/unsigned mismatch
-         StateStatic.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statestatic.cpp(52): warning C4244: 'argument' : conversion from 'double' to 'DWORD', possible loss of data
-         StateMenu.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt StateLoading.cpp
          StateLoading.cpp
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(117): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(144): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(170): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(269): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(279): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(290): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(301): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(316): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(324): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(335): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(352): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(375): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(393): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(410): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(430): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(450): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(476): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(507): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(533): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(564): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(590): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(622): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(648): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(695): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(718): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(776): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(793): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(801): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(810): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(819): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(832): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(838): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(847): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(862): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(883): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(899): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(914): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(932): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(954): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(978): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1009): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1033): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1064): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1088): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1120): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1144): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1191): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1234): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1302): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1306): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1320): warning C4018: '<' : signed/unsigned mismatch
-         StateLevel.cpp
-         StateReInit.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(115): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(142): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(168): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(265): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(275): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(286): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(297): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(312): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(320): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(331): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(348): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(371): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(389): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(406): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(426): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(446): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(472): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(503): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(529): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(560): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(586): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(618): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(644): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(691): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(714): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(772): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(789): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(797): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(806): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(815): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(828): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(834): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(843): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(858): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(879): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(895): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(910): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(928): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(950): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(974): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(1005): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(1029): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(1060): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(1084): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(1116): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(1140): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(1187): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statereinit.cpp(1207): warning C4018: '<' : signed/unsigned mismatch
-         StateDebug.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(181): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(191): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(202): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(213): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(226): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(238): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(250): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(266): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(289): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(307): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(324): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(344): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(366): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(392): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(427): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(453): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(488): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(514): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(550): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(576): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(623): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(647): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(661): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(712): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(728): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(738): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(749): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(760): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(772): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(784): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(796): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(813): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(836): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(854): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(871): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(891): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(941): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(976): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1002): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1037): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1063): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1099): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1125): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1172): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1195): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1274): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1278): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1298): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1325): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\statedebug.cpp(1351): warning C4018: '<' : signed/unsigned mismatch
-         SmartBombControl.cpp
-         Render.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\render.cpp(50): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\render.cpp(61): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\render.cpp(62): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\render.cpp(76): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\render.cpp(88): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\render.cpp(104): warning C4018: '<' : signed/unsigned mismatch
-         Property.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(30): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(34): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(38): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(42): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(46): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(50): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(54): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(59): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(63): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(68): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(72): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(77): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(82): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(87): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(92): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(96): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(101): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(270): warning C4244: 'argument' : conversion from 'int' to 'const float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(280): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(408): warning C4244: 'argument' : conversion from 'int' to 'const float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(418): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(558): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(571): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(584): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(597): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(610): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(623): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(636): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(649): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(662): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(675): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(688): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(701): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(714): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(727): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(740): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(753): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(766): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(795): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(802): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(809): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(816): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(823): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(830): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(837): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(844): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(851): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(858): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(865): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(872): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(879): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(886): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(893): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(900): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(907): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(914): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(932): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(942): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(952): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(962): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(972): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(982): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(992): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1002): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1012): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1022): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1032): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1042): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1052): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1062): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1072): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1082): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(1092): warning C4018: '<' : signed/unsigned mismatch
-         Plane.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\plane.cpp(30): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\plane.cpp(55): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\plane.cpp(142): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\plane.cpp(145): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\plane.cpp(192): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         MissileLauncherAi.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(40): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(125): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(229): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(232): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(293): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         MissileLauncher.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(121): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(29): warning C4101: 'temp' : unreferenced local variable
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(30): warning C4101: 'angle' : unreferenced local variable
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(214): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(225): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(228): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(230): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(231): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(266): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         MissileExploder.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missileexploder.cpp(61): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         MissileChecker.cpp
-         main.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\main.cpp(81): warning C4018: '<' : signed/unsigned mismatch
-         Game.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\game.cpp(68): warning C4244: 'initializing' : conversion from 'time_t' to 'double', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\game.cpp(74): warning C4244: 'initializing' : conversion from 'time_t' to 'double', possible loss of data
-         Entity.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\entity.cpp(51): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\entity.cpp(68): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\entity.cpp(86): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\entity.cpp(101): warning C4018: '<' : signed/unsigned mismatch
-         coolGameEngine.cpp
-         BaseState.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basestate.cpp(78): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basestate.cpp(117): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basestate.cpp(141): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basestate.cpp(181): warning C4018: '<' : signed/unsigned mismatch
-         Generating Code...
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(140): warning C4715: 'Property::getDataInt' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(147): warning C4715: 'Property::getDataDouble' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(154): warning C4715: 'Property::getDataFloat' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(161): warning C4715: 'Property::getDataChar' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(168): warning C4715: 'Property::getDataBool' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(175): warning C4715: 'Property::getDataString' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(182): warning C4715: 'Property::getDataImage' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(189): warning C4715: 'Property::getDataTexture' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(196): warning C4715: 'Property::getDataSprite' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(203): warning C4715: 'Property::getDataCircleShape' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(210): warning C4715: 'Property::getDataConvexShape' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(217): warning C4715: 'Property::getDataRectangleShape' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(224): warning C4715: 'Property::getDataText' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(231): warning C4715: 'Property::getDataEntity' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(238): warning C4715: 'Property::getDataSound' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(245): warning C4715: 'Property::getDataSoundBuffer' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(252): warning C4715: 'Property::getDataColor' : not all control paths return a value
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\property.cpp(259): warning C4715: 'Property::getDataLine' : not all control paths return a value
-         Compiling...
-         BaseController.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\basecontroller.cpp(42): warning C4018: '<' : signed/unsigned mismatch
-         AssetManager.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(27): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(40): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(43): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(55): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(65): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(78): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(81): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(93): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(106): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\assetmanager.cpp(109): warning C4018: '<' : signed/unsigned mismatch
-         Generating Code...
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\coolGameEngine.res" coolGameEngine.rc 
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(265): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(275): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(286): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(297): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(310): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(322): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(334): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(350): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(373): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(391): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(409): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(429): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(451): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(477): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(512): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(538): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(573): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(599): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(635): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(661): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(708): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(732): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(746): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(797): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(813): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(823): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(834): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(845): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(857): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(869): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(881): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(898): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(921): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(939): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(956): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(976): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1026): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1061): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1087): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1122): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1148): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1184): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1210): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1257): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1280): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1362): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\stateloading.cpp(1366): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SFML-2.3.2\lib" openal32.lib ws2_32.lib ogg.lib vorbis.lib vorbisfile.lib vorbisenc.lib flac.lib gdi32.lib winmm.lib jpeg.lib freetype.lib opengl32.lib "sfml-graphics-s-d.lib" "sfml-window-s-d.lib" "sfml-system-s-d.lib" "sfml-audio-s-d.lib" "sfml-network-s-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.lib" /MACHINE:X86 Debug\coolGameEngine.res
          Debug\AssetManager.obj
@@ -364,81 +78,9 @@
          Debug\StateStatic.obj
          Debug\stdafx.obj
          Debug\SystemManager.obj
-     1>LINK : warning LNK4067: ambiguous entry point; selected 'mainCRTStartup'
-     1>sfml-graphics-s-d.lib(BlendMode.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(BlendMode.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Color.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Color.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Font.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Font.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(GLCheck.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(GLCheck.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(GLExtensions.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(GLExtensions.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Image.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Image.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(ImageLoader.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(ImageLoader.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RenderStates.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(RenderStates.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RenderTarget.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(RenderTarget.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RenderWindow.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(RenderWindow.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Shader.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Shader.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Texture.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Texture.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(TextureSaver.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(TextureSaver.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Transform.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Transform.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Transformable.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Transformable.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(View.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(View.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Vertex.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Vertex.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(GLLoader.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(GLLoader.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Shape.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Shape.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(CircleShape.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(CircleShape.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RectangleShape.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(RectangleShape.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(ConvexShape.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(ConvexShape.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Sprite.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Sprite.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Text.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Text.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(VertexArray.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(VertexArray.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(Context.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(Context.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(GlContext.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(GlContext.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(GlResource.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(GlResource.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(Joystick.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(Joystick.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(JoystickManager.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(JoystickManager.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(Mouse.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(Mouse.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(SensorManager.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(SensorManager.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(VideoMode.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(VideoMode.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(Window.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(Window.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(WindowImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(WindowImpl.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(WglContext.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(WglContext.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(WglExtensions.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(WglExtensions.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(InputImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(InputImpl.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(JoystickImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(JoystickImpl.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(SensorImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(SensorImpl.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(VideoModeImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(VideoModeImpl.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(WindowImplWin32.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(WindowImplWin32.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Clock.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Clock.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Err.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Err.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Lock.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Lock.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Mutex.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Mutex.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Sleep.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Sleep.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(String.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(String.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(ThreadLocal.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(ThreadLocal.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Time.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Time.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(FileInputStream.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(FileInputStream.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(MemoryInputStream.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(MemoryInputStream.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(ClockImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(ClockImpl.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(MutexImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(MutexImpl.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(SleepImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(SleepImpl.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(ThreadLocalImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(ThreadLocalImpl.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(ALCheck.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(ALCheck.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(AlResource.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(AlResource.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(AudioDevice.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(AudioDevice.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(Sound.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(Sound.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(SoundBuffer.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(SoundBuffer.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(InputSoundFile.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(InputSoundFile.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(OutputSoundFile.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(OutputSoundFile.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(SoundSource.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(SoundSource.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(SoundFileFactory.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(SoundFileFactory.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(SoundFileReaderOgg.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(SoundFileReaderOgg.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(SoundFileReaderWav.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(SoundFileReaderWav.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj)' or at 'C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\vc120.pdb'; linking object as if no debug info
          coolGameEngine.vcxproj -> C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe
      1>Done Building Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:19.95
+Time Elapsed 00:00:01.46

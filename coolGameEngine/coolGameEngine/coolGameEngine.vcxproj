@@ -162,10 +162,12 @@
     <Text Include="game.txt" />
     <Text Include="log.txt" />
     <Text Include="propertyCircleShape.txt" />
+    <Text Include="propertyColorFriend.txt" />
     <Text Include="propertyCurrentMissileCount.txt" />
     <Text Include="propertyCurrentPosition.txt" />
     <Text Include="propertyDraw.txt" />
     <Text Include="propertyDrawCircleShape.txt" />
+    <Text Include="propertyDrawRectangleShape.txt" />
     <Text Include="propertyDrawSprite.txt" />
     <Text Include="propertyExplode.txt" />
     <Text Include="propertyExplodingPosition.txt" />
@@ -176,8 +178,15 @@
     <Text Include="propertyMissilesHeld.txt" />
     <Text Include="propertyMove.txt" />
     <Text Include="propertyPoints.txt" />
+    <Text Include="propertyRectangleShape.txt" />
     <Text Include="propertySelect.txt" />
     <Text Include="propertySlope.txt" />
+    <Text Include="propertySoundAlert.txt" />
+    <Text Include="propertySoundFreeCity.txt" />
+    <Text Include="propertySoundGameOver.txt" />
+    <Text Include="propertySoundMissileExplosion.txt" />
+    <Text Include="propertySoundMissileFireFail.txt" />
+    <Text Include="propertySoundSwoopUp.txt" />
     <Text Include="propertySprite.txt" />
     <Text Include="propertyStartingPosition.txt" />
     <Text Include="propertyStateId.txt" />
@@ -187,7 +196,8 @@
     <Text Include="propertyTotalMissileCount.txt" />
     <Text Include="propertyVelocity.txt" />
     <Text Include="ReadMe.txt" />
-    <Text Include="stateLoading.txt" />
+    <Text Include="stateLevel.txt" />
+    <Text Include="stateWelcome.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
@@ -261,8 +271,22 @@
   <ItemGroup>
     <Image Include="city.png" />
     <Image Include="ground.png" />
+    <Image Include="location.png" />
+    <Image Include="missile-transit-clear.png" />
+    <Image Include="missile-transit-enemy.png" />
     <Image Include="missile.png" />
     <Image Include="plane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Alert.wav" />
+    <Media Include="DifferentExplosion.wav" />
+    <Media Include="FreeCity.wav" />
+    <Media Include="GameOver.wav" />
+    <Media Include="MissileExplosion.wav" />
+    <Media Include="MissileFireFail.mp3" />
+    <Media Include="RollUp1.wav" />
+    <Media Include="RollUp2.wav" />
+    <Media Include="SwoopUp.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

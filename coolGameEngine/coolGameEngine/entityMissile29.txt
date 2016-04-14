@@ -20,3 +20,6 @@ Explode false ;
 CircleShape setRadius 0 setFillColor 255 160 122 setPosition 0 0 ;
 RectangleShape setSize 0 2 ;
 ColorFriend ;
+SoundSwoopUp ;
+SoundMissileExplosion ;
+SoundMissileFireFail ;

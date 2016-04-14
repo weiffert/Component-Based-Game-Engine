@@ -120,7 +120,17 @@
     <Text Include="entityBase2.txt" />
     <Text Include="entityBase1.txt" />
     <Text Include="debug.txt" />
-    <Text Include="stateLoading.txt" />
+    <Text Include="propertyColorFriend.txt" />
+    <Text Include="propertyDrawRectangleShape.txt" />
+    <Text Include="propertyRectangleShape.txt" />
+    <Text Include="propertySoundAlert.txt" />
+    <Text Include="propertySoundFreeCity.txt" />
+    <Text Include="propertySoundGameOver.txt" />
+    <Text Include="propertySoundMissileExplosion.txt" />
+    <Text Include="propertySoundMissileFireFail.txt" />
+    <Text Include="propertySoundSwoopUp.txt" />
+    <Text Include="stateLevel.txt" />
+    <Text Include="stateWelcome.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -295,5 +305,41 @@
     <Image Include="city.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="location.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="missile-transit-clear.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="missile-transit-enemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="FreeCity.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="DifferentExplosion.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="GameOver.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="MissileExplosion.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="MissileFireFail.mp3" />
+    <Media Include="RollUp1.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="RollUp2.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="SwoopUp.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Alert.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

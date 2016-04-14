@@ -32,6 +32,14 @@ void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
 		{
 			missile->getComponent("ExplosionPhase")->deleteData();
 			missile->getComponent("ExplosionPhase")->addData(1);
+
+			//Play explosion sound.
+			if (missile->hasComponent("SoundMissileExplosion"))
+			{
+				sf::Sound s;
+				s.setBuffer(*(missile->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0)));
+				s.play();
+			}
 		}
 
 		//Check radius

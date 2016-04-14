@@ -44,11 +44,11 @@ Game::~Game()
 int Game::run()
 {
 	//Create a state loading to start the game with.
-	state = new /*StateLoading*/ StateDebug(systemManager, assetManager, &gameWindow);
+	state = new StateLoading(systemManager, assetManager); /*StateDebug(systemManager, assetManager, &gameWindow);*/
 	//Add it to the systemManager.
 	systemManager->add(state);
 
-	state->setMaterial(systemManager->getMaterial(state));
+	//state->setMaterial(systemManager->getMaterial(state));
 	//run the game loop, which returns the exit code.
 	exitCode = gameLoop();
 
