@@ -16,12 +16,20 @@ Plane::Plane()
 {
   totalMissiles = 10;
   missilesLeft = 10;
+  
+  systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->deleteData();
+  systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(rand % 280 + 100);
+  systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(0);
 }
 
-Plane::Plane(int totalMis, int currMis)
+Plane::Plane(int totalMis, int currMis, int height)
 {
   totalMissiles = totalMis;
   missilesLeft = currMis;
+  
+  systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->deleteData();
+  systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(height);
+  systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(0);
 }
 
 void Plane::setTargets()
