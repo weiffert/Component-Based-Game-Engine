@@ -32,29 +32,99 @@ Plane::Plane(int totalMis, int currMis, int height)
   systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(0);
 }
 
-void Plane::setTargets()
+void Plane::setTargets(bool cities[6])
 {
- //Shortened
-    srand(time(NULL));
-  
-    targetOne = rand() % 6 + 1;
+//Determine how many cities are left
+	int alive = 0;
+	int counter = 0;
+	for (int i = 0; i < 6; i++)
+	{
+		if (cities[i])
+			alive++;
+		
+	}
+	
+	//Now determines the order based on the cities surviving
+	srand(time(NULL));
+	if (alive > 3)
+	{
+		targetOne = rand() % alive + 1;
+		targetTwo = rand() % alive + 1;
+		while(targetTwo == targetOne)
+		{
+			targetTwo = rand() % alive + 1;
+		}
     
-    targetTwo = rand() % 6 + 1;
+		targetThree = rand() % 6 + 1;
     
-    while(targetTwo == targetOne)
-    {
-        targetTwo = rand() % 6 + 1;
-    }
-    
-    targetThree = rand() % 6 + 1;
-    
-    while(targetThree == targetOne || targetThree == targetTwo)
-    {
-        targetThree = rand() % 6 + 1;
-    }
+		while(targetThree == targetOne || targetThree == targetTwo)
+		{
+			targetThree = rand() % 6 + 1;
+		}	
+	}
+	else 
+	{
+		if (alive == 3)
+		{
+			targetOne = 1;
+			targetTwo = 2;
+			targetThree = 3;
+		}
+		else if (alive == 2)
+		{
+			targetOne = 1;
+			targetTwo = 2;
+			targetThree = 0; //Will be set so that it does not fire at target three
+		}
+		else
+		{
+			targetOne = 1;
+			targetTwo = 0; //Won't fire
+			targetThree = 0; //Won't fire
+		}
+	}
+	
+	//Now determines which cities to target
+	//Determine which city for targetOne
+	while(targetOne > counter + 1)
+	{
+		while (counter < 6 && !cities[counter])
+		{
+			counter++;
+		}
+			
+	}
+	targetOne = counter + 1;
+	
+	if (targetTwo != 0)
+	{
+		while(targetTwo > counter + 1)
+		{
+			while (counter < 6 && !cities[counter])
+			{
+				counter++;
+			}
+			
+		}
+		targetTwo = counter + 1;
+	}
+	
+	if (targetThree != 0)
+	{
+		while(targetThree > counter + 1)
+		{
+			while (counter < 6 && !cities[counter])
+			{
+				counter++;
+			}
+			
+		}
+		targetThree = counter + 1;
+	}	
+	
 }
 
-int Plane::launchMissiles(SystemManager* systemManager, Entity *currentMissile, sf::RenderWindow *window)
+int Plane::launchMissiles(Entity *currentMissile, sf::RenderWindow *window)
 {
 	//Shoots missile if it has missiles left
 	setTargets();
@@ -72,43 +142,58 @@ int Plane::launchMissiles(SystemManager* systemManager, Entity *currentMissile, 
 
 		if (missileTarget != 1)
 		{
+			int currentTarget = rand() % 3 + 1;
+			
+			if( currentTarget == 1)
+			{
+				currentTarget = targetOne;
+			}
+			else if (currentTarget == 2)
+			{
+				currentTarget = targetTwo;
+			}
+			else
+			{
+				currentTarget = targetThree;
+			}
+			
 			//Push back new values with starting and ending positions
-			if (targetOne == 1 || targetTwo == 1 || targetThree == 1)
+			if (currentTarget == 1)
 			{
 				//set position to the first city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); 
 				currentMissile->getComponent("ExplodingPosition")->addData(150);
 			}
 
-			else if (targetOne == 2 || targetTwo == 2 || targetThree == 2)
+			else if (currentTarget == 2)
 			{
 				//set position to the second city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); 
 				currentMissile->getComponent("ExplodingPosition")->addData(180);
 			}
 
-			else if (targetOne == 3 || targetTwo == 3 || targetThree == 3)
+			else if (currentTarget == 3)
 			{
 				//set position to the third city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); 
 				currentMissile->getComponent("ExplodingPosition")->addData(210);
 			}
 
-			else if (targetOne == 4 || targetTwo == 4 || targetThree == 4)
+			else if (currentTarget == 4)
 			{
 				//set position to the fourth city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); 
 				currentMissile->getComponent("ExplodingPosition")->addData(270);
 			}
 
-			else if (targetOne == 5 || targetTwo == 5 || targetThree == 5)
+			else if (currentTarget == 5)
 			{
 				//set position to the fifth city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); 
 				currentMissile->getComponent("ExplodingPosition")->addData(300);
 			}
 
-			else if (targetOne == 6 || targetTwo == 6 || targetThree == 6)
+			else if (currentTarget == 6)
 			{
 				//set position to the sixth city
 				currentMissile->getComponent("ExplodingPosition")->addData(40); 
