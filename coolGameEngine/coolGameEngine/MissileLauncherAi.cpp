@@ -24,6 +24,11 @@ MissileLauncherAi::MissileLauncherAi(int totalMis, int currMis)
   missilesLeft = currMis;
 }
 
+MissileLauncherAi::~MissileLauncherAi()
+{
+	
+}
+
 void MissileLauncherAi::setTargets(bool cities[6])
 {
 	//Determine how many cities are left
