@@ -1,6 +1,6 @@
 Missile22 ;
-StateNumber 10 ;
-StateId Debug ;
+StateId Level1 ;
+StateNumber 2 ;
 Sprite setTexture missile.png setPosition 442 438 ;
 Life true ;
 Velocity 1 0 0 ;

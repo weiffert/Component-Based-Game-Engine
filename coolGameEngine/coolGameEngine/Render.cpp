@@ -6,6 +6,7 @@
 #include "Render.h"
 #include "Property.h"
 #include "Entity.h"
+#include "AssetManager.h"
 
 #include <iostream>
 
@@ -23,7 +24,7 @@ Render::~Render()
 
 //Draws an entity to a window. It can only do one part of the entity.
 //Takes in the lag between updates, window, and the entity to be drawn.
-void Render::control(double lag, sf::RenderWindow *window, Entity *a)
+void Render::control(double lag, sf::RenderWindow *window, Entity *a, AssetManager *assetManager)
 {
 	//Temp stores the property to be drawn.
 	Property *temp;
@@ -55,10 +56,10 @@ void Render::control(double lag, sf::RenderWindow *window, Entity *a)
 			if (a->hasComponent("Text"))
 			{
 				temp = a->getComponent("Text");
-				if (a->hasComponent("Move"))
+				/*if (a->hasComponent("Move"))
 					if (a->getComponent("Move")->getDataBool().at(0))
 						if (movement(lag, a, x, y))
-							temp->getDataText().at(0)->setPosition(x, y);
+							temp->getDataText().at(0)->setPosition(x, y);*/
 				for (int i = 0; i < temp->getDataText().size(); i++)
 					window->draw(*(temp->getDataText().at(i)));
 			}

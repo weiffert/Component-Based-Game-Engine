@@ -31,7 +31,7 @@ public:
 	void render(double, sf::RenderWindow *);
 
 	//Update function.
-	virtual void update(double, sf::RenderWindow *) = 0;
+	virtual std::string update(double, sf::RenderWindow *) = 0;
 
 protected:
 	int number;
@@ -39,11 +39,6 @@ protected:
 	std::vector<Entity*> material;
 	SystemManager* systemManager;
 	AssetManager* assetManager;
-
-	//Change the current state.
-	void changeState(BaseState *);
-	void changeState(BaseState *, std::string);
-	void changeState(BaseState *, int);
 
 	//Conversion function
 	int conversionInt(std::string s);

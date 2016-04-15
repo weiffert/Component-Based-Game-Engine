@@ -22,7 +22,7 @@ public:
 	void setMissilesLeft(int);
 	int getMissilesLeft();
 	int getTotalMissiles();
-	int launchMissiles(SystemManager*, Entity *, sf::RenderWindow *); //Returns 0 if it fails to launch, 1 if it successfully launches
+	int launchMissiles(Entity *, sf::RenderWindow *); //Returns 0 if it fails to launch, 1 if it successfully launches
 	void update(sf::RenderWindow *, Entity *);
 
 };

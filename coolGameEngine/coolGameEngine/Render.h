@@ -7,6 +7,7 @@
 #include "SFML\Graphics.hpp"
 
 #include "BaseController.h"
+#include "AssetManager.h"
 #include "Entity.h"
 #include "Property.h"
 
@@ -18,7 +19,7 @@ public:
 	~Render();
 
 	//Control function
-	void control(double, sf::RenderWindow *, Entity *);
+	void control(double, sf::RenderWindow *, Entity *, AssetManager *);
 
 private:
 	bool movement(double, Entity*, double&, double&);

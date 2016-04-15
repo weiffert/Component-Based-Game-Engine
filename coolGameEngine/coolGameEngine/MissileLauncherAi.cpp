@@ -24,6 +24,11 @@ MissileLauncherAi::MissileLauncherAi(int totalMis, int currMis)
   missilesLeft = currMis;
 }
 
+MissileLauncherAi::~MissileLauncherAi()
+{
+	
+}
+
 void MissileLauncherAi::setTargets(bool cities[6])
 {
 	//Determine how many cities are left
@@ -116,7 +121,7 @@ void MissileLauncherAi::setTargets(bool cities[6])
 	
 }
 
-int MissileLauncherAi::launchMissiles(SystemManager* systemManager, Entity *currentMissile, sf::RenderWindow *window)
+int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *window)
 {
 	
 	//Shoots missile if it has missiles left
@@ -277,6 +282,7 @@ double MissileLauncherAi::setSlope(int pathX, int pathY)
 void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 {
 	double slope;
+	srand(time(NULL));
 
 	//Goes through all the missiles
 	for (int i = 0; i < 30; i++)
@@ -310,6 +316,143 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 						missileExploder.control(window, missiles.at(i));
 						missiles.at(i)->getComponent("Life")->deleteData();
 						missiles.at(i)->getComponent("Life")->addData(false);
+					}
+				}
+				
+				//checks if it is the last missile
+				if(i != 29)
+				{
+					//checks if missile is within a certain range for splitting
+					if(missiles.at(i)->getComponent("CurrentPosition")-> getDataDouble().at(1) >= rand() % 280 + 100 )
+					{
+						//checks if missile already slpit
+						if(missiles.at(i)->getComponent("Split")->getDataBool().at(0) == false)
+						{
+							//random chance to not split
+							if(rand() % 3 + 1 == 1)
+							{
+								//fires next missile from current one
+								int missileTarget = rand() % 3 + 1;
+						
+								//Delete data for exploding position and starting position for missile
+								if (missiles.at(i+1)->hasComponent("StartingPosition"))
+									missiles.at(i+1)->getComponent("StartingPosition")->deleteData();
+								if (missiles.at(i+1)->hasComponent("ExplodingPosition"))
+									missiles.at(i+1)->getComponent("ExplodingPosition")->deleteData();
+						
+						
+								if (missileTarget != 1)
+								{
+									
+									int currentTarget = rand() % 3 + 1;
+									
+									if( currentTarget == 1)
+									{
+										currentTarget = targetOne;
+									}
+									else if (currentTarget == 2)
+									{
+										currentTarget = targetTwo;
+									}
+									else
+									{
+										currentTarget = targetThree;
+									}
+									
+									
+									//Push back new values with starting and ending positions
+									if (currentTarget == 1)
+									{
+										//set position to the first city
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(40); //y for Base1
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(150);
+									}
+						
+									else if (currentTarget == 2)
+									{
+										//set position to the second city
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(40); //y for Base1
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(180);
+									}
+						
+									else if (currentTarget == 3)
+									{
+										//set position to the third city
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(40); //y for Base1
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(210);
+									}
+						
+									else if (currentTarget == 4)
+									{
+										//set position to the fourth city
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(40); //y for Base1
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(270);
+									}
+						
+									else if (currentTarget == 5)
+									{
+										//set position to the fifth city
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(40); //y for Base1
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(300);
+									}
+						
+									else if (currentTarget == 6)
+									{
+										//set position to the sixth city
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(40); //y for Base1
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(330);
+									}
+								}
+								else
+								{
+									int x = rand() % 3 + 1;
+						
+									if (x == 1)
+									{
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(80); //y for Base1
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(120); //x for Base1
+									}
+									else if (x == 2)
+									{
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(80); //y for Base2
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(240); //x for Base2
+									}
+									else
+									{
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(80); //y for Base3
+										missiles.at(i+1)->getComponent("ExplodingPosition")->addData(360); //x for Base3
+									}
+						
+								}
+								
+								//What does this do?
+								missiles.at(i+1)->getComponent("StartingPosition")->deleteData();
+								missiles.at(i+1)->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
+							
+								missiles.at(i+1)->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+						
+								//Sets slope (Which is x/y) (I think this has been changed)
+								missiles.at(i+1)->getComponent("Slope")->deleteData();
+						
+								int changeX = missiles.at(i+1)->getComponent("ExplodingPosition")->getDataDouble().at(0) -
+									missiles.at(i+1)->getComponent("StartingPosition")->getDataDouble().at(0);
+						
+								int changeY = missiles.at(i+1)->getComponent("ExplodingPosition")->getDataDouble().at(1) -
+									missiles.at(i+1)->getComponent("StartingPosition")->getDataDouble().at(1);
+						
+								missiles.at(i+1)->getComponent("Slope")->addData(setSlope(changeX, changeY));
+						
+								missiles.at(i+1)->getComponent("Fired")->deleteData();
+								missiles.at(i+1)->getComponent("Fired")->addData(true);
+						
+								//Decrease missiles left
+								missilesLeft--;
+							}
+							
+							//sets missile to have been split
+							missiles.at(i)->getComponent("Split")->deleteData();
+							missiles.at(i)->getComponent("Split")->addData(true);
+						}
 					}
 				}
 			}

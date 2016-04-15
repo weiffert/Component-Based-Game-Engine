@@ -25,6 +25,8 @@ propertyPoints.txt
 propertyCircleShape.txt
 propertyRectangleShape.txt
 propertyColorFriend.txt
+propertyText.txt
+propertySplit.txt
 
 propertySoundAlert.txt
 propertySoundFreeCity.txt
@@ -111,8 +113,10 @@ entityEnemyMissile28.txt
 entityEnemyMissile29.txt
 entityEnemyMissile30.txt
 
-stateWelcome ;
-stateLevel ;
+entityWelcome.txt
+
+stateWelcome.txt ;
+stateLevel.txt ;
 
 Substrings
 png

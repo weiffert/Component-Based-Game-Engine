@@ -1,6 +1,6 @@
 Base3 ;
-StateId Debug ;
-StateNumber 10 ;
+StateId Level1 ;
+StateNumber 2 ;
 Life true ;
 CurrentMissileCount 10 ;
 TotalMissileCount ;
