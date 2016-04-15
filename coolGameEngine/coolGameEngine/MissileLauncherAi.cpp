@@ -116,7 +116,7 @@ void MissileLauncherAi::setTargets(bool cities[6])
 	
 }
 
-int MissileLauncherAi::launchMissiles(SystemManager* systemManager, Entity *currentMissile, sf::RenderWindow *window)
+int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *window)
 {
 	
 	//Shoots missile if it has missiles left
