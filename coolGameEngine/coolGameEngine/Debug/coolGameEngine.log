@@ -1,4 +1,4 @@
-﻿Build started 4/14/2016 9:07:31 PM.
+﻿Build started 4/14/2016 9:44:19 PM.
      1>Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
      1>Link:
          coolGameEngine.vcxproj -> C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe
@@ -6,4 +6,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.25
+Time Elapsed 00:00:00.24
