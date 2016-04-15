@@ -10,7 +10,7 @@ public:
 	Crosshairs();
 	~Crosshairs();
 	void control(sf::RenderWindow *, SystemManager *);
-	void loadTexture(std::string);
+	void loadTexture(std::string, SystemManager *);
 private:
 	sf::Sprite crosshair;
 	sf::Texture file;
