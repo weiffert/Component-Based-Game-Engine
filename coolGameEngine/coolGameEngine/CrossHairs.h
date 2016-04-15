@@ -10,7 +10,7 @@ public:
 	CrossHairs();
 	~CrossHairs();
 	void control(sf::RenderWindow *, SystemManager *);
-	void loadSprite(std::string);
+	void loadTexture(std::string);
 private:
 	sf::Sprite crossHair;
 	sf::Texture file;
