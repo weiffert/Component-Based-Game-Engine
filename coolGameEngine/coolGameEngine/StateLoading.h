@@ -16,7 +16,7 @@ public:
 	~StateLoading();
 
 	//Update function. Overloads the pure virtual update function in BaseState.
-	virtual void update(double, sf::RenderWindow *);
+	virtual std::string update(double, sf::RenderWindow *);
 
 private:
 	//Stores filenames.

@@ -1,6 +1,6 @@
 City6 ;
-StateId Debug ;
-StateNumber 10 ;
+StateId Level1 ;
+StateNumber 2 ;
 Sprite setTexture city.png setPosition 377 446 ;
 CurrentPosition 377 446 ;
 Life true ;

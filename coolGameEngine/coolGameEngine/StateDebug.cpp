@@ -1367,7 +1367,7 @@ void StateDebug::substringSorter()
 
 //Initializes all of the other classes that go into the system and asset managers from files.
 //Takes in time elapsed and the window.
-void StateDebug::update(double totalTime, sf::RenderWindow *window)
+std::string StateDebug::update(double totalTime, sf::RenderWindow *window)
 {
 	MissileLauncher missileLauncher;
 	//MissileLauncherAi missileLauncherAi;
@@ -1541,6 +1541,7 @@ void StateDebug::update(double totalTime, sf::RenderWindow *window)
 	
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 	//missileLauncherAi.
+	return "constant";
 }
 
 

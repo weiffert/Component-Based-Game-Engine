@@ -44,11 +44,11 @@ Game::~Game()
 int Game::run()
 {
 	//Create a state loading to start the game with.
-	state = new StateLoading(systemManager, assetManager); /*StateDebug(systemManager, assetManager, &gameWindow);*/
+	state = new StateLoading(systemManager, assetManager/*, &gameWindow*/);
 	//Add it to the systemManager.
 	systemManager->add(state);
 
-	//state->setMaterial(systemManager->getMaterial(state));
+	state->setMaterial(systemManager->getMaterial(state));
 	//run the game loop, which returns the exit code.
 	exitCode = gameLoop();
 
@@ -60,6 +60,7 @@ int Game::run()
 //Returns the exit code.
 int Game::gameLoop()
 {
+	std::string change;
 	//initialize time keepers
 	double totalTime = 0.0;
 	double frameRate = 1;
@@ -85,13 +86,21 @@ int Game::gameLoop()
 		//while (lag >= frameRate)
 		//{
 			//update
-			state->update(totalTime, &gameWindow);
+			change = state->update(totalTime, &gameWindow);
 			//decrement current time keepers
 			totalTime += frameRate;
 			lag -= frameRate;
 		//}
 		//render with parameters.
 		state->render(lag/frameRate, &gameWindow);
+
+		if (change != "constant")
+		{
+			if (change != "next")
+				state = systemManager->getState(change);
+			else
+				state = systemManager->getState(state->getNumber() + 1);
+		}
 	}
 
 	return exitCode;

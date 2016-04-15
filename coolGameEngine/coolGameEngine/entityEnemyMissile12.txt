@@ -1,6 +1,6 @@
 EnemyMissile12 ;
-StateNumber 10 ;
-StateId Debug ;
+StateId Level1 ;
+StateNumber 2 ;
 Sprite setTexture missile-transit-enemy.png ;
 Life true ;
 Velocity 1 0.0 ;

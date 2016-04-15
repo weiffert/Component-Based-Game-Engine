@@ -38,7 +38,7 @@ StateMenu::~StateMenu()
 
 //Polls for events and calls the PlayerInput controller accordingly.
 //Takes in the total time elapsed and the window.
-void StateMenu::update(double totalTime, sf::RenderWindow *window)
+std::string StateMenu::update(double totalTime, sf::RenderWindow *window)
 {
 	//Check for arrow key and space bar events
 	sf::Event event;
@@ -68,13 +68,12 @@ void StateMenu::update(double totalTime, sf::RenderWindow *window)
 		}
 		//Checks if escape key pressed
 		if ((event.type = sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::Escape))
-		{
-			BaseState::changeState(this, "Pause");
-		}
+			window->close();
 		if (event.type == sf::Event::Closed)
 			window->close();
 		//Run through the game controllers.
 		//Example: Checking for collisions
 		//systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
 	}
+	return "constant";
 }

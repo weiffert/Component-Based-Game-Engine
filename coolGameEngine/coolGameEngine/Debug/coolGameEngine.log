@@ -1,9 +1,9 @@
-﻿Build started 4/14/2016 8:08:15 PM.
-     1>Project "C:\Users\Kelly\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
+﻿Build started 4/14/2016 9:07:31 PM.
+     1>Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
      1>Link:
-         coolGameEngine.vcxproj -> C:\Users\Kelly\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe
-     1>Done Building Project "C:\Users\Kelly\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" (Build target(s)).
+         coolGameEngine.vcxproj -> C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe
+     1>Done Building Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.82
+Time Elapsed 00:00:00.25

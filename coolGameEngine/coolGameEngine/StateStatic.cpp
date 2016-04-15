@@ -41,21 +41,20 @@ StateStatic::~StateStatic()
 
 //Runs until a certain amount of time has elapsed.
 //Takes in a double which contains the amount of time elapsed. Takes in the window for consistency.
-void StateStatic::update(double totalTime, sf::RenderWindow *window)
+std::string StateStatic::update(double totalTime, sf::RenderWindow *window)
 {
-	//If the game has been running for more than five seconds, change states.
-	if (totalTime > 5)
-		BaseState::changeState(this, "Menu");
-
-	else
-	{
-		Sleep(0.1);
-	}
-
 	sf::Event event;
 	while (window->pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
 			window->close();
+		if (event.type == sf::Event::KeyReleased)
+		{
+			if (event.key.code == sf::Keyboard::Escape)
+				window->close();
+			else
+				return "next";
+		}
 	}
+	return "constant";
 }

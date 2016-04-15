@@ -45,7 +45,7 @@ StateLevel::~StateLevel()
 
 //Polls for events and calls the required controllers accordingly.
 //Takes in the total time elapsed and the window.
-void StateLevel::update(double totalTime, sf::RenderWindow* window)
+std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 {
 	MissileLauncher missileLauncher;
 	//MissileLauncherAi missileLauncherAi;
@@ -219,4 +219,5 @@ void StateLevel::update(double totalTime, sf::RenderWindow* window)
 
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 	//missileLauncherAi.
+	return "constant";
 }

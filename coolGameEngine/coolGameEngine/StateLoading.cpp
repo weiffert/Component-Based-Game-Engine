@@ -58,7 +58,7 @@ StateLoading::StateLoading()
 	}
 
 	//Sorts the substrings into the proper order.
-	substringSorter();
+	//substringSorter();
 }
 
 
@@ -185,7 +185,7 @@ void StateLoading::substringSorter()
 
 //Initializes all of the other classes that go into the system and asset managers from files.
 //Takes in time elapsed and the window.
-void StateLoading::update(double totalTime, sf::RenderWindow *window)
+std::string StateLoading::update(double totalTime, sf::RenderWindow *window)
 {
 	sf::Event event;
 	while (window->pollEvent(event))
@@ -229,7 +229,7 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 
 			//If it is a property.
-			if (substrings.at(0) == "property")
+			else if (substrings.at(0) == "property")
 			{
 				std::vector<std::string> data;
 
@@ -1211,14 +1211,45 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 							{
 								if (properties.at(y).at(i) == "setString")
 								{
-									text->setString(properties.at(y).at(++i));
+									std::string sTemp1 = "";
+									std::string sTemp2 = "";
+
+									int increment = 0;
+
+									while (properties.at(y).at(i).find("\"") == std::string::npos)
+									{
+										if (increment == 0)
+										{
+											sTemp1 += properties.at(y).at(++i) + " ";
+											i++;
+											increment++;
+										}
+										else
+										{
+											sTemp1 += properties.at(y).at(i++) + " ";
+										}
+										if (properties.at(y).at(i).find("\"") != std::string::npos)
+											sTemp1 += properties.at(y).at(i) + " ";
+									}
+									
+									for (int i = 0; i < sTemp1.size(); i++)
+									{
+										if (sTemp1.at(i) != '\"')
+											sTemp2.push_back(sTemp1.at(i));
+									}
+
+									text->setString(sTemp2);
 								}
 								else if (properties.at(y).at(i) == "setFont")
 								{
-									sf::Font f;
-									f.loadFromFile(properties.at(y).at(++i));
+									sf::Font *f = new sf::Font;
+									if (!f->loadFromFile(properties.at(y).at(++i)))
+										std::cout << "Failed to load " << properties.at(y).at(i) << std::endl;
 
-									text->setFont(f);
+									text->setFont(*f);
+
+									assetManager->add(f);
+									assetManager->addFontString("Squares");
 								}
 								else if (properties.at(y).at(i) == "setCharacterSize")
 								{
@@ -1303,8 +1334,8 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 			//If it is a state.
 			else if (substrings.at(0) == "state")
 			{
-				std::string number;
 				int intNumber;
+				std::string number;
 
 				//read data and take in values. Includes tempId.
 				while (!file.eof())
@@ -1317,6 +1348,8 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 						if (lineNumber == 1)
 							tempId = word;
 						if (lineNumber == 2)
+							type = word;
+						if (lineNumber == 3)
 							number = word;
 
 						file >> word;
@@ -1325,35 +1358,36 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 					lineNumber++;
 				}
 
-				BaseState *temp;
+				BaseState *temp = nullptr;
 
-				//Determine the state.
-				//Does this work?
 				intNumber = BaseState::conversionInt(number);
+				//Determine the state.
 
 				//Create
-				switch (intNumber)
+				if (type == "Loading")
 				{
-				case 0:
 					temp = new StateLoading(systemManager, assetManager);
 					initializeState(temp, tempId, intNumber);
-					break;
-				case 1:
+				}
+				else if (type == "Static")
+				{
 					temp = new StateStatic(systemManager, assetManager);
 					initializeState(temp, tempId, intNumber);
-					break;
-				case 2:
+				}
+				else if (type == "Menu")
+				{
 					temp = new StateMenu(systemManager, assetManager);
 					initializeState(temp, tempId, intNumber);
-					break;
-				case 3:
+				}
+				else if (type == "Level")
+				{
 					temp = new StateLevel(systemManager, assetManager);
 					initializeState(temp, tempId, intNumber);
-					break;
-				case 4:
+				}
+				else if (type == "ReInit")
+				{
 					temp = new StateReInit(systemManager, assetManager);
 					initializeState(temp, tempId, intNumber);
-					break;
 				}
 			}
 		}
@@ -1369,14 +1403,14 @@ void StateLoading::update(double totalTime, sf::RenderWindow *window)
 		}
 	}
 	//the process is done.
-	BaseState::changeState(this, "Welcome");
+	return "next";
 }
 
 
 void StateLoading::initializeState(BaseState *temp, std::string tempId, int intNumber)
 {
 	//Edit
-	temp->setId(id);
+	temp->setId(tempId);
 	temp->setNumber(intNumber);
 	temp->setMaterial(systemManager->getMaterial(temp));
 

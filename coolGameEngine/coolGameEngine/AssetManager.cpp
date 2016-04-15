@@ -16,7 +16,31 @@ AssetManager::AssetManager()
 
 AssetManager::~AssetManager()
 {
-
+	while (!image.empty())
+	{
+		delete image.at(image.size() - 1);
+		image.pop_back();
+	}
+	while (!sound.empty())
+	{
+		delete sound.at(sound.size() - 1);
+		sound.pop_back();
+	}
+	while (!soundBuffer.empty())
+	{
+		delete soundBuffer.at(soundBuffer.size() - 1);
+		soundBuffer.pop_back();
+	}
+	while (!texture.empty())
+	{
+		delete texture.at(texture.size() - 1);
+		texture.pop_back();
+	}
+	while (!font.empty())
+	{
+		delete font.at(font.size() - 1);
+		font.pop_back();
+	}
 }
 
 
@@ -114,6 +138,30 @@ sf::Texture* AssetManager::getTexture(std::string filename)
 }
 
 
+sf::Font* AssetManager::getFont(int location)
+{
+	if (location < font.size() && location >= 0)
+	{
+		return font.at(location);
+	}
+
+	return nullptr;
+}
+
+
+sf::Font* AssetManager::getFont(std::string filename)
+{
+	for (int i = 0; i < fontNames.size(); i++)
+		if (fontNames.at(i) == filename)
+		{
+			if (i < font.size())
+				return font.at(i);
+		}
+
+	return nullptr;
+}
+
+
 //Adds an image to the vector for the state.
 //Takes in a image.
 void AssetManager::add(sf::Image* a)
@@ -137,9 +185,15 @@ void AssetManager::add(sf::SoundBuffer* a)
 
 //Adds an image to the vector for the state.
 //Takes in a texture.
-void AssetManager::add(sf::Texture* a) 
+void AssetManager::add(sf::Texture* a)
 {
 	texture.push_back(a);
+}
+
+
+void AssetManager::add(sf::Font* a)
+{
+	font.push_back(a);
 }
 
 
@@ -169,4 +223,10 @@ void AssetManager::addBufferString(std::string a)
 void AssetManager::addTextureString(std::string a)
 {
 	textureNames.push_back(a);
+}
+
+
+void AssetManager::addFontString(std::string a)
+{
+	fontNames.push_back(a);
 }

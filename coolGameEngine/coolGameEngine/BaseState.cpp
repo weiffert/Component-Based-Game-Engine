@@ -78,34 +78,11 @@ void BaseState::render(double lag, sf::RenderWindow *window)
 	for (int i = 0; i < material.size(); i++)
 	{
 		//Render the current entity.
-		controller.control(lag, window, material.at(i));
+		controller.control(lag, window, material.at(i), assetManager);
 	}
 
 	window->display();
 }
-
-
-//Change the state to the next in numerical order.
-void BaseState::changeState(BaseState *a)
-{
-	int tempInt = a->getNumber();
-	a = systemManager->getState(tempInt + 1);
-}
-
-
-//Change the state to the next by string id.
-void BaseState::changeState(BaseState *a, std::string s)
-{
-	a = systemManager->getState(s);
-}
-
-
-//Change the state to the next by number id.
-void BaseState::changeState(BaseState *a, int i)
-{
-	a = systemManager->getState(i);
-}
-
 
 //Convert a string to an int.
 int BaseState::conversionInt(std::string s)
