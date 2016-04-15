@@ -8,10 +8,11 @@ class Crosshairs
 {
 public:
 	Crosshairs();
+	Crosshairs(SystemManager *);
 	~Crosshairs();
 	void control(sf::RenderWindow *, SystemManager *);
 	void loadTexture(std::string, SystemManager *);
 private:
-	sf::Sprite crosshair;
+	sf::Sprite* crosshair;
 	sf::Texture file;
 };

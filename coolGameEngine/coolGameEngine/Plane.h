@@ -13,7 +13,7 @@ private:
 
 public:
 	Plane();
-	Plane(int, int, int);
+	Plane(int, int, int, SystemManager *);
 	~Plane();
 	void setTargets(bool[6]); //Takes an array of bools respresenting which cities are alive
 	double setSlope(int, int);
@@ -21,7 +21,7 @@ public:
 	void setMissilesLeft(int);
 	int getMissilesLeft();
 	int getTotalMissiles();
-	int launchMissiles(Entity *, sf::RenderWindow *); //Returns 0 if it fails to launch, 1 if it successfully launches
-	void update(sf::RenderWindow *, Entity *);
+	int launchMissiles(Entity *, sf::RenderWindow *, SystemManager *); //Returns 0 if it fails to launch, 1 if it successfully launches
+	void update(sf::RenderWindow *, Entity *, SystemManager *);
 
 };

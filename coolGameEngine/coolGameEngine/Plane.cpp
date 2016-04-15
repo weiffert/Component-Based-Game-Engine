@@ -16,13 +16,10 @@ Plane::Plane()
 {
   totalMissiles = 10;
   missilesLeft = 10;
-  
-  systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->deleteData();
-  systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(rand % 280 + 100);
-  systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(0);
+
 }
 
-Plane::Plane(int totalMis, int currMis, int height)
+Plane::Plane(int totalMis, int currMis, int height , SystemManager * systemManager)
 {
   totalMissiles = totalMis;
   missilesLeft = currMis;
@@ -124,10 +121,10 @@ void Plane::setTargets(bool cities[6])
 	
 }
 
-int Plane::launchMissiles(Entity *currentMissile, sf::RenderWindow *window)
+int Plane::launchMissiles(Entity *currentMissile, sf::RenderWindow *window, SystemManager * systemManager)
 {
 	//Shoots missile if it has missiles left
-	setTargets();
+
 	if (missilesLeft > 0)
 	{
 		srand(time(NULL));
@@ -260,7 +257,7 @@ double Plane::setSlope(int pathX, int pathY)
   return speedX;
 }
 
-void Plane::update(sf::RenderWindow *window, Entity *launcherAi, SystemManager *systemManager)
+void Plane::update(sf::RenderWindow *window, Entity *launcherAi, SystemManager * systemManager)
 {
 	double slope;
 	
