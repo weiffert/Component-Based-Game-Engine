@@ -4,14 +4,14 @@
 #include "SFML\Window.hpp"
 #include "SFML\Graphics.hpp"
 
-class CrossHairs
+class Crosshairs
 {
 public:
-	CrossHairs();
-	~CrossHairs();
+	Crosshairs();
+	~Crosshairs();
 	void control(sf::RenderWindow *, SystemManager *);
 	void loadTexture(std::string);
 private:
-	sf::Sprite crossHair;
+	sf::Sprite crosshair;
 	sf::Texture file;
 };
