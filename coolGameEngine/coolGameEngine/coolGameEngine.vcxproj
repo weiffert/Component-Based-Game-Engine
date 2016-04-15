@@ -187,6 +187,7 @@
     <Text Include="propertySoundMissileExplosion.txt" />
     <Text Include="propertySoundMissileFireFail.txt" />
     <Text Include="propertySoundSwoopUp.txt" />
+    <Text Include="propertySplit.txt" />
     <Text Include="propertySprite.txt" />
     <Text Include="propertyStartingPosition.txt" />
     <Text Include="propertyStateId.txt" />
@@ -203,6 +204,7 @@
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="BaseController.h" />
     <ClInclude Include="BaseState.h" />
+    <ClInclude Include="Crosshairs.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="MissileChecker.h" />
@@ -229,6 +231,7 @@
     <ClCompile Include="BaseController.cpp" />
     <ClCompile Include="BaseState.cpp" />
     <ClCompile Include="coolGameEngine.cpp" />
+    <ClCompile Include="CrossHairs.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -270,6 +273,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="city.png" />
+    <Image Include="Crosshairs.png" />
     <Image Include="ground.png" />
     <Image Include="location.png" />
     <Image Include="missile-transit-clear.png" />

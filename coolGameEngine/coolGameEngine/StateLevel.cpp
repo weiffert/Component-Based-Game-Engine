@@ -16,6 +16,7 @@
 
 //include controllers
 #include "MissileLauncher.h"
+#include "MissileLauncherAi.h"
 
 
 StateLevel::StateLevel()
@@ -48,7 +49,7 @@ StateLevel::~StateLevel()
 std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 {
 	MissileLauncher missileLauncher;
-	//MissileLauncherAi missileLauncherAi;
+	MissileLauncherAi missileLauncherAi;
 
 	//Check for arrow key and space bar events
 	sf::Event event;
@@ -205,19 +206,61 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 			}
 		}
 
-		//Run through the game controllers.
-		//Example: Checking for collisions
-		//systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
-		//If the game is not done...
-		//If the wave is finished and the level continures (check the city number: an entity with the id of "city" and a property of live.)
-		//Change to the next level. Color, velocity, and number of missiles has to change.
-		//Pass through the enities. If one has one of these properties, change it.
-		//return 't';
-		//else...
-		//return 'f';
+		//fire enemy missiles
+		bool found = false;
+		int decrement = 9;
+		Entity *missile = nullptr;
+		std::vector<Entity *> missiles = systemManager->getMaterial("MissileLauncherAi")->getComponent("MissilesHeld")->getDataEntity();
+		while (!found && decrement >= 0)
+		{
+			if (missiles.at(decrement)->hasComponent("Fired"))
+			{
+				if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
+				{
+					found = true;
+					missile = missiles.at(decrement);
+				}
+			}
+			decrement--;
+		}
+		if (found)
+		{
+			//Play fired sound.
+			if (missile->hasComponent("SoundSwoopUp"))
+			{
+				sf::Sound s;
+				s.setBuffer(*(missile->getComponent("SoundSwoopUp")->getDataSoundBuffer().at(0)));
+				s.play();
+			}
+			missileLauncherAi.launchMissiles(missile, window);
+
+		}
+		else
+		{
+			//Play no missiles sound.
+			if (missiles.at(0)->hasComponent("SoundMissileFireFail"))
+			{
+				sf::Sound s;
+				s.setBuffer(*(missiles.at(0)->getComponent("SoundMissileFireFail")->getDataSoundBuffer().at(0)));
+				s.play();
+			}
+		}
 	}
 
+
+	//Run through the game controllers.
+	//Example: Checking for collisions
+	//systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
+	//If the game is not done...
+	//If the wave is finished and the level continures (check the city number: an entity with the id of "city" and a property of live.)
+	//Change to the next level. Color, velocity, and number of missiles has to change.
+	//Pass through the enities. If one has one of these properties, change it.
+	//return 't';
+	//else...
+	//return 'f';
+
+
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
-	//missileLauncherAi.
+	missileLauncherAi.update(window, systemManager->getMaterial("MissileLauncherAi"));
 	return "constant";
 }

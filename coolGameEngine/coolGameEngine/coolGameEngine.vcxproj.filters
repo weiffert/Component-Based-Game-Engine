@@ -131,6 +131,7 @@
     <Text Include="propertySoundSwoopUp.txt" />
     <Text Include="stateLevel.txt" />
     <Text Include="stateWelcome.txt" />
+    <Text Include="propertySplit.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -200,6 +201,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Plane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Crosshairs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -273,6 +277,9 @@
     <ClCompile Include="Plane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CrossHairs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="coolGameEngine.rc">
@@ -312,6 +319,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="missile-transit-enemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Crosshairs.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
