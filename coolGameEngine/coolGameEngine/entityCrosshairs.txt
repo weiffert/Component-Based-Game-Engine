@@ -1,2 +1,2 @@
 Crosshairs ;
-Sprite loadFromFile download.png ;
+Sprite loadFromFile Crosshairs.png ;
