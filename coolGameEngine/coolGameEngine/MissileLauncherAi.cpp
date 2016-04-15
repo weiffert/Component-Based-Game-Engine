@@ -324,16 +324,16 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 						if(missiles.at(i)->getComponent("Split")->getDataBool().at(0) == false)
 						{
 							//random chance to not split
-							if(rand() % 3 + 1 = 1)
+							if(rand() % 3 + 1 == 1)
 							{
 								//fires next missile from current one
 								int missileTarget = rand() % 3 + 1;
 						
 								//Delete data for exploding position and starting position for missile
 								if (missiles.at(i+1)->hasComponent("StartingPosition"))
-									currentMissile->getComponent("StartingPosition")->deleteData();
+									missiles.at(i+1)->getComponent("StartingPosition")->deleteData();
 								if (missiles.at(i+1)->hasComponent("ExplodingPosition"))
-									currentMissile->getComponent("ExplodingPosition")->deleteData();
+									missiles.at(i+1)->getComponent("ExplodingPosition")->deleteData();
 						
 						
 								if (missileTarget != 1)
@@ -422,9 +422,9 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 								
 								//What does this do?
 								missiles.at(i+1)->getComponent("StartingPosition")->deleteData();
-								missiles.at(i+1)->getComponent("StartingPosition")->addData(missile.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
+								missiles.at(i+1)->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
 							
-								missiles.at(i+1)->getComponent("StartingPosition")->addData(missile.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+								missiles.at(i+1)->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
 						
 								//Sets slope (Which is x/y) (I think this has been changed)
 								missiles.at(i+1)->getComponent("Slope")->deleteData();
