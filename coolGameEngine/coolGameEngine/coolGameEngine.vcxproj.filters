@@ -338,7 +338,6 @@
     <Media Include="MissileExplosion.wav">
       <Filter>Resource Files</Filter>
     </Media>
-    <Media Include="MissileFireFail.mp3" />
     <Media Include="RollUp1.wav">
       <Filter>Resource Files</Filter>
     </Media>
@@ -349,6 +348,9 @@
       <Filter>Resource Files</Filter>
     </Media>
     <Media Include="Alert.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="MissileFireFail.wav">
       <Filter>Resource Files</Filter>
     </Media>
   </ItemGroup>

@@ -287,7 +287,7 @@
     <Media Include="FreeCity.wav" />
     <Media Include="GameOver.wav" />
     <Media Include="MissileExplosion.wav" />
-    <Media Include="MissileFireFail.mp3" />
+    <Media Include="MissileFireFail.wav" />
     <Media Include="RollUp1.wav" />
     <Media Include="RollUp2.wav" />
     <Media Include="SwoopUp.wav" />

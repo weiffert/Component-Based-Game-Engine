@@ -49,19 +49,7 @@ StateLevel::~StateLevel()
 std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 {
 	MissileLauncher missileLauncher;
-	MissileLauncherAi missileLauncherAi;
-	//Determine cities surviving
-	bool cities [6] = {false};
-	cities[0] = systemManager->getMaterial("City1")->getComponent("Life")->getDataBool().at(0);
-	cities[1] = systemManager->getMaterial("City2")->getComponent("Life")->getDataBool().at(0);
-	cities[2] = systemManager->getMaterial("City3")->getComponent("Life")->getDataBool().at(0);
-	cities[3] = systemManager->getMaterial("City4")->getComponent("Life")->getDataBool().at(0);
-	cities[4] = systemManager->getMaterial("City5")->getComponent("Life")->getDataBool().at(0);
-	cities[5] = systemManager->getMaterial("City6")->getComponent("Life")->getDataBool().at(0);
-	missileLauncherAi.setTargets(cities);
-
-	//Create timer for delaying firing new enemy missiles
-	int counter = 0;
+	MissileLauncherAi missileLauncherAi(systemManager, systemManager->getMaterial("MissileLauncherAi")->getComponent("TotalMissileCount")->getDataInt().at(0), systemManager->getMaterial("MissileLauncherAi")->getComponent("CurrentMissileCount")->getDataInt().at(0));
 	bool found;
 
 	//Check for arrow key and space bar events
@@ -218,41 +206,53 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				}
 			}
 		}
-
-		//fire enemy missiles
-		found = false;
-		int decrement = 9;
-		Entity *missile = nullptr;
-		std::vector<Entity *> missiles = systemManager->getMaterial("MissileLauncherAi")->getComponent("MissilesHeld")->getDataEntity();
-		while (!found && decrement >= 0 && counter % 5 == 1)  //Occurs every five iterations
-		{
-			if (missiles.at(decrement)->hasComponent("Fired"))
-			{
-				if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
-				{
-					found = true;
-					missile = missiles.at(decrement);
-				}
-			}
-			decrement--;
-		}
-		if (found)
-		{
-			missileLauncherAi.launchMissiles(missile, window);
-		}
 	}
 
+	std::vector<Entity *> missiles = systemManager->getMaterial("MissileLauncherAi")->getComponent("MissilesHeld")->getDataEntity();
+	bool determineCitites = true;
 
-	//Run through the game controllers.
-	//Example: Checking for collisions
-	//systemManager->getController("PlayerInput")->control(moveUp, moveDown, moveRight, moveLeft, spaceBarReleased, &material);
-	//If the game is not done...
-	//If the wave is finished and the level continures (check the city number: an entity with the id of "city" and a property of live.)
-	//Change to the next level. Color, velocity, and number of missiles has to change.
-	//Pass through the enities. If one has one of these properties, change it.
-	//return 't';
-	//else...
-	//return 'f';
+	for (int i = 0; i < missiles.size(); i++)
+	{
+		if (missiles.at(i)->getComponent("Fired")->getDataBool().at(0) == true)
+			determineCitites = false;
+	}
+
+	//Determine cities surviving
+	if (determineCitites)
+	{
+		bool cities[6] = { false };
+		cities[0] = systemManager->getMaterial("City1")->getComponent("Life")->getDataBool().at(0);
+		cities[1] = systemManager->getMaterial("City2")->getComponent("Life")->getDataBool().at(0);
+		cities[2] = systemManager->getMaterial("City3")->getComponent("Life")->getDataBool().at(0);
+		cities[3] = systemManager->getMaterial("City4")->getComponent("Life")->getDataBool().at(0);
+		cities[4] = systemManager->getMaterial("City5")->getComponent("Life")->getDataBool().at(0);
+		cities[5] = systemManager->getMaterial("City6")->getComponent("Life")->getDataBool().at(0);
+		missileLauncherAi.setTargets(cities);
+	}
+
+	//Create timer for delaying firing new enemy missiles
+	int counter = 0;
+
+	//fire enemy missiles
+	found = false;
+	int decrement = 29;
+	Entity *missile = nullptr;
+	while (!found && decrement >= 0 && counter % 5 == 1)  //Occurs every five iterations
+	{
+		if (missiles.at(decrement)->hasComponent("Fired"))
+		{
+			if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
+			{
+				found = true;
+				missile = missiles.at(decrement);
+			}
+		}
+		decrement--;
+	}
+	if (found)
+	{
+		missileLauncherAi.launchMissiles(missile, window);
+	}
 
 
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));

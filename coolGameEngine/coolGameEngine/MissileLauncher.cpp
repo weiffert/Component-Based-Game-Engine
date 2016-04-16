@@ -110,6 +110,7 @@ int MissileLauncher::fire(Entity *currentMissile, Entity *currentBase, sf::Rende
 				currentMissile->getComponent("DrawRectangleShape")->deleteData();
 				currentMissile->getComponent("DrawRectangleShape")->addData(true);
 			}
+
 			sf::Sprite *s = new sf::Sprite();
 			sf::Texture *t = new sf::Texture();
 			if (!t->loadFromFile("location.png"))

@@ -10,14 +10,15 @@ class MissileLauncherAi
 {
 private:
 	int missilesLeft, totalMissiles, targetOne, targetTwo, targetThree;
+	SystemManager *systemManager;
 
 public:
 	MissileLauncherAi();
-	MissileLauncherAi(int, int);
+	MissileLauncherAi(SystemManager *, int, int);
 	~MissileLauncherAi();
 	void setTargets(bool[6]); //Takes an array of bools respresenting which cities are alive
 	int launchAmmount();
-	double setSlope(int, int);
+	double setSlope(double, double);
 	void setTotalMissiles(int);
 	void setMissilesLeft(int);
 	int getMissilesLeft();
