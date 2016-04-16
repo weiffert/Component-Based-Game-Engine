@@ -1,30 +1,19 @@
-﻿Build started 4/16/2016 9:28:55 AM.
+﻿Build started 4/16/2016 1:18:57 PM.
      1>Project "C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\coolGameEngine\coolGameEngine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MissileLauncher.cpp MissileLauncherAi.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D SFML_STATIC /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MissileLauncherAi.cpp
          MissileLauncherAi.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(48): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(142): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(323): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(358): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(369): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(372): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(374): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(375): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(49): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(169): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(356): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(393): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(404): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(407): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(409): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(410): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(532): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(535): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-         MissileLauncher.cpp
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(122): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(29): warning C4101: 'temp' : unreferenced local variable
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(30): warning C4101: 'angle' : unreferenced local variable
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(215): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(226): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(229): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(231): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(232): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncher.cpp(267): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         Generating Code...
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(445): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(567): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\administrator\documents\github\component-based-game-engine\coolgameengine\coolgameengine\missilelauncherai.cpp(570): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SFML-2.3.2\lib" openal32.lib ws2_32.lib ogg.lib vorbis.lib vorbisfile.lib vorbisenc.lib flac.lib gdi32.lib winmm.lib jpeg.lib freetype.lib opengl32.lib "sfml-graphics-s-d.lib" "sfml-window-s-d.lib" "sfml-system-s-d.lib" "sfml-audio-s-d.lib" "sfml-network-s-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\administrator\Documents\GitHub\Component-Based-Game-Engine\coolGameEngine\Debug\coolGameEngine.lib" /MACHINE:X86 Debug\coolGameEngine.res
          Debug\AssetManager.obj
@@ -128,4 +117,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.19
+Time Elapsed 00:00:02.47

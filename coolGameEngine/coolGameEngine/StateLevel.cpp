@@ -231,13 +231,12 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	}
 
 	//Create timer for delaying firing new enemy missiles
-	int counter = 0;
 
 	//fire enemy missiles
 	found = false;
 	int decrement = 29;
 	Entity *missile = nullptr;
-	while (!found && decrement >= 0 && counter % 5 == 1)  //Occurs every five iterations
+	while (!found && decrement >= 0 && rand() % 5 == 1)  //Occurs every five iterations
 	{
 		if (missiles.at(decrement)->hasComponent("Fired"))
 		{
@@ -258,6 +257,5 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 	Entity * launcherAi = systemManager->getMaterial("MissileLauncherAi");
 	missileLauncherAi.update(window, launcherAi);
-	counter++;
 	return "constant";
 }
