@@ -162,6 +162,7 @@
     <Text Include="game.txt" />
     <Text Include="log.txt" />
     <Text Include="propertyCircleShape.txt" />
+    <Text Include="propertyColorEnemy.txt" />
     <Text Include="propertyColorFriend.txt" />
     <Text Include="propertyCurrentMissileCount.txt" />
     <Text Include="propertyCurrentPosition.txt" />

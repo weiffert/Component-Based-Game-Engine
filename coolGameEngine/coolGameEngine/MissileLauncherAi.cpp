@@ -61,7 +61,7 @@ void MissileLauncherAi::setTargets(bool cities[6])
 		while(targetThree == targetOne || targetThree == targetTwo)
 		{
 			targetThree = rand() % 6 + 1;
-		}	
+		}
 	}
 	else 
 	{
@@ -450,7 +450,7 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 					}
 
 					//checks if it is the last missile
-					if (i != 29)
+					if (i != 1)
 					{
 						//checks if missile is within a certain range for splitting
 						if (missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) >= rand() % 280 + 100)

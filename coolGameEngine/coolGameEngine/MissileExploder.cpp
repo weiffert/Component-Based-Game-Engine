@@ -23,7 +23,7 @@ MissileExploder::~MissileExploder()
 void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
 {
 	double rate;
-	rate = 0.2;
+	rate = 2;
 	double tempRadius;
 	if (missile->getComponent("Explode")->getDataBool().at(0)) //Makes sure the explosion didn't already happen
 	{

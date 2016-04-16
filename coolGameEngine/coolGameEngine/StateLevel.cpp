@@ -218,17 +218,14 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	}
 
 	//Determine cities surviving
-	if (determineCitites)
-	{
-		bool cities[6] = { false };
-		cities[0] = systemManager->getMaterial("City1")->getComponent("Life")->getDataBool().at(0);
-		cities[1] = systemManager->getMaterial("City2")->getComponent("Life")->getDataBool().at(0);
-		cities[2] = systemManager->getMaterial("City3")->getComponent("Life")->getDataBool().at(0);
-		cities[3] = systemManager->getMaterial("City4")->getComponent("Life")->getDataBool().at(0);
-		cities[4] = systemManager->getMaterial("City5")->getComponent("Life")->getDataBool().at(0);
-		cities[5] = systemManager->getMaterial("City6")->getComponent("Life")->getDataBool().at(0);
-		missileLauncherAi.setTargets(cities);
-	}
+	bool cities[6] = { false };
+	cities[0] = systemManager->getMaterial("City1")->getComponent("Life")->getDataBool().at(0);
+	cities[1] = systemManager->getMaterial("City2")->getComponent("Life")->getDataBool().at(0);
+	cities[2] = systemManager->getMaterial("City3")->getComponent("Life")->getDataBool().at(0);
+	cities[3] = systemManager->getMaterial("City4")->getComponent("Life")->getDataBool().at(0);
+	cities[4] = systemManager->getMaterial("City5")->getComponent("Life")->getDataBool().at(0);
+	cities[5] = systemManager->getMaterial("City6")->getComponent("Life")->getDataBool().at(0);
+	missileLauncherAi.setTargets(cities);
 
 	//Create timer for delaying firing new enemy missiles
 
@@ -236,7 +233,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	found = false;
 	int decrement = 29;
 	Entity *missile = nullptr;
-	while (!found && decrement >= 0 && rand() % 5 == 1)  //Occurs every five iterations
+	while (!found && decrement >= 0 && rand() % 5 <= 3)  //Occurs at relatively random times.
 	{
 		if (missiles.at(decrement)->hasComponent("Fired"))
 		{
