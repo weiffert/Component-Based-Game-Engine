@@ -34,6 +34,7 @@ void MissileLauncherAi::setTargets(bool cities[6])
 	//Determine how many cities are left
 	int alive = 0;
 	int counter = 0;
+	int number = 0;
 	for (int i = 0; i < 6; i++)
 	{
 		if (cities[i])
@@ -83,42 +84,51 @@ void MissileLauncherAi::setTargets(bool cities[6])
 	
 	//Now determines which cities to target
 	//Determine which city for targetOne
-	while(targetOne > counter + 1)
+	while(targetOne > number && counter < 6)
 	{
-		while (counter < 6 && !cities[counter])
+		if (cities[counter])
 		{
 			counter++;
+			number++;
 		}
+		else
+			counter++;
 			
 	}
-	targetOne = counter + 1;
+	targetOne = number;
 	
-	if (targetTwo != 0)
+	number = 0;
+	counter = 0;
+
+	while (targetTwo > number && counter < 6)
 	{
-		while(targetTwo > counter + 1)
+		if (cities[counter])
 		{
-			while (counter < 6 && !cities[counter])
-			{
-				counter++;
-			}
-			
+			counter++;
+			number++;
 		}
-		targetTwo = counter + 1;
+		else
+			counter++;
+
 	}
+	targetTwo = number;
+
+	number = 0;
+	counter = 0;
 	
-	if (targetThree != 0)
+	while (targetThree > number && counter < 6)
 	{
-		while(targetThree > counter + 1)
+		if (cities[counter])
 		{
-			while (counter < 6 && !cities[counter])
-			{
-				counter++;
-			}
-			
+			counter++;
+			number++;
 		}
-		targetThree = counter + 1;
-	}	
-	
+		else
+			counter++;
+
+	}
+	targetThree = number;
+
 }
 
 int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *window)
@@ -283,11 +293,11 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 {
 	double slope;
 	srand(time(NULL));
-
+	std::vector<Entity*> missiles = launcherAi->getComponent("MissilesHeld")->getDataEntity();
 	//Goes through all the missiles
 	for (int i = 0; i < 30; i++)
 	{
-		std::vector<Entity *> missiles = launcherAi->getComponent("MissilesHeld")->getDataEntity();
+
 		if (missiles.at(i)->hasComponent("Fired"))
 		{
 			if (missiles.at(i)->getComponent("Fired")->getDataBool().at(0))

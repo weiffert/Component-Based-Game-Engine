@@ -50,6 +50,19 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 {
 	MissileLauncher missileLauncher;
 	MissileLauncherAi missileLauncherAi;
+	//Determine cities surviving
+	bool cities [6] = {false};
+	cities[0] = systemManager->getMaterial("City1")->getComponent("Life")->getDataBool().at(0);
+	cities[1] = systemManager->getMaterial("City2")->getComponent("Life")->getDataBool().at(0);
+	cities[2] = systemManager->getMaterial("City3")->getComponent("Life")->getDataBool().at(0);
+	cities[3] = systemManager->getMaterial("City4")->getComponent("Life")->getDataBool().at(0);
+	cities[4] = systemManager->getMaterial("City5")->getComponent("Life")->getDataBool().at(0);
+	cities[5] = systemManager->getMaterial("City6")->getComponent("Life")->getDataBool().at(0);
+	missileLauncherAi.setTargets(cities);
+
+	//Create timer for delaying firing new enemy missiles
+	int counter = 0;
+	bool found;
 
 	//Check for arrow key and space bar events
 	sf::Event event;
@@ -85,7 +98,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 		//Launch from base1;
 		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::A))
 		{
-			bool found = false;
+			found = false;
 			int decrement = 9;
 			Entity *missile = nullptr;
 			std::vector<Entity *> missiles = systemManager->getMaterial("Base1")->getComponent("MissilesHeld")->getDataEntity();
@@ -126,7 +139,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 		//Launch from base2;
 		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::S))
 		{
-			bool found = false;
+			found = false;
 			int decrement = 9;
 			Entity *missile = nullptr;
 			std::vector<Entity *> missiles = systemManager->getMaterial("Base2")->getComponent("MissilesHeld")->getDataEntity();
@@ -167,7 +180,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 		//Launch from base3;
 		if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::D))
 		{
-			bool found = false;
+			found = false;
 			int decrement = 9;
 			Entity *missile = nullptr;
 			std::vector<Entity *> missiles = systemManager->getMaterial("Base3")->getComponent("MissilesHeld")->getDataEntity();
@@ -207,11 +220,11 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 		}
 
 		//fire enemy missiles
-		bool found = false;
+		found = false;
 		int decrement = 9;
 		Entity *missile = nullptr;
 		std::vector<Entity *> missiles = systemManager->getMaterial("MissileLauncherAi")->getComponent("MissilesHeld")->getDataEntity();
-		while (!found && decrement >= 0)
+		while (!found && decrement >= 0 && counter % 5 == 1)  //Occurs every five iterations
 		{
 			if (missiles.at(decrement)->hasComponent("Fired"))
 			{
@@ -225,25 +238,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 		}
 		if (found)
 		{
-			//Play fired sound.
-			if (missile->hasComponent("SoundSwoopUp"))
-			{
-				sf::Sound s;
-				s.setBuffer(*(missile->getComponent("SoundSwoopUp")->getDataSoundBuffer().at(0)));
-				s.play();
-			}
 			missileLauncherAi.launchMissiles(missile, window);
-
-		}
-		else
-		{
-			//Play no missiles sound.
-			if (missiles.at(0)->hasComponent("SoundMissileFireFail"))
-			{
-				sf::Sound s;
-				s.setBuffer(*(missiles.at(0)->getComponent("SoundMissileFireFail")->getDataSoundBuffer().at(0)));
-				s.play();
-			}
 		}
 	}
 
@@ -261,6 +256,8 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 
 
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
-	missileLauncherAi.update(window, systemManager->getMaterial("MissileLauncherAi"));
+	Entity * launcherAi = systemManager->getMaterial("MissileLauncherAi");
+	missileLauncherAi.update(window, launcherAi);
+	counter++;
 	return "constant";
 }
