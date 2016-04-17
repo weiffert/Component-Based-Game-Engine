@@ -117,6 +117,7 @@ entityEnemyMissile29.txt
 entityEnemyMissile30.txt
 
 entityMissileLauncherAi.txt
+entityCrosshairs.txt
 
 entityWelcome.txt
 

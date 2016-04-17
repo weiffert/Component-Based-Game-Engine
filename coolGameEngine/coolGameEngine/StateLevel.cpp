@@ -17,7 +17,7 @@
 //include controllers
 #include "MissileLauncher.h"
 #include "MissileLauncherAi.h"
-
+#include "Crosshairs.h"
 
 StateLevel::StateLevel()
 {
@@ -50,6 +50,9 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 {
 	MissileLauncher missileLauncher;
 	MissileLauncherAi missileLauncherAi(systemManager, systemManager->getMaterial("MissileLauncherAi")->getComponent("TotalMissileCount")->getDataInt().at(0), systemManager->getMaterial("MissileLauncherAi")->getComponent("CurrentMissileCount")->getDataInt().at(0));
+	Crosshairs crosshairs; 
+	crosshairs.fitSize(systemManager, 40);
+
 	bool found;
 
 	//Check for arrow key and space bar events
@@ -260,5 +263,6 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 
 	missileLauncherAi.update(window, launcherAi);
+	crosshairs.control(window, systemManager);
 	return "constant";
 }

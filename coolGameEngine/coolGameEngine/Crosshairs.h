@@ -8,11 +8,11 @@ class Crosshairs
 {
 public:
 	Crosshairs();
-	Crosshairs(SystemManager *);
 	~Crosshairs();
+	void fitSize(SystemManager *, int); //Gives the crosshairs a new size
 	void control(sf::RenderWindow *, SystemManager *);
 	void loadTexture(std::string, SystemManager *);
 private:
-	sf::Sprite* crosshair;
+	sf::Sprite* crosshair = nullptr;
 	sf::Texture file;
 };
