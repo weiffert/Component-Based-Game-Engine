@@ -1,0 +1,3 @@
+BonusCityIncrement ;
+int ;
+10000 ;

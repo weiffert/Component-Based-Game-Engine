@@ -17,6 +17,7 @@
 //include controllers
 #include "MissileLauncher.h"
 #include "MissileLauncherAi.h"
+#include "LevelChange.h"
 
 
 StateLevel::StateLevel()
@@ -260,5 +261,9 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 
 	missileLauncherAi.update(window, launcherAi);
-	return "constant";
+
+	LevelChange levelChange;
+	std::string stateChange = levelChange.control(systemManager, assetManager, window);
+
+	return stateChange;
 }

@@ -1,0 +1,3 @@
+PointsPerLiveCity ;
+int ;
+100 ;
