@@ -239,7 +239,29 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City6")->getComponent("CurrentPosition")->getDataDouble().at(0));
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City6")->getComponent("CurrentPosition")->getDataDouble().at(1));
 			}
-			//Sometimes currentTarget does not == anything.
+			//Sometimes currentTarget does not == anything.  If this is the case, make it target a missile base
+			else
+			{
+				int x = rand() % 3 + 1;
+
+				if (x == 1)
+				{
+					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(0)); //x for Base1
+					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(1)); //y for Base1
+				}
+				else if (x == 2)
+				{
+					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(0)); //x for Base2
+					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(1)); //y for Base2
+				}
+				else
+				{
+					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(0)); //x for Base3
+					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(1)); //y for Base3
+				}
+
+			}
+			
 		}
 		else
 		{
@@ -263,7 +285,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 		}
 		
-		//What does this do?
+		//Sets missiles start to on top of screen
 		int x = -5;
 		int y = rand() % 480 + 1;
 
@@ -273,7 +295,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		currentMissile->getComponent("CurrentPosition")->addData(x);
 		currentMissile->getComponent("CurrentPosition")->addData(y);
 
-		//Sets slope (Which is x/y)
+		//Sets slope (Which is y/x)
 		double changeX = 0;
 		double changeY = 0;
 		if (currentMissile->hasComponent("ExplodingPosition") && currentMissile->hasComponent("StartingPosition"))
@@ -465,10 +487,10 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 									int missileTarget = rand() % 3 + 1;
 
 									//Delete data for exploding position and starting position for missile
-									if (missiles.at(i + 1)->hasComponent("StartingPosition"))
-										missiles.at(i + 1)->getComponent("StartingPosition")->deleteData();
-									if (missiles.at(i + 1)->hasComponent("ExplodingPosition"))
-										missiles.at(i + 1)->getComponent("ExplodingPosition")->deleteData();
+									if (missiles.at(i)->hasComponent("StartingPosition"))
+										missiles.at(i)->getComponent("StartingPosition")->deleteData();
+									if (missiles.at(i)->hasComponent("ExplodingPosition"))
+										missiles.at(i)->getComponent("ExplodingPosition")->deleteData();
 
 
 									if (missileTarget != 1)
@@ -494,43 +516,43 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 										if (currentTarget == 1)
 										{
 											//set position to the first city
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City1")->getComponent("CurrentPosition")->getDataDouble().at(0));
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City1")->getComponent("CurrentPosition")->getDataDouble().at(1));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City1")->getComponent("CurrentPosition")->getDataDouble().at(0));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City1")->getComponent("CurrentPosition")->getDataDouble().at(1));
 										}
 
 										else if (currentTarget == 2)
 										{
 											//set position to the second city
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City2")->getComponent("CurrentPosition")->getDataDouble().at(0));
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City2")->getComponent("CurrentPosition")->getDataDouble().at(1));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City2")->getComponent("CurrentPosition")->getDataDouble().at(0));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City2")->getComponent("CurrentPosition")->getDataDouble().at(1));
 										}
 
 										else if (currentTarget == 3)
 										{
 											//set position to the third city
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City3")->getComponent("CurrentPosition")->getDataDouble().at(0));
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City3")->getComponent("CurrentPosition")->getDataDouble().at(1));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City3")->getComponent("CurrentPosition")->getDataDouble().at(0));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City3")->getComponent("CurrentPosition")->getDataDouble().at(1));
 										}
 
 										else if (currentTarget == 4)
 										{
 											//set position to the fourth city
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City4")->getComponent("CurrentPosition")->getDataDouble().at(0));
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City4")->getComponent("CurrentPosition")->getDataDouble().at(1));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City4")->getComponent("CurrentPosition")->getDataDouble().at(0));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City4")->getComponent("CurrentPosition")->getDataDouble().at(1));
 										}
 
 										else if (currentTarget == 5)
 										{
 											//set position to the fifth city
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City5")->getComponent("CurrentPosition")->getDataDouble().at(0));
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City5")->getComponent("CurrentPosition")->getDataDouble().at(1));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City5")->getComponent("CurrentPosition")->getDataDouble().at(0));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City5")->getComponent("CurrentPosition")->getDataDouble().at(1));
 										}
 
 										else if (currentTarget == 6)
 										{
 											//set position to the sixth city
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City6")->getComponent("CurrentPosition")->getDataDouble().at(0));
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City6")->getComponent("CurrentPosition")->getDataDouble().at(1));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City6")->getComponent("CurrentPosition")->getDataDouble().at(0));
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City6")->getComponent("CurrentPosition")->getDataDouble().at(1));
 										}
 									}
 									else
@@ -539,41 +561,41 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 
 										if (x == 1)
 										{
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(0)); //y for Base1
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(1)); //x for Base1
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(0)); //y for Base1
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(1)); //x for Base1
 										}
 										else if (x == 2)
 										{
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(0)); //y for Base2
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(1)); //x for Base2
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(0)); //y for Base2
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(1)); //x for Base2
 										}
 										else
 										{
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(0)); //y for Base3
-											missiles.at(i + 1)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(1)); //x for Base3
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(0)); //y for Base3
+											missiles.at(i)->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(1)); //x for Base3
 										}
 
 									}
 
 									//What does this do?
-									missiles.at(i + 1)->getComponent("StartingPosition")->deleteData();
-									missiles.at(i + 1)->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
+									missiles.at(i)->getComponent("StartingPosition")->deleteData();
+									missiles.at(i)->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
 
-									missiles.at(i + 1)->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+									missiles.at(i)->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
 
 									//Sets slope (Which is x/y) (I think this has been changed)
-									missiles.at(i + 1)->getComponent("Slope")->deleteData();
+									missiles.at(i)->getComponent("Slope")->deleteData();
 
-									int changeX = missiles.at(i + 1)->getComponent("ExplodingPosition")->getDataDouble().at(0) -
-										missiles.at(i + 1)->getComponent("StartingPosition")->getDataDouble().at(0);
+									int changeX = missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) -
+										missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0);
 
-									int changeY = missiles.at(i + 1)->getComponent("ExplodingPosition")->getDataDouble().at(1) -
-										missiles.at(i + 1)->getComponent("StartingPosition")->getDataDouble().at(1);
+									int changeY = missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) -
+										missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
 
-									missiles.at(i + 1)->getComponent("Slope")->addData(setSlope(changeX, changeY));
+									missiles.at(i)->getComponent("Slope")->addData(setSlope(changeX, changeY));
 
-									missiles.at(i + 1)->getComponent("Fired")->deleteData();
-									missiles.at(i + 1)->getComponent("Fired")->addData(true);
+									missiles.at(i)->getComponent("Fired")->deleteData();
+									missiles.at(i)->getComponent("Fired")->addData(true);
 
 									//Decrease missiles left
 									missilesLeft--;
