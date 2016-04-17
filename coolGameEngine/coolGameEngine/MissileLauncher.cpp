@@ -180,11 +180,13 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 	//Goes through all the missiles for the three bases
 	for (int base = 0; base < 3; base++)
 	{
+		int increment = 10;
 		std::vector<Entity *> missiles = bases.at(base)->getComponent("MissilesHeld")->getDataEntity();
 		for (int i = 0; i < 10; i++)
 		{
 			if (missiles.at(i)->getComponent("Fired")->getDataBool().at(0))
 			{
+				increment--;
 				if (missiles.at(i)->getComponent("Life")->getDataBool().at(0))
 				{
 					if (missiles.at(i)->hasComponent("Slope"))
@@ -270,6 +272,16 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 						}
 					}
 				}
+			}
+			if (increment <= 3)
+			{
+				sf::Text *t = bases.at(base)->getComponent("Text")->getDataText().at(0);
+				t->setString("Low");
+			}
+			if (increment <= 0)
+			{
+				sf::Text *t = bases.at(base)->getComponent("Text")->getDataText().at(0);
+				t->setString("Out");
 			}
 			if (missiles.at(i)->hasComponent("Explode"))
 			{

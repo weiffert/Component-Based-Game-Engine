@@ -6,5 +6,6 @@ CurrentMissileCount 10 ;
 TotalMissileCount ;
 MissilesHeld Missile11 Missile12 Missile13 Missile14 Missile15 Missile16 Missile17 Missile18 Missile19 Missile20 ;
 CurrentPosition 231 432 ;
-Draw false ;
+Draw true ;
 Move false ;
+Text setFont Square.ttf setCharacterSize 18 setColor 255 0 0 setPosition 216 460 ;

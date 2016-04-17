@@ -1216,27 +1216,32 @@ std::string StateLoading::update(double totalTime, sf::RenderWindow *window)
 
 									int increment = 0;
 
-									while (properties.at(y).at(i).find("\"") == std::string::npos)
+									if (properties.at(y).at(i + 1).find("\"") != std::string::npos)
 									{
-										if (increment == 0)
+										while (properties.at(y).at(i).find("\"") == std::string::npos)
 										{
-											sTemp1 += properties.at(y).at(++i) + " ";
-											i++;
-											increment++;
+											if (increment == 0)
+											{
+												sTemp1 += properties.at(y).at(++i) + " ";
+												i++;
+												increment++;
+											}
+											else
+											{
+												sTemp1 += properties.at(y).at(i++) + " ";
+											}
+											if (properties.at(y).at(i).find("\"") != std::string::npos)
+												sTemp1 += properties.at(y).at(i) + " ";
 										}
-										else
+
+										for (int i = 0; i < sTemp1.size(); i++)
 										{
-											sTemp1 += properties.at(y).at(i++) + " ";
+											if (sTemp1.at(i) != '\"')
+												sTemp2.push_back(sTemp1.at(i));
 										}
-										if (properties.at(y).at(i).find("\"") != std::string::npos)
-											sTemp1 += properties.at(y).at(i) + " ";
 									}
-									
-									for (int i = 0; i < sTemp1.size(); i++)
-									{
-										if (sTemp1.at(i) != '\"')
-											sTemp2.push_back(sTemp1.at(i));
-									}
+									else
+										sTemp2 = properties.at(y).at(++i);
 
 									text->setString(sTemp2);
 								}
@@ -1285,7 +1290,10 @@ std::string StateLoading::update(double totalTime, sf::RenderWindow *window)
 								}
 								else if (properties.at(y).at(i) == "setPosition")
 								{
-									text->setPosition(BaseState::conversionInt(properties.at(y).at(++i)), BaseState::conversionInt(properties.at(y).at(++i)));
+									int w = BaseState::conversionInt(properties.at(y).at(++i));
+									int x = BaseState::conversionInt(properties.at(y).at(++i));
+									text->setPosition(w, x);
+									time(NULL);
 								}
 								else if (properties.at(y).at(i) == "setRotation")
 								{
