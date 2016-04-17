@@ -31,6 +31,9 @@ propertySplit.txt
 propertySplitChance.txt
 propertySplitFired.txt
 propertyFireRate.txt
+propertyFireRateIncrement.txt
+propertySplitChanceIncrement.txt
+propertySpriteStartPosition.txt
 
 propertyPoints.txt
 propertyPointsPerLiveCity.txt
@@ -38,6 +41,7 @@ propertyPointsPerUnusedMissile.txt
 propertyScoreMultiplyer.txt
 propertyBonusCityThreshold.txt
 propertyBonusCityIncrement.txt
+propertyLevelFinished.txt
 
 propertySoundAlert.txt
 propertySoundFreeCity.txt

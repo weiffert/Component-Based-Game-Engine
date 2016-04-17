@@ -1,0 +1,3 @@
+LevelFinished ;
+bool ;
+false ;

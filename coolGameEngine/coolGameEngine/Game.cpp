@@ -1,6 +1,8 @@
 #include "stdafx.h"
 
 #include <string>
+#include <time.h>
+#include <stdlib.h>
 
 #include "SFML\Window.hpp"
 #include "SFML\Audio.hpp"
@@ -51,6 +53,9 @@ int Game::run()
 	state->setMaterial(systemManager->getMaterial(state));
 	//run the game loop, which returns the exit code.
 	exitCode = gameLoop();
+
+	//Seed the random number generator.
+	srand(time(NULL));
 
 	return exitCode;
 }

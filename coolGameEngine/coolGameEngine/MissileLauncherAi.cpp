@@ -45,7 +45,6 @@ void MissileLauncherAi::setTargets(bool cities[6])
 	}
 	
 	//Now determines the order based on the cities surviving
-	srand(time(NULL));
 	//if (alive > 3)
 	//{
 		targetOne = rand() % alive + 1;
@@ -166,7 +165,6 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 	//Shoots missile if it has missiles left
 	if (missilesLeft > 0)
 	{
-		srand(time(NULL));
 		int missileTarget = rand() % 3 + 1;
 
 		//Delete data for exploding position and starting position for missile
@@ -333,7 +331,11 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		}
 
 		//Decrease missiles left
-		missilesLeft--;
+		Property *count = systemManager->getMaterial("MissileLauncherAi")->getComponent("CurrentMissileCount");
+		int oldMissileCount = count->getDataInt().at(0);
+		count->deleteData();
+		count->addData(--oldMissileCount);
+
 		return 1;
 	}
 
@@ -378,7 +380,6 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 	sf::Vector2f rectLength;
 	sf::RectangleShape *temp = nullptr;
 
-	srand(time(NULL));
 	std::vector<Entity*> missiles = launcherAi->getComponent("MissilesHeld")->getDataEntity();
 	//Goes through all the missiles
 	for (int i = 0; i < 30; i++)
@@ -469,6 +470,7 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 							c->setPosition(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1));
 							MissileExploder exploder;
 							exploder.control(window, missiles.at(i));
+							//Do whatever to what was exploded.
 						}
 					}
 

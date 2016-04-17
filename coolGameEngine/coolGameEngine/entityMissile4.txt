@@ -2,6 +2,7 @@ Missile4 ;
 StateId Level1 ;
 StateNumber 2 ;
 Sprite setTexture missile.png setPosition 24 444 ;
+SpriteStartPosition 24 444 ;
 Life true ;
 Velocity 2 0 0 ;
 StartingPosition 38 432 ;

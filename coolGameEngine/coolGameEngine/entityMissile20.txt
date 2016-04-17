@@ -2,6 +2,7 @@ Missile20 ;
 StateId Level1 ;
 StateNumber 2 ;
 Sprite setTexture missile.png setPosition 247 450 ;
+SpriteStartPosition 247 450 ;
 Life true ;
 Velocity 4 0 0 ;
 StartingPosition 231 432 ;
@@ -19,8 +20,7 @@ Explode false ;
 Move false ;
 CircleShape setRadius 0 setFillColor 255 160 122 setPosition 0 0 ;
 RectangleShape setSize 0 2 ;
-ColorFriend ; 
-
+ColorFriend ;
 SoundSwoopUp ;
 SoundMissileExplosion ;
 SoundMissileFireFail ;
