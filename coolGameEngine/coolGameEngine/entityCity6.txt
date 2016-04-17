@@ -2,7 +2,7 @@ City6 ;
 StateId Level1 ;
 StateNumber 2 ;
 Sprite setTexture city.png setPosition 377 446 ;
-CurrentPosition 377 446 ;
+CurrentPosition 390 446 ;
 Life true ;
 Draw true ;
 DrawSprite true ;

@@ -217,6 +217,9 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 			determineCitites = false;
 	}
 
+
+	Entity * launcherAi = systemManager->getMaterial("MissileLauncherAi");
+
 	//Determine cities surviving
 	bool cities[6] = { false };
 	cities[0] = systemManager->getMaterial("City1")->getComponent("Life")->getDataBool().at(0);
@@ -233,26 +236,29 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	found = false;
 	int decrement = 29;
 	Entity *missile = nullptr;
-	while (!found && decrement >= 0 && rand() % 5 <= 3)  //Occurs at relatively random times.
+
+	if (rand() % launcherAi->getComponent("FireRate")->getDataInt().at(0) == 0)  //Occurs at relatively random times.
 	{
-		if (missiles.at(decrement)->hasComponent("Fired"))
+		while (!found && decrement >= 0)
 		{
-			if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
+			if (missiles.at(decrement)->hasComponent("Fired"))
 			{
-				found = true;
-				missile = missiles.at(decrement);
+				if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
+				{
+					found = true;
+					missile = missiles.at(decrement);
+				}
 			}
+			decrement--;
 		}
-		decrement--;
 	}
 	if (found)
 	{
 		missileLauncherAi.launchMissiles(missile, window);
 	}
 
-
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
-	Entity * launcherAi = systemManager->getMaterial("MissileLauncherAi");
+
 	missileLauncherAi.update(window, launcherAi);
 	return "constant";
 }

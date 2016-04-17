@@ -28,6 +28,9 @@ propertyColorFriend.txt
 propertyColorEnemy.txt
 propertyText.txt
 propertySplit.txt
+propertySplitChance.txt
+propertySplitFired.txt
+propertyFireRate.txt
 
 propertySoundAlert.txt
 propertySoundFreeCity.txt
@@ -82,7 +85,6 @@ entityBase1.txt
 entityBase2.txt
 entityBase3.txt
 
-
 entityEnemyMissile1.txt
 entityEnemyMissile2.txt
 entityEnemyMissile3.txt
@@ -115,6 +117,7 @@ entityEnemyMissile29.txt
 entityEnemyMissile30.txt
 
 entityMissileLauncherAi.txt
+
 entityWelcome.txt
 
 stateWelcome.txt ;
