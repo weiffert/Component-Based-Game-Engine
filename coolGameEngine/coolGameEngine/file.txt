@@ -34,6 +34,7 @@ propertyFireRate.txt
 propertyFireRateIncrement.txt
 propertySplitChanceIncrement.txt
 propertySpriteStartPosition.txt
+propertyTarget.txt
 
 propertyPoints.txt
 propertyPointsPerLiveCity.txt

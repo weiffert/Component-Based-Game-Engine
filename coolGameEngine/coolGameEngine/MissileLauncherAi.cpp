@@ -170,6 +170,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		//Delete data for exploding position and starting position for missile
 		if (currentMissile->hasComponent("ExplodingPosition"))
 			currentMissile->getComponent("ExplodingPosition")->deleteData();
+		currentMissile->getComponent("Target")->deleteData();
 
 
 		if (missileTarget != 1)
@@ -194,6 +195,8 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 			//Push back new values with starting and ending positions
 			if (currentTarget == 1)
 			{
+				std::string target = "City1";
+				currentMissile->getComponent("Target")->addData(target);
 				//set position to the first city
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City1")->getComponent("CurrentPosition")->getDataDouble().at(0)); 
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City1")->getComponent("CurrentPosition")->getDataDouble().at(1));
@@ -201,6 +204,8 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 			else if (currentTarget == 2)
 			{
+				std::string target = "City2";
+				currentMissile->getComponent("Target")->addData(target);
 				//set position to the second city
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City2")->getComponent("CurrentPosition")->getDataDouble().at(0));
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City2")->getComponent("CurrentPosition")->getDataDouble().at(1));
@@ -208,6 +213,8 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 			else if (currentTarget == 3)
 			{
+				std::string target = "City3";
+				currentMissile->getComponent("Target")->addData(target);
 				//set position to the third city
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City3")->getComponent("CurrentPosition")->getDataDouble().at(0));
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City3")->getComponent("CurrentPosition")->getDataDouble().at(1));
@@ -215,6 +222,8 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 			else if (currentTarget == 4)
 			{
+				std::string target = "City4";
+				currentMissile->getComponent("Target")->addData(target);
 				//set position to the fourth city
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City4")->getComponent("CurrentPosition")->getDataDouble().at(0));
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City4")->getComponent("CurrentPosition")->getDataDouble().at(1));
@@ -222,6 +231,8 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 			else if (currentTarget == 5)
 			{
+				std::string target = "City5";
+				currentMissile->getComponent("Target")->addData(target);
 				//set position to the fifth city
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City5")->getComponent("CurrentPosition")->getDataDouble().at(0));
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City5")->getComponent("CurrentPosition")->getDataDouble().at(1));
@@ -229,6 +240,8 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 			else if (currentTarget == 6)
 			{
+				std::string target = "City6";
+				currentMissile->getComponent("Target")->addData(target);
 				//set position to the sixth city
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City6")->getComponent("CurrentPosition")->getDataDouble().at(0));
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("City6")->getComponent("CurrentPosition")->getDataDouble().at(1));
@@ -240,16 +253,22 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 				if (x == 1)
 				{
+					std::string target = "Base1";
+					currentMissile->getComponent("Target")->addData(target);
 					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(0)); //x for Base1
 					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(1)); //y for Base1
 				}
 				else if (x == 2)
 				{
+					std::string target = "Base2";
+					currentMissile->getComponent("Target")->addData(target);
 					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(0)); //x for Base2
 					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(1)); //y for Base2
 				}
 				else
 				{
+					std::string target = "Base3";
+					currentMissile->getComponent("Target")->addData(target);
 					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(0)); //x for Base3
 					currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(1)); //y for Base3
 				}
@@ -263,16 +282,22 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 			if (x == 1)
 			{
+				std::string target = "Base1";
+				currentMissile->getComponent("Target")->addData(target);
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(0)); //x for Base1
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base1")->getComponent("CurrentPosition")->getDataDouble().at(1)); //y for Base1
 			}
 			else if (x == 2)
 			{
+				std::string target = "Base2";
+				currentMissile->getComponent("Target")->addData(target);
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(0)); //x for Base2
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base2")->getComponent("CurrentPosition")->getDataDouble().at(1)); //y for Base2
 			}
 			else
 			{
+				std::string target = "Base3";
+				currentMissile->getComponent("Target")->addData(target);
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(0)); //x for Base3
 				currentMissile->getComponent("ExplodingPosition")->addData(systemManager->getMaterial("Base3")->getComponent("CurrentPosition")->getDataDouble().at(1)); //y for Base3
 			}
@@ -471,6 +496,29 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 							MissileExploder exploder;
 							exploder.control(window, missiles.at(i));
 							//Do whatever to what was exploded.
+							std::string targetString = missiles.at(i)->getComponent("Target")->getDataString().at(0);
+							Entity *target = systemManager->getMaterial(targetString);
+							if (target->getComponent("Life")->getDataBool().at(0))
+							{
+								target->getComponent("Life")->deleteData();
+								target->getComponent("Life")->addData(false);
+								target->getComponent("Draw")->deleteData();
+								target->getComponent("Draw")->addData(false);
+								target->getComponent("DrawSprite")->deleteData();
+								target->getComponent("DrawSprite")->addData(false);
+
+								if (targetString.find("Base") != std::string::npos)
+								{
+									for (int i = 0; i < target->getComponent("CurrentMissileCount")->getDataInt().at(0); i++)
+									{
+										Entity *missile = target->getComponent("MissilesHeld")->getDataEntity().at(i);
+										missile->getComponent("Life")->deleteData();
+										missile->getComponent("Life")->addData(false);
+										missile->getComponent("Draw")->deleteData();
+										missile->getComponent("Draw")->addData(false);
+									}
+								}
+							}
 						}
 					}
 
