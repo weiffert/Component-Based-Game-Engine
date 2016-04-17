@@ -54,6 +54,7 @@ void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
 		{
 			missile->getComponent("ExplosionRadius")->deleteData();
 			missile->getComponent("ExplosionRadius")->addData(0);
+			missile->getComponent("ExplosionPhase")->deleteData();
 			missile->getComponent("ExplosionPhase")->addData(-2);
 			missile->getComponent("Explode")->deleteData();
 			missile->getComponent("Explode")->addData(false);

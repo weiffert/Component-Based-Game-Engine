@@ -18,6 +18,7 @@
 #include "MissileLauncher.h"
 #include "MissileLauncherAi.h"
 #include "Crosshairs.h"
+#include "MissileChecker.h"
 
 StateLevel::StateLevel()
 {
@@ -51,6 +52,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	MissileLauncher missileLauncher;
 	MissileLauncherAi missileLauncherAi(systemManager, systemManager->getMaterial("MissileLauncherAi")->getComponent("TotalMissileCount")->getDataInt().at(0), systemManager->getMaterial("MissileLauncherAi")->getComponent("CurrentMissileCount")->getDataInt().at(0));
 	Crosshairs crosshairs; 
+	MissileChecker missileChecker;
 	crosshairs.fitSize(systemManager, 40);
 
 	bool found;
@@ -263,6 +265,8 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 
 	missileLauncherAi.update(window, launcherAi);
+	missileChecker.control(window, systemManager);	
 	crosshairs.control(window, systemManager);
+
 	return "constant";
 }
