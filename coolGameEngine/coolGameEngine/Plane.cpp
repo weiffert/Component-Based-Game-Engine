@@ -262,7 +262,7 @@ void Plane::update(sf::RenderWindow *window, Entity *launcherAi, SystemManager *
 							sf::CircleShape *c = missiles.at(i)->getComponent("CircleShape")->getDataCircleShape().at(0);
 							c->setPosition(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1));
 							MissileExploder exploder;
-							exploder.control(window, missiles.at(i));
+							exploder.control(systemManager, window, missiles.at(i));
 							//Do whatever to what was exploded.
 							std::string targetString = missiles.at(i)->getComponent("Target")->getDataString().at(0);
 							Entity *target = systemManager->getMaterial(targetString);
@@ -331,7 +331,7 @@ void Plane::update(sf::RenderWindow *window, Entity *launcherAi, SystemManager *
 									missile->getComponent("CurrentPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
 									missile->getComponent("CurrentPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
 
-									launchMissiles(missile, window);
+									launchMissiles(missile, window, systemManager);
 								}
 							}
 
@@ -342,16 +342,17 @@ void Plane::update(sf::RenderWindow *window, Entity *launcherAi, SystemManager *
 				{
 					if (missiles.at(i)->getComponent("Explode")->getDataBool().at(0))
 					{
+						/*/
 <<<<<<< HEAD
 						//Make the missile explode
 						MissileExploder missileExploder;
 						missileExploder.control(systemManager, window, missiles.at(i));
 						missiles.at(i)->getComponent("Life")->deleteData();
 						missiles.at(i)->getComponent("Life")->addData(false);
-=======
+=======*/
 						MissileExploder exploder;
-						exploder.control(window, missiles.at(i));
->>>>>>> origin/game-engine
+						exploder.control(systemManager, window, missiles.at(i));
+//>>>>>>> origin/game-engine
 					}
 				}
 			}
