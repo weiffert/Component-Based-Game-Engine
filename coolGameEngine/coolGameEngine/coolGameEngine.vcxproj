@@ -158,6 +158,7 @@
     <Text Include="entityPlane.txt" />
     <Text Include="entityPlayer.txt" />
     <Text Include="entitySelect.txt" />
+    <Text Include="entityWelcome.txt" />
     <Text Include="file.txt" />
     <Text Include="game.txt" />
     <Text Include="log.txt" />

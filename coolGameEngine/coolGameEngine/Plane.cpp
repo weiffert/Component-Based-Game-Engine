@@ -42,7 +42,6 @@ void Plane::setTargets(bool cities[6])
 	}
 	
 	//Now determines the order based on the cities surviving
-	srand(time(NULL));
 	if (alive > 3)
 	{
 		targetOne = rand() % alive + 1;
@@ -127,7 +126,6 @@ int Plane::launchMissiles(Entity *currentMissile, sf::RenderWindow *window, Syst
 
 	if (missilesLeft > 0)
 	{
-		srand(time(NULL));
 		int missileTarget = rand() % 3 + 1;
 
 		//Delete data for exploding position and starting position for missile

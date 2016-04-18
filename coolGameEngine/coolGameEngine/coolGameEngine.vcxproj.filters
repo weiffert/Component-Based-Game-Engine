@@ -133,6 +133,7 @@
     <Text Include="stateWelcome.txt" />
     <Text Include="propertySplit.txt" />
     <Text Include="propertyColorEnemy.txt" />
+    <Text Include="entityWelcome.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

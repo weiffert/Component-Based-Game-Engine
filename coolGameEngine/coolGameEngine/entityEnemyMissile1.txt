@@ -10,6 +10,7 @@ CurrentPosition 0 0 ;
 ExplosionPhase 0 ;
 ExplosionRadius 0 ;
 Slope 0 ;
+
 Fired false ;
 Draw true ;
 DrawSprite true ;
@@ -17,9 +18,11 @@ DrawCircleShape false ;
 DrawRectangleShape false ;
 Move false ;
 Explode false ;
+Split false ;
+SplitFired false ;
+
 CircleShape setRadius 0 setFillColor 255 160 122 1 setPosition 0 0 ;
 RectangleShape setSize 0 2 ;
 ColorEnemy ;
 SoundMissileExplosion ;
-Split false ;
-SplitFired false ;
+Target default ;
