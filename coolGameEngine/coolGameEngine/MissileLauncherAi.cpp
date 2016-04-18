@@ -550,8 +550,8 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 					//checks if it is the last missile
 					if (i != 1)
 					{
-							//checks if missile already slpit
-							if (missiles.at(i)->getComponent("Split")->getDataBool().at(0) == false)
+							//checks if missile already split and is high enough
+						if (missiles.at(i)->getComponent("Split")->getDataBool().at(0) == false && missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) < 340)
 							{
 								//random chance to not split
 								if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SplitChance")->getDataInt().at(0) == 0)
