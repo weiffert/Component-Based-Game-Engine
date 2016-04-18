@@ -75,7 +75,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 				}
 
 				scoreMultiplyer = systemManager->getMaterial("Player")->getComponent("PointsPerUnusedMissile");
-				for (int i = 0; i < liveCities; i++)
+				for (int i = 0; i < liveMissiles; i++)
 				{
 					int oldPoints = points->getDataInt().at(0);
 					oldPoints += scoreMultiplyer->getDataInt().at(0);
@@ -140,12 +140,15 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					
 					int fireRate = temp->getComponent("FireRate")->getDataInt().at(0);
 					temp->getComponent("FireRate")->deleteData();
-					temp->getComponent("FireRate")->addData(fireRate / temp->getComponent("FireRateIncrement")->getDataInt().at(0));
+					temp->getComponent("FireRate")->addData(fireRate - temp->getComponent("FireRateIncrement")->getDataInt().at(0));
 					
 					int splitChance = temp->getComponent("SplitChance")->getDataInt().at(0);
 					temp->getComponent("SplitChance")->deleteData();
-					temp->getComponent("SplitChance")->addData(splitChance / temp->getComponent("SplitChanceIncrement")->getDataInt().at(0));
+					temp->getComponent("SplitChance")->addData(splitChance - temp->getComponent("SplitChanceIncrement")->getDataInt().at(0));
 					
+					temp->getComponent("SetTargets")->deleteData();
+					temp->getComponent("SetTargets")->addData(false);
+
 					for (int i = 0; i < temp->getComponent("TotalMissileCount")->getDataInt().at(0); i++)
 					{
 						Entity *missile = temp->getComponent("MissilesHeld")->getDataEntity().at(i);
@@ -171,6 +174,9 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 						missile->getComponent("Life")->addData(true);
 						missile->getComponent("ExplosionPhase")->deleteData();
 						missile->getComponent("ExplosionPhase")->addData(0);
+
+						sf::RectangleShape *r = missile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
+						r->setSize(sf::Vector2f(0, 2));
 
 						int oldVelocity = missile->getComponent("Velocity")->getDataDouble().at(0);
 						missile->getComponent("Velocity")->deleteData();
@@ -223,6 +229,11 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 
 							int oldVelocity = missile->getComponent("Velocity")->getDataDouble().at(0);
 							missile->getComponent("Velocity")->addData(oldVelocity);
+							missile->getComponent("Velocity")->addData(0);
+							missile->getComponent("Velocity")->addData(0);
+
+							sf::RectangleShape *r = missile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
+							r->setSize(sf::Vector2f(0, 2));
 						}
 					}
 					systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString("Press any key to continue");

@@ -10,3 +10,7 @@ FireRate 50 ;
 SplitChance 100 ;
 FireRateIncrement 2 ;
 SplitChanceIncrement 2 ;
+SetTargets false ;
+TargetOne 0 ;
+TargetTwo 0 ;
+TargetThree 0 ;

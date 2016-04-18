@@ -35,6 +35,10 @@ propertyFireRateIncrement.txt
 propertySplitChanceIncrement.txt
 propertySpriteStartPosition.txt
 propertyTarget.txt
+propertyTargetOne.txt
+propertyTargetTwo.txt
+propertyTargetThree.txt
+propertySetTargets.txt
 
 propertyPoints.txt
 propertyPointsPerLiveCity.txt
@@ -135,8 +139,9 @@ entityWelcome.txt
 
 entityPlayer.txt
 
-stateWelcome.txt ;
-stateLevel.txt ;
+stateWelcome.txt
+stateLevel.txt
+stateGameOver.txt
 
 Substrings
 png
