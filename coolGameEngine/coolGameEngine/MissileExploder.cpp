@@ -20,7 +20,7 @@ MissileExploder::~MissileExploder()
 
 //This function currently explodes a missile, and creates a circle explosion
 //This function is called from MissileLauncher
-void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
+void MissileExploder::control(SystemManager *systemManager, sf::RenderWindow * window, Entity *missile)
 {
 	double rate;
 	rate = 2;
@@ -40,6 +40,9 @@ void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
 				s.setBuffer(*(missile->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0)));
 				s.play();
 			}
+
+			//Add missile to exploding missiles for missileChecker.
+			systemManager->getComponent("ExplodingMissiles")->addData(missile);
 		}
 
 		//Check radius
@@ -60,6 +63,7 @@ void MissileExploder::control(sf::RenderWindow * window, Entity *missile)
 			missile->getComponent("Explode")->addData(false);
 			missile->getComponent("DrawCircleShape")->deleteData();
 			missile->getComponent("DrawCircleShape")->addData(false);
+			systemManager->getComponent("ExplodingMissiles")->deleteDataPosition(missile->getId());
 		}
 
 		tempRadius = missile->getComponent("ExplosionRadius")->getDataDouble().at(0);

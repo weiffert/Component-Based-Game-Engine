@@ -519,7 +519,7 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 							sf::CircleShape *c = missiles.at(i)->getComponent("CircleShape")->getDataCircleShape().at(0);
 							c->setPosition(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1));
 							MissileExploder exploder;
-							exploder.control(window, missiles.at(i));
+							exploder.control(systemManager, window, missiles.at(i));
 							//Do whatever to what was exploded.
 							std::string targetString = missiles.at(i)->getComponent("Target")->getDataString().at(0);
 							Entity *target = systemManager->getMaterial(targetString);
@@ -534,6 +534,9 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 
 								if (targetString.find("Base") != std::string::npos)
 								{
+									target->getComponent("Text")->getDataText().at(0)->setString("Out");
+									target->getComponent("Draw")->deleteData();
+									target->getComponent("Draw")->addData(true);
 									for (int i = 0; i < target->getComponent("CurrentMissileCount")->getDataInt().at(0); i++)
 									{
 										Entity *missile = target->getComponent("MissilesHeld")->getDataEntity().at(i);
@@ -541,6 +544,8 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 										missile->getComponent("Life")->addData(false);
 										missile->getComponent("Draw")->deleteData();
 										missile->getComponent("Draw")->addData(false);
+										missile->getComponent("DrawSprite")->deleteData();
+										missile->getComponent("DrawSprite")->addData(false);
 									}
 								}
 							}
@@ -600,7 +605,7 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 					if (missiles.at(i)->getComponent("Explode")->getDataBool().at(0))
 					{
 						MissileExploder exploder;
-						exploder.control(window, missiles.at(i));
+						exploder.control(systemManager, window, missiles.at(i));
 					}
 				}
 			}

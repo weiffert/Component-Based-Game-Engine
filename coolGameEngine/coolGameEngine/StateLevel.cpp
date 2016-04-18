@@ -268,14 +268,12 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 		missileLauncherAi.launchMissiles(missile, window);
 	}
 
-	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
+	missileLauncher.update(systemManager, window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 
 	missileLauncherAi.update(window, launcherAi);
 
 	missileChecker.control(window, systemManager);	
-	crosshairs.control(window, systemManager);
-
-	return "constant";
+	//crosshairs.control(window, systemManager);
 
 	LevelChange levelChange;
 	std::string stateChange = levelChange.control(systemManager, assetManager, window);

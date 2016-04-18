@@ -47,6 +47,7 @@ public:
 	//Edit the data.
 	void deleteData();
 	void deleteDataPosition(int);
+	void deleteDataPosition(std::string);
 
 	template <typename T>
 	void addData(T*);

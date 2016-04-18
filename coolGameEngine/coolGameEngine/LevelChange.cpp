@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <math.h>
 
 #include "SFML\Window.hpp"
 #include "SFML\Graphics.hpp"
@@ -182,7 +183,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 
 						int oldVelocity = missile->getComponent("Velocity")->getDataDouble().at(0);
 						missile->getComponent("Velocity")->deleteData();
-						missile->getComponent("Velocity")->addData(oldVelocity * 2);
+						missile->getComponent("Velocity")->addData(abs(oldVelocity) * 2);
 						missile->getComponent("Velocity")->addData(0);
 						missile->getComponent("Velocity")->addData(0);
 					}
@@ -192,11 +193,17 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					{
 						base[i]->getComponent("CurrentMissileCount")->deleteData();
 						base[i]->getComponent("CurrentMissileCount")->addData(base[i]->getComponent("TotalMissileCount")->getDataInt().at(0));
+						base[i]->getComponent("Life")->deleteData();
+						base[i]->getComponent("Life")->addData(true);
 						base[i]->getComponent("Text")->getDataText().at(0)->setString("");
 						
-						for (int j = 0; j < base[i]->getComponent("TotalMissileCount")->getDataInt().at(0); i++)
+						for (int j = 0; j < base[i]->getComponent("TotalMissileCount")->getDataInt().at(0); j++)
 						{
 							Entity *missile = base[i]->getComponent("MissilesHeld")->getDataEntity().at(j);
+							if (missile->getComponent("Sprite")->getDataSprite().size() > 1)
+							{
+								missile->getComponent("Sprite")->deleteDataPosition(1);
+							}
 							missile->getComponent("Fired")->deleteData();
 							missile->getComponent("Fired")->addData(false);
 							missile->getComponent("Draw")->deleteData();
@@ -221,7 +228,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 							missile->getComponent("CurrentPosition")->addData(missile->getComponent("StartingPosition")->getDataDouble().at(1));
 
 							sf::Sprite *s = missile->getComponent("Sprite")->getDataSprite().at(0);
-							s->setPosition(missile->getComponent("SpriteStartPosition")->getDataDouble().at(0), missile->getComponent("SpriteStartPosition")->getDataDouble().at(0));
+							s->setPosition(missile->getComponent("SpriteStartPosition")->getDataDouble().at(0), missile->getComponent("SpriteStartPosition")->getDataDouble().at(1));
 
 							sf::Texture *texture = new sf::Texture;
 							if (!texture->loadFromFile("missile.png"))
@@ -230,7 +237,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 							assetManager->add(texture);
 
 							int oldVelocity = missile->getComponent("Velocity")->getDataDouble().at(0);
-							missile->getComponent("Velocity")->addData(oldVelocity);
+							missile->getComponent("Velocity")->addData(abs(oldVelocity));
 							missile->getComponent("Velocity")->addData(0);
 							missile->getComponent("Velocity")->addData(0);
 

@@ -919,6 +919,19 @@ void Property::deleteDataPosition(int position)
 }
 
 
+void Property::deleteDataPosition(std::string s)
+{
+	if (typeId == "Entity")
+	{
+		for (int i = 0; i < dataEntity.size(); i++)
+		{
+			if (dataEntity.at(i)->getId() == s)
+				dataEntity.erase(dataEntity.begin() + i);
+		}
+	}
+}
+
+
 //Value changes the data at position.
 //Takes in a value to change to and the position to change it at.
 //template <typename T>

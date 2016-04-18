@@ -342,8 +342,16 @@ void Plane::update(sf::RenderWindow *window, Entity *launcherAi, SystemManager *
 				{
 					if (missiles.at(i)->getComponent("Explode")->getDataBool().at(0))
 					{
+<<<<<<< HEAD
+						//Make the missile explode
+						MissileExploder missileExploder;
+						missileExploder.control(systemManager, window, missiles.at(i));
+						missiles.at(i)->getComponent("Life")->deleteData();
+						missiles.at(i)->getComponent("Life")->addData(false);
+=======
 						MissileExploder exploder;
 						exploder.control(window, missiles.at(i));
+>>>>>>> origin/game-engine
 					}
 				}
 			}

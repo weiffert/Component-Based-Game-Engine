@@ -1,6 +1,10 @@
 #include "MissileChecker.h"
 
-#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <vector>
+#include <string>
+
+#include "SFML/Graphics.hpp"
 
 #include "SystemManager.h"
 #include "Property.h"
@@ -34,6 +38,26 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 		position.x = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0);
 		position.y = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1);
 		collision = false;
+		
+		//Go through each active missile and see if it is colliding with a circle shape from any missile explosion
+		if (currentMissile->getComponent("Fired")->getDataBool().at(0) && currentMissile->getComponent("Life")->getDataBool().at(0))
+		{
+			//Check to see if it is colliding with a user fired missile explosion
+			std::vector<Entity *> missiles = systemManager->getComponent("ExplodingMissiles")->getDataEntity();
+			for (int u = 0; u < missiles.size(); u++)
+			{
+				temp = missiles.at(u);
+				//Makes sure that explosion is not done and has not started
+				if (temp->getComponent("Explode")->getDataBool().at(0))
+				{
+					if (temp->hasComponent("CircleShape"))
+						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
+						{
+							collision = true;
+						}
+				}
+			}
+		/*
 		//Go through each active missile and see if it is colliding with a circle shape from any missile explosion
 		if (currentMissile->getComponent("Fired")->getDataBool().at(0) && currentMissile->getComponent("Life")->getDataBool().at(0))
 		{
@@ -99,6 +123,7 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 						}
 				}
 			}
+			*/
 		}
 		if (collision)
 		{
@@ -114,7 +139,7 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 			currentMissile->getComponent("Move")->addData(false);
 			currentMissile->getComponent("Explode")->deleteData();
 			currentMissile->getComponent("Explode")->addData(true);
-			exploder.control(window, currentMissile);
+			exploder.control(systemManager, window, currentMissile);
 			sf::CircleShape *c = currentMissile->getComponent("CircleShape")->getDataCircleShape().at(0);
 			c->setPosition(currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0), currentMissile ->getComponent("CurrentPosition")->getDataDouble().at(1));
 		}

@@ -163,7 +163,7 @@ int MissileLauncher::getTotalMissiles()
 }
 
 
-void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Base2, Entity *Base3)
+void MissileLauncher::update(SystemManager *systemManager, sf::RenderWindow *window, Entity *Base1, Entity *Base2, Entity *Base3)
 {
 	double slope;
 	double temp1, temp2;
@@ -268,7 +268,7 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 							sf::CircleShape *c = missiles.at(i)->getComponent("CircleShape")->getDataCircleShape().at(0);
 							c->setPosition(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1));
 								MissileExploder exploder;
-							exploder.control(window, missiles.at(i));
+							exploder.control(systemManager, window, missiles.at(i));
 						}
 					}
 				}
@@ -288,7 +288,7 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 				if (missiles.at(i)->getComponent("Explode")->getDataBool().at(0))
 				{
 					MissileExploder exploder;
-					exploder.control(window, missiles.at(i));
+					exploder.control(systemManager, window, missiles.at(i));
 				}
 			}
 		}

@@ -49,6 +49,8 @@ propertyBonusCityThreshold.txt
 propertyBonusCityIncrement.txt
 propertyLevelFinished.txt
 
+propertyExplodingMissiles.txt
+
 propertySoundAlert.txt
 propertySoundFreeCity.txt
 propertySoundGameOver.txt

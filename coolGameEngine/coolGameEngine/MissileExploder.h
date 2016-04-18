@@ -11,5 +11,5 @@ class MissileExploder
 public:
 	MissileExploder();
 	~MissileExploder();
-	void control(sf::RenderWindow *, Entity *);
+	void control(SystemManager *, sf::RenderWindow *, Entity *);
 };
