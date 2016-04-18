@@ -21,16 +21,6 @@ Crosshairs::~Crosshairs()
 }
 
 
-void Crosshairs::loadTexture(std::string fileName, SystemManager * systemManager)
-{
-	file.loadFromFile(fileName);
-	crosshair = systemManager->getMaterial("Crosshairs")->getComponent("Sprite")->getDataSprite().at(0);
-	crosshair->setTexture(file);
-	systemManager->getMaterial("Crosshairs")->getComponent("Sprite")->deleteData();
-	systemManager->getMaterial("Crosshairs")->getComponent("Sprite")->addData(crosshair);
-}
-
-
 void Crosshairs::control(sf::RenderWindow * window, SystemManager * systemManager)
 {
   //Delete mouse position
@@ -45,9 +35,6 @@ void Crosshairs::control(sf::RenderWindow * window, SystemManager * systemManage
   tempY = tempY - crosshair->getGlobalBounds().height / 2 ;
   position = sf::Vector2f(tempX, tempY);
   crosshair->setPosition(position);
-  
-  //Update Crosshairs entity
-  //systemManager->getMaterial("Crosshairs")->getComponent("Sprite")->changeData(crosshair, 0);
 }
 
 void Crosshairs::fitSize(SystemManager * systemManager, int size)

@@ -315,6 +315,10 @@
     <Media Include="RollUp2.wav" />
     <Media Include="SwoopUp.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="Square.ttf" />
+    <Font Include="SquaresBold.otf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

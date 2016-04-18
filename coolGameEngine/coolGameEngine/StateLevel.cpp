@@ -273,7 +273,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	missileLauncherAi.update(window, launcherAi);
 
 	missileChecker.control(window, systemManager);	
-	//crosshairs.control(window, systemManager);
+	crosshairs.control(window, systemManager);
 
 	return "constant";
 
