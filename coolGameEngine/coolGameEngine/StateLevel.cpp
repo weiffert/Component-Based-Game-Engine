@@ -73,8 +73,6 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 		centerCoordinates.x = (window->getSize().x) / 2;
 		centerCoordinates.y = (window->getSize().y) / 2;
 
-		//sf::Mouse::setPosition(centerCoordinates, *window);
-
 		bool moveUp = false, moveDown = false, moveRight = false, moveLeft = false, spaceBarReleased = false;
 
 		//Checks if trackball moved up
@@ -273,8 +271,9 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 
 	missileLauncherAi.update(window, launcherAi);
+
 	missileChecker.control(window, systemManager);	
-	crosshairs.control(window, systemManager);
+	//crosshairs.control(window, systemManager);
 
 	return "constant";
 

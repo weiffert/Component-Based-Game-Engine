@@ -65,7 +65,7 @@ int Game::run()
 //Returns the exit code.
 int Game::gameLoop()
 {
-	std::string change;
+	std::string change = "constant";
 	//initialize time keepers
 	double totalTime = 0.0;
 	double frameRate = 1;

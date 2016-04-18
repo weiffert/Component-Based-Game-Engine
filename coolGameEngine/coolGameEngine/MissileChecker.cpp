@@ -21,14 +21,16 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 {
   //Goes through each enemy missile and determines if they should explode, if they should explode call on MissileExploder
 	MissileExploder exploder;
-	Entity * currentMissile = nullptr;
-	Entity * currentBase = nullptr;
+	Entity *currentMissile = nullptr;
+	Entity *currentBase = nullptr;
+	Entity *temp = nullptr;
 	sf::Vector2f position;
 	bool collision = false;
-	Entity * launcherAi = systemManager->getMaterial("MissileLauncherAi");
-	for (int i = 0; i < 30; i++)
+
+	Entity *launcherAi = systemManager->getMaterial("MissileLauncherAi");
+	for (int i = launcherAi->getComponent("CurrentMissileCount")->getDataInt().at(0); i < launcherAi->getComponent("TotalMissileCount")->getDataInt().at(0); i++)
 	{
-		currentMissile = systemManager->getMaterial("MissileLauncherAi")->getComponent("MissilesHeld")->getDataEntity().at(i);
+		currentMissile = launcherAi->getComponent("MissilesHeld")->getDataEntity().at(i);
 		position.x = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0);
 		position.y = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1);
 		//Go through each active missile and see if it is colliding with a circle shape from any missile explosion
@@ -37,15 +39,14 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 			//Check to see if it is colliding with a user fired missile explosion
 			//Base1
 			currentBase = systemManager->getMaterial("Base1");
-			for (int u = 0; u < 10; u++)
+			for (int u = currentBase->getComponent("CurrentMissileCount")->getDataInt().at(0); u < currentBase->getComponent("TotalMissileCount")->getDataInt().at(0); u++)
 			{
+				temp = currentBase->getComponent("MissilesHeld")->getDataEntity().at(u);
 				//Makes sure that explosion is not done and has not started
-				if (!(currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("ExplosionPhase")->getDataInt().at(0) == -2 ||
-					currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("ExplosionPhase")->getDataInt().at(0) == 0))
+				if (temp->getComponent("Explode")->getDataBool().at(0))
 				{
-					if (currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->hasComponent("CircleShape"))
-						if (this->intersection(*currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("CircleShape")->getDataCircleShape().at(0)
-							, position))
+					if (temp->hasComponent("CircleShape"))
+						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
 						{
 							collision = true;
 						}
@@ -54,15 +55,14 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 
 			//Base2
 			currentBase = systemManager->getMaterial("Base2");
-			for (int u = 0; u < 10; u++)
+			for (int u = currentBase->getComponent("CurrentMissileCount")->getDataInt().at(0); u < currentBase->getComponent("TotalMissileCount")->getDataInt().at(0); u++)
 			{
+				temp = currentBase->getComponent("MissilesHeld")->getDataEntity().at(u);
 				//Makes sure that explosion is not done and has not started
-				if (!(currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("ExplosionPhase")->getDataInt().at(0) == -2 ||
-					currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("ExplosionPhase")->getDataInt().at(0) == 0))
+				if (temp->getComponent("Explode")->getDataBool().at(0))
 				{
-					if (currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->hasComponent("CircleShape"))
-					if (this->intersection(*(currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("CircleShape")->getDataCircleShape().at(0))
-						, position))
+					if (temp->hasComponent("CircleShape"))
+						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
 						{
 							collision = true;
 						}
@@ -71,15 +71,14 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 
 			//Base3
 			currentBase = systemManager->getMaterial("Base3");
-			for (int u = 0; u < 10; u++)
+			for (int u = currentBase->getComponent("CurrentMissileCount")->getDataInt().at(0); u < currentBase->getComponent("TotalMissileCount")->getDataInt().at(0); u++)
 			{
+				temp = currentBase->getComponent("MissilesHeld")->getDataEntity().at(u);
 				//Makes sure that explosion is not done and has not started
-				if (!(currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("ExplosionPhase")->getDataInt().at(0) == -2 ||
-					currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("ExplosionPhase")->getDataInt().at(0) == 0))
+				if (temp->getComponent("Explode")->getDataBool().at(0))
 				{
-					if (currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->hasComponent("CircleShape"))
-						if (this->intersection(*currentBase->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("CircleShape")->getDataCircleShape().at(0)
-							, position))
+					if (temp->hasComponent("CircleShape"))
+						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
 						{
 							collision = true;
 						}
@@ -87,20 +86,18 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 			}
 
 			//Check for enemy missile explosions
-			for (int u = 0; u < 30; u++)
+			for (int u = launcherAi->getComponent("CurrentMissileCount")->getDataInt().at(0); u < launcherAi->getComponent("TotalMissileCount")->getDataInt().at(0); u++)
 			{
-				if (!(launcherAi->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("ExplosionPhase")->getDataInt().at(0) == -2 ||
-					launcherAi->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("ExplosionPhase")->getDataInt().at(0) == 0))
+				temp = launcherAi->getComponent("MissilesHeld")->getDataEntity().at(u);
+				if (temp->getComponent("ExplosionPhase")->getDataInt().at(0) == 1)
 				{
-					if (launcherAi->getComponent("MissilesHeld")->getDataEntity().at(u)->hasComponent("CircleShape"))
-						if (this->intersection(*launcherAi->getComponent("MissilesHeld")->getDataEntity().at(u)->getComponent("CircleShape")->getDataCircleShape().at(0)
-							, position))
+					if (temp->hasComponent("CircleShape"))
+						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
 						{
 							collision = true;
 						}
 				}
 			}
-
 		}
 		if (collision)
 		{
@@ -126,14 +123,13 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 
 bool MissileChecker::intersection(sf::CircleShape circle, sf::Vector2f point)
 {
-	float radius = circle.getGlobalBounds().height / 2;
+	float radius = circle.getLocalBounds().height / 2;
 	sf::Vector2f distance;
 	sf::Vector2f center;
 	bool intersects = false;
 
 	//Change in x from center of sprite to outside
-	center = sf::Vector2f((sf::FloatRect(circle.getGlobalBounds()).left) + (sf::FloatRect(circle.getGlobalBounds()).width/2), 
-		(sf::FloatRect(circle.getGlobalBounds()).top) + sf::FloatRect(circle.getGlobalBounds()).height /2);
+	center = sf::Vector2f((sf::FloatRect(circle.getGlobalBounds()).left) + (sf::FloatRect(circle.getGlobalBounds()).width/2), (sf::FloatRect(circle.getGlobalBounds()).top) + sf::FloatRect(circle.getGlobalBounds()).height /2);
 	distance.x = point.x - center.x;
 	distance.y = point.y - center.y;
 	if (distance.x * distance.x + distance.y * distance.y <= radius * radius)

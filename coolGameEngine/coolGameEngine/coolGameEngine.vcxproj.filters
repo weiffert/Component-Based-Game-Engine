@@ -134,6 +134,25 @@
     <Text Include="propertySplit.txt" />
     <Text Include="propertyColorEnemy.txt" />
     <Text Include="entityWelcome.txt" />
+    <Text Include="propertyPointsPerLiveCity.txt" />
+    <Text Include="propertyPointsPerUnusedMissile.txt" />
+    <Text Include="propertyLevelFinished.txt" />
+    <Text Include="propertyFireRateIncrement.txt" />
+    <Text Include="propertyFireRate.txt" />
+    <Text Include="propertyScoreMultiplyer.txt" />
+    <Text Include="propertySetTargets.txt" />
+    <Text Include="propertySplitChance.txt" />
+    <Text Include="propertySplitChanceIncrement.txt" />
+    <Text Include="propertySplitFired.txt" />
+    <Text Include="propertySpriteStartPosition.txt" />
+    <Text Include="propertyTarget.txt" />
+    <Text Include="propertyTargetOne.txt" />
+    <Text Include="propertyTargetThree.txt" />
+    <Text Include="propertyTargetTwo.txt" />
+    <Text Include="propertyBonusCityIncrement.txt" />
+    <Text Include="propertyBonusCityThreshold.txt" />
+    <Text Include="entityGameOver.txt" />
+    <Text Include="stateGameOver.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
