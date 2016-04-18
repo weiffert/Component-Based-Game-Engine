@@ -33,6 +33,7 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 		currentMissile = launcherAi->getComponent("MissilesHeld")->getDataEntity().at(i);
 		position.x = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0);
 		position.y = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1);
+		collision = false;
 		//Go through each active missile and see if it is colliding with a circle shape from any missile explosion
 		if (currentMissile->getComponent("Fired")->getDataBool().at(0) && currentMissile->getComponent("Life")->getDataBool().at(0))
 		{
