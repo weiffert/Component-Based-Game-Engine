@@ -32,6 +32,13 @@ propertySplitChance.txt
 propertySplitFired.txt
 propertyFireRate.txt
 
+propertyPoints.txt
+propertyPointsPerLiveCity.txt
+propertyPointsPerUnusedMissile.txt
+propertyScoreMultiplyer.txt
+propertyBonusCityThreshold.txt
+propertyBonusCityIncrement.txt
+
 propertySoundAlert.txt
 propertySoundFreeCity.txt
 propertySoundGameOver.txt
@@ -120,6 +127,8 @@ entityMissileLauncherAi.txt
 entityCrosshairs.txt
 
 entityWelcome.txt
+
+entityPlayer.txt
 
 stateWelcome.txt ;
 stateLevel.txt ;

@@ -207,6 +207,9 @@
     <ClInclude Include="Crosshairs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LevelChange.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -279,6 +282,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CrossHairs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelChange.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

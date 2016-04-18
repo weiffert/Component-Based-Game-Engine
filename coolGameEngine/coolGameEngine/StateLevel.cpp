@@ -19,6 +19,8 @@
 #include "MissileLauncherAi.h"
 #include "Crosshairs.h"
 #include "MissileChecker.h"
+#include "LevelChange.h"
+
 
 StateLevel::StateLevel()
 {
@@ -269,4 +271,9 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	crosshairs.control(window, systemManager);
 
 	return "constant";
+
+	LevelChange levelChange;
+	std::string stateChange = levelChange.control(systemManager, assetManager, window);
+
+	return stateChange;
 }
