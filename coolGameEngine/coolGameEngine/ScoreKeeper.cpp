@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include "SFML/Graphics.hpp"
+
 #include "ScoreKeeper.h"
 #include "SystemManger.h"
 #include "Entity.h"
@@ -81,3 +83,19 @@ void ScoreKeeper::increaseScore(int points, Entity *player)
    recentScore = 0;
   }
 }
+
+
+void ScoreKeeper::printScore(Entity *player, RenderWindow *window)
+{
+  font.loadFromFile("Square.ttf");
+  
+  int totalScore = player->getComponent("Points")->getDataInt().at(0)
+  
+  score.setFont(font);
+  score.setString(totalScore);
+  score.setCharacterSize(20);
+  score.setPosition(240, 30);
+
+  window->draw(score);
+}
+
