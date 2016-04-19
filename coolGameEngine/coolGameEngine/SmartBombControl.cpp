@@ -23,7 +23,7 @@ SmartBombControl::~SmartBombControl()
 
 void SmartBombControl::control(Entity *e)
 {
-	Property *p = e->getComponent("OuterBoundingBox");
+	Property *p = e->getComponent("DodgeCircle");
 	//check for explosion collision with outer bounding box.
 	//If 0, don't do anything.
 	//If -1, it means its to the left. Move right.
