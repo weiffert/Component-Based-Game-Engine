@@ -24,6 +24,10 @@ void buildCity();
 
 void increaseScore(int);
 
+void clearScore();
+
+void levelEnd();
+
 int getTotalScore();
 
 int getStockedCities();
