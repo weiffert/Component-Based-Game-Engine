@@ -3,6 +3,7 @@
 #include "SystemManager.h"
 #include "AssetManager.h"
 #include "Entity.h"
+#include "MissileChecker.h"
 
 SmartBombControl::SmartBombControl()
 {
