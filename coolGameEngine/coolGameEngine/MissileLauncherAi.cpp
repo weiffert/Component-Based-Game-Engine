@@ -383,6 +383,12 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		currentMissile->getComponent("Fired")->deleteData();
 		currentMissile->getComponent("Fired")->addData(true);
 	}
+	
+	if (rand() % 20 == 0)
+	{
+		currentMissile->getComponent("IsSmart")->deleteData();
+		currentMissile->getComponent("IsSmart")->addData(true);
+	}
 
 	//Decrease missiles left
 	Property *count = systemManager->getMaterial("MissileLauncherAi")->getComponent("CurrentMissileCount");
