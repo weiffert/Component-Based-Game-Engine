@@ -1,5 +1,8 @@
 #pragma once
 
+#include "SFML\Window.hpp"
+#include "SFML\Graphics.hpp"
+
 #include "SystemManager.h"
 #include "AssetManager.h"
 #include "Entity.h"
