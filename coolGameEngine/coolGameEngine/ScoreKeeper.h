@@ -1,5 +1,7 @@
 #pragma once
 
+#include "SFML/Graphics.hpp"
+
 #include "SystemManager.h"
 #include "Entity.h"
 
@@ -9,6 +11,8 @@ class ScoreKeeper
   
   int recentScore;
   int stockedCities;
+  sf::Font font;
+  sf::Text score;
   
   public:
   
@@ -16,7 +20,7 @@ class ScoreKeeper
   ~ScoreKeeper();
   
   void increaseScore(int, Entity*);
-  void printScore();
+  void printScore(Entity*, RenderWindow*);
   void buildCities();
   
 
