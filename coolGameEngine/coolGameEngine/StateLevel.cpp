@@ -20,7 +20,7 @@
 #include "Crosshairs.h"
 #include "MissileChecker.h"
 #include "LevelChange.h"
-
+#include "Plane.h"
 
 StateLevel::StateLevel()
 {
@@ -55,6 +55,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	MissileLauncherAi missileLauncherAi(systemManager, systemManager->getMaterial("MissileLauncherAi")->getComponent("TotalMissileCount")->getDataInt().at(0), systemManager->getMaterial("MissileLauncherAi")->getComponent("CurrentMissileCount")->getDataInt().at(0));
 	Crosshairs crosshairs; 
 	MissileChecker missileChecker;
+	Plane planeController;
 	crosshairs.fitSize(systemManager, 40);
 
 	bool found;
@@ -273,6 +274,9 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	missileLauncherAi.update(window, launcherAi);
 
 	missileChecker.control(window, systemManager);	
+
+	planeController.update(window, systemManager); //Planes should be self-reliant 
+
 	//crosshairs.control(window, systemManager);
 
 	LevelChange levelChange;

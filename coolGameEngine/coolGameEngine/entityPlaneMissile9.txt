@@ -1,4 +1,4 @@
-EnemyMissile9 ;
+PlaneMissile9 ;
 StateId Level1 ;
 StateNumber 2 ;
 Sprite setTexture missile-transit-enemy.png ;
