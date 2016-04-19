@@ -3,6 +3,7 @@
 #include "SystemManager.h"
 #include "AssetManager.h"
 #include "Entity.h"
+#include "Property.h"
 #include "MissileChecker.h"
 
 SmartBombControl::SmartBombControl()
@@ -23,15 +24,16 @@ SmartBombControl::~SmartBombControl()
 
 void SmartBombControl::control(Entity *smartBomb, Entity *missile)
 {
-        MissileChecker *missileChecker;
-        SystemManager *systemManager;
-        sf::CircleShape *dodgeRadius = smartBomb->getComponent("DodgeCircle")->getDataCircleShape().at(0);
-	dodgeRadius.setPosition(smartBomb->getComponenet("CurrentPosition")->getDataDouble().at(0), smartBomb->getComponenet("CurrentPosition")->getDataDouble().at(1));
+	MissileChecker *missileChecker = nullptr;
+		sf::CircleShape* dodgeRadius = (smartBomb->getComponent("DodgeCircle")->getDataCircleShape().at(0));
+	    dodgeRadius->setPosition(smartBomb->getComponent("CurrentPosition")->getDataDouble().at(0), smartBomb->getComponent("CurrentPosition")->getDataDouble().at(1));
 
 	//check for collision with outer bounding box.
-        sf::Vector2f missilePoint(missile->getComponent("CurrentPosition")->getDataDouble.at(0), missile->getComponent("CurrentPosition")->getDataDouble.at(1));
+        sf::Vector2f missilePoint(missile->getComponent("CurrentPosition")->getDataDouble().at(0), missile->getComponent("CurrentPosition")->getDataDouble().at(1));
 
-        if(missileChecker.intersection(dodgeRadius, missilePoint) == true)
+		bool itIntersects = missileChecker->intersection(*dodgeRadius, missilePoint);
+
+		if (itIntersects == true)
         {
           if((smartBomb->getComponent("CurrentPosition")->getDataDouble().at(0) - missile->getComponent("CurrentPosition")->getDataDouble().at(0)) > 0)
           {
