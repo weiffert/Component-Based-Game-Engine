@@ -21,14 +21,17 @@ SmartBombControl::~SmartBombControl()
 {
 }
 
-void SmartBombControl::control(Entity *e)
+void SmartBombControl::control(Entity *smartBomb, Entity *missile)
 {
-        sf::CircleShape *dodgeRadius = e->getComponent("DodgeCircle")->getDataCircleShape().at(0);
-	dodgeRadius.setPosition(e->getComponenet("CurrentPosition")->getDataDouble().at(0), e->getComponenet("CurrentPosition")->getDataDouble().at(1));
+        MissileChecker *missileChecker;
+        SystemManager *systemManager;
+        sf::CircleShape *dodgeRadius = smartBomb->getComponent("DodgeCircle")->getDataCircleShape().at(0);
+	dodgeRadius.setPosition(smartBomb->getComponenet("CurrentPosition")->getDataDouble().at(0), smartBomb->getComponenet("CurrentPosition")->getDataDouble().at(1));
 
 	//check for collision with outer bounding box.
 
-        if(
+        if(missileChecker.intersection(dodgeRadius, sf::Vector2f(missile->getComponent("CurrentPosition")->getDataDouble.at(0), 
+
 	//If 0, don't do anything.
 	//If -1, it means its to the left. Move right.
 	//If 1, its to the right. Move left.
