@@ -29,11 +29,31 @@ void SmartBombControl::control(Entity *smartBomb, Entity *missile)
 	dodgeRadius.setPosition(smartBomb->getComponenet("CurrentPosition")->getDataDouble().at(0), smartBomb->getComponenet("CurrentPosition")->getDataDouble().at(1));
 
 	//check for collision with outer bounding box.
+        sf::Vector2f missilePoint(missile->getComponent("CurrentPosition")->getDataDouble.at(0), missile->getComponent("CurrentPosition")->getDataDouble.at(1));
 
-        if(missileChecker.intersection(dodgeRadius, sf::Vector2f(missile->getComponent("CurrentPosition")->getDataDouble.at(0), 
+        if(missileChecker.intersection(dodgeRadius, missilePoint) == true)
+        {
+          if((smartBomb->getComponent("CurrentPosition")->getDataDouble().at(0) - missile->getComponent("CurrentPosition")->getDataDouble().at(0)) > 0)
+          {
+             //move to the right
+             int tempYPosition = smartBomb->getComponent("CurrentPosition")->getDataDouble().at(1);
+             int tempXPosition = smartBomb->getComponent("CurrentPosition")->getDataDouble().at(0);
+             tempXPosition += 1;
 
-	//If 0, don't do anything.
-	//If -1, it means its to the left. Move right.
-	//If 1, its to the right. Move left.
-	//Move in the opposite direction.
+             smartBomb->getComponent("CurrentPosition")->deleteData();
+             smartBomb->getComponent("CurrentPosition")->addData(tempYPosition);
+             smartBomb->getComponent("CurrentPosition")->addData(tempXPosition);
+          }
+          else
+          {
+             //move to the left
+             int tempYPosition = smartBomb->getComponent("CurrentPosition")->getDataDouble().at(1);
+             int tempXPosition = smartBomb->getComponent("CurrentPosition")->getDataDouble().at(0);
+             tempXPosition -= 1;
+
+             smartBomb->getComponent("CurrentPosition")->deleteData();
+             smartBomb->getComponent("CurrentPosition")->addData(tempYPosition);
+             smartBomb->getComponent("CurrentPosition")->addData(tempXPosition);
+          }
+        } 
 }
