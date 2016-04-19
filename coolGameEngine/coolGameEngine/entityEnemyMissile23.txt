@@ -24,3 +24,4 @@ SoundMissileExplosion ;
 Split false ;
 SplitFired false ;
 Target default ;
+IsSmart false ;
