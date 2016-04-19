@@ -24,7 +24,7 @@ SmartBombControl::~SmartBombControl()
 void SmartBombControl::control(Entity *e)
 {
         sf::CircleShape *dodgeRadius = e->getComponent("DodgeCircle")->getDataCircleShape().at(0);
-	
+	dodgeRadius.setPosition(e->getComponenet("CurrentPosition")->getDataDouble().at(0), e->getComponenet("CurrentPosition")->getDataDouble().at(1));
 
 	//check for collision with outer bounding box.
 
