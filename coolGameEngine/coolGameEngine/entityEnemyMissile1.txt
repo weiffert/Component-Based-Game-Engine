@@ -26,3 +26,4 @@ RectangleShape setSize 0 2 ;
 ColorEnemy ;
 SoundMissileExplosion ;
 Target default ;
+IsSmart false ;
