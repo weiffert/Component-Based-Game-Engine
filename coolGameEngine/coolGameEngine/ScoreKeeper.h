@@ -9,6 +9,9 @@ private:
 
 int recentScore;
 
+int totalScore;
+
+int stockedCities;
 
 
 public:
@@ -21,11 +24,9 @@ void buildCity();
 
 void increaseScore(int);
 
-void checkForCity();
+int getTotalScore();
 
-int totalScore;
-
-int stockedCities;
+int getStockedCities();
 
 
 };
