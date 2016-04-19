@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include "ScoreKeeper.h"
+
 #include "SystemManger.h"
 
 
@@ -15,6 +17,23 @@ ScoreKeeper::ScoreKeeper()
 ScoreKeeper::~ScoreKeeper()
 {
 
+}
+
+void ScoreKeeper::clearScore()
+{
+  totalScore = 0;
+  recentScore = 0;
+  stockedCities = 0;
+}
+
+void ScoreKeeper::levelEnd()
+{
+  if(systemManager->getMaterial("City1")->getComponent("Life")->getDataBool() == false)
+  {
+      totalScore += 
+  }
+
+  
 }
 
 void ScoreKeeper::buildCity(SystemManger* systemManager)
