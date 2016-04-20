@@ -129,6 +129,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 				{
 					return "GameOver";
 				}
+
 				//Reset values and increment proper values.
 				else
 				{
@@ -150,6 +151,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					temp->getComponent("SetTargets")->deleteData();
 					temp->getComponent("SetTargets")->addData(false);
 
+					//Reset enemy missiles.
 					for (int i = 0; i < temp->getComponent("TotalMissileCount")->getDataInt().at(0); i++)
 					{
 						Entity *missile = temp->getComponent("MissilesHeld")->getDataEntity().at(i);
@@ -158,7 +160,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 						missile->getComponent("Draw")->deleteData();
 						missile->getComponent("Draw")->addData(true);
 						missile->getComponent("DrawSprite")->deleteData();
-						missile->getComponent("DrawSprite")->addData(true);
+						missile->getComponent("DrawSprite")->addData(false);
 						missile->getComponent("DrawCircleShape")->deleteData();
 						missile->getComponent("DrawCircleShape")->addData(false);
 						missile->getComponent("DrawRectangleShape")->deleteData();
@@ -177,6 +179,13 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 						missile->getComponent("ExplosionPhase")->addData(0);
 						missile->getComponent("ExplosionRadius")->deleteData();
 						missile->getComponent("ExplosionRadius")->addData(0);
+
+						sf::Sprite *s = missile->getComponent("Spirte")->getDataSprite().at(0);
+						sf::Texture *t = new sf::Texture;
+						if (t->loadFromFile("missile-transit-enemy.png"))
+							std::cout << "Failed to load missile-transit-enemy.png" << std::endl;
+						s->setTexture(*t, true);
+						assetManager->add(t);
 
 						sf::RectangleShape *r = missile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
 						r->setSize(sf::Vector2f(0, 2));

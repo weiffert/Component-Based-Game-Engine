@@ -58,84 +58,23 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 						{
 							collision = true;
 						}
-						if (currentMissile->hasComponent("DodgeCircle"))
+						if (currentMissile->hasComponent("IsSmart"))
 						{
-							if (this->intersection(currentMissile, *temp->getComponent("CircleShape")->getDataCircleShape().at(0), *currentMissile->getComponent("DodgeCircle")->getDataCircleShape().at(0)))
+							if (currentMissile->getComponent("IsSmart")->getDataBool().at(0))
 							{
-								SmartBombControl smartBombControl(systemManager);
-								smartBombControl.control(currentMissile, temp);
+								if (currentMissile->hasComponent("DodgeCircle"))
+								{
+									if (this->intersection(currentMissile, *temp->getComponent("CircleShape")->getDataCircleShape().at(0), *currentMissile->getComponent("DodgeCircle")->getDataCircleShape().at(0)))
+									{
+										SmartBombControl smartBombControl(systemManager);
+										smartBombControl.control(currentMissile, temp);
+									}
+								}
 							}
 						}
 					}
 				}
 			}
-		/*
-		//Go through each active missile and see if it is colliding with a circle shape from any missile explosion
-		if (currentMissile->getComponent("Fired")->getDataBool().at(0) && currentMissile->getComponent("Life")->getDataBool().at(0))
-		{
-			//Check to see if it is colliding with a user fired missile explosion
-			//Base1
-			currentBase = systemManager->getMaterial("Base1");
-			for (int u = currentBase->getComponent("CurrentMissileCount")->getDataInt().at(0); u < currentBase->getComponent("TotalMissileCount")->getDataInt().at(0); u++)
-			{
-				temp = currentBase->getComponent("MissilesHeld")->getDataEntity().at(u);
-				//Makes sure that explosion is not done and has not started
-				if (temp->getComponent("Explode")->getDataBool().at(0))
-				{
-					if (temp->hasComponent("CircleShape"))
-						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
-						{
-							collision = true;
-						}
-				}
-			}
-
-			//Base2
-			currentBase = systemManager->getMaterial("Base2");
-			for (int u = currentBase->getComponent("CurrentMissileCount")->getDataInt().at(0); u < currentBase->getComponent("TotalMissileCount")->getDataInt().at(0); u++)
-			{
-				temp = currentBase->getComponent("MissilesHeld")->getDataEntity().at(u);
-				//Makes sure that explosion is not done and has not started
-				if (temp->getComponent("Explode")->getDataBool().at(0))
-				{
-					if (temp->hasComponent("CircleShape"))
-						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
-						{
-							collision = true;
-						}
-				}
-			}
-
-			//Base3
-			currentBase = systemManager->getMaterial("Base3");
-			for (int u = currentBase->getComponent("CurrentMissileCount")->getDataInt().at(0); u < currentBase->getComponent("TotalMissileCount")->getDataInt().at(0); u++)
-			{
-				temp = currentBase->getComponent("MissilesHeld")->getDataEntity().at(u);
-				//Makes sure that explosion is not done and has not started
-				if (temp->getComponent("Explode")->getDataBool().at(0))
-				{
-					if (temp->hasComponent("CircleShape"))
-						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
-						{
-							collision = true;
-						}
-				}
-			}
-
-			//Check for enemy missile explosions
-			for (int u = launcherAi->getComponent("CurrentMissileCount")->getDataInt().at(0); u < launcherAi->getComponent("TotalMissileCount")->getDataInt().at(0); u++)
-			{
-				temp = launcherAi->getComponent("MissilesHeld")->getDataEntity().at(u);
-				if (temp->getComponent("ExplosionPhase")->getDataInt().at(0) == 1)
-				{
-					if (temp->hasComponent("CircleShape"))
-						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
-						{
-							collision = true;
-						}
-				}
-			}
-			*/
 		}
 		if (collision)
 		{
@@ -201,6 +140,35 @@ bool MissileChecker::intersection(Entity *e, sf::CircleShape circle, sf::CircleS
 			point.x -= i*cos(theta);
 			point.y -= i*sin(theta);
 		}
+	}
+	return false;
+}
+
+
+bool MissileChecker::intersection(Entity *e, sf::CircleShape circle, sf::RectangleShape other)
+{
+	float radius = circle.getLocalBounds().height / 2;
+	float x = other.getLocalBounds().width;
+	float y = other.getLocalBounds().height;
+	other.setOrigin(0, 0);
+
+	sf::Vector2f distance;
+	sf::Vector2f center;
+	sf::Vector2f point;
+	point.x = e->getComponent("CurrentPosition")->getDataDouble().at(0);
+	point.y = e->getComponent("CurrentPosition")->getDataDouble().at(1);
+
+	for (double theta = 0; theta < 2 * 3.141592654; theta += 3.141592654 / 6)
+	{
+		//Set point on the radius.
+		point.x += radius * cos(theta);
+		point.y += radius * sin(theta);
+
+		if (other.getGlobalBounds().contains(point))
+			return true;
+
+		point.x -= radius * cos(theta);
+		point.y -= radius * sin(theta);
 	}
 	return false;
 }

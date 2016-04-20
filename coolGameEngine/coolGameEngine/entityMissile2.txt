@@ -4,7 +4,7 @@ StateNumber 2 ;
 Sprite setTexture missile.png setPosition 30 438 ;
 SpriteStartPosition 30 438 ;
 Life true ;
-Velocity 4 0 0 ;
+Velocity 10 0 0 ;
 StartingPosition 38 432 ;
 ExplodingPosition 0 0 ;
 CurrentPosition 38 432 ;

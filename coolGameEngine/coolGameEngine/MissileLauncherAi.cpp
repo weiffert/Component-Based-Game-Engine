@@ -85,7 +85,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 {
 	if (currentMissile->hasComponent("Sprite") && currentMissile->hasComponent("Draw") && currentMissile->hasComponent("Fired"))
 	{
-		if (currentMissile->getComponent("Draw")->getDataBool().at(0) && !currentMissile->getComponent("Fired")->getDataBool().at(0))
+		if (!currentMissile->getComponent("Draw")->getDataBool().at(0) && !currentMissile->getComponent("Fired")->getDataBool().at(0))
 		{
 			sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
 			sf::RectangleShape *r = currentMissile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
@@ -95,6 +95,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 			s->setColor(*(currentMissile->getComponent("ColorEnemy")->getDataColor().at(0)));
 			s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
+
 		}
 	}
 
@@ -110,6 +111,11 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		currentMissile->getComponent("DrawRectangleShape")->addData(true);
 	}
 
+	if (currentMissile->hasComponent("Draw"))
+	{
+		currentMissile->getComponent("Draw")->deleteData();
+		currentMissile->getComponent("Draw")->addData(true);
+	}
 	int missileTarget = rand() % 4 + 1;
 
 	//Delete data for exploding position and starting position for missile

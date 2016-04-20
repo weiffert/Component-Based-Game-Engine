@@ -54,7 +54,7 @@ int Plane::launchMissiles(sf::RenderWindow *window)
 	Entity * plane = nullptr;
 	Entity *missile = nullptr;
 	std::vector<Entity *> missiles = systemManager->getMaterial("MissileLauncherAi")->getComponent("MissilesHeld")->getDataEntity();
-	MissileLauncherAi launcher;
+	MissileLauncherAi launcher(assetManager, systemManager);
 
 	//Go through each active plane
 	for (int i = 1; i < 4; i++)
@@ -169,7 +169,7 @@ void Plane::update(sf::RenderWindow *window)
 				{
 					if (temp->hasComponent("CircleShape"))
 					{
-						if (this->intersection((temp->getComponent("CircleShape")->getDataCircleShape().at(0)), currentPlane->getComponent("Sprite")->getDataSprite().at(0)))
+						if (this->intersection(temp, temp->getComponent("CircleShape")->getDataCircleShape().at(0), currentPlane->getComponent("Sprite")->getDataSprite().at(0)))
 						{
 							collision = true;
 						}
@@ -326,8 +326,32 @@ void Plane::launchPlane(sf::RenderWindow * window, int planeNumber)
 }
 
 
-bool Plane::intersection(sf::CircleShape * explosion, sf::Sprite * plane)
+bool Plane::intersection(Entity *e, sf::CircleShape * explosion, sf::Sprite * plane)
 {
+	float radius = explosion->getLocalBounds().height / 2;
+	float x = plane->getLocalBounds().width;
+	float y = plane->getLocalBounds().height;
+
+	sf::Vector2f distance;
+	sf::Vector2f center;
+	sf::Vector2f point;
+	point.x = e->getComponent("CurrentPosition")->getDataDouble().at(0);
+	point.y = e->getComponent("CurrentPosition")->getDataDouble().at(1);
+
+	for (double theta = 0; theta < 2 * 3.141592654; theta += 3.141592654 / 6)
+	{
+		//Set point on the radius.
+		point.x += radius * cos(theta);
+		point.y += radius * sin(theta);
+
+		if (plane->getGlobalBounds().contains(point))
+			return true;
+
+		point.x -= radius * cos(theta);
+		point.y -= radius * sin(theta);
+	}
+	return false;
+	/*
 	//Checks if sprite contains any "extreme" point on the circle (top, bottom, far left, far right)
 	bool collision = false;
 	sf::Vector2f center = { sf::Vector2f((sf::FloatRect(explosion->getGlobalBounds()).left) + (sf::FloatRect(explosion->getGlobalBounds()).width / 2),
@@ -361,6 +385,7 @@ bool Plane::intersection(sf::CircleShape * explosion, sf::Sprite * plane)
 		collision = true;
 
 	return collision;
+	*/
 }
 
 
