@@ -1,0 +1,3 @@
+SmartBombChance ;
+int ;
+5000 ;

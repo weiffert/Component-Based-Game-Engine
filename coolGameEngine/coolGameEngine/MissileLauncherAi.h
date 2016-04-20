@@ -4,6 +4,7 @@
 #include "SFML\Graphics.hpp"
 
 #include "SystemManager.h"
+#include "AssetManager.h"
 #include "Entity.h"
 
 class MissileLauncherAi
@@ -11,10 +12,11 @@ class MissileLauncherAi
 private:
 	int missilesLeft, totalMissiles, targetOne, targetTwo, targetThree;
 	SystemManager *systemManager;
+	AssetManager *assetManager;
 
 public:
 	MissileLauncherAi();
-	MissileLauncherAi(SystemManager *, int, int);
+	MissileLauncherAi(AssetManager *, SystemManager *, int, int);
 	~MissileLauncherAi();
 	void setTargets(bool[6]); //Takes an array of bools respresenting which cities are alive
 	int launchAmmount();

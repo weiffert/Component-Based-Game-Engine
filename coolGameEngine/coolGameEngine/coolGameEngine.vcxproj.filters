@@ -46,7 +46,6 @@
     <Text Include="propertyExplode.txt" />
     <Text Include="propertyMove.txt" />
     <Text Include="entityPlayer.txt" />
-    <Text Include="entityPlane.txt" />
     <Text Include="entityMissileLauncherAi.txt" />
     <Text Include="entityMissile30.txt" />
     <Text Include="entityMissile29.txt" />
@@ -153,6 +152,10 @@
     <Text Include="propertyBonusCityThreshold.txt" />
     <Text Include="entityGameOver.txt" />
     <Text Include="stateGameOver.txt" />
+    <Text Include="propertyIsSmart.txt" />
+    <Text Include="propertyExplodingMissiles.txt" />
+    <Text Include="propertyDirection.txt" />
+    <Text Include="propertyDodgeCircle.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -230,6 +233,9 @@
     <ClInclude Include="LevelChange.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ScoreKeeper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -305,6 +311,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LevelChange.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreKeeper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

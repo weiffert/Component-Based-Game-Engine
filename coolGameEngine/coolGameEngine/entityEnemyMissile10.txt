@@ -25,3 +25,4 @@ IsSmart false ;
 Split false ;
 SplitFired false ;
 Target default ;
+DodgeCircle ;

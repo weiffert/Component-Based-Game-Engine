@@ -9,7 +9,7 @@ MissilesHeld PlaneMissile1 PlaneMissile2 PlaneMissile3 PlaneMissile4 PlaneMissil
 Draw false ;
 DrawSprite true ;
 Direction Left ;
-Sprite loadFromFile Plane.png ;
+Sprite loadFromFile plane.png ;
 Move true ;
 Velocity 1 0 0 ;
 FireRate 50 ;

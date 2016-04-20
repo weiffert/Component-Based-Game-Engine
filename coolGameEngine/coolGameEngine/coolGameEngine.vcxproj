@@ -156,7 +156,6 @@
     <Text Include="entityMissile8.txt" />
     <Text Include="entityMissile9.txt" />
     <Text Include="entityMissileLauncherAi.txt" />
-    <Text Include="entityPlane.txt" />
     <Text Include="entityPlayer.txt" />
     <Text Include="entitySelect.txt" />
     <Text Include="entityWelcome.txt" />
@@ -170,17 +169,21 @@
     <Text Include="propertyColorFriend.txt" />
     <Text Include="propertyCurrentMissileCount.txt" />
     <Text Include="propertyCurrentPosition.txt" />
+    <Text Include="propertyDirection.txt" />
+    <Text Include="propertyDodgeCircle.txt" />
     <Text Include="propertyDraw.txt" />
     <Text Include="propertyDrawCircleShape.txt" />
     <Text Include="propertyDrawRectangleShape.txt" />
     <Text Include="propertyDrawSprite.txt" />
     <Text Include="propertyExplode.txt" />
+    <Text Include="propertyExplodingMissiles.txt" />
     <Text Include="propertyExplodingPosition.txt" />
     <Text Include="propertyExplosionPhase.txt" />
     <Text Include="propertyExplosionRadius.txt" />
     <Text Include="propertyFired.txt" />
     <Text Include="propertyFireRate.txt" />
     <Text Include="propertyFireRateIncrement.txt" />
+    <Text Include="propertyIsSmart.txt" />
     <Text Include="propertyLevelFinished.txt" />
     <Text Include="propertyLife.txt" />
     <Text Include="propertyMissilesHeld.txt" />
@@ -237,6 +240,7 @@
     <ClInclude Include="Property.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="ScoreKeeper.h" />
     <ClInclude Include="SmartBombControl.h" />
     <ClInclude Include="StateDebug.h" />
     <ClInclude Include="StateReInit.h" />
@@ -265,6 +269,7 @@
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Property.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="ScoreKeeper.cpp" />
     <ClCompile Include="SmartBombControl.cpp" />
     <ClCompile Include="StateDebug.cpp" />
     <ClCompile Include="StateReInit.cpp" />

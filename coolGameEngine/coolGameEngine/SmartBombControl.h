@@ -11,7 +11,7 @@ class SmartBombControl
 {
 public: 
 	SmartBombControl();
-	SmartBombControl(SystemManager*, AssetManager*);
+	SmartBombControl(SystemManager*);
 	~SmartBombControl();
 	void control(Entity *, Entity *);
 private:

@@ -5,7 +5,6 @@
 
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
-//#include "PlayerInput.h"
 
 #include "StateLevel.h"
 #include "SystemManager.h"
@@ -52,7 +51,7 @@ StateLevel::~StateLevel()
 std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 {
 	MissileLauncher missileLauncher;
-	MissileLauncherAi missileLauncherAi(systemManager, systemManager->getMaterial("MissileLauncherAi")->getComponent("TotalMissileCount")->getDataInt().at(0), systemManager->getMaterial("MissileLauncherAi")->getComponent("CurrentMissileCount")->getDataInt().at(0));
+	MissileLauncherAi missileLauncherAi(assetManager, systemManager, systemManager->getMaterial("MissileLauncherAi")->getComponent("TotalMissileCount")->getDataInt().at(0), systemManager->getMaterial("MissileLauncherAi")->getComponent("CurrentMissileCount")->getDataInt().at(0));
 	Crosshairs crosshairs; 
 	MissileChecker missileChecker;
 	Plane planeController;

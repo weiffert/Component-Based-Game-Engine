@@ -3,12 +3,14 @@
 #include <stdlib.h> 
 #include <time.h>
 #include <math.h>
+#include <iostream>
 
 #include "SFML\Window.hpp"
 #include "SFML\Graphics.hpp"
 
 #include "SystemManager.h"
 #include "MissileExploder.h"
+#include "SmartBombControl.h"
 #include "Property.h"
 #include "Entity.h"
 
@@ -20,8 +22,9 @@ MissileLauncherAi::MissileLauncherAi()
 	missilesLeft = 30;
 }
 
-MissileLauncherAi::MissileLauncherAi(SystemManager *s, int totalMis, int currMis)
+MissileLauncherAi::MissileLauncherAi(AssetManager *a, SystemManager *s, int totalMis, int currMis)
 {
+	assetManager = a;
 	systemManager = s;
 	totalMissiles = totalMis;
 	missilesLeft = currMis;
@@ -75,94 +78,6 @@ void MissileLauncherAi::setTargets(bool cities[6])
 	temp = systemManager->getMaterial("MissileLauncherAi")->getComponent("TargetThree");
 	temp->deleteData();
 	temp->addData(targetThree);
-	/*
-	//Now determines the order based on the cities surviving
-	//if (alive > 3)
-	//{
-		targetOne = rand() % alive + 1;
-		targetTwo = rand() % alive + 1;
-		while(targetTwo == targetOne)
-		{
-			targetTwo = rand() % alive + 1;
-		}
-    
-		targetThree = rand() % 6 + 1;
-    
-		while (targetThree == targetOne || targetThree == targetTwo)
-		{
-			targetThree = rand() % 6 + 1;
-		}
-	//It always targets three cities, even if they are dead.
-	/*}
-	else 
-	{
-		if (alive == 3)
-		{
-			targetOne = 1;
-			targetTwo = 2;
-			targetThree = 3;
-		}
-		else if (alive == 2)
-		{
-			targetOne = 1;
-			targetTwo = 2;
-			targetThree = 0; //Will be set so that it does not fire at target three
-		}
-		else
-		{
-			targetOne = 1;
-			targetTwo = 0; //Won't fire
-			targetThree = 0; //Won't fire
-		}
-	}
-	
-	//Now determines which cities to target
-	//Determine which city for targetOne
-	while(targetOne > number && counter < 6)
-	{
-		if (cities[counter])
-		{
-			counter++;
-			number++;
-		}
-		else
-			counter++;
-			
-	}
-	targetOne = number;
-	
-	number = 0;
-	counter = 0;
-
-	while (targetTwo > number && counter < 6)
-	{
-		if (cities[counter])
-		{
-			counter++;
-			number++;
-		}
-		else
-			counter++;
-
-	}
-	targetTwo = number;
-
-	number = 0;
-	counter = 0;
-	
-	while (targetThree > number && counter < 6)
-	{
-		if (cities[counter])
-		{
-			counter++;
-			number++;
-		}
-		else
-			counter++;
-
-	}
-	targetThree = number;
-	*/
 }
 
 int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *window)
@@ -384,10 +299,24 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		currentMissile->getComponent("Fired")->addData(true);
 	}
 	
-	if (rand() % 20 == 0)
+	if (rand() % 2 == 0)
 	{
 		currentMissile->getComponent("IsSmart")->deleteData();
 		currentMissile->getComponent("IsSmart")->addData(true);
+
+		sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
+		sf::Texture *t = new sf::Texture;
+		if (!t->loadFromFile("smartBomb.png"))
+			std::cout << "Failed to load smartBomb.png" << std::endl;
+		s->setTexture(*t, true);
+		assetManager->add(t);
+
+		currentMissile->getComponent("DrawRectangleShape")->deleteData();
+		currentMissile->getComponent("DrawRectangleShape")->addData(false);
+		currentMissile->getComponent("Split")->deleteData();
+		currentMissile->getComponent("Split")->addData(true);
+		currentMissile->getComponent("SplitFired")->deleteData();
+		currentMissile->getComponent("SplitFired")->addData(true);
 	}
 
 	//Decrease missiles left
@@ -493,9 +422,15 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 						temp->setOrigin(0, temp->getLocalBounds().height);
 					}
 					
+					/*
+					//Moved to explosion.
 					//Do the smart bomb things
+<<<<<<< HEAD
+					if(missiles.at(i)->getComponent("IsSmart")->getDataBool().at(0) == true)
+=======
 					/*
 					if(missiles.at(i)->getComponent("IsSmart")->getDataBool.at(0) == true)
+>>>>>>> origin/game-engine
 					{
 						for(int p = 0; p < 10; p++)
 						{
@@ -513,6 +448,10 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 						}
 					}
 					*/
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/game-engine
 					//If the current Missile is positioned on its explosion point, (give an error of the velocity amount)
 
 					double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);

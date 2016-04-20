@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <math.h>
 
 #include "SFML/Graphics.hpp"
 
@@ -12,6 +13,7 @@
 
 //Controllers
 #include "MissileExploder.h"
+#include "SmartBombControl.h"
 
 MissileChecker::MissileChecker()
 {
@@ -51,10 +53,20 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 				if (temp->getComponent("Explode")->getDataBool().at(0))
 				{
 					if (temp->hasComponent("CircleShape"))
+					{
 						if (this->intersection(*temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
 						{
 							collision = true;
 						}
+						if (currentMissile->hasComponent("DodgeCircle"))
+						{
+							if (this->intersection(currentMissile, *temp->getComponent("CircleShape")->getDataCircleShape().at(0), *currentMissile->getComponent("DodgeCircle")->getDataCircleShape().at(0)))
+							{
+								SmartBombControl smartBombControl(systemManager);
+								smartBombControl.control(currentMissile, temp);
+							}
+						}
+					}
 				}
 			}
 		/*
@@ -162,4 +174,33 @@ bool MissileChecker::intersection(sf::CircleShape circle, sf::Vector2f point)
 		intersects = true;
 
 	return intersects;
+}
+
+
+bool MissileChecker::intersection(Entity *e, sf::CircleShape circle, sf::CircleShape other)
+{
+	float radius = circle.getLocalBounds().height / 2;
+	float otherRadius = other.getLocalBounds().height / 2;
+	sf::Vector2f distance;
+	sf::Vector2f center;
+	sf::Vector2f point;
+	point.x = e->getComponent("CurrentPosition")->getDataDouble().at(0);
+	point.y = e->getComponent("CurrentPosition")->getDataDouble().at(1);
+
+	for (double theta = 0; theta < 2 * 3.141592654; theta += 3.141592654 / 6)
+	{
+		for (int i = 1; i < otherRadius; i++)
+		{
+			//Set point on the radius.
+			point.x += i * cos(theta);
+			point.y += i * sin(theta);
+
+			if (intersection(circle, point))
+				return true;
+
+			point.x -= i*cos(theta);
+			point.y -= i*sin(theta);
+		}
+	}
+	return false;
 }
