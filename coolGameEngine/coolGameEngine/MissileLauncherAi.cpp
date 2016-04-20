@@ -435,7 +435,7 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 	double length;
 	sf::Vector2f rectLength;
 	sf::RectangleShape *temp = nullptr;
-	SmartBombControl smartBombControl;
+	//SmartBombControl smartBombControl;
 
 	std::vector<Entity*> missiles = launcherAi->getComponent("MissilesHeld")->getDataEntity();
 	//Goes through all the missiles
@@ -494,24 +494,25 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 					}
 					
 					//Do the smart bomb things
-					if(missiles.at(i)->getComponenet("IsSmart")->getDataBool.at(0) == ture)
+					/*
+					if(missiles.at(i)->getComponent("IsSmart")->getDataBool.at(0) == true)
 					{
 						for(int p = 0; p < 10; p++)
 						{
-						smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base1")->getComponent("MissilesHeld")->getDataEntity().at(p));	
+							smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base1")->getComponent("MissilesHeld")->getDataEntity().at(p));	
 						}
 						
 						for(int p = 0; p < 10; p++)
 						{
-						smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base2")->getComponent("MissilesHeld")->getDataEntity().at(p));	
+							smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base2")->getComponent("MissilesHeld")->getDataEntity().at(p));	
 						}
 						
 						for(int p = 0; p < 10; p++)
 						{
-						smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base3")->getComponent("MissilesHeld")->getDataEntity().at(p));	
+							smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base3")->getComponent("MissilesHeld")->getDataEntity().at(p));	
 						}
 					}
-
+					*/
 					//If the current Missile is positioned on its explosion point, (give an error of the velocity amount)
 
 					double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);

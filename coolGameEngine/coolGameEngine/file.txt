@@ -40,6 +40,7 @@ propertyTargetTwo.txt
 propertyTargetThree.txt
 propertySetTargets.txt
 propertyDirection.txt
+propertyIsSmart.txt
 
 propertyPoints.txt
 propertyPointsPerLiveCity.txt
