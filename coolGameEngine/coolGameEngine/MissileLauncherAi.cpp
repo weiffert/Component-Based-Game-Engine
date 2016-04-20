@@ -448,10 +448,6 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 						}
 					}
 					*/
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/game-engine
 					//If the current Missile is positioned on its explosion point, (give an error of the velocity amount)
 
 					double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);

@@ -156,6 +156,12 @@
     <Text Include="propertyExplodingMissiles.txt" />
     <Text Include="propertyDirection.txt" />
     <Text Include="propertyDodgeCircle.txt" />
+    <Text Include="entityPlane1.txt" />
+    <Text Include="entityPlane2.txt" />
+    <Text Include="entityPlane3.txt" />
+    <Text Include="entitySmartBomb.txt" />
+    <Text Include="propertySmartBombChance.txt" />
+    <Text Include="propertySmartBombChanceIncrement.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -358,6 +364,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Crosshairs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="satellite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="smartBomb.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

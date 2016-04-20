@@ -156,8 +156,12 @@
     <Text Include="entityMissile8.txt" />
     <Text Include="entityMissile9.txt" />
     <Text Include="entityMissileLauncherAi.txt" />
+    <Text Include="entityPlane1.txt" />
+    <Text Include="entityPlane2.txt" />
+    <Text Include="entityPlane3.txt" />
     <Text Include="entityPlayer.txt" />
     <Text Include="entitySelect.txt" />
+    <Text Include="entitySmartBomb.txt" />
     <Text Include="entityWelcome.txt" />
     <Text Include="file.txt" />
     <Text Include="game.txt" />
@@ -196,6 +200,8 @@
     <Text Include="propertySelect.txt" />
     <Text Include="propertySetTargets.txt" />
     <Text Include="propertySlope.txt" />
+    <Text Include="propertySmartBombChance.txt" />
+    <Text Include="propertySmartBombChanceIncrement.txt" />
     <Text Include="propertySoundAlert.txt" />
     <Text Include="propertySoundFreeCity.txt" />
     <Text Include="propertySoundGameOver.txt" />
@@ -308,6 +314,8 @@
     <Image Include="missile-transit-enemy.png" />
     <Image Include="missile.png" />
     <Image Include="plane.png" />
+    <Image Include="satellite.png" />
+    <Image Include="smartBomb.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Alert.wav" />
