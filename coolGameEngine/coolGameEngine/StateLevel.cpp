@@ -51,10 +51,10 @@ StateLevel::~StateLevel()
 std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 {
 	MissileLauncher missileLauncher;
-	MissileLauncherAi missileLauncherAi(assetManager, systemManager, systemManager->getMaterial("MissileLauncherAi")->getComponent("TotalMissileCount")->getDataInt().at(0), systemManager->getMaterial("MissileLauncherAi")->getComponent("CurrentMissileCount")->getDataInt().at(0));
+	MissileLauncherAi missileLauncherAi(assetManager, systemManager);
 	Crosshairs crosshairs; 
 	MissileChecker missileChecker;
-	Plane planeController;
+	Plane planeController(systemManager, assetManager);
 	crosshairs.fitSize(systemManager, 40);
 
 	bool found;
@@ -274,7 +274,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 
 	missileChecker.control(window, systemManager);	
 
-	planeController.update(window, systemManager); //Planes should be self-reliant 
+	planeController.update(window); //Planes should be self-reliant 
 
 	//crosshairs.control(window, systemManager);
 

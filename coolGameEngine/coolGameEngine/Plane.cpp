@@ -2,6 +2,7 @@
 
 #include <stdlib.h> 
 #include <time.h>
+#include <iostream>
 
 #include "SFML\Window.hpp"
 #include "SFML\Graphics.hpp"
@@ -18,14 +19,24 @@ Plane::Plane()
   totalMissiles = 10;
   missilesLeft = 10;
 
+  systemManager = nullptr;
+  assetManager = nullptr;
 }
 
 
-Plane::Plane(int totalMis, int currMis, int height , SystemManager * systemManager)
+Plane::Plane(SystemManager *s, AssetManager *a)
+{
+	systemManager = s;
+	assetManager = a;
+}
+
+
+Plane::Plane(int totalMis, int currMis, int height , SystemManager * s, AssetManager *a)
 {
   totalMissiles = totalMis;
   missilesLeft = currMis;
-  
+  systemManager = s;
+  assetManager = a;
   systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->deleteData();
   systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(height);
   systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(0);
@@ -38,7 +49,7 @@ Plane::~Plane()
 }
 
 
-int Plane::launchMissiles(sf::RenderWindow *window, SystemManager * systemManager)
+int Plane::launchMissiles(sf::RenderWindow *window)
 {		
 	Entity * plane = nullptr;
 	Entity *missile = nullptr;
@@ -105,17 +116,17 @@ int Plane::launchMissiles(sf::RenderWindow *window, SystemManager * systemManage
 }
 
 
-double Plane::setSlope(int pathX, int pathY)
+double Plane::setSlope(double pathX, double pathY)
 {
   double speedX;
   
-  speedX = double(pathX) / double(pathY);
+  speedX = pathX / pathY;
   
   return speedX;
 }
 
 
-void Plane::update(sf::RenderWindow *window, SystemManager * systemManager)
+void Plane::update(sf::RenderWindow *window)
 {
 	double slope;
 	double temp1, temp2;
@@ -125,7 +136,7 @@ void Plane::update(sf::RenderWindow *window, SystemManager * systemManager)
 	sf::RectangleShape *temp = nullptr;
 	sf::Sprite * plane = nullptr;
 	Entity * currentPlane = nullptr;
-	MissileLauncherAi missileLauncherAi;
+	MissileLauncherAi missileLauncherAi(assetManager, systemManager);
 	std::vector<Entity*> missiles;
 
 	do
@@ -168,8 +179,8 @@ void Plane::update(sf::RenderWindow *window, SystemManager * systemManager)
 				currentPlane->getComponent("Life")->addData(false);
 			}
 
-			planeNumber++;
 		}
+		planeNumber++;
 	} while (planeNumber < 4);
 
 	//If all planes are inactive, give a random chance of launching a plane
@@ -180,17 +191,17 @@ void Plane::update(sf::RenderWindow *window, SystemManager * systemManager)
 		if (rand() % 5 == 0)
 		{
 			if (systemManager->getMaterial("Plane1")->getComponent("Life")->getDataBool().at(0))
-				this->launchPlane(window, systemManager, 1);
+				this->launchPlane(window, 1);
 			else if (systemManager->getMaterial("Plane2")->getComponent("Life")->getDataBool().at(0))
-				this->launchPlane(window, systemManager, 2);
+				this->launchPlane(window, 2);
 			else if (systemManager->getMaterial("Plane3")->getComponent("Life")->getDataBool().at(0))
-				this->launchPlane(window, systemManager, 3);
+				this->launchPlane(window, 3);
 		}
 	}
 }
 
 
-void Plane::launchPlane(sf::RenderWindow * window, SystemManager * systemManager, int planeNumber)
+void Plane::launchPlane(sf::RenderWindow * window, int planeNumber)
 {
 	Entity * plane = nullptr;
 	int yHeight = 0;
@@ -249,12 +260,13 @@ void Plane::launchPlane(sf::RenderWindow * window, SystemManager * systemManager
 	if (rand() % 2 == 0)
 	{
 		//Make it a Satellite
-		sf::Sprite * satellite = plane->getComponent("Sprite")->getDataSprite().at(0);
-		sf::Texture texture;
-		texture.loadFromFile("Satellite.png");
-		satellite->setTexture(texture);
-		plane->getComponent("Sprite")->deleteData();
-		plane->getComponent("Sprite")->addData(satellite);
+		sf::Sprite *satellite = plane->getComponent("Sprite")->getDataSprite().at(0);
+		sf::Texture *texture = new sf::Texture;
+		if (!texture->loadFromFile("satellite.png"))
+			std::cout << "Failed to load satellite.png" << std::endl;
+		satellite->setTexture(*texture);
+
+		assetManager->add(texture);
 	}
 
 	

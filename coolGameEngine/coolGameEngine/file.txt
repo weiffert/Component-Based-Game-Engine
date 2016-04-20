@@ -139,6 +139,10 @@ entityEnemyMissile28.txt
 entityEnemyMissile29.txt
 entityEnemyMissile30.txt
 
+entityPlane1.txt
+entityPlane2.txt
+entityPlane3.txt
+
 entityMissileLauncherAi.txt
 entityCrosshairs.txt
 

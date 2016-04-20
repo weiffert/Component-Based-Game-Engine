@@ -18,22 +18,22 @@
 MissileLauncherAi::MissileLauncherAi()
 {
 	systemManager = nullptr;
-	totalMissiles = 30;
-	missilesLeft = 30;
+	assetManager = nullptr;
 }
 
-MissileLauncherAi::MissileLauncherAi(AssetManager *a, SystemManager *s, int totalMis, int currMis)
+
+MissileLauncherAi::MissileLauncherAi(AssetManager *a, SystemManager *s)
 {
 	assetManager = a;
 	systemManager = s;
-	totalMissiles = totalMis;
-	missilesLeft = currMis;
 }
+
 
 MissileLauncherAi::~MissileLauncherAi()
 {
 	
 }
+
 
 void MissileLauncherAi::setTargets(bool cities[6])
 {
@@ -79,6 +79,7 @@ void MissileLauncherAi::setTargets(bool cities[6])
 	temp->deleteData();
 	temp->addData(targetThree);
 }
+
 
 int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *window)
 {
@@ -328,25 +329,6 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 	return 1;
 }
 
-int MissileLauncherAi::launchAmmount()
-{
-	if (missilesLeft > 2)
-	{
-		return rand() % 3 + 1;
-	}
-	else if (missilesLeft > 1)
-	{
-		return rand() % 2 + 1;
-	}
-	else if (missilesLeft == 1)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
 
 double MissileLauncherAi::setSlope(double pathX, double pathY)
 {
@@ -356,6 +338,7 @@ double MissileLauncherAi::setSlope(double pathX, double pathY)
   
   return speedX;
 }
+
 
 void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 {
