@@ -14,6 +14,7 @@
 //Controllers
 #include "MissileExploder.h"
 #include "SmartBombControl.h"
+#include "ScoreKeeper.h"
 
 MissileChecker::MissileChecker()
 {
@@ -23,9 +24,10 @@ MissileChecker::~MissileChecker()
 {
 }
 
-void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemManager)
+void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemManager, ScoreKeeper scoreKeeper)
 {
   //Goes through each enemy missile and determines if they should explode, if they should explode call on MissileExploder
+	
 	MissileExploder exploder;
 	Entity *currentMissile = nullptr;
 	Entity *currentBase = nullptr;
@@ -93,6 +95,19 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 			exploder.control(systemManager, window, currentMissile);
 			sf::CircleShape *c = currentMissile->getComponent("CircleShape")->getDataCircleShape().at(0);
 			c->setPosition(currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0), currentMissile ->getComponent("CurrentPosition")->getDataDouble().at(1));
+
+			if (currentMissile->hasComponent("IsSmart"))
+			{
+				if (currentMissile->getComponent("IsSmart")->getDataBool().at(0))
+				{
+					scoreKeeper.increaseScore(125, systemManager->getMaterial("Player"));
+				}
+			}
+			else
+			{
+				scoreKeeper.increaseScore(25, systemManager->getMaterial("Player"));
+			}
+
 		}
 	}
 }

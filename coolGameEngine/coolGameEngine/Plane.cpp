@@ -125,7 +125,7 @@ double Plane::setSlope(double pathX, double pathY)
 }
 
 
-void Plane::update(sf::RenderWindow *window)
+void Plane::update(sf::RenderWindow *window, ScoreKeeper scoreKeeper)
 {
 	double slope;
 	double temp1, temp2;
@@ -182,6 +182,8 @@ void Plane::update(sf::RenderWindow *window)
 				currentPlane->getComponent("Draw")->addData(false);
 				currentPlane->getComponent("Life")->deleteData();
 				currentPlane->getComponent("Life")->addData(false);
+
+				scoreKeeper.increaseScore(50, systemManager->getMaterial("Player"));
 			}
 
 			//Moves current plane

@@ -92,9 +92,10 @@ void ScoreKeeper::printScore(Entity *player, sf::RenderWindow *window)
   int totalScore = player->getComponent("Points")->getDataInt().at(0);
   
   score.setFont(font);
+  score.setColor(sf::Color::White);
   score.setString(std::to_string(totalScore));
   score.setCharacterSize(20);
-  score.setPosition(240, 30);
+  score.setPosition(240, 240);
 
   window->draw(score);
 }
