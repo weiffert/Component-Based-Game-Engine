@@ -184,6 +184,7 @@ void Plane::update(sf::RenderWindow *window, ScoreKeeper scoreKeeper)
 				currentPlane->getComponent("Life")->addData(false);
 
 				scoreKeeper.increaseScore(50, systemManager->getMaterial("Player"));
+				//Explode.
 			}
 
 			//Moves current plane
@@ -256,7 +257,7 @@ void Plane::launchPlane(sf::RenderWindow * window, int planeNumber)
 		plane = systemManager->getMaterial("Plane3");
 	}
 
-	sf::Sprite * satellite = plane->getComponent("Sprite")->getDataSprite().at(0);
+	sf::Sprite *satellite = plane->getComponent("Sprite")->getDataSprite().at(0);
 	//Sets draw to true which shows it is on the screen
 	plane->getComponent("Draw")->deleteData();
 	plane->getComponent("Draw")->addData(true);
@@ -293,34 +294,28 @@ void Plane::launchPlane(sf::RenderWindow * window, int planeNumber)
 	plane->getComponent("CurrentPosition")->addData(yHeight);
 
 	//Make it either a satellite or a plane (default is plane)  >>>>>>>>>>>> THESE TEXTURES ARE NOT WORKING <<<<<<<<<<<<<
+	sf::Texture *texture = new sf::Texture;
+
 	if (rand() % 2 == 0)
 	{
-		//Make it a Satellite
-		sf::Texture texture;
-		if (texture.loadFromFile("Satellite.png"))
-			satellite->setTexture(texture);
-		else
-		{
-			if (texture.loadFromFile("Plane.png"))
-				satellite->setTexture(texture);
-		}
-		sf::Sprite *satellite = plane->getComponent("Sprite")->getDataSprite().at(0);
-		if (!texture.loadFromFile("satellite.png"))
+		if (!texture->loadFromFile("satellite.png"))
 			std::cout << "Failed to load satellite.png" << std::endl;
-		satellite->setTexture(texture);
-
-		assetManager->add(&texture);
 	}
+	else
+	{
+		if (!texture->loadFromFile("plane.png"))
+			std::cout << "Failed to load plane.png" << std::endl;
+	}
+	satellite->setTexture(*texture, true);
+
+	assetManager->add(texture);
 
 	//This is done just so you can see a white box where the plane should be
-	sf::Texture texture;
-	texture.loadFromFile("Satellite.png");
-	satellite->setTexture(texture);
 
 	//Scale the plane
-	float scaleY = 30 / satellite->getLocalBounds().height;
-	float scaleX = 40 / satellite->getLocalBounds().width;
-	satellite->setScale(sf::Vector2f(scaleX, scaleY));
+	//float scaleY = 30 / satellite->getLocalBounds().height;
+	//float scaleX = 40 / satellite->getLocalBounds().width;
+	//satellite->setScale(sf::Vector2f(scaleX, scaleY));
 
 	//Set other values
 
