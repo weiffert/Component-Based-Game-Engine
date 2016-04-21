@@ -60,7 +60,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 
 				//Determine the number of remaining missiles.
 				Entity *base[3] {systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3")};
-				
+
 				int liveMissiles = 0;
 				for (int i = 0; i < 3; i++)
 				{
@@ -267,34 +267,34 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 						sf::RectangleShape *r = missile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
 						r->setSize(sf::Vector2f(0, 2));
 					}
-
-					//Reset Planes
-					Entity *planes[3] {systemManager->getMaterial("Plane1"), systemManager->getMaterial("Plane2"), systemManager->getMaterial("Plane3")};
-					for (int i = 0; i < 3; i++)
-					{
-						planes[i]->getComponent("Life")->deleteData();
-						planes[i]->getComponent("Life")->addData(true);
-						planes[i]->getComponent("ExplosionPhase")->deleteData();
-						planes[i]->getComponent("ExplosionPhase")->addData(0);
-						planes[i]->getComponent("ExplosionRadius")->deleteData();
-						planes[i]->getComponent("ExplosionRadius")->addData(0);
-						planes[i]->getComponent("Draw")->deleteData();
-						planes[i]->getComponent("Draw")->addData(false);
-						planes[i]->getComponent("DrawSprite")->deleteData();
-						planes[i]->getComponent("DrawSprite")->addData(true);
-						planes[i]->getComponent("DrawCircleShape")->deleteData();
-						planes[i]->getComponent("DrawCircleShape")->addData(false);
-						planes[i]->getComponent("Move")->deleteData();
-						planes[i]->getComponent("Move")->addData(true);
-						planes[i]->getComponent("Explode")->deleteData();
-						planes[i]->getComponent("Explode")->addData(false);
-						planes[i]->getComponent("ShotDown")->deleteData();
-						planes[i]->getComponent("ShotDown")->addData(false);
-					}
-
-					systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString("Press any key to continue");
-					return "Welcome1";
 				}
+
+				//Reset Planes
+				Entity *planes[3] {systemManager->getMaterial("Plane1"), systemManager->getMaterial("Plane2"), systemManager->getMaterial("Plane3")};
+				for (int i = 0; i < 3; i++)
+				{
+					planes[i]->getComponent("Life")->deleteData();
+					planes[i]->getComponent("Life")->addData(true);
+					planes[i]->getComponent("ExplosionPhase")->deleteData();
+					planes[i]->getComponent("ExplosionPhase")->addData(0);
+					planes[i]->getComponent("ExplosionRadius")->deleteData();
+					planes[i]->getComponent("ExplosionRadius")->addData(0);
+					planes[i]->getComponent("Draw")->deleteData();
+					planes[i]->getComponent("Draw")->addData(false);
+					planes[i]->getComponent("DrawSprite")->deleteData();
+					planes[i]->getComponent("DrawSprite")->addData(true);
+					planes[i]->getComponent("DrawCircleShape")->deleteData();
+					planes[i]->getComponent("DrawCircleShape")->addData(false);
+					planes[i]->getComponent("Move")->deleteData();
+					planes[i]->getComponent("Move")->addData(true);
+					planes[i]->getComponent("Explode")->deleteData();
+					planes[i]->getComponent("Explode")->addData(false);
+					planes[i]->getComponent("ShotDown")->deleteData();
+					planes[i]->getComponent("ShotDown")->addData(false);
+				}
+
+				systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString("Press any key to continue");
+				return "Welcome1";
 			}
 		}
 	}

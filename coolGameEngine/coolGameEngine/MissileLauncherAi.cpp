@@ -367,7 +367,7 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 				{
 					if (missiles.at(i)->hasComponent("Slope"))
 						slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
-					if (missiles.at(i)->hasComponent("CurrentPosition") && missiles.at(i)->hasComponent("StartingPosition") && missiles.at(i)->hasComponent("Velocity"))
+					if (missiles.at(i)->hasComponent("CurrentPosition") && missiles.at(i)->hasComponent("Velocity"))
 					{
 						if (!missiles.at(i)->getComponent("BeenMoved")->getDataBool().at(0))
 						{
@@ -422,8 +422,8 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 							missiles.at(i)->getComponent("BeenMoved")->addData(false);
 
 							//Fix slope to remedy the move.
-							double changeX = missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0);
-							double changeY = -1 * missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - -1 * missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
+							double changeX = missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0);
+							double changeY = -1 * missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - -1 * missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1);
 
 							missiles.at(i)->getComponent("Slope")->deleteData();
 							missiles.at(i)->getComponent("Slope")->addData(changeY / changeX);

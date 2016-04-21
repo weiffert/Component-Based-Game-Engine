@@ -273,10 +273,10 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 		missileLauncherAi.launchMissiles(missile, window);
 	}
 
+	missileChecker.control(window, systemManager);
+	planeController.update(window); //Planes should be self-reliant 
 	missileLauncher.update(systemManager, window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 	missileLauncherAi.update(window, launcherAi);
-	missileChecker.control(window, systemManager);	
-	planeController.update(window); //Planes should be self-reliant 
 	crosshairs.control(window, systemManager);
 	std::string stateChange = levelChange.control(systemManager, assetManager, window);
 
