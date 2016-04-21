@@ -306,7 +306,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		currentMissile->getComponent("Fired")->addData(true);
 	}
 	
-	if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0) == 0)
+	if (rand() % /*systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0)*/2 == 0)
 	{
 		currentMissile->getComponent("IsSmart")->deleteData();
 		currentMissile->getComponent("IsSmart")->addData(true);
@@ -369,74 +369,66 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 						slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
 					if (missiles.at(i)->hasComponent("CurrentPosition") && missiles.at(i)->hasComponent("StartingPosition") && missiles.at(i)->hasComponent("Velocity"))
 					{
-						double theta = atan((missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)) / (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)));
-						theta *= -1;
-						double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);
-						double lengthX = velocity * cos(theta);
-						double lengthY = velocity * sin(theta);
+						if (!missiles.at(i)->getComponent("BeenMoved")->getDataBool().at(0))
+						{
+							double theta = atan((missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)) / (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)));
+							theta *= -1;
+							double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);
+							double lengthX = velocity * cos(theta);
+							double lengthY = velocity * sin(theta);
+							
+							temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) + lengthX;
+							temp2 = slope * (temp1 - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)) + -1 * missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1);
+							temp2 *= -1;
 
-						temp1 = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0) + lengthX;
-						temp2 = slope * (temp1 - missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0)) + -1 * missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
-						temp2 *= -1;
+							missiles.at(i)->getComponent("Velocity")->deleteData();
+							missiles.at(i)->getComponent("Velocity")->addData(velocity);
+							missiles.at(i)->getComponent("Velocity")->addData(lengthX);
+							missiles.at(i)->getComponent("Velocity")->addData(lengthY);
 
-						missiles.at(i)->getComponent("Velocity")->deleteData();
-						missiles.at(i)->getComponent("Velocity")->addData(velocity);
-						missiles.at(i)->getComponent("Velocity")->addData(lengthX);
-						missiles.at(i)->getComponent("Velocity")->addData(lengthY);
-
-						missiles.at(i)->getComponent("CurrentPosition")->deleteData();
-						missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
-						missiles.at(i)->getComponent("CurrentPosition")->addData(temp2);
+							missiles.at(i)->getComponent("CurrentPosition")->deleteData();
+							missiles.at(i)->getComponent("CurrentPosition")->addData(temp1);
+							missiles.at(i)->getComponent("CurrentPosition")->addData(temp2);
 
 
-						sf::Sprite *s = missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0);
-						s->setPosition(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+							sf::Sprite *s = missiles.at(i)->getComponent("Sprite")->getDataSprite().at(0);
+							s->setPosition(temp1, temp2);
 
-						//Update the chem trails, set the chem trail length to the velocity
-						double curX = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0);
-						double staX = missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0);
-						double curY = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1);
-						double staY = missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
+							if (missiles.at(i)->getComponent("DrawRectangleShape")->getDataBool().at(0))
+							{
+								//Update the chem trails, set the chem trail length to the velocity
+								double curX = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0);
+								double staX = missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0);
+								double curY = missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1);
+								double staY = missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
 
-						length = sqrt(pow(staX - curX, 2) + pow(staY - curY, 2));
-						temp = missiles.at(i)->getComponent("RectangleShape")->getDataRectangleShape().at(0);
-						rectLength = temp->getSize();
-						rectLength.x = length;
-						temp->setSize(rectLength);
-						if (missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0) < 0)
-							temp->setRotation(-1 * theta * 180 / 3.141592654 + 180);
+								length = sqrt(pow(staX - curX, 2) + pow(staY - curY, 2));
+								temp = missiles.at(i)->getComponent("RectangleShape")->getDataRectangleShape().at(0);
+								rectLength = temp->getSize();
+								rectLength.x = length;
+								temp->setSize(rectLength);
+								if (missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0) < 0)
+									temp->setRotation(-1 * theta * 180 / 3.141592654 + 180);
+								else
+									temp->setRotation(-1 * theta * 180 / 3.141592654);
+								temp->setPosition(missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1));
+								temp->setOrigin(0, temp->getLocalBounds().height);
+							}
+						}
 						else
-							temp->setRotation(-1 * theta * 180 / 3.141592654);
-						temp->setPosition(missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1));
-						temp->setOrigin(0, temp->getLocalBounds().height);
-					}
+						{
+							//Reset Variables
+							missiles.at(i)->getComponent("BeenMoved")->deleteData();
+							missiles.at(i)->getComponent("BeenMoved")->addData(false);
 
-					/*
-					//Moved to explosion.
-					//Do the smart bomb things
-					<<<<<<< HEAD
-					if(missiles.at(i)->getComponent("IsSmart")->getDataBool().at(0) == true)
-					=======
-					/*
-					if(missiles.at(i)->getComponent("IsSmart")->getDataBool.at(0) == true)
-					>>>>>>> origin/game-engine
-					{
-					for(int p = 0; p < 10; p++)
-					{
-					smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base1")->getComponent("MissilesHeld")->getDataEntity().at(p));
-					}
+							//Fix slope to remedy the move.
+							double changeX = missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0);
+							double changeY = -1 * missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - -1 * missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1);
 
-					for(int p = 0; p < 10; p++)
-					{
-					smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base2")->getComponent("MissilesHeld")->getDataEntity().at(p));
+							missiles.at(i)->getComponent("Slope")->deleteData();
+							missiles.at(i)->getComponent("Slope")->addData(changeY / changeX);
+						}
 					}
-
-					for(int p = 0; p < 10; p++)
-					{
-					smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base3")->getComponent("MissilesHeld")->getDataEntity().at(p));
-					}
-					}
-					*/
 					//If the current Missile is positioned on its explosion point, (give an error of the velocity amount)
 
 					double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);

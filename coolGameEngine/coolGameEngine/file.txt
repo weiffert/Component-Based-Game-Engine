@@ -45,6 +45,7 @@ propertySmartBombChance.txt
 propertySmartBombChanceIncrement.txt
 propertyDodgeCircle.txt
 propertyShotDown.txt
+propertyBeenMoved.txt
 
 propertyPoints.txt
 propertyPointsPerLiveCity.txt

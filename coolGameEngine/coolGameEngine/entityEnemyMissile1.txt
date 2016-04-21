@@ -29,3 +29,4 @@ Target default ;
 IsSmart false ;
 DodgeCircle setRadius 20 ;
 ShotDown false ;
+BeenMoved false ;

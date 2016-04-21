@@ -27,3 +27,4 @@ Target default ;
 IsSmart false ;
 DodgeCircle ;
 ShotDown false ;
+BeenMoved false ;

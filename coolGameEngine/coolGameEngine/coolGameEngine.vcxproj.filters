@@ -162,6 +162,7 @@
     <Text Include="entitySmartBomb.txt" />
     <Text Include="propertySmartBombChance.txt" />
     <Text Include="propertySmartBombChanceIncrement.txt" />
+    <Text Include="propertyShotDown.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -370,6 +371,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="smartBomb.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="plane-other-direction.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

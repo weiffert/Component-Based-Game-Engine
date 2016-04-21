@@ -27,3 +27,4 @@ ColorEnemy ;
 SoundMissileExplosion ;
 Target default ;
 DodgeCircle ;
+BeenMoved false ;

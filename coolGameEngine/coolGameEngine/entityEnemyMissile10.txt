@@ -27,3 +27,4 @@ SplitFired false ;
 Target default ;
 DodgeCircle ;
 ShotDown false ;
+BeenMoved false ;

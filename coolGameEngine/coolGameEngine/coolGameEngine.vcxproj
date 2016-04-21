@@ -199,6 +199,7 @@
     <Text Include="propertyScoreMultiplyer.txt" />
     <Text Include="propertySelect.txt" />
     <Text Include="propertySetTargets.txt" />
+    <Text Include="propertyShotDown.txt" />
     <Text Include="propertySlope.txt" />
     <Text Include="propertySmartBombChance.txt" />
     <Text Include="propertySmartBombChanceIncrement.txt" />
@@ -313,6 +314,7 @@
     <Image Include="missile-transit-clear.png" />
     <Image Include="missile-transit-enemy.png" />
     <Image Include="missile.png" />
+    <Image Include="plane-other-direction.png" />
     <Image Include="plane.png" />
     <Image Include="satellite.png" />
     <Image Include="smartBomb.png" />
