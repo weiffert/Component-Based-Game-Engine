@@ -278,6 +278,18 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	{
 		missileLauncherAi.launchMissiles(missile, window);
 	}
+	
+	if(systemManager->getMaterial("Player")->getComponent("LevelStart")->getDataBool().at(0))
+	{
+		//Play sound.
+		systemManager->getMaterial("Player")->getComponent("LevelStart")->deleteData();
+		systemManager->getMaterial("Player")->getComponent("LevelStart")->addData(true);
+		
+		sf::Sound *s = new sf::Sound;
+		s->setSoundBuffer(systemManager->getMaterial("Player")->getComponent("SoundAlert")->getSoundBuffer().at(0));
+		s->play();
+		assetManager->add(s);
+	}
 
 	missileChecker.control(window, systemManager);
 	planeController.update(window); //Planes should be self-reliant 
