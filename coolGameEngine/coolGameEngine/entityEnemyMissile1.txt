@@ -12,7 +12,7 @@ ExplosionRadius 0 ;
 Slope 0 ;
 
 Fired false ;
-Draw true ;
+Draw false ;
 DrawSprite true ;
 DrawCircleShape false ;
 DrawRectangleShape false ;
@@ -28,3 +28,4 @@ SoundMissileExplosion ;
 Target default ;
 IsSmart false ;
 DodgeCircle setRadius 20 ;
+ShotDown false ;

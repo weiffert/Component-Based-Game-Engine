@@ -4,7 +4,6 @@
 #include "SFML\Graphics.hpp"
 
 #include "SystemManager.h"
-#include "ScoreKeeper.h"
 #include "AssetManager.h"
 #include "Entity.h"
 
@@ -21,6 +20,6 @@ public:
 	~Plane();
 	double setSlope(double, double);
 	int launchMissiles(sf::RenderWindow *); //Returns 0 if it fails to launch, 1 if it successfully launches
-	void update(sf::RenderWindow *, ScoreKeeper);
+	void update(sf::RenderWindow *);
 	void launchPlane(sf::RenderWindow *, int);
 };

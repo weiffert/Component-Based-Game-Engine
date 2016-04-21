@@ -56,8 +56,8 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	ScoreKeeper  scoreKeeper;
 	Crosshairs crosshairs; 
 	MissileChecker missileChecker;
+	LevelChange levelChange;
 	Plane planeController(systemManager, assetManager);
-	crosshairs.fitSize(systemManager, 40);
 
 	Entity * player = systemManager->getMaterial("Player");
 
@@ -274,18 +274,10 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	}
 
 	missileLauncher.update(systemManager, window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
-
 	missileLauncherAi.update(window, launcherAi);
-
-	missileChecker.control(window, systemManager, scoreKeeper);	
-
-	planeController.update(window, scoreKeeper); //Planes should be self-reliant 
-
-	scoreKeeper.printScore(player, window);
-
+	missileChecker.control(window, systemManager);	
+	planeController.update(window); //Planes should be self-reliant 
 	crosshairs.control(window, systemManager);
-
-	LevelChange levelChange;
 	std::string stateChange = levelChange.control(systemManager, assetManager, window);
 
 	return stateChange;

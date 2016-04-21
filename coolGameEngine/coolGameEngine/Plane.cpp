@@ -51,7 +51,7 @@ Plane::~Plane()
 }
 
 
-void Plane::update(sf::RenderWindow *window, ScoreKeeper scoreKeeper)
+void Plane::update(sf::RenderWindow *window)
 {
 	double slope;
 	double temp1, temp2;
@@ -112,10 +112,13 @@ void Plane::update(sf::RenderWindow *window, ScoreKeeper scoreKeeper)
 				currentPlane->getComponent("Move")->addData(false);
 				currentPlane->getComponent("Explode")->deleteData();
 				currentPlane->getComponent("Explode")->addData(true);
+				currentPlane->getComponent("ShotDown")->deleteData();
+				currentPlane->getComponent("ShotDown")->addData(true);
 				sf::CircleShape *c = currentPlane->getComponent("CircleShape")->getDataCircleShape().at(0);
 				c->setPosition(currentPlane->getComponent("CurrentPosition")->getDataDouble().at(0), currentPlane->getComponent("CurrentPosition")->getDataDouble().at(1));
 
-				scoreKeeper.increaseScore(50, systemManager->getMaterial("Player"));
+				//Covered in MissileExploder.
+				//scoreKeeper.increaseScore(50, systemManager->getMaterial("Player"));
 
 				MissileExploder explode;
 				explode.control(systemManager, window, currentPlane);

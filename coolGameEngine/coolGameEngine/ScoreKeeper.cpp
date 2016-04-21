@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "ScoreKeeper.h"
 
+#include <string>
+
 #include "SFML/Graphics.hpp"
 
 #include "SystemManager.h"
@@ -74,14 +76,7 @@ void ScoreKeeper::increaseScore(int points, Entity *player)
 
 	player->getComponent("Points")->deleteData();
 	player->getComponent("Points")->addData(totalScore);
-
-	recentScore += (points * multiplyer);
-
-	if (recentScore >= 10000)
-	{
-		stockedCities += (recentScore / 10000);
-		recentScore = 0;
-	}
+	player->getComponent("Text")->getDataText().at(0)->setString(std::to_string(totalScore));
 }
 
 

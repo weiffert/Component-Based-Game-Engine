@@ -89,13 +89,12 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		{
 			sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
 			sf::RectangleShape *r = currentMissile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
-
-			r->setFillColor(*(currentMissile->getComponent("ColorEnemy")->getDataColor().at(0)));
-			r->setOutlineColor(*(currentMissile->getComponent("ColorEnemy")->getDataColor().at(0)));
-
-			s->setColor(*(currentMissile->getComponent("ColorEnemy")->getDataColor().at(0)));
+			sf::Color *c = currentMissile->getComponent("ColorEnemy")->getDataColor().at(0);
+			r->setFillColor(*c);
+			r->setOutlineColor(*c);
+			
+			s->setColor(*c);
 			s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
-
 		}
 	}
 
@@ -116,6 +115,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		currentMissile->getComponent("Draw")->deleteData();
 		currentMissile->getComponent("Draw")->addData(true);
 	}
+
 	int missileTarget = rand() % 4 + 1;
 
 	//Delete data for exploding position and starting position for missile
@@ -306,7 +306,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		currentMissile->getComponent("Fired")->addData(true);
 	}
 	
-	if (rand() % 2 == 0)
+	if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0) == 0)
 	{
 		currentMissile->getComponent("IsSmart")->deleteData();
 		currentMissile->getComponent("IsSmart")->addData(true);

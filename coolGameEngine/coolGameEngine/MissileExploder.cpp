@@ -6,6 +6,7 @@
 #include "SystemManager.h"
 #include "Property.h"
 #include "Entity.h"
+#include "ScoreKeeper.h"
 
 
 MissileExploder::MissileExploder()
@@ -39,6 +40,42 @@ void MissileExploder::control(SystemManager *systemManager, sf::RenderWindow * w
 				sf::Sound s;
 				s.setBuffer(*(missile->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0)));
 				s.play();
+			}
+
+			//Points handling.
+			if (missile->hasComponent("ShotDown"))
+			{
+				if (missile->getComponent("ShotDown")->getDataBool().at(0))
+				{
+					ScoreKeeper scoreKeeper;
+					//If its a missile.
+					if (missile->getId().find("Plane") == std::string::npos)
+					{
+						if (missile->getId().find("Enemy") != std::string::npos)
+						{
+							if (missile->hasComponent("IsSmart"))
+							{
+								if (missile->getComponent("IsSmart")->getDataBool().at(0))
+								{
+									scoreKeeper.increaseScore(125, systemManager->getMaterial("Player"));
+								}
+								else
+								{
+									scoreKeeper.increaseScore(25, systemManager->getMaterial("Player"));
+								}
+							}
+							else
+							{
+								scoreKeeper.increaseScore(25, systemManager->getMaterial("Player"));
+							}
+						}
+					}
+					//Its a plane
+					else
+					{
+						scoreKeeper.increaseScore(50, systemManager->getMaterial("Player"));
+					}
+				}
 			}
 
 			//Add missile to exploding missiles for missileChecker.
