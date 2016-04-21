@@ -54,6 +54,7 @@ propertyScoreMultiplyer.txt
 propertyBonusCityThreshold.txt
 propertyBonusCityIncrement.txt
 propertyLevelFinished.txt
+propertyLevelStart.txt
 
 propertyExplodingMissiles.txt
 
