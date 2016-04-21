@@ -61,5 +61,15 @@ std::string StateStatic::update(double totalTime, sf::RenderWindow *window)
 			}
 		}
 	}
+	if (id.find("GameOver") != std::string::npos)
+	{
+		Property *t = systemManager->getMaterial("GameOver")->getComponent("Text");
+		sf::Text *text = new sf::Text;
+		text->setString(std::to_string(systemManager->getMaterial("Player")->getComponent("Points")->getDataInt().at(0)));
+		text->setPosition(0, 50);
+		
+		t->addData(text);
+	}
+	
 	return "constant";
 }
