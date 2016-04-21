@@ -283,10 +283,10 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 	{
 		//Play sound.
 		systemManager->getMaterial("Player")->getComponent("LevelStart")->deleteData();
-		systemManager->getMaterial("Player")->getComponent("LevelStart")->addData(true);
+		systemManager->getMaterial("Player")->getComponent("LevelStart")->addData(false);
 		
 		sf::Sound *s = new sf::Sound;
-		s->setSoundBuffer(systemManager->getMaterial("Player")->getComponent("SoundAlert")->getSoundBuffer().at(0));
+		s->setBuffer(*systemManager->getMaterial("Player")->getComponent("SoundAlert")->getDataSoundBuffer().at(0));
 		s->play();
 		assetManager->add(s);
 	}
