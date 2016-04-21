@@ -117,9 +117,10 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				//Play fired sound.
 				if (missile->hasComponent("SoundSwoopUp"))
 				{
-					sf::Sound s;
-					s.setBuffer(*(missile->getComponent("SoundSwoopUp")->getDataSoundBuffer().at(0)));
-					s.play();
+					sf::Sound * s = new sf::Sound;
+					s->setBuffer(*(missile->getComponent("SoundSwoopUp")->getDataSoundBuffer().at(0)));
+					s->play();
+					assetManager->add(s);
 				}
 				missileLauncher.fire(missile, systemManager->getMaterial("Base1"), window, systemManager, assetManager);
 			}
@@ -128,9 +129,10 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				//Play no missiles sound.
 				if (missiles.at(0)->hasComponent("SoundMissileFireFail"))
 				{
-					sf::Sound s;
-					s.setBuffer(*(missiles.at(0)->getComponent("SoundMissileFireFail")->getDataSoundBuffer().at(0)));
-					s.play();
+					sf::Sound * s = new sf::Sound;
+					s->setBuffer(*(missiles.at(0)->getComponent("SoundMissileFireFail")->getDataSoundBuffer().at(0)));
+					s->play();
+					assetManager->add(s);
 				}
 			}
 		}
@@ -158,9 +160,10 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				//Play fired sound.
 				if (missile->hasComponent("SoundSwoopUp"))
 				{
-					sf::Sound s;
-					s.setBuffer(*(missile->getComponent("SoundSwoopUp")->getDataSoundBuffer().at(0)));
-					s.play();
+					sf::Sound * s = new sf::Sound;
+					s->setBuffer(*(missile->getComponent("SoundSwoopUp")->getDataSoundBuffer().at(0)));
+					s->play();
+					assetManager->add(s);
 				}
 				missileLauncher.fire(missile, systemManager->getMaterial("Base2"), window, systemManager, assetManager);
 			}
@@ -169,9 +172,10 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				//Play no missiles sound.
 				if (missiles.at(0)->hasComponent("SoundMissileFireFail"))
 				{
-					sf::Sound s;
-					s.setBuffer(*(missiles.at(0)->getComponent("SoundMissileFireFail")->getDataSoundBuffer().at(0)));
-					s.play();
+					sf::Sound * s = new sf::Sound;
+					s->setBuffer(*(missiles.at(0)->getComponent("SoundMissileFireFail")->getDataSoundBuffer().at(0)));
+					s->play();
+					assetManager->add(s);
 				}
 			}
 		}
@@ -199,9 +203,10 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				//Play fired sound.
 				if (missile->hasComponent("SoundSwoopUp"))
 				{
-					sf::Sound s;
-					s.setBuffer(*(missile->getComponent("SoundSwoopUp")->getDataSoundBuffer().at(0)));
-					s.play();
+					sf::Sound * s = new sf::Sound;
+					s->setBuffer(*(missile->getComponent("SoundSwoopUp")->getDataSoundBuffer().at(0)));
+					s->play();
+					assetManager->add(s);
 				}
 				missileLauncher.fire(missile, systemManager->getMaterial("Base3"), window, systemManager, assetManager);
 			}
@@ -210,9 +215,10 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				//Play no missiles sound.
 				if (missiles.at(0)->hasComponent("SoundMissileFireFail"))
 				{
-					sf::Sound s;
-					s.setBuffer(*(missiles.at(0)->getComponent("SoundMissileFireFail")->getDataSoundBuffer().at(0)));
-					s.play();
+					sf::Sound * s = new sf::Sound;
+					s->setBuffer(*(missiles.at(0)->getComponent("SoundMissileFireFail")->getDataSoundBuffer().at(0)));
+					s->play();
+					assetManager->add(s);
 				}
 			}
 		}

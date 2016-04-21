@@ -293,6 +293,9 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					planes[i]->getComponent("ShotDown")->addData(false);
 				}
 
+				//Clear assetManager sounds
+				assetManager->clearSounds();
+
 				systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString("Press any key to continue");
 				return "Welcome1";
 			}

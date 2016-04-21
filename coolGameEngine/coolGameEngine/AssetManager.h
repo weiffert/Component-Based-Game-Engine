@@ -37,6 +37,9 @@ public:
 	void addTextureString(std::string);
 	void addFontString(std::string);
 
+	//Clears sounds
+	void clearSounds();
+
 private:
 	//Holds the data.
 	std::vector<sf::Image*> image;

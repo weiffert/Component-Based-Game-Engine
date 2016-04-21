@@ -230,3 +230,13 @@ void AssetManager::addFontString(std::string a)
 {
 	fontNames.push_back(a);
 }
+
+
+void AssetManager::clearSounds()
+{
+	while (!sound.empty())
+	{
+		delete sound.at(sound.size() - 1);
+		sound.pop_back();
+	}
+}
