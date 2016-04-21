@@ -301,5 +301,5 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 			}
 		}
 	}
-	return "GameOver";
+	return "constant";
 }
