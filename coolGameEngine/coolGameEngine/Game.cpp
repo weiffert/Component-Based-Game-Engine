@@ -30,6 +30,7 @@ Game::Game(int width, int height, std::string name)
 	windowResolution.height = height;
 	gameName = name;
 	gameWindow.create( windowResolution, gameName);
+	gameWindow.setVerticalSyncEnabled(false);
 	systemManager = new SystemManager();
 	assetManager = new AssetManager();
 }
