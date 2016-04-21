@@ -173,6 +173,7 @@ int Plane::launchMissiles(sf::RenderWindow *window)
 {
 	Entity * plane = nullptr;
 	Entity *missile = nullptr;
+	Entity *launcherAi = systemManager->getMaterial("MissileLauncherAi");
 	std::vector<Entity *> missiles = systemManager->getMaterial("MissileLauncherAi")->getComponent("MissilesHeld")->getDataEntity();
 	MissileLauncherAi launcher(assetManager, systemManager);
 
@@ -189,7 +190,7 @@ int Plane::launchMissiles(sf::RenderWindow *window)
 		if (plane->getComponent("Draw")->getDataBool().at(0))
 		{
 			//Random chance to fire missiles
-			if (rand() % plane->getComponent("FireRate")->getDataInt().at(0) == 0)
+			if (rand() % launcherAi->getComponent("FireRate")->getDataInt().at(0) == 0)
 			{
 				//Checks if there are missiles left to fire
 				int decrement = 29;

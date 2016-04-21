@@ -1,9 +1,7 @@
 Plane3 ;
 StateId Level1 ;
 StateNumber 2 ;
-CurrentMissileCount 10 ;
 CurrentPosition 0 0 ;
-TotalMissileCount ;
 Life true ;
 Draw false ;
 DrawSprite true ;

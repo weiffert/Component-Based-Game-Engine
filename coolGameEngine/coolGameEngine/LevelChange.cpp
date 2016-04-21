@@ -109,19 +109,26 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					}
 				}
 
+				life = false;
 				//Determine if the game is done.
 				for (int i = 0; i < 6; i++)
 				{
 					if (city[i]->getComponent("Life")->getDataBool().at(0) == true)
 					{
-						return "GameOver";
+						life = true;
 					}
+				}
+				if (!life)
+				{
+					return "GameOver";
 				}
 
 				//Reset values and increment proper values.
 				systemManager->getMaterial("Player")->getComponent("LevelFinished")->deleteData();
 				systemManager->getMaterial("Player")->getComponent("LevelFinished")->addData(false);
 
+
+				//Reset MissileLauncherAi
 				Entity *temp = systemManager->getMaterial("MissileLauncherAi");
 				temp->getComponent("CurrentMissileCount")->deleteData();
 				temp->getComponent("CurrentMissileCount")->addData(temp->getComponent("TotalMissileCount")->getDataInt().at(0));
@@ -134,19 +141,39 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 				temp->getComponent("SplitChance")->deleteData();
 				temp->getComponent("SplitChance")->addData(splitChance - temp->getComponent("SplitChanceIncrement")->getDataInt().at(0));
 
+				int smartBombChance = temp->getComponent("SmartBombChance")->getDataInt().at(0);
+				temp->getComponent("SmartBombChance")->deleteData();
+				temp->getComponent("SmartBombChance")->addData(smartBombChance - temp->getComponent("SmartBombChanceIncrement")->getDataInt().at(0));
+
 				temp->getComponent("SetTargets")->deleteData();
 				temp->getComponent("SetTargets")->addData(false);
+
+				temp->getComponent("TargetOne")->deleteData();
+				temp->getComponent("TargetOne")->addData(0);
+				temp->getComponent("TargetTwo")->deleteData();
+				temp->getComponent("TargetTwo")->addData(0);
+				temp->getComponent("TargetThree")->deleteData();
+				temp->getComponent("TargetThree")->addData(0);
+
 
 				//Reset enemy missiles.
 				for (int i = 0; i < temp->getComponent("TotalMissileCount")->getDataInt().at(0); i++)
 				{
 					Entity *missile = temp->getComponent("MissilesHeld")->getDataEntity().at(i);
+					missile->getComponent("Life")->deleteData();
+					missile->getComponent("Life")->addData(true);
+					missile->getComponent("ExplosionPhase")->deleteData();
+					missile->getComponent("ExplosionPhase")->addData(0);
+					missile->getComponent("ExplosionRadius")->deleteData();
+					missile->getComponent("ExplosionRadius")->addData(0);
+					missile->getComponent("Slope")->deleteData();
+					missile->getComponent("Slope")->addData(0);
 					missile->getComponent("Fired")->deleteData();
 					missile->getComponent("Fired")->addData(false);
 					missile->getComponent("Draw")->deleteData();
-					missile->getComponent("Draw")->addData(true);
+					missile->getComponent("Draw")->addData(false);
 					missile->getComponent("DrawSprite")->deleteData();
-					missile->getComponent("DrawSprite")->addData(false);
+					missile->getComponent("DrawSprite")->addData(true);
 					missile->getComponent("DrawCircleShape")->deleteData();
 					missile->getComponent("DrawCircleShape")->addData(false);
 					missile->getComponent("DrawRectangleShape")->deleteData();
@@ -159,16 +186,14 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					missile->getComponent("Split")->addData(false);
 					missile->getComponent("SplitFired")->deleteData();
 					missile->getComponent("SplitFired")->addData(false);
-					missile->getComponent("Life")->deleteData();
-					missile->getComponent("Life")->addData(true);
-					missile->getComponent("ExplosionPhase")->deleteData();
-					missile->getComponent("ExplosionPhase")->addData(0);
-					missile->getComponent("ExplosionRadius")->deleteData();
-					missile->getComponent("ExplosionRadius")->addData(0);
+					missile->getComponent("IsSmart")->deleteData();
+					missile->getComponent("IsSmart")->addData(false);
+					missile->getComponent("ShotDown")->deleteData();
+					missile->getComponent("ShotDown")->addData(false);
 
-					sf::Sprite *s = missile->getComponent("Spirte")->getDataSprite().at(0);
+					sf::Sprite *s = missile->getComponent("Sprite")->getDataSprite().at(0);
 					sf::Texture *t = new sf::Texture;
-					if (t->loadFromFile("missile-transit-enemy.png"))
+					if (!t->loadFromFile("missile-transit-enemy.png"))
 						std::cout << "Failed to load missile-transit-enemy.png" << std::endl;
 					s->setTexture(*t, true);
 					assetManager->add(t);
@@ -198,6 +223,14 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 						{
 							missile->getComponent("Sprite")->deleteDataPosition(1);
 						}
+						missile->getComponent("Life")->deleteData();
+						missile->getComponent("Life")->addData(true);
+						missile->getComponent("ExplosionPhase")->deleteData();
+						missile->getComponent("ExplosionPhase")->addData(0);
+						missile->getComponent("ExplosionRadius")->deleteData();
+						missile->getComponent("ExplosionRadius")->addData(0);
+						missile->getComponent("Slope")->deleteData();
+						missile->getComponent("Slope")->addData(0);
 						missile->getComponent("Fired")->deleteData();
 						missile->getComponent("Fired")->addData(false);
 						missile->getComponent("Draw")->deleteData();
@@ -212,10 +245,6 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 						missile->getComponent("Move")->addData(false);
 						missile->getComponent("Explode")->deleteData();
 						missile->getComponent("Explode")->addData(false);
-						missile->getComponent("Life")->deleteData();
-						missile->getComponent("Life")->addData(true);
-						missile->getComponent("ExplosionPhase")->deleteData();
-						missile->getComponent("ExplosionPhase")->addData(0);
 
 						missile->getComponent("CurrentPosition")->deleteData();
 						missile->getComponent("CurrentPosition")->addData(missile->getComponent("StartingPosition")->getDataDouble().at(0));
@@ -238,6 +267,31 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 						sf::RectangleShape *r = missile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
 						r->setSize(sf::Vector2f(0, 2));
 					}
+
+					//Reset Planes
+					Entity *planes[3] {systemManager->getMaterial("Plane1"), systemManager->getMaterial("Plane2"), systemManager->getMaterial("Plane3")};
+					for (int i = 0; i < 3; i++)
+					{
+						planes[i]->getComponent("Life")->deleteData();
+						planes[i]->getComponent("Life")->addData(true);
+						planes[i]->getComponent("ExplosionPhase")->deleteData();
+						planes[i]->getComponent("ExplosionPhase")->addData(0);
+						planes[i]->getComponent("ExplosionRadius")->deleteData();
+						planes[i]->getComponent("ExplosionRadius")->addData(0);
+						planes[i]->getComponent("Draw")->deleteData();
+						planes[i]->getComponent("Draw")->addData(false);
+						planes[i]->getComponent("DrawSprite")->deleteData();
+						planes[i]->getComponent("DrawSprite")->addData(true);
+						planes[i]->getComponent("DrawCircleShape")->deleteData();
+						planes[i]->getComponent("DrawCircleShape")->addData(false);
+						planes[i]->getComponent("Move")->deleteData();
+						planes[i]->getComponent("Move")->addData(true);
+						planes[i]->getComponent("Explode")->deleteData();
+						planes[i]->getComponent("Explode")->addData(false);
+						planes[i]->getComponent("ShotDown")->deleteData();
+						planes[i]->getComponent("ShotDown")->addData(false);
+					}
+
 					systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString("Press any key to continue");
 					return "Welcome1";
 				}

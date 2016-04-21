@@ -410,31 +410,31 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 						temp->setPosition(missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("StartingPosition")->getDataDouble().at(1));
 						temp->setOrigin(0, temp->getLocalBounds().height);
 					}
-					
+
 					/*
 					//Moved to explosion.
 					//Do the smart bomb things
-<<<<<<< HEAD
+					<<<<<<< HEAD
 					if(missiles.at(i)->getComponent("IsSmart")->getDataBool().at(0) == true)
-=======
+					=======
 					/*
 					if(missiles.at(i)->getComponent("IsSmart")->getDataBool.at(0) == true)
->>>>>>> origin/game-engine
+					>>>>>>> origin/game-engine
 					{
-						for(int p = 0; p < 10; p++)
-						{
-							smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base1")->getComponent("MissilesHeld")->getDataEntity().at(p));	
-						}
-						
-						for(int p = 0; p < 10; p++)
-						{
-							smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base2")->getComponent("MissilesHeld")->getDataEntity().at(p));	
-						}
-						
-						for(int p = 0; p < 10; p++)
-						{
-							smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base3")->getComponent("MissilesHeld")->getDataEntity().at(p));	
-						}
+					for(int p = 0; p < 10; p++)
+					{
+					smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base1")->getComponent("MissilesHeld")->getDataEntity().at(p));
+					}
+
+					for(int p = 0; p < 10; p++)
+					{
+					smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base2")->getComponent("MissilesHeld")->getDataEntity().at(p));
+					}
+
+					for(int p = 0; p < 10; p++)
+					{
+					smartBombControl.control(missiles.at(i), systemManager->getMaterial("Base3")->getComponent("MissilesHeld")->getDataEntity().at(p));
+					}
 					}
 					*/
 					//If the current Missile is positioned on its explosion point, (give an error of the velocity amount)
@@ -502,53 +502,48 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 							}
 						}
 					}
-
-					//checks if it is the last missile
-					if (i != 1)
+					//checks if missile already split and is high enough
+					if (missiles.at(i)->getComponent("Split")->getDataBool().at(0) == false && missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) < 340)
 					{
-							//checks if missile already split and is high enough
-						if (missiles.at(i)->getComponent("Split")->getDataBool().at(0) == false && missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) < 340)
+						//random chance to not split
+						if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SplitChance")->getDataInt().at(0) == 0)
+						{
+							int decrement = 29;
+							bool found = false;
+							Entity *missile = nullptr;
+							while (!found && decrement >= 0)
 							{
-								//random chance to not split
-								if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SplitChance")->getDataInt().at(0) == 0)
+								if (missiles.at(decrement)->hasComponent("Fired"))
 								{
-									int decrement = 29;
-									bool found = false;
-									Entity *missile = nullptr;
-									while (!found && decrement >= 0)
+									if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
 									{
-										if (missiles.at(decrement)->hasComponent("Fired"))
-										{
-											if (missiles.at(decrement)->getComponent("Fired")->getDataBool().at(0) == false)
-											{
-												found = true;
-												missile = missiles.at(decrement);
-											}
-										}
-										decrement--;
-									}
-									if (found)
-									{
-										//sets missile to have been split
-										missiles.at(i)->getComponent("Split")->deleteData();
-										missiles.at(i)->getComponent("Split")->addData(true);
-
-										missile->getComponent("SplitFired")->deleteData();
-										missile->getComponent("SplitFired")->addData(true);
-
-										missile->getComponent("StartingPosition")->deleteData();
-										missile->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
-										missile->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
-
-										missile->getComponent("CurrentPosition")->deleteData();
-										missile->getComponent("CurrentPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
-										missile->getComponent("CurrentPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
-
-										launchMissiles(missile, window);
+										found = true;
+										missile = missiles.at(decrement);
 									}
 								}
-
+								decrement--;
 							}
+							if (found)
+							{
+								//sets missile to have been split
+								missiles.at(i)->getComponent("Split")->deleteData();
+								missiles.at(i)->getComponent("Split")->addData(true);
+
+								missile->getComponent("SplitFired")->deleteData();
+								missile->getComponent("SplitFired")->addData(true);
+
+								missile->getComponent("StartingPosition")->deleteData();
+								missile->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
+								missile->getComponent("StartingPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+
+								missile->getComponent("CurrentPosition")->deleteData();
+								missile->getComponent("CurrentPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0));
+								missile->getComponent("CurrentPosition")->addData(missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1));
+
+								launchMissiles(missile, window);
+							}
+						}
+
 					}
 				}
 				if (missiles.at(i)->hasComponent("Explode"))
