@@ -245,8 +245,6 @@ std::vector<Entity*> SystemManager::getMaterial(BaseState* a)
 	{
 		if (material.at(i)->getComponent("StateId"))
 		{
-			std::cout << material.at(i)->getComponent("StateId")->getDataString().at(0) << std::endl
-				<< a->getId() << std::endl << std::endl;
 			if (material.at(i)->getComponent("StateId")->getDataString().at(0) == a->getId())
 				tempVector.push_back(material.at(i));
 		}

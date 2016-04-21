@@ -150,6 +150,7 @@ entityMissileLauncherAi.txt
 entityCrosshairs.txt
 
 entityWelcome.txt
+entityGameOver.txt
 
 entityPlayer.txt
 
