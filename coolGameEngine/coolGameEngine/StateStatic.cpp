@@ -53,7 +53,12 @@ std::string StateStatic::update(double totalTime, sf::RenderWindow *window)
 			if (event.key.code == sf::Keyboard::Escape)
 				window->close();
 			else
-				return "next";
+			{
+				if (id.find("GameOver") == std::string::npos)
+					return "next";
+				else
+					window->close();
+			}
 		}
 	}
 	return "constant";
