@@ -9,4 +9,5 @@ CurrentPosition 231 432 ;
 Draw true ;
 DrawSprite false ;
 Move false ;
-Text setFont Square.ttf setCharacterSize 18 setColor 255 0 0 setPosition 216 460 ;
+Text setFont Square.ttf setCharacterSize 18 setColor 255 0 0 setPosition 216 460 ; 
+SoundAlert ;
