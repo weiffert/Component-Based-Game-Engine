@@ -193,11 +193,14 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					missile->getComponent("ShotDown")->deleteData();
 					missile->getComponent("ShotDown")->addData(false);
 
-					sf::Sprite *s = missile->getComponent("Sprite")->getDataSprite().at(0);
+					missile->getComponent("Sprite")->deleteData();
+					sf::Sprite *s = new sf::Sprite;
 					sf::Texture *t = new sf::Texture;
 					if (!t->loadFromFile("missile-transit-enemy.png"))
 						std::cout << "Failed to load missile-transit-enemy.png" << std::endl;
 					s->setTexture(*t, true);
+
+					missile->getComponent("Sprite")->addData(s);
 					assetManager->add(t);
 
 					sf::RectangleShape *r = missile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
@@ -206,8 +209,8 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					int oldVelocity = missile->getComponent("Velocity")->getDataDouble().at(0);
 					missile->getComponent("Velocity")->deleteData();
 					missile->getComponent("Velocity")->addData(abs(oldVelocity) * 2);
-					missile->getComponent("Velocity")->addData(0);
-					missile->getComponent("Velocity")->addData(0);
+					missile->getComponent("Velocity")->addData(1);
+					missile->getComponent("Velocity")->addData(1);
 				}
 
 				for (int i = 0; i < 3; i++)
@@ -262,9 +265,10 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 
 						int oldVelocity = missile->getComponent("Velocity")->getDataDouble().at(0);
 						oldVelocity = abs(oldVelocity);
+						missile->getComponent("Velocity")->deleteData();
 						missile->getComponent("Velocity")->addData(oldVelocity);
-						missile->getComponent("Velocity")->addData(0);
-						missile->getComponent("Velocity")->addData(0);
+						missile->getComponent("Velocity")->addData(1);
+						missile->getComponent("Velocity")->addData(1);
 
 						sf::RectangleShape *r = missile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
 						r->setSize(sf::Vector2f(0, 2));

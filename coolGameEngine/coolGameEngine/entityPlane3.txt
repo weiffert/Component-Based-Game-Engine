@@ -9,7 +9,7 @@ DrawCircleShape false ;
 Direction Left ;
 Sprite loadFromFile plane.png ;
 Move true ;
-Velocity 1 0 0 ;
+Velocity 1 1 1 ;
 FireRate 50 ;
 SplitChance 100 ;
 FireRateIncrement 2 ;

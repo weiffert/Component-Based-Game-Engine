@@ -87,14 +87,54 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 	{
 		if (!currentMissile->getComponent("Draw")->getDataBool().at(0) && !currentMissile->getComponent("Fired")->getDataBool().at(0))
 		{
-			sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
-			sf::RectangleShape *r = currentMissile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
-			sf::Color *c = currentMissile->getComponent("ColorEnemy")->getDataColor().at(0);
-			r->setFillColor(*c);
-			r->setOutlineColor(*c);
-			
-			s->setColor(*c);
-			s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
+			//Makes sure it wasn't split or shot from a plane
+			if (currentMissile->getComponent("SplitFired")->getDataBool().at(0) == false)
+			{
+				if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0) == 0)
+				{
+					currentMissile->getComponent("IsSmart")->deleteData();
+					currentMissile->getComponent("IsSmart")->addData(true);
+
+					sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
+					sf::Texture *t = new sf::Texture;
+					if (!t->loadFromFile("smartBomb.png"))
+						std::cout << "Failed to load smartBomb.png" << std::endl;
+					s->setTexture(*t, true);
+
+					s->setOrigin(s->getLocalBounds().width / 2, s->getLocalBounds().height / 2);
+
+					assetManager->add(t);
+
+					currentMissile->getComponent("DrawRectangleShape")->deleteData();
+					currentMissile->getComponent("DrawRectangleShape")->addData(false);
+					currentMissile->getComponent("Split")->deleteData();
+					currentMissile->getComponent("Split")->addData(true);
+					currentMissile->getComponent("SplitFired")->deleteData();
+					currentMissile->getComponent("SplitFired")->addData(true);
+				}
+				else
+				{
+					sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
+					sf::RectangleShape *r = currentMissile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
+					sf::Color *c = currentMissile->getComponent("ColorEnemy")->getDataColor().at(0);
+					r->setFillColor(*c);
+					r->setOutlineColor(*c);
+
+					s->setColor(*c);
+					s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
+				}
+			}
+			else
+			{
+				sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
+				sf::RectangleShape *r = currentMissile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
+				sf::Color *c = currentMissile->getComponent("ColorEnemy")->getDataColor().at(0);
+				r->setFillColor(*c);
+				r->setOutlineColor(*c);
+
+				s->setColor(*c);
+				s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
+			}
 		}
 	}
 
@@ -286,47 +326,30 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		currentMissile->getComponent("Slope")->addData(changeY / changeX);
 	}
 
-	double velX = currentMissile->getComponent("Velocity")->getDataDouble().at(0);
+	Property *vel = currentMissile->getComponent("Velocity");
+	double velX = vel->getDataDouble().at(1);
 	double curX = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0);
 	double expX = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0);
-	double velY = currentMissile->getComponent("Velocity")->getDataDouble().at(1);
+	double velY = vel->getDataDouble().at(2);
 	double curY = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1);
 	double expY = currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1);
 
-	if (sqrt(pow(expX - curX - velX, 2) + pow(expY - curY - velY, 2)) > sqrt(pow(expX - curX + velX, 2) + pow(expY - curY + velY, 2)))
+	double theta = atan((currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1) - currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1)) / (currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0) - currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0)));
+
+	if (theta > 0/*sqrt(pow(expX - curX - velX, 2) + pow(curY - expY - velY, 2)) > sqrt(pow(expX - curX + velX, 2) + pow(curY - expY + velY, 2))*/)
 	{
 		double temp = currentMissile->getComponent("Velocity")->getDataDouble().at(0);
 		temp *= -1;
-		currentMissile->getComponent("Velocity")->changeData(&temp, 0);
+		vel->deleteData();
+		vel->addData(temp);
+		vel->addData(velX);
+		vel->addData(velY);
 	}
 
 	if (currentMissile->hasComponent("Fired"))
 	{
 		currentMissile->getComponent("Fired")->deleteData();
 		currentMissile->getComponent("Fired")->addData(true);
-	}
-	//Makes sure it wasn't split or shot from a plane
-	if (currentMissile->getComponent("SplitFired")->getDataBool().at(0) == false)
-	{
-		if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0) == 0)
-		{
-			currentMissile->getComponent("IsSmart")->deleteData();
-			currentMissile->getComponent("IsSmart")->addData(true);
-
-			sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
-			sf::Texture *t = new sf::Texture;
-			if (!t->loadFromFile("smartBomb.png"))
-				std::cout << "Failed to load smartBomb.png" << std::endl;
-			s->setTexture(*t, true);
-			assetManager->add(t);
-
-			currentMissile->getComponent("DrawRectangleShape")->deleteData();
-			currentMissile->getComponent("DrawRectangleShape")->addData(false);
-			currentMissile->getComponent("Split")->deleteData();
-			currentMissile->getComponent("Split")->addData(true);
-			currentMissile->getComponent("SplitFired")->deleteData();
-			currentMissile->getComponent("SplitFired")->addData(true);
-		}
 	}
 
 	//Decrease missiles left
