@@ -122,7 +122,6 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 				systemManager->getMaterial("Player")->getComponent("LevelStart")->deleteData();
 				systemManager->getMaterial("Player")->getComponent("LevelStart")->addData(true);
 
-
 				//Reset MissileLauncherAi
 				Entity *temp = systemManager->getMaterial("MissileLauncherAi");
 				temp->getComponent("CurrentMissileCount")->deleteData();
@@ -296,5 +295,5 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 			}
 		}
 	}
-	return "constant";
+	return "GameOver";
 }

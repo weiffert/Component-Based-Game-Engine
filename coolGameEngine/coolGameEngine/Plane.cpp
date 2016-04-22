@@ -39,9 +39,10 @@ Plane::Plane(int totalMis, int currMis, int height, SystemManager * s, AssetMana
 	missilesLeft = currMis;
 	systemManager = s;
 	assetManager = a;
-	systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->deleteData();
-	systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(height);
-	systemManager->getMaterial("Plane")->getComponent("CurrentPosition")->addData(0);
+	Property *currentPosition = systemManager->getMaterial("Plane")->getComponent("CurrentPosition");
+	currentPosition->deleteData();
+	currentPosition->addData(height);
+	currentPosition->addData(0);
 }
 
 
@@ -101,8 +102,16 @@ void Plane::update(sf::RenderWindow *window)
 					}
 				}
 			}
-			if ((collision || currentPlane->getComponent("Explode")->getDataBool().at(0)) && currentPlane->getComponent("Life")->getDataBool().at(0)) //Makes sure its doing more than once
+			if ((collision || currentPlane->getComponent("Explode")->getDataBool().at(0)) /*&& currentPlane->getComponent("Life")->getDataBool().at(0)*/) //Makes sure its doing more than once. This does not work. Life is set to false in the next statement. Besides, after the explosion is done, explode == false;
 			{
+				if (currentPlane->getComponent("Life")->getDataBool().at(0))
+				{
+					//Make explosion sound (from a missile)
+					sf::Sound * sound = new sf::Sound;
+					sound->setBuffer(*currentPlane->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0));
+					assetManager->add(sound);
+					sound->play();
+				}
 				currentPlane->getComponent("Life")->deleteData();
 				currentPlane->getComponent("Life")->addData(false);
 				currentPlane->getComponent("DrawSprite")->deleteData();
@@ -118,13 +127,6 @@ void Plane::update(sf::RenderWindow *window)
 				sf::CircleShape *c = currentPlane->getComponent("CircleShape")->getDataCircleShape().at(0);
 				c->setPosition(currentPlane->getComponent("CurrentPosition")->getDataDouble().at(0), currentPlane->getComponent("CurrentPosition")->getDataDouble().at(1));
 
-				//Make explosion sound (from a missile)
-				sf::Sound * sound = new sf::Sound;
-				sound->setBuffer(*currentPlane->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0));
-				assetManager->add(sound);
-				sound->play();
-
-			
 				//Covered in MissileExploder.
 				//scoreKeeper.increaseScore(50, systemManager->getMaterial("Player"));
 

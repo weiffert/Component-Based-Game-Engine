@@ -290,6 +290,8 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 			{
 				sf::Text *t = bases.at(base)->getComponent("Text")->getDataText().at(0);
 				t->setString("Low");
+
+				//Play warning sound if we want to.
 			}
 			if (increment <= 0)
 			{

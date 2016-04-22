@@ -163,6 +163,8 @@
     <Text Include="propertySmartBombChance.txt" />
     <Text Include="propertySmartBombChanceIncrement.txt" />
     <Text Include="propertyShotDown.txt" />
+    <Text Include="propertyLevelStart.txt" />
+    <Text Include="propertyBeenMoved.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

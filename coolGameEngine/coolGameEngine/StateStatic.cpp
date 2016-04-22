@@ -63,21 +63,26 @@ std::string StateStatic::update(double totalTime, sf::RenderWindow *window)
 	}
 	if (id.find("GameOver") != std::string::npos)
 	{
-		Property *t = systemManager->getMaterial("GameOver")->getComponent("Text");
-		sf::Text *text = new sf::Text;
-		text->setString(std::to_string(systemManager->getMaterial("Player")->getComponent("Points")->getDataInt().at(0)));
-		text->setPosition(0, 50);
-		
-		t->addData(text);
- 
-		//Play sound
-		sf::Sound * sound = new sf::Sound;
-		sf::SoundBuffer buffer = *systemManager->getComponent("SoundGameOver")->getDataSoundBuffer().at(0);
-		sound->setBuffer(buffer);
-		sound->play();
-		assetManager->add(sound);
-		assetManager->add(&buffer);
-		
+		if (systemManager->getMaterial("GameOver")->getComponent("LevelStart")->getDataBool().at(0))
+		{
+			Property *t = systemManager->getMaterial("GameOver")->getComponent("Text");
+			sf::Text *text = new sf::Text;
+			text->setString(std::to_string(systemManager->getMaterial("Player")->getComponent("Points")->getDataInt().at(0)) + " Points");
+			text->setPosition(0, 50);
+			text->setCharacterSize(30);
+			sf::Color c(255, 255, 255);
+			text->setColor(c);
+			text->setFont(*t->getDataText().at(0)->getFont());
+			t->addData(text);
+
+			//Play sound
+			systemManager->getMaterial("GameOver")->getComponent("LevelStart")->deleteData();
+			systemManager->getMaterial("GameOver")->getComponent("LevelStart")->addData(false);
+			sf::Sound * sound = new sf::Sound;
+			sound->setBuffer(*systemManager->getComponent("SoundGameOver")->getDataSoundBuffer().at(0));
+			sound->play();
+			assetManager->add(sound);
+		}
 	}
 	
 	return "constant";

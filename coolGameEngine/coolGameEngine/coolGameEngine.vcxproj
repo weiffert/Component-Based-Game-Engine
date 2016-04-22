@@ -166,6 +166,7 @@
     <Text Include="file.txt" />
     <Text Include="game.txt" />
     <Text Include="log.txt" />
+    <Text Include="propertyBeenMoved.txt" />
     <Text Include="propertyBonusCityIncrement.txt" />
     <Text Include="propertyBonusCityThreshold.txt" />
     <Text Include="propertyCircleShape.txt" />
@@ -189,6 +190,7 @@
     <Text Include="propertyFireRateIncrement.txt" />
     <Text Include="propertyIsSmart.txt" />
     <Text Include="propertyLevelFinished.txt" />
+    <Text Include="propertyLevelStart.txt" />
     <Text Include="propertyLife.txt" />
     <Text Include="propertyMissilesHeld.txt" />
     <Text Include="propertyMove.txt" />
