@@ -51,11 +51,11 @@ StateLevel::~StateLevel()
 //Takes in the total time elapsed and the window.
 std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 {
-	MissileLauncher missileLauncher;
+	MissileLauncher missileLauncher(systemManager, assetManager);
 	MissileLauncherAi missileLauncherAi(assetManager, systemManager);
 	ScoreKeeper  scoreKeeper;
 	Crosshairs crosshairs; 
-	MissileChecker missileChecker;
+	MissileChecker missileChecker(systemManager, assetManager);
 	LevelChange levelChange;
 	Plane planeController(systemManager, assetManager);
 
@@ -112,7 +112,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				}
 				decrement--;
 			}
-			if (found)
+			if (found && systemManager->getMaterial("Base1")->getComponent("Life")->getDataBool().at(0)) //Make sure the missile launcher is alive also
 			{
 				//Play fired sound.
 				if (missile->hasComponent("SoundSwoopUp"))
@@ -155,7 +155,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				}
 				decrement--;
 			}
-			if (found)
+			if (found && systemManager->getMaterial("Base2")->getComponent("Life")->getDataBool().at(0))
 			{
 				//Play fired sound.
 				if (missile->hasComponent("SoundSwoopUp"))
@@ -198,7 +198,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 				}
 				decrement--;
 			}
-			if (found)
+			if (found && systemManager->getMaterial("Base3")->getComponent("Life")->getDataBool().at(0))
 			{
 				//Play fired sound.
 				if (missile->hasComponent("SoundSwoopUp"))
@@ -293,7 +293,7 @@ std::string StateLevel::update(double totalTime, sf::RenderWindow* window)
 
 	missileChecker.control(window, systemManager);
 	planeController.update(window); //Planes should be self-reliant 
-	missileLauncher.update(systemManager, window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
+	missileLauncher.update(window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 	missileLauncherAi.update(window, launcherAi);
 	crosshairs.control(window, systemManager);
 	std::string stateChange = levelChange.control(systemManager, assetManager, window);

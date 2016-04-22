@@ -67,6 +67,7 @@ void Plane::update(sf::RenderWindow *window)
 
 	do
 	{
+		collision = false;
 		if (planeNumber == 1)
 		{
 			currentPlane = systemManager->getMaterial("Plane1");
@@ -100,7 +101,7 @@ void Plane::update(sf::RenderWindow *window)
 					}
 				}
 			}
-			if (collision || currentPlane->getComponent("Explode")->getDataBool().at(0))
+			if ((collision || currentPlane->getComponent("Explode")->getDataBool().at(0)) && currentPlane->getComponent("Life")->getDataBool().at(0)) //Makes sure its doing more than once
 			{
 				currentPlane->getComponent("Life")->deleteData();
 				currentPlane->getComponent("Life")->addData(false);
@@ -117,6 +118,13 @@ void Plane::update(sf::RenderWindow *window)
 				sf::CircleShape *c = currentPlane->getComponent("CircleShape")->getDataCircleShape().at(0);
 				c->setPosition(currentPlane->getComponent("CurrentPosition")->getDataDouble().at(0), currentPlane->getComponent("CurrentPosition")->getDataDouble().at(1));
 
+				//Make explosion sound (from a missile)
+				sf::Sound * sound = new sf::Sound;
+				sound->setBuffer(*currentPlane->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0));
+				assetManager->add(sound);
+				sound->play();
+
+			
 				//Covered in MissileExploder.
 				//scoreKeeper.increaseScore(50, systemManager->getMaterial("Player"));
 

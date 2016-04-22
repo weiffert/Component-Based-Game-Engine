@@ -459,6 +459,12 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 							missiles.at(i)->getComponent("Explode")->deleteData();
 							missiles.at(i)->getComponent("Explode")->addData(true);
 
+							//Explosion sound
+							sf::Sound * sound = new sf::Sound;
+							sound->setBuffer(*missiles.at(i)->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0));
+							assetManager->add(sound);
+							sound->play();
+
 							sf::CircleShape *c = missiles.at(i)->getComponent("CircleShape")->getDataCircleShape().at(0);
 							c->setPosition(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1));
 							MissileExploder exploder;

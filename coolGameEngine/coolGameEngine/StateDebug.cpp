@@ -1580,7 +1580,7 @@ std::string StateDebug::update(double totalTime, sf::RenderWindow *window)
 		//return 'f';
 	
 	
-	missileLauncher.update(systemManager, window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
+	missileLauncher.update( window, systemManager->getMaterial("Base1"), systemManager->getMaterial("Base2"), systemManager->getMaterial("Base3"));
 	missileLauncherAi.update(window, systemManager->getMaterial("MissileLuancherAi"));
 	return "constant";
 }

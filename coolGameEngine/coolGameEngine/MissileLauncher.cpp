@@ -18,6 +18,13 @@ MissileLauncher::MissileLauncher()
 }
 
 
+MissileLauncher::MissileLauncher( SystemManager * s, AssetManager * a)
+{
+	systemManager = s;
+	assetManager = a;
+}
+
+
 MissileLauncher::~MissileLauncher()
 {
 }
@@ -163,7 +170,7 @@ int MissileLauncher::getTotalMissiles()
 }
 
 
-void MissileLauncher::update(SystemManager *systemManager, sf::RenderWindow *window, Entity *Base1, Entity *Base2, Entity *Base3)
+void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Base2, Entity *Base3)
 {
 	double slope;
 	double temp1, temp2;
@@ -264,6 +271,12 @@ void MissileLauncher::update(SystemManager *systemManager, sf::RenderWindow *win
 							missiles.at(i)->getComponent("Move")->addData(false);
 							missiles.at(i)->getComponent("Explode")->deleteData();
 							missiles.at(i)->getComponent("Explode")->addData(true);
+
+							//Explosion sound
+							sf::Sound * sound = new sf::Sound;
+							sound->setBuffer(*missiles.at(i)->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0));
+							assetManager->add(sound);
+							sound->play();
 
 							sf::CircleShape *c = missiles.at(i)->getComponent("CircleShape")->getDataCircleShape().at(0);
 							c->setPosition(missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0), missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1));

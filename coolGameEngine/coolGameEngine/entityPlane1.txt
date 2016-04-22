@@ -16,3 +16,4 @@ Explode false ;
 ExplosionPhase 0 ;
 ExplosionRadius 0 ;
 ShotDown false ;
+SoundMissileExplosion ;
