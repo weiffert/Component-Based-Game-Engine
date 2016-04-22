@@ -87,54 +87,14 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 	{
 		if (!currentMissile->getComponent("Draw")->getDataBool().at(0) && !currentMissile->getComponent("Fired")->getDataBool().at(0))
 		{
-			//Makes sure it wasn't split or shot from a plane
-			if (currentMissile->getComponent("SplitFired")->getDataBool().at(0) == false)
-			{
-				if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0) == 0)
-				{
-					currentMissile->getComponent("IsSmart")->deleteData();
-					currentMissile->getComponent("IsSmart")->addData(true);
+			sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
+			sf::RectangleShape *r = currentMissile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
+			sf::Color *c = currentMissile->getComponent("ColorEnemy")->getDataColor().at(0);
+			r->setFillColor(*c);
+			r->setOutlineColor(*c);
 
-					sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
-					sf::Texture *t = new sf::Texture;
-					if (!t->loadFromFile("smartBomb.png"))
-						std::cout << "Failed to load smartBomb.png" << std::endl;
-					s->setTexture(*t, true);
-
-					s->setOrigin(s->getLocalBounds().width / 2, s->getLocalBounds().height / 2);
-
-					assetManager->add(t);
-
-					currentMissile->getComponent("DrawRectangleShape")->deleteData();
-					currentMissile->getComponent("DrawRectangleShape")->addData(false);
-					currentMissile->getComponent("Split")->deleteData();
-					currentMissile->getComponent("Split")->addData(true);
-					currentMissile->getComponent("SplitFired")->deleteData();
-					currentMissile->getComponent("SplitFired")->addData(true);
-				}
-				else
-				{
-					sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
-					sf::RectangleShape *r = currentMissile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
-					sf::Color *c = currentMissile->getComponent("ColorEnemy")->getDataColor().at(0);
-					r->setFillColor(*c);
-					r->setOutlineColor(*c);
-
-					s->setColor(*c);
-					s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
-				}
-			}
-			else
-			{
-				sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
-				sf::RectangleShape *r = currentMissile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
-				sf::Color *c = currentMissile->getComponent("ColorEnemy")->getDataColor().at(0);
-				r->setFillColor(*c);
-				r->setOutlineColor(*c);
-
-				s->setColor(*c);
-				s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
-			}
+			s->setColor(*c);
+			s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
 		}
 	}
 
@@ -350,6 +310,33 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 	{
 		currentMissile->getComponent("Fired")->deleteData();
 		currentMissile->getComponent("Fired")->addData(true);
+	}
+
+	//Makes sure it wasn't split or shot from a plane
+	if (currentMissile->getComponent("SplitFired")->getDataBool().at(0) == false)
+	{
+		if (rand() % 2 /*systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0)*/ == 0)
+		{
+			currentMissile->getComponent("IsSmart")->deleteData();
+			currentMissile->getComponent("IsSmart")->addData(true);
+
+			sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
+			sf::Texture *t = new sf::Texture;
+			if (!t->loadFromFile("smartBomb.png"))
+				std::cout << "Failed to load smartBomb.png" << std::endl;
+			s->setTexture(*t, true);
+
+			s->setOrigin(s->getLocalBounds().width / 2, s->getLocalBounds().height / 2);
+
+			assetManager->add(t);
+
+			currentMissile->getComponent("DrawRectangleShape")->deleteData();
+			currentMissile->getComponent("DrawRectangleShape")->addData(false);
+			currentMissile->getComponent("Split")->deleteData();
+			currentMissile->getComponent("Split")->addData(true);
+			currentMissile->getComponent("SplitFired")->deleteData();
+			currentMissile->getComponent("SplitFired")->addData(true);
+		}
 	}
 
 	//Decrease missiles left
