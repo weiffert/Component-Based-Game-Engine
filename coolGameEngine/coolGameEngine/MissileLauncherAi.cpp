@@ -93,7 +93,9 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 			r->setFillColor(*c);
 			r->setOutlineColor(*c);
 
-			s->setColor(*c);
+			currentMissile->getComponent("DrawSprite")->deleteData();
+			currentMissile->getComponent("DrawSprite")->addData(false);
+			
 			s->setOrigin(s->getLocalBounds().width, s->getLocalBounds().height);
 		}
 	}
@@ -296,7 +298,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 
 	double theta = atan((currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1) - currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(1)) / (currentMissile->getComponent("ExplodingPosition")->getDataDouble().at(0) - currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0)));
 
-	if (theta > 0/*sqrt(pow(expX - curX - velX, 2) + pow(curY - expY - velY, 2)) > sqrt(pow(expX - curX + velX, 2) + pow(curY - expY + velY, 2))*/)
+	if (theta > 0)
 	{
 		double temp = currentMissile->getComponent("Velocity")->getDataDouble().at(0);
 		temp *= -1;
@@ -315,7 +317,7 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 	//Makes sure it wasn't split or shot from a plane
 	if (currentMissile->getComponent("SplitFired")->getDataBool().at(0) == false)
 	{
-		if (rand() % 2 /*systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0)*/ == 0)
+		if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0) == 0)
 		{
 			currentMissile->getComponent("IsSmart")->deleteData();
 			currentMissile->getComponent("IsSmart")->addData(true);

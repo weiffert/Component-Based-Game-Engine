@@ -271,7 +271,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 						missile->getComponent("Velocity")->addData(1);
 
 						sf::RectangleShape *r = missile->getComponent("RectangleShape")->getDataRectangleShape().at(0);
-						r->setSize(sf::Vector2f(0, 2));
+						r->setSize(sf::Vector2f(1, 2));
 					}
 				}
 
