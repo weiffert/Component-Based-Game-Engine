@@ -69,6 +69,15 @@ std::string StateStatic::update(double totalTime, sf::RenderWindow *window)
 		text->setPosition(0, 50);
 		
 		t->addData(text);
+ 
+		//Play sound
+		sf::Sound * sound = new sf::Sound;
+		sf::SoundBuffer buffer = *systemManager->getComponent("SoundGameOver")->getDataSoundBuffer().at(0);
+		sound->setBuffer(buffer);
+		sound->play();
+		assetManager->add(sound);
+		assetManager->add(&buffer);
+		
 	}
 	
 	return "constant";

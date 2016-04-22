@@ -34,13 +34,13 @@ void MissileExploder::control(SystemManager *systemManager, sf::RenderWindow * w
 			missile->getComponent("ExplosionPhase")->deleteData();
 			missile->getComponent("ExplosionPhase")->addData(1);
 
-			//Play explosion sound.
-			if (missile->hasComponent("SoundMissileExplosion"))
-			{
-				sf::Sound s;
-				s.setBuffer(*(missile->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0)));
-				s.play();
-			}
+			//Play explosion sound. This has been moved to outside of missile exploder
+			//if (missile->hasComponent("SoundMissileExplosion"))
+			//{
+			//	sf::Sound s;
+			//	s.setBuffer(*(missile->getComponent("SoundMissileExplosion")->getDataSoundBuffer().at(0)));
+			//	s.play();
+			//}
 
 			//Points handling.
 			if (missile->hasComponent("ShotDown"))

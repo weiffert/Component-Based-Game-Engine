@@ -64,7 +64,8 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 				int liveMissiles = 0;
 				for (int i = 0; i < 3; i++)
 				{
-					liveMissiles += base[i]->getComponent("CurrentMissileCount")->getDataInt().at(0);
+					if (base[i]->getComponent("Life")->getDataBool().at(0))
+						liveMissiles += base[i]->getComponent("CurrentMissileCount")->getDataInt().at(0);
 				}
 
 				//Add points.
@@ -75,9 +76,10 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					score.increaseScore(player->getComponent("PointsPerLiveCity")->getDataInt().at(0), player);
 				}
 
+				
 				for (int i = 0; i < liveMissiles; i++)
 				{
-					score.increaseScore(player->getComponent("PointsPerUnusedMissile")->getDataInt().at(0), player);
+						score.increaseScore(player->getComponent("PointsPerUnusedMissile")->getDataInt().at(0), player);
 				}
 
 				//Award bonus city.
@@ -109,15 +111,6 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					}
 				}
 
-				life = false;
-				//Determine if the game is done.
-				for (int i = 0; i < 6; i++)
-				{
-					if (city[i]->getComponent("Life")->getDataBool().at(0) == true)
-					{
-						life = true;
-					}
-				}
 				if (!life)
 				{
 					return "GameOver";
@@ -126,6 +119,8 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 				//Reset values and increment proper values.
 				systemManager->getMaterial("Player")->getComponent("LevelFinished")->deleteData();
 				systemManager->getMaterial("Player")->getComponent("LevelFinished")->addData(false);
+				systemManager->getMaterial("Player")->getComponent("LevelStart")->deleteData();
+				systemManager->getMaterial("Player")->getComponent("LevelStart")->addData(true);
 
 
 				//Reset MissileLauncherAi
@@ -296,7 +291,7 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 				//Clear assetManager sounds
 				assetManager->clearSounds();
 
-				systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString("Press any key to continue");
+				systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString(std::to_string(liveCities) + " cities remained worth \n100 points each...\nPress any key to continue...");
 				return "Welcome1";
 			}
 		}

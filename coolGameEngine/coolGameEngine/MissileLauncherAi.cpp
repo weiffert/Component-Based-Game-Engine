@@ -305,25 +305,28 @@ int MissileLauncherAi::launchMissiles(Entity *currentMissile, sf::RenderWindow *
 		currentMissile->getComponent("Fired")->deleteData();
 		currentMissile->getComponent("Fired")->addData(true);
 	}
-	
-	if (rand() % /*systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0)*/2 == 0)
+	//Makes sure it wasn't split or shot from a plane
+	if (currentMissile->getComponent("SplitFired")->getDataBool().at(0) == false)
 	{
-		currentMissile->getComponent("IsSmart")->deleteData();
-		currentMissile->getComponent("IsSmart")->addData(true);
+		if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SmartBombChance")->getDataInt().at(0) == 0)
+		{
+			currentMissile->getComponent("IsSmart")->deleteData();
+			currentMissile->getComponent("IsSmart")->addData(true);
 
-		sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
-		sf::Texture *t = new sf::Texture;
-		if (!t->loadFromFile("smartBomb.png"))
-			std::cout << "Failed to load smartBomb.png" << std::endl;
-		s->setTexture(*t, true);
-		assetManager->add(t);
+			sf::Sprite *s = currentMissile->getComponent("Sprite")->getDataSprite().at(0);
+			sf::Texture *t = new sf::Texture;
+			if (!t->loadFromFile("smartBomb.png"))
+				std::cout << "Failed to load smartBomb.png" << std::endl;
+			s->setTexture(*t, true);
+			assetManager->add(t);
 
-		currentMissile->getComponent("DrawRectangleShape")->deleteData();
-		currentMissile->getComponent("DrawRectangleShape")->addData(false);
-		currentMissile->getComponent("Split")->deleteData();
-		currentMissile->getComponent("Split")->addData(true);
-		currentMissile->getComponent("SplitFired")->deleteData();
-		currentMissile->getComponent("SplitFired")->addData(true);
+			currentMissile->getComponent("DrawRectangleShape")->deleteData();
+			currentMissile->getComponent("DrawRectangleShape")->addData(false);
+			currentMissile->getComponent("Split")->deleteData();
+			currentMissile->getComponent("Split")->addData(true);
+			currentMissile->getComponent("SplitFired")->deleteData();
+			currentMissile->getComponent("SplitFired")->addData(true);
+		}
 	}
 
 	//Decrease missiles left
@@ -357,7 +360,7 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 
 	std::vector<Entity*> missiles = launcherAi->getComponent("MissilesHeld")->getDataEntity();
 	//Goes through all the missiles
-	for (int i = 0; i < 30; i++)
+	for (int i = launcherAi->getComponent("TotalMissileCount")->getDataInt().at(0) - 1; i > -1; i--)
 	{
 		if (missiles.at(i)->hasComponent("Fired"))
 		{
