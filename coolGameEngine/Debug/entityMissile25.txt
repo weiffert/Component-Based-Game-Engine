@@ -1,0 +1,27 @@
+Missile25 ;
+StateId Level1 ;
+StateNumber 2 ;
+Sprite setTexture missile.png setPosition 448 444 ;
+SpriteStartPosition 448 444 ;
+Life true ;
+Velocity 10 1 1 ;
+StartingPosition 450 432 ;
+ExplodingPosition 0 0 ;
+CurrentPosition 450 432 ;
+ExplosionPhase 0 ;
+ExplosionRadius 0 ;
+Slope 0 ;
+Fired false ;
+Draw true ;
+DrawSprite true ;
+DrawCircleShape false ;
+DrawRectangleShape false ;
+Move false ;
+Explode false ;
+CircleShape setRadius 0 setFillColor 255 160 122 setPosition 0 0 ;
+RectangleShape setSize 0 2 ;
+ColorFriend ; 
+
+SoundSwoopUp ;
+SoundMissileExplosion ;
+SoundMissileFireFail ;

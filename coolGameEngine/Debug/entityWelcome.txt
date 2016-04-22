@@ -1,0 +1,5 @@
+Welcome ;
+StateId Welcome1 ;
+StateNumber 1 ;
+Draw true ;
+Text setString "Missile Command Two Credits Press Any Key to Start" setFont Square.ttf setCharacterSize 18 setColor 255 255 255 ;

@@ -1,0 +1,7 @@
+Ground ;
+StateId Level1 ;
+StateNumber 2 ;
+Sprite setTexture ground.png setPosition 0 431 ;
+Draw true ;
+Move false ;
+DrawSprite true ;

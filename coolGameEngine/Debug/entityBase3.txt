@@ -1,0 +1,13 @@
+Base3 ;
+StateId Level1 ;
+StateNumber 2 ;
+Life true ;
+CurrentMissileCount 10 ;
+TotalMissileCount 10 ;
+MissilesHeld Missile21 Missile22 Missile23 Missile24 Missile25 Missile26 Missile27 Missile28 Missile29 Missile30 ;
+CurrentPosition 450 432 ;
+Draw true ;
+DrawSprite false ;
+Move false ;
+Text setFont Square.ttf setCharacterSize 18 setColor 255 0 0 setPosition 437 460 ;
+SoundAlert ;

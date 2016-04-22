@@ -1,0 +1,18 @@
+MissileLauncherAi ;
+StateId Level1 ;
+StateNumber 2 ;
+CurrentMissileCount 10 ;
+TotalMissileCount 10 ;
+MissilesHeld EnemyMissile1 EnemyMissile2 EnemyMissile3 EnemyMissile4 EnemyMissile5 EnemyMissile6 EnemyMissile7 EnemyMissile8 EnemyMissile9 EnemyMissile10 EnemyMissile11 EnemyMissile12 EnemyMissile13 EnemyMissile14 EnemyMissile15 EnemyMissile16 EnemyMissile17 EnemyMissile18 EnemyMissile19 EnemyMissile20 EnemyMissile21 EnemyMissile22 EnemyMissile23 EnemyMissile24 EnemyMissile25 EnemyMissile26 EnemyMissile27 EnemyMissile28 EnemyMissile29 EnemyMissile30 ;
+Draw false ;
+Move false ;
+FireRate 50 ;
+SplitChance 100 ;
+SmartBombChance 5000 ;
+FireRateIncrement 2 ;
+SplitChanceIncrement 2 ;
+SmartBombChanceIncrement 2 ;
+SetTargets false ;
+TargetOne 0 ;
+TargetTwo 0 ;
+TargetThree 0 ;

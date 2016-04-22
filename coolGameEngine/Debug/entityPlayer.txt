@@ -1,0 +1,14 @@
+Player ;
+StateId Level1 ;
+StateNumber 2 ;
+Points 0 ;
+PointsPerLiveCity 100 ;
+PointsPerUnusedMissile 5 ;
+ScoreMultiplyer 1 ;
+BonusCityThreshold 10000 ;
+BonusCityIncrement 10000 ;
+Draw true ;
+LevelFinished false ;
+Text setString 0 setFont Square.ttf setCharacterSize 18 setColor 255 255 255 setPosition 0 0 ;
+SoundAlert ;
+LevelStart true ;

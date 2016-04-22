@@ -1,0 +1,3 @@
+DodgeCircle ;
+CircleShape ;
+setRadius 20 setOrigin 20 20 ;

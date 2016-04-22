@@ -1,0 +1,6 @@
+GameOver ;
+StateId GameOver ;
+StateNumber 3 ;
+LevelStart true ;
+Draw true ;
+Text setString "Game Over" setFont Square.ttf setCharacterSize 18 setColor 255 255 255 ;

@@ -1,0 +1,9 @@
+City2 ;
+StateId Level1 ;
+StateNumber 2 ;
+Sprite setTexture city.png setPosition 120 446 ;
+CurrentPosition 133 446 ;
+Life true ;
+Draw true ;
+DrawSprite true ;
+Move false ;
