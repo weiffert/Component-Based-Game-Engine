@@ -10,3 +10,4 @@ Draw true ;
 DrawSprite false ;
 Move false ;
 Text setFont Square.ttf setCharacterSize 18 setColor 255 0 0 setPosition 24 460 ;
+SoundAlert ;
