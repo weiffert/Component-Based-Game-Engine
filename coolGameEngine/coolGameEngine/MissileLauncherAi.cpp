@@ -374,8 +374,7 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 					{
 						if (!missiles.at(i)->getComponent("BeenMoved")->getDataBool().at(0))
 						{
-							double theta = atan((missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)) / (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)));
-							theta *= -1;
+							double theta = atan((missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) - missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1)) / (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)));
 							double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);
 							double lengthX = velocity * cos(theta);
 							double lengthY = velocity * sin(theta);
@@ -507,9 +506,9 @@ void MissileLauncherAi::update(sf::RenderWindow *window, Entity *launcherAi)
 					if (missiles.at(i)->getComponent("Split")->getDataBool().at(0) == false && missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) < 340)
 					{
 						//random chance to not split
-						if (rand() % systemManager->getMaterial("MissileLauncherAi")->getComponent("SplitChance")->getDataInt().at(0) == 0)
+						if (rand() % launcherAi->getComponent("SplitChance")->getDataInt().at(0) == 0)
 						{
-							int decrement = 29;
+							int decrement = launcherAi->getComponent("CurrentMissileCount")->getDataInt().at(0) - 1;
 							bool found = false;
 							Entity *missile = nullptr;
 							while (!found && decrement >= 0)

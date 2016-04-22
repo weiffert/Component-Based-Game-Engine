@@ -76,10 +76,10 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					score.increaseScore(player->getComponent("PointsPerLiveCity")->getDataInt().at(0), player);
 				}
 
-				
+
 				for (int i = 0; i < liveMissiles; i++)
 				{
-						score.increaseScore(player->getComponent("PointsPerUnusedMissile")->getDataInt().at(0), player);
+					score.increaseScore(player->getComponent("PointsPerUnusedMissile")->getDataInt().at(0), player);
 				}
 
 				//Award bonus city.
@@ -91,12 +91,20 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					{
 						bool set = false;
 						int place;
+
+						//Play bonus city sound.
+						sf::Sound * sound = new sf::Sound;
+						sound->setBuffer(*systemManager->getComponent("SoundFreeCity")->getDataSoundBuffer().at(0));
+						sound->play();
+						assetManager->add(sound);
+
 						while (!set)
 						{
 							place = rand() % 6 + 1;
 
 							if (city[place]->getComponent("Life")->getDataBool().at(0) == false)
 							{
+								liveCities++;
 								set = true;
 								city[place]->getComponent("Life")->deleteData();
 								city[place]->getComponent("Life")->addData(true);
@@ -213,10 +221,6 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 					for (int j = 0; j < base[i]->getComponent("TotalMissileCount")->getDataInt().at(0); j++)
 					{
 						Entity *missile = base[i]->getComponent("MissilesHeld")->getDataEntity().at(j);
-						if (missile->getComponent("Sprite")->getDataSprite().size() > 1)
-						{
-							missile->getComponent("Sprite")->deleteDataPosition(1);
-						}
 						missile->getComponent("Life")->deleteData();
 						missile->getComponent("Life")->addData(true);
 						missile->getComponent("ExplosionPhase")->deleteData();
@@ -244,17 +248,21 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 						missile->getComponent("CurrentPosition")->addData(missile->getComponent("StartingPosition")->getDataDouble().at(0));
 						missile->getComponent("CurrentPosition")->addData(missile->getComponent("StartingPosition")->getDataDouble().at(1));
 
-						sf::Sprite *s = missile->getComponent("Sprite")->getDataSprite().at(0);
+						missile->getComponent("Sprite")->deleteData();
+						sf::Sprite *s = new sf::Sprite;
 						s->setPosition(missile->getComponent("SpriteStartPosition")->getDataDouble().at(0), missile->getComponent("SpriteStartPosition")->getDataDouble().at(1));
 
 						sf::Texture *texture = new sf::Texture;
 						if (!texture->loadFromFile("missile.png"))
 							std::cout << "Failed to load missile.png" << std::endl;
 						s->setTexture(*texture);
+
+						missile->getComponent("Sprite")->addData(s);
 						assetManager->add(texture);
 
 						int oldVelocity = missile->getComponent("Velocity")->getDataDouble().at(0);
-						missile->getComponent("Velocity")->addData(abs(oldVelocity));
+						oldVelocity = abs(oldVelocity);
+						missile->getComponent("Velocity")->addData(oldVelocity);
 						missile->getComponent("Velocity")->addData(0);
 						missile->getComponent("Velocity")->addData(0);
 
@@ -290,10 +298,13 @@ std::string LevelChange::control(SystemManager * systemManager, AssetManager *as
 				//Clear assetManager sounds
 				assetManager->clearSounds();
 
-				systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString(std::to_string(liveCities) + " cities remained worth \n100 points each...\nPress any key to continue...");
+				if (liveCities > 1)
+					systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString(std::to_string(liveCities) + " cities remained worth \n100 points each...\nPress any key to continue...");
+				else
+					systemManager->getMaterial("Welcome")->getComponent("Text")->getDataText().at(0)->setString(std::to_string(liveCities) + " city remains worth \n100 points...\nPress any key to continue...");
 				return "Welcome1";
 			}
 		}
 	}
-	return "GameOver";
+	return "constant";
 }

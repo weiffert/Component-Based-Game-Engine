@@ -46,40 +46,43 @@ void MissileChecker::control(sf::RenderWindow * window, SystemManager * systemMa
 	bool collision = false;
 
 	Entity *launcherAi = systemManager->getMaterial("MissileLauncherAi");
-	for (int i = launcherAi->getComponent("CurrentMissileCount")->getDataInt().at(0); i < launcherAi->getComponent("TotalMissileCount")->getDataInt().at(0); i++)
+	for (int i = launcherAi->getComponent("CurrentMissileCount")->getDataInt().at(0) - 1; i < launcherAi->getComponent("TotalMissileCount")->getDataInt().at(0); i++)
 	{
-		currentMissile = launcherAi->getComponent("MissilesHeld")->getDataEntity().at(i);
-		position.x = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0);
-		position.y = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1);
-		collision = false;
-		
-		//Go through each active missile and see if it is colliding with a circle shape from any missile explosion
-		if (currentMissile->getComponent("Fired")->getDataBool().at(0) && currentMissile->getComponent("Life")->getDataBool().at(0))
+		if (i >= 0)
 		{
-			//Check to see if it is colliding with a user fired missile explosion
-			std::vector<Entity *> missiles = systemManager->getComponent("ExplodingMissiles")->getDataEntity();
-			for (int u = 0; u < missiles.size(); u++)
+			currentMissile = launcherAi->getComponent("MissilesHeld")->getDataEntity().at(i);
+			position.x = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(0);
+			position.y = currentMissile->getComponent("CurrentPosition")->getDataDouble().at(1);
+			collision = false;
+
+			//Go through each active missile and see if it is colliding with a circle shape from any missile explosion
+			if (currentMissile->getComponent("Fired")->getDataBool().at(0) && currentMissile->getComponent("Life")->getDataBool().at(0))
 			{
-				temp = missiles.at(u);
-				//Makes sure that explosion is not done and has not started
-				if (temp->getComponent("Explode")->getDataBool().at(0))
+				//Check to see if it is colliding with a user fired missile explosion
+				std::vector<Entity *> missiles = systemManager->getComponent("ExplodingMissiles")->getDataEntity();
+				for (int u = 0; u < missiles.size(); u++)
 				{
-					if (temp->hasComponent("CircleShape"))
+					temp = missiles.at(u);
+					//Makes sure that explosion is not done and has not started
+					if (temp->getComponent("Explode")->getDataBool().at(0))
 					{
-						if (intersection(temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
+						if (temp->hasComponent("CircleShape"))
 						{
-							collision = true;
-						}
-						if (currentMissile->hasComponent("IsSmart"))
-						{
-							if (currentMissile->getComponent("IsSmart")->getDataBool().at(0))
+							if (intersection(temp->getComponent("CircleShape")->getDataCircleShape().at(0), position))
 							{
-								if (currentMissile->hasComponent("DodgeCircle"))
+								collision = true;
+							}
+							if (currentMissile->hasComponent("IsSmart"))
+							{
+								if (currentMissile->getComponent("IsSmart")->getDataBool().at(0))
 								{
-									if (intersection(currentMissile, temp->getComponent("CircleShape")->getDataCircleShape().at(0), currentMissile->getComponent("DodgeCircle")->getDataCircleShape().at(0)))
+									if (currentMissile->hasComponent("DodgeCircle"))
 									{
-										SmartBombControl smartBombControl(systemManager);
-										smartBombControl.control(currentMissile, temp);
+										if (intersection(currentMissile, temp->getComponent("CircleShape")->getDataCircleShape().at(0), currentMissile->getComponent("DodgeCircle")->getDataCircleShape().at(0)))
+										{
+											SmartBombControl smartBombControl(systemManager);
+											smartBombControl.control(currentMissile, temp);
+										}
 									}
 								}
 							}

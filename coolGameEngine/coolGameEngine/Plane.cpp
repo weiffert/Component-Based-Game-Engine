@@ -203,7 +203,7 @@ int Plane::launchMissiles(sf::RenderWindow *window)
 			if (rand() % launcherAi->getComponent("FireRate")->getDataInt().at(0) == 0)
 			{
 				//Checks if there are missiles left to fire
-				int decrement = 29;
+				int decrement = launcherAi->getComponent("CurrentMissileCount")->getDataInt().at(0) - 1;
 				bool found = false;
 
 				while (!found && decrement >= 0)

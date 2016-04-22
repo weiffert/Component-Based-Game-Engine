@@ -200,8 +200,7 @@ void MissileLauncher::update(sf::RenderWindow *window, Entity *Base1, Entity *Ba
 						slope = missiles.at(i)->getComponent("Slope")->getDataDouble().at(0);
 					if (missiles.at(i)->hasComponent("CurrentPosition") && missiles.at(i)->hasComponent("StartingPosition") && missiles.at(i)->hasComponent("Velocity"))
 					{
-						double theta = atan((missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1)) / (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)));
-						theta *= -1;
+						double theta = atan((missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(1) - missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(1)) / (missiles.at(i)->getComponent("ExplodingPosition")->getDataDouble().at(0) - missiles.at(i)->getComponent("CurrentPosition")->getDataDouble().at(0)));
 						double velocity = missiles.at(i)->getComponent("Velocity")->getDataDouble().at(0);
 						double lengthX = velocity * cos(theta);
 						double lengthY = velocity * sin(theta);
