@@ -39,7 +39,8 @@ Game::Game(int width, int height, std::string name)
 
 Game::~Game()
 {
-
+	delete systemManager;
+	delete assetManager;
 }
 
 
