@@ -1,3 +1,0 @@
-SoundFreeCity ;
-SoundBuffer ;
-loadFromFile FreeCity.wav ;

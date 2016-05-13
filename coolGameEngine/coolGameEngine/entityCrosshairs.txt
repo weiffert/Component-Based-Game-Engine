@@ -1,8 +1,0 @@
-Crosshairs ;
-StateId Level1 ;
-StateNumber 2 ;
-Sprite setTexture Crosshairs-small.png ;
-CurrentPosition 100 100 ;
-Draw true ;
-DrawSprite true ;
-Move false ;

@@ -1,3 +1,0 @@
-SetTargets ;
-bool ;
-false ;

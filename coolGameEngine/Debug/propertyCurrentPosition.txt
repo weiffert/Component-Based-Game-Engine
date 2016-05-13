@@ -1,3 +1,0 @@
-CurrentPosition ;
-double ;
-0.0 0.0 ;

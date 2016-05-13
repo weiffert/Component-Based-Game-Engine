@@ -1,3 +1,0 @@
-TargetThree ;
-int ;
-0 ;

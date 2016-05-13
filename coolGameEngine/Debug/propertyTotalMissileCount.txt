@@ -1,3 +1,0 @@
-TotalMissileCount ;
-int ;
-10 ;

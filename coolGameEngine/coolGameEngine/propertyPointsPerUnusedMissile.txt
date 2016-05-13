@@ -1,3 +1,0 @@
-PointsPerUnusedMissile ;
-int ;
-5 ;

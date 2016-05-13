@@ -1,3 +1,0 @@
-DrawRectangleShape ;
-bool ;
-false ;

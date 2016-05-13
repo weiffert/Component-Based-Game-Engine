@@ -1,3 +1,0 @@
-StateNumber ;
-int ;
-1 ;

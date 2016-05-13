@@ -1,3 +1,0 @@
-Level1 ;
-Level ;
-2 ;

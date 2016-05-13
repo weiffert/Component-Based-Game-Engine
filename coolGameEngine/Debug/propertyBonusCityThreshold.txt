@@ -1,3 +1,0 @@
-BonusCityThreshold ;
-int ;
-10000 ;

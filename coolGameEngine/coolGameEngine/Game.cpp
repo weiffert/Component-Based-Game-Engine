@@ -99,6 +99,7 @@ int Game::gameLoop()
 			totalTime += frameRate;
 			lag -= frameRate;
 		//}
+
 		//render with parameters.
 		state->render(lag/frameRate, &gameWindow);
 

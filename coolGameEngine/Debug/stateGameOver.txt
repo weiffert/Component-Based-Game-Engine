@@ -1,3 +1,0 @@
-GameOver ;
-Static ;
-3 ;

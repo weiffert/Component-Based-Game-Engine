@@ -6,7 +6,6 @@
 
 #include "Entity.h"
 #include "Property.h"
-#include "BaseController.h"
 
 
 Entity::Entity()

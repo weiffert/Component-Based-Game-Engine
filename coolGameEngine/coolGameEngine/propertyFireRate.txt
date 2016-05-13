@@ -1,3 +1,0 @@
-FireRate ;
-int ;
-10 ;

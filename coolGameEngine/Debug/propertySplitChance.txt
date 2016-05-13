@@ -1,3 +1,0 @@
-SplitChance ;
-int ;
-30 ;

@@ -1,3 +1,0 @@
-SmartBombChanceIncrement ;
-int ;
-0 ;

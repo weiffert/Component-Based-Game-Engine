@@ -39,51 +39,23 @@ StateStatic::~StateStatic()
 }
 
 
-//Runs until a certain amount of time has elapsed.
-//Takes in a double which contains the amount of time elapsed. Takes in the window for consistency.
-std::string StateStatic::update(double totalTime, sf::RenderWindow *window)
+//Polls for events and calls the required controllers accordingly.
+//Takes in the total time elapsed and the window.
+std::string StateStatic::update(double totalTime, sf::RenderWindow* window)
 {
+	//Initialize controllers.
+
+
 	sf::Event event;
 	while (window->pollEvent(event))
 	{
-		if (event.type == sf::Event::Closed)
-			window->close();
-		if (event.type == sf::Event::KeyReleased)
-		{
-			if (event.key.code == sf::Keyboard::Escape)
-				window->close();
-			else
-			{
-				if (id.find("GameOver") == std::string::npos)
-					return "next";
-				else
-					window->close();
-			}
-		}
+		//Event handling.
 	}
-	if (id.find("GameOver") != std::string::npos)
-	{
-		if (systemManager->getMaterial("GameOver")->getComponent("LevelStart")->getDataBool().at(0))
-		{
-			Property *t = systemManager->getMaterial("GameOver")->getComponent("Text");
-			sf::Text *text = new sf::Text;
-			text->setString(std::to_string(systemManager->getMaterial("Player")->getComponent("Points")->getDataInt().at(0)) + " Points");
-			text->setPosition(0, 50);
-			text->setCharacterSize(30);
-			sf::Color c(255, 255, 255);
-			text->setColor(c);
-			text->setFont(*t->getDataText().at(0)->getFont());
-			t->addData(text);
 
-			//Play sound
-			systemManager->getMaterial("GameOver")->getComponent("LevelStart")->deleteData();
-			systemManager->getMaterial("GameOver")->getComponent("LevelStart")->addData(false);
-			sf::Sound * sound = new sf::Sound;
-			sound->setBuffer(*systemManager->getComponent("SoundGameOver")->getDataSoundBuffer().at(0));
-			sound->play();
-			assetManager->add(sound);
-		}
-	}
-	
-	return "constant";
+	//Perform state updates.
+
+
+	//Return a string for determining which state to remain in.
+	return "string";
 }
+

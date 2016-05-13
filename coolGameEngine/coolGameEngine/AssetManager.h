@@ -47,6 +47,7 @@ private:
 	std::vector<sf::SoundBuffer*> soundBuffer;
 	std::vector<sf::Texture*> texture;
 	std::vector<sf::Font*> font;
+
 	//Holds strings in the same position as the data.
 	std::vector<std::string> imageNames;
 	std::vector<std::string> soundNames;

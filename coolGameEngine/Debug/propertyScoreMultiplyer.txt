@@ -1,3 +1,0 @@
-ScoreMultiplyer ;
-int ;
-1 ;

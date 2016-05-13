@@ -1,3 +1,0 @@
-LevelStart ;
-bool ;
-false ;

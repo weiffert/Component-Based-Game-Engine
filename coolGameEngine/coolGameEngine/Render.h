@@ -6,13 +6,11 @@
 #include "SFML\Audio.hpp"
 #include "SFML\Graphics.hpp"
 
-#include "BaseController.h"
 #include "AssetManager.h"
 #include "Entity.h"
 #include "Property.h"
 
-class Render :
-	public BaseController
+class Render
 {
 public:
 	Render();

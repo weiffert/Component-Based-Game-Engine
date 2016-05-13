@@ -1,3 +1,0 @@
-SpriteStartPosition ;
-double ;
-0 0 ;

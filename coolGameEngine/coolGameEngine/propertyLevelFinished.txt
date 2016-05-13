@@ -1,3 +1,0 @@
-LevelFinished ;
-bool ;
-false ;

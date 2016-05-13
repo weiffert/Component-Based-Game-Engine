@@ -7,7 +7,6 @@
 #include "SystemManager.h"
 #include "Entity.h"
 #include "BaseState.h"
-#include "BaseController.h"
 #include "Property.h"
 
 
@@ -39,13 +38,6 @@ SystemManager::~SystemManager()
   	delete component.at(i);
   	component.at(i) = nullptr;
   }
-  
-  //Delete Controllers
-  for(int i = 0; i < controller.size(); i++)
-  {
-  	delete controller.at(i);
-  	controller.at(i) = nullptr;
-  }
 }
 
 
@@ -62,14 +54,6 @@ void SystemManager::add(Entity* a)
 void SystemManager::add(Property* a)
 {
 	component.push_back(a);
-}
-
-
-//Add to the vector of BaseControllers.
-//Takes in a BaseController pointer (a controller).
-void SystemManager::add(BaseController* a)
-{
-	controller.push_back(a);
 }
 
 
@@ -110,23 +94,6 @@ void SystemManager::remove(Property* a)
 			delete component.at(search);
 			//Erase the pointer in the vector.
 			component.erase(component.begin() + search);
-		}
-	}
-}
-
-
-//Deletes a BaseController.
-//Takes in a BaseController pointer (a controller).
-void SystemManager::remove(BaseController* a)
-{
-	for (int search = 0; search < controller.size(); search++)
-	{
-		if (controller.at(search)->getId() == a->getId())
-		{
-			//Remove the data.
-			delete controller.at(search);
-			//Erase the pointer in the vector.
-			controller.erase(controller.begin() + search);
 		}
 	}
 }
@@ -178,23 +145,6 @@ void SystemManager::deleteComponent(std::string a)
 			delete component.at(search);
 			//Erase the pointer in the vector.
 			component.erase(component.begin() + search);
-		}
-	}
-}
-
-
-//Delete a BaseController.
-//Takes in the id.
-void SystemManager::deleteController(std::string a)
-{
-	for (int search = 0; search < controller.size(); search++)
-	{
-		if (controller.at(search)->getId() == a)
-		{
-			//Remove the data.
-			delete controller.at(search);
-			//Erase the pointer in the vector.
-			controller.erase(controller.begin() + search);
 		}
 	}
 }
@@ -283,21 +233,6 @@ Property* SystemManager::getComponent(std::string a)
 	{
 		if (component.at(i)->getId() == a)
 			return component.at(i);
-	}
-
-	return nullptr;
-}
-
-
-//Returns the first BaseController pointer with a matching id.
-//Takes in an id string.
-BaseController* SystemManager::getController(std::string a)
-{
-	//Loops through all controllers.
-	for (int i = 0; i < controller.size(); i++)
-	{
-		if (controller.at(i)->getId() == a)
-			return controller.at(i);
 	}
 
 	return nullptr;

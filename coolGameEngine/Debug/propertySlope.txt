@@ -1,3 +1,0 @@
-Slope ;
-double ;
-0 ;

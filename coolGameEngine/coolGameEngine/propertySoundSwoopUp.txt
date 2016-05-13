@@ -1,3 +1,0 @@
-SoundSwoopUp ;
-SoundBuffer ;
-loadFromFile SwoopUp.wav ;

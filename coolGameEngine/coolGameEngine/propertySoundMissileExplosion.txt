@@ -1,3 +1,0 @@
-SoundMissileExplosion ;
-SoundBuffer ;
-loadFromFile MissileExplosion.wav ;

@@ -1,3 +1,0 @@
-DrawSprite ;
-bool ;
-false ;

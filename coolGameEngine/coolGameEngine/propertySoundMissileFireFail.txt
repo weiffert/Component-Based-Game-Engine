@@ -1,3 +1,0 @@
-SoundMissileFireFail ;
-SoundBuffer ;
-loadFromFile missileFireFail.wav ;

@@ -16,155 +16,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-    <Text Include="propertyVelocity.txt" />
-    <Text Include="propertyTotalMissileCount.txt" />
-    <Text Include="propertyTexture.txt" />
-    <Text Include="propertyText.txt" />
-    <Text Include="propertyStateNumber.txt" />
-    <Text Include="propertyStateId.txt" />
-    <Text Include="propertyStartingPosition.txt" />
-    <Text Include="propertySprite.txt" />
-    <Text Include="propertySlope.txt" />
-    <Text Include="propertySelect.txt" />
-    <Text Include="propertyPoints.txt" />
-    <Text Include="propertyMissilesHeld.txt" />
-    <Text Include="propertyLife.txt" />
-    <Text Include="propertyFired.txt" />
-    <Text Include="propertyExplosionRadius.txt" />
-    <Text Include="propertyExplosionPhase.txt" />
-    <Text Include="propertyExplodingPosition.txt" />
-    <Text Include="propertyCurrentPosition.txt" />
-    <Text Include="propertyCurrentMissileCount.txt" />
-    <Text Include="propertyCircleShape.txt" />
     <Text Include="game.txt" />
     <Text Include="log.txt" />
     <Text Include="file.txt" />
-    <Text Include="entitySelect.txt" />
-    <Text Include="propertyDraw.txt" />
-    <Text Include="propertyDrawCircleShape.txt" />
-    <Text Include="propertyDrawSprite.txt" />
-    <Text Include="propertyExplode.txt" />
-    <Text Include="propertyMove.txt" />
-    <Text Include="entityPlayer.txt" />
-    <Text Include="entityMissileLauncherAi.txt" />
-    <Text Include="entityMissile30.txt" />
-    <Text Include="entityMissile29.txt" />
-    <Text Include="entityMissile28.txt" />
-    <Text Include="entityMissile27.txt" />
-    <Text Include="entityMissile26.txt" />
-    <Text Include="entityMissile25.txt" />
-    <Text Include="entityMissile24.txt" />
-    <Text Include="entityMissile22.txt" />
-    <Text Include="entityMissile23.txt" />
-    <Text Include="entityMissile21.txt" />
-    <Text Include="entityMissile20.txt" />
-    <Text Include="entityMissile19.txt" />
-    <Text Include="entityMissile18.txt" />
-    <Text Include="entityMissile17.txt" />
-    <Text Include="entityMissile16.txt" />
-    <Text Include="entityMissile15.txt" />
-    <Text Include="entityMissile14.txt" />
-    <Text Include="entityMissile13.txt" />
-    <Text Include="entityMissile12.txt" />
-    <Text Include="entityMissile11.txt" />
-    <Text Include="entityMissile10.txt" />
-    <Text Include="entityMissile9.txt" />
-    <Text Include="entityMissile8.txt" />
-    <Text Include="entityMissile7.txt" />
-    <Text Include="entityMissile6.txt" />
-    <Text Include="entityMissile5.txt" />
-    <Text Include="entityMissile4.txt" />
-    <Text Include="entityMissile3.txt" />
-    <Text Include="entityMissile2.txt" />
-    <Text Include="entityMissile1.txt" />
-    <Text Include="entityGround.txt" />
-    <Text Include="entityEnemyMissile30.txt" />
-    <Text Include="entityEnemyMissile29.txt" />
-    <Text Include="entityEnemyMissile28.txt" />
-    <Text Include="entityEnemyMissile27.txt" />
-    <Text Include="entityEnemyMissile25.txt" />
-    <Text Include="entityEnemyMissile26.txt" />
-    <Text Include="entityEnemyMissile24.txt" />
-    <Text Include="entityEnemyMissile23.txt" />
-    <Text Include="entityEnemyMissile22.txt" />
-    <Text Include="entityEnemyMissile21.txt" />
-    <Text Include="entityEnemyMissile20.txt" />
-    <Text Include="entityEnemyMissile19.txt" />
-    <Text Include="entityEnemyMissile18.txt" />
-    <Text Include="entityEnemyMissile17.txt" />
-    <Text Include="entityEnemyMissile16.txt" />
-    <Text Include="entityEnemyMissile15.txt" />
-    <Text Include="entityEnemyMissile14.txt" />
-    <Text Include="entityEnemyMissile13.txt" />
-    <Text Include="entityEnemyMissile12.txt" />
-    <Text Include="entityEnemyMissile11.txt" />
-    <Text Include="entityEnemyMissile10.txt" />
-    <Text Include="entityEnemyMissile9.txt" />
-    <Text Include="entityEnemyMissile8.txt" />
-    <Text Include="entityEnemyMissile7.txt" />
-    <Text Include="entityEnemyMissile6.txt" />
-    <Text Include="entityEnemyMissile5.txt" />
-    <Text Include="entityEnemyMissile4.txt" />
-    <Text Include="entityEnemyMissile3.txt" />
-    <Text Include="entityEnemyMissile2.txt" />
-    <Text Include="entityEnemyMissile1.txt" />
-    <Text Include="entityCrosshairs.txt" />
-    <Text Include="entityCity6.txt" />
-    <Text Include="entityCity5.txt" />
-    <Text Include="entityCity4.txt" />
-    <Text Include="entityCity3.txt" />
-    <Text Include="entityCity2.txt" />
-    <Text Include="entityCity1.txt" />
-    <Text Include="entityBase3.txt" />
-    <Text Include="entityBase2.txt" />
-    <Text Include="entityBase1.txt" />
     <Text Include="debug.txt" />
-    <Text Include="propertyColorFriend.txt" />
-    <Text Include="propertyDrawRectangleShape.txt" />
-    <Text Include="propertyRectangleShape.txt" />
-    <Text Include="propertySoundAlert.txt" />
-    <Text Include="propertySoundFreeCity.txt" />
-    <Text Include="propertySoundGameOver.txt" />
-    <Text Include="propertySoundMissileExplosion.txt" />
-    <Text Include="propertySoundMissileFireFail.txt" />
-    <Text Include="propertySoundSwoopUp.txt" />
-    <Text Include="stateLevel.txt" />
-    <Text Include="stateWelcome.txt" />
-    <Text Include="propertySplit.txt" />
-    <Text Include="propertyColorEnemy.txt" />
-    <Text Include="entityWelcome.txt" />
-    <Text Include="propertyPointsPerLiveCity.txt" />
-    <Text Include="propertyPointsPerUnusedMissile.txt" />
-    <Text Include="propertyLevelFinished.txt" />
-    <Text Include="propertyFireRateIncrement.txt" />
-    <Text Include="propertyFireRate.txt" />
-    <Text Include="propertyScoreMultiplyer.txt" />
-    <Text Include="propertySetTargets.txt" />
-    <Text Include="propertySplitChance.txt" />
-    <Text Include="propertySplitChanceIncrement.txt" />
-    <Text Include="propertySplitFired.txt" />
-    <Text Include="propertySpriteStartPosition.txt" />
-    <Text Include="propertyTarget.txt" />
-    <Text Include="propertyTargetOne.txt" />
-    <Text Include="propertyTargetThree.txt" />
-    <Text Include="propertyTargetTwo.txt" />
-    <Text Include="propertyBonusCityIncrement.txt" />
-    <Text Include="propertyBonusCityThreshold.txt" />
-    <Text Include="entityGameOver.txt" />
-    <Text Include="stateGameOver.txt" />
-    <Text Include="propertyIsSmart.txt" />
-    <Text Include="propertyExplodingMissiles.txt" />
-    <Text Include="propertyDirection.txt" />
-    <Text Include="propertyDodgeCircle.txt" />
-    <Text Include="entityPlane1.txt" />
-    <Text Include="entityPlane2.txt" />
-    <Text Include="entityPlane3.txt" />
-    <Text Include="entitySmartBomb.txt" />
-    <Text Include="propertySmartBombChance.txt" />
-    <Text Include="propertySmartBombChanceIncrement.txt" />
-    <Text Include="propertyShotDown.txt" />
-    <Text Include="propertyLevelStart.txt" />
-    <Text Include="propertyBeenMoved.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -174,9 +29,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
@@ -218,42 +70,12 @@
     <ClInclude Include="StateDebug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MissileChecker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MissileExploder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MissileLauncher.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MissileLauncherAi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SmartBombControl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Plane.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Crosshairs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelChange.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ScoreKeeper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="coolGameEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
@@ -298,33 +120,6 @@
     <ClCompile Include="StateDebug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MissileChecker.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MissileExploder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MissileLauncher.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MissileLauncherAi.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SmartBombControl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Plane.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CrossHairs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelChange.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ScoreKeeper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="coolGameEngine.rc">
@@ -333,83 +128,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="coolGameEngine.aps" />
-    <None Include="sfml-audio-2.dll" />
-    <None Include="sfml-audio-d-2.dll" />
-    <None Include="sfml-graphics-2.dll" />
-    <None Include="sfml-graphics-d-2.dll" />
-    <None Include="sfml-network-2.dll" />
-    <None Include="sfml-network-d-2.dll" />
-    <None Include="sfml-system-2.dll" />
-    <None Include="sfml-system-d-2.dll" />
-    <None Include="sfml-window-2.dll" />
-    <None Include="sfml-window-d-2.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="ground.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="missile.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="plane.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="city.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="location.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="missile-transit-clear.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="missile-transit-enemy.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Crosshairs.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="satellite.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="smartBomb.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="plane-other-direction.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="FreeCity.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="DifferentExplosion.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="GameOver.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="MissileExplosion.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="RollUp1.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="RollUp2.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="SwoopUp.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="Alert.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="MissileFireFail.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
   </ItemGroup>
   <ItemGroup>
     <Font Include="SquaresBold.otf" />
-    <Font Include="Square.ttf" />
   </ItemGroup>
 </Project>

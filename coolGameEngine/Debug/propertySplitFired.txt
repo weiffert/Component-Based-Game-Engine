@@ -1,3 +1,0 @@
-SplitFired ;
-bool ;
-false ;

@@ -5,13 +5,11 @@
 /*
 #include "Entity.h"
 #include "BaseState.h"
-#include "BaseController.h"
 #include "Property.h"
 */
 
 class BaseState;
 class Entity;
-class BaseController;
 class Property;
 
 class SystemManager
@@ -23,26 +21,22 @@ public:
 	//Adds to the proper vector
 	void add(Entity*);
 	void add(Property *);
-	void add(BaseController *);
 	void add(BaseState*);
 
 	//Removes from the proper vector. It is erased permanently.
 	void remove(Entity*);
 	void remove(Property*);
-	void remove(BaseController*);
 	void remove(BaseState*);
 
 	//Removes from the proper vector using the id. It is erased permanently.
 	void deleteMaterial(std::string);
 	void deleteComponent(std::string);
-	void deleteController(std::string);
 	void deleteState(std::string);
 	void deleteState(int);
 
 	//Returns the proper class based off of the id.
 	Entity* getMaterial(std::string);
 	Property* getComponent(std::string);
-	BaseController* getController(std::string);
 	BaseState* getState(std::string);
 	BaseState* getState(int);
 
@@ -53,6 +47,5 @@ private:
 	//Stores the system's stuff.
 	std::vector<Entity*> material;
 	std::vector<Property*> component;
-	std::vector<BaseController*> controller;
 	std::vector<BaseState*> state;
 };

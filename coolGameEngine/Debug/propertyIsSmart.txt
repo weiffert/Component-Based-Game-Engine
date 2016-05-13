@@ -1,3 +1,0 @@
-IsSmart ;
-bool ;
-false ;

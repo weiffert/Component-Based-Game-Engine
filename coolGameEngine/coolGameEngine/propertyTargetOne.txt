@@ -1,3 +1,0 @@
-TargetOne ;
-int ;
-0 ;

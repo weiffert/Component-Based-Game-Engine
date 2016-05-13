@@ -1,3 +1,0 @@
-ExplodingPosition ;
-double ;
-0.0 0.0 ;

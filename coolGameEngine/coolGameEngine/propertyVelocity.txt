@@ -1,3 +1,0 @@
-Velocity ;
-double ;
-0.0 ;

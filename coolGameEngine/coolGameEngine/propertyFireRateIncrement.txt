@@ -1,3 +1,0 @@
-FireRateIncrement ;
-int ;
-2 ;
