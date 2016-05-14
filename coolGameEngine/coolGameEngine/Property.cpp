@@ -132,7 +132,14 @@ void Property::setType(std::string a)
 	typeId = a;
 }
 
-
+//This format is only recommended for primatives and not classes.
+/*
+std::vector<type> Property::getDataType()
+{
+	if(typeId == "type")
+		return dataType;
+}
+*/
 std::vector<int> Property::getDataInt()
 {
 	if (typeId == "int")
@@ -174,55 +181,13 @@ std::vector<std::string> Property::getDataString()
 		return dataString;
 }
 
-
-std::vector<sf::Image *> Property::getDataImage()
+/*
+std::vector<type *> Property::getDataType()
 {
-	if (typeId == "Image")
-		return dataImage;
+	if(typeId == "type")
+		return dataType;
 }
-
-
-std::vector<sf::Texture *> Property::getDataTexture()
-{
-	if (typeId == "Texture")
-		return dataTexture;
-}
-
-
-std::vector<sf::Sprite *> Property::getDataSprite()
-{
-	if (typeId == "Sprite")
-		return dataSprite;
-}
-
-
-std::vector<sf::CircleShape *> Property::getDataCircleShape()
-{
-	if (typeId == "CircleShape")
-		return dataCircleShape;
-}
-
-
-std::vector<sf::ConvexShape *> Property::getDataConvexShape()
-{
-	if (typeId == "ConvexShape")
-		return dataConvexShape;
-}
-
-
-std::vector<sf::RectangleShape *> Property::getDataRectangleShape()
-{
-	if (typeId == "RectangleShape")
-		return dataRectangleShape;
-}
-
-
-std::vector<sf::Text *> Property::getDataText()
-{
-	if (typeId == "Text")
-		return dataText;
-}
-
+*/
 
 std::vector<Entity *> Property::getDataEntity()
 {
@@ -231,32 +196,14 @@ std::vector<Entity *> Property::getDataEntity()
 }
 
 
-std::vector<sf::Sound *> Property::getDataSound()
+/*
+template <>
+void Property::addData<type>(type *value)
 {
-	if (typeId == "Sound")
-		return dataSound;
+	if(typeId == type)
+		dataType.push_back(*value);
 }
-
-
-std::vector<sf::SoundBuffer *> Property::getDataSoundBuffer()
-{
-	if (typeId == "SoundBuffer")
-		return dataSoundBuffer;
-}
-
-
-std::vector<sf::Color *> Property::getDataColor()
-{
-	if (typeId == "Color")
-		return dataColor;
-}
-
-
-std::vector<sf::Vertex *> Property::getDataLine()
-{
-	if (typeId == "Line")
-		return dataLine;
-}
+*/
 
 
 template <>
@@ -313,89 +260,22 @@ void Property::addData<std::string>(std::string *value)
 
 
 template <>
-void Property::addData<sf::Image>(sf::Image *value)
-{
-	dataImage.push_back(value);
-}
-
-
-template <>
-void Property::addData<sf::Texture>(sf::Texture *value)
-{
-	dataTexture.push_back(value);
-}
-
-
-template <>
-void Property::addData<sf::Sound>(sf::Sound *value)
-{
-	dataSound.push_back(value);
-}
-
-
-template <>
-void Property::addData<sf::SoundBuffer>(sf::SoundBuffer *value)
-{
-	dataSoundBuffer.push_back(value);
-}
-
-
-template <>
-void Property::addData<sf::Sprite>(sf::Sprite *value)
-{
-	dataSprite.push_back(value);
-}
-
-
-template <>
-void Property::addData<sf::CircleShape>(sf::CircleShape *value)
-{
-	dataCircleShape.push_back(value);
-}
-
-
-template <>
-void Property::addData<sf::ConvexShape>(sf::ConvexShape *value)
-{
-	dataConvexShape.push_back(value);
-}
-
-
-template <>
-void Property::addData<sf::RectangleShape>(sf::RectangleShape *value)
-{
-	dataRectangleShape.push_back(value);
-}
-
-
-template <>
-void Property::addData<sf::Text>(sf::Text *value)
-{
-	dataText.push_back(value);
-}
-
-
-template <>
 void Property::addData<Entity>(Entity *value)
 {
 	dataEntity.push_back(value);
 }
 
 
-template <>
-void Property::addData<sf::Color>(sf::Color *value)
-{
-	dataColor.push_back(value);
-}
-
-
+//Recommended to use only with primatives.
 /*
-template<>
-void Property::addData<sf::Vertex[]>(sf::Vertex *value[])
+template <>
+void Property::addData<type>(type value)
 {
-	dataLine.push_back(value);
+if(typeId == type)
+dataType.push_back(*value);
 }
 */
+
 
 template <>
 void Property::addData<int>(int value)
@@ -449,19 +329,28 @@ void Property::addData<std::string>(std::string value)
 	dataString.push_back(value);
 }
 
-/*
-template <>
-void property::addData<sf::Vertex[]>(sf::Vertex value[])
-{
-	dataLine.push_back(value);
-}
-*/
-
 
 //Subtracts value from existing data.
 //Takes in the data to be deleted.
 void Property::deleteData()
 {
+	//Use only with vectors that are not pointer based.
+	/*
+	while(!dataType.empty())
+	{
+		dataType.pop_back();
+	}
+	*/
+
+	//For pointer based vectors, use the following.
+	/*
+	while(!dataType.empty())
+	{
+		delete dataType.at(dataType.size() - 1);
+		dataType.pop_back();
+	}
+	*/
+
 	while (!dataInt.empty())
 	{
 		dataInt.pop_back();
@@ -486,70 +375,12 @@ void Property::deleteData()
 	{
 		dataString.pop_back();
 	}
-	while (!dataSprite.empty())
-	{
-		delete dataSprite.at(dataSprite.size() - 1);
-		dataSprite.pop_back();
-	}
-	while (!dataImage.empty())
-	{
-		dataImage.pop_back();
-	}
-	while (!dataTexture.empty())
-	{
-		delete dataTexture.at(dataTexture.size() - 1);
-		dataTexture.pop_back();
-	}
-	while (!dataSound.empty())
-	{
-		dataSound.pop_back();
-	}
-	while (!dataSoundBuffer.empty())
-	{
-		dataSoundBuffer.pop_back();
-	}
-	while (!dataText.empty())
-	{
-		delete dataText.at(dataText.size() - 1);
-		dataText.pop_back();
-	}
-	while (!dataCircleShape.empty())
-	{
-		delete dataCircleShape.at(dataCircleShape.size() - 1);
-		dataCircleShape.pop_back();
-	}
-	while (!dataConvexShape.empty())
-	{
-		delete dataConvexShape.at(dataConvexShape.size() - 1);
-		dataConvexShape.pop_back();
-	}
-	while (!dataRectangleShape.empty())
-	{
-		delete dataRectangleShape.at(dataRectangleShape.size() - 1);
-		dataRectangleShape.pop_back();
-	}
+	//There is no delete here because it is stored in the SystemManager and will be deleted there.
 	while (!dataEntity.empty())
 	{
 		dataEntity.pop_back();
 	}
-	while (!dataLine.empty())
-	{
-		delete dataLine.at(dataLine.size() - 1);
-		dataLine.pop_back();
-	}
-	while (!dataColor.empty())
-	{
-		delete dataColor.at(dataColor.size() - 1);
-		dataColor.pop_back();
-	}
 }
-
-
-//Subtracts value from existing data.
-//Takes in the data to be deleted.
-//template <typename T>
-//void Property::deleteData(T value)
-//{
 
 
 template <>
