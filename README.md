@@ -6,4 +6,5 @@ An implementation project will be missile command.
 Please refer to our [wiki pages](https://github.com/weiffert/Component-Based-Game-Engine/wiki).
 
 Languages: C++
+
 Libraries: SFML
